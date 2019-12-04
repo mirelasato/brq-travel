@@ -1,0 +1,28 @@
+span {
+    color: #fff;
+    text-align: center;
+}
+
+.row {
+    background: #0275d8;
+    padding: 10px;
+    
+}
+.primeiro{
+ background: #FF7400;
+ color: inherit;
+ padding: 80px;
+
+}
+.img-fluid{
+    position: absolute;
+    top: 20px ;
+    left: 10%;
+    right: 4em;
+    
+}
+#p{
+    color: #fff;
+    box-sizing: border-box;
+}
+
