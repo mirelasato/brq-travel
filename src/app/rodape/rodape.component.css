@@ -24,5 +24,25 @@ span {
 #p{
     color: #fff;
     box-sizing: border-box;
+    text-align: justify;
+    
 }
+.face, .insta, .tt{
+    width: 25px;
+    height: 50px;
+    margin-right: 5px;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+    
+}
+.email{
+    color:#fff;
+}
+
+
+
+
+
 
