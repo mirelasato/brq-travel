@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
 import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
+import { RodapeComponent } from './rodape/rodape.component';
+
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.comp
     TopoComponent,
     UserSignInComponent,
     UserSignUpComponent,
+    RodapeComponent,
   ],
   imports: [
     BrowserModule,
