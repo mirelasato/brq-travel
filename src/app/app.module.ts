@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
-import { FormComponent } from './form/form.component';
+import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
+import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormComponent } from './form/form.component';
     AppComponent,
     HomeComponent,
     TopoComponent,
-    FormComponent,
+    UserSignInComponent,
+    UserSignUpComponent,
   ],
   imports: [
     BrowserModule,
