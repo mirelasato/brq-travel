@@ -8,8 +8,10 @@ import { TopoComponent } from './topo/topo.component';
 import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 import { RodapeComponent } from './rodape/rodape.component';
-
-
+import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import {ROUTES} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,16 @@ import { RodapeComponent } from './rodape/rodape.component';
     UserSignInComponent,
     UserSignUpComponent,
     RodapeComponent,
+    RodapeComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    RouterModule.forRoot(ROUTES),
   ],
   providers: [],
   bootstrap: [AppComponent]
