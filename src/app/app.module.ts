@@ -9,7 +9,8 @@ import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.comp
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
-
+import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { RodapeComponent } from './rodape/rodape.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
