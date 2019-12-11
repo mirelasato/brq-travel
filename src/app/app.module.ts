@@ -11,6 +11,9 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselComponent } from './home/carousel/carousel.component';
+
 
 
 @NgModule({
@@ -22,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserSignUpComponent,
     RodapeComponent,
     RodapeComponent,
+    CarouselComponent,
 
   ],
   imports: [
@@ -30,6 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
+    CarouselModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
