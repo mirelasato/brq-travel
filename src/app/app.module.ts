@@ -10,8 +10,8 @@ import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.comp
 import { RodapeComponent } from './rodape/rodape.component';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import {ROUTES} from './app.routes';
+import { ReactiveFormsModule } from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {ROUTES} from './app.routes';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
