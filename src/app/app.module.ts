@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselComponent } from './home/carousel/carousel.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms'
     HomeComponent,
     TopoComponent,
     RodapeComponent,
-    FormComponent,
 
   ],
   imports: [
