@@ -5,37 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
-<<<<<<< Updated upstream
 import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselComponent } from './home/carousel/carousel.component';
-
-
-=======
-import { RodapeComponent } from './rodape/rodape.component';
-import { FormComponent } from './form/form.component';
->>>>>>> Stashed changes
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TopoComponent,
-<<<<<<< Updated upstream
-    UserSignInComponent,
-    UserSignUpComponent,
-    RodapeComponent,
-    RodapeComponent,
-    CarouselComponent,
-=======
     RodapeComponent,
     FormComponent,
->>>>>>> Stashed changes
 
   ],
   imports: [
@@ -44,7 +31,7 @@ import { FormComponent } from './form/form.component';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    CarouselModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

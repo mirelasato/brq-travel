@@ -1,35 +1,72 @@
-<section class="container">
-    <form>
-      <!-- Cadastro -->
-        <div class="form-group">
-          <label for="">Nome Completo</label>
-          <input type="text" class="form-control col-lg-6 col-sm-4" placeholder="Nome Completo">
+<div style="margin-left: 35px;">
+  <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+    <div>
+      <label for="nome">Nome Completo: </label>
+        <input type="text" formControlName="nome" class="form-control col-lg-6 col-sm-4" placeholder="Nome Completo">
+        <div *ngIf="!nome.pristine && nome.errors">
+        <p *ngIf="nome.errors.required">Nome é obrigatório.</p>
+        <p *ngIf="nome.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
+        <p *ngIf="nome.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+    </div>
+  </div>
+    <div>
+      <label for="cpf">CPF</label>
+      <input type="text" formControlName="cpf" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: 000.000.000-00">
+      <div *ngIf="!cpf.pristine && cpf.errors">
+          <p *ngIf="cpf.errors.required">
+            CPF é obrigatório.
+          </p>
+          <p *ngIf="cpf.errors.cpfInvalido">
+            Digite um CPF válido
+          </p>
         </div>
-        <div class="form-group">
-          <label for="">CPF</label>
-          <input type="number" class="form-control col-lg-6 col-sm-4" placeholder="CPF">
+    </div>
+    <div>
+      <label for="rg">RG</label>
+      <input type="text" formControlName="rg" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: 00.000.000-0">
+    </div>
+    <div>
+      <label for="telefone">Telefone</label>
+      <input type="phone" formControlName="telefone" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: (00) 0000-0000">
+    </div>
+    <div>
+      <label for="email">E-mail</label>
+      <input type="email" formControlName="email" class="form-control col-lg-6 col-sm-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail de login">
+      <div *ngIf="!email.pristine && email.errors">
+          <p *ngIf="email.errors.email">
+            Digite um e-mail válido.
+          </p>
         </div>
-        <div class="form-group">
-          <label for="">RG</label>
-          <input type="number" class="form-control col-lg-6 col-sm-4" placeholder="RG">
+    </div>
+    <div>
+      <label for="senha">Senha</label>
+      <input type="password" formControlName="senha" class="form-control col-lg-6 col-sm-4" id="" placeholder="Senha">
+      <div *ngIf="!senha.pristine && senha.errors">
+          <p *ngIf="senha.errors.required">
+            Senha é obrigatória.
+          </p>
+          <p *ngIf="senha.errors.minlength">
+            Senha deve ter no mínimo 6 caracters.
+          </p>
+          <p *ngIf="senha.errors.maxlength">
+            Senha deve ter no máximo 12 caracters.
+          </p>
         </div>
-        <div class="form-group">
-          <label for="">Telefone</label>
-          <input type="phone" class="form-control col-lg-6 col-sm-4" placeholder="(XX) - XXXXX-XXXX">
+    </div>  
+    <div>  
+      <label for="confirmarSenha">Repita a Senha</label>
+      <input type="password" formControlName="confirmarSenha" class="form-control col-lg-6 col-sm-4" id="" placeholder="Repita a senha">
+      <div *ngIf="!confirmarSenha.pristine && confirmarSenha.errors">
+          <p *ngIf="confirmarSenha.errors.required">
+            Confirme sua senha.
+          </p>
+          <p *ngIf="confirmarSenha.errors.senhasNaoCoincidem">
+            As senhas não coincidem.
+          </p>
         </div>
-        <div class="form-group">
-          <label for="">E-mail</label>
-          <input type="email" class="form-control col-lg-6 col-sm-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail de login">
-        </div>
-        <div class="form-group">
-          <label for="">Senha</label>
-          <input type="password" class="form-control col-lg-6 col-sm-4" id="" placeholder="Senha">
-        </div>  
-        <div class="form-group">  
-          <label for="">Repita a Senha</label>
-          <input type="password" class="form-control col-lg-6 col-sm-4" id="" placeholder="Repita a senha">
-        </div>
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
-    </form>
-  </section> 
-  
+    </div><br>
+    <div>
+        <button class="btn btn-primary" [disabled]="!formularioDeUsuario.valid">Enviar dados</button>
+      </div>
+  </form>
+</div>
