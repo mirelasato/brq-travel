@@ -32,7 +32,6 @@ export class UserSignUpComponent implements OnInit {
     alert(`O usuário ${usuario.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(usuario)}`);
 
     this.formularioDeUsuario.reset();
-  
   }
 
   criarFormularioDeUsuario() {
