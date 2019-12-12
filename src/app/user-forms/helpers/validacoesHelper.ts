@@ -10,7 +10,7 @@ export class Validacoes {
 
     const regex = new RegExp('[0-9]{11}');
 
-    if (
+    if ((
       cpf == '00000000000' ||
       cpf == '11111111111' ||
       cpf == '22222222222' ||
@@ -21,7 +21,7 @@ export class Validacoes {
       cpf == '77777777777' ||
       cpf == '88888888888' ||
       cpf == '99999999999' ||
-      !regex.test(cpf)
+      !regex.test(cpf)) && cpf.length > 0
     )
       valido = false;
     else {

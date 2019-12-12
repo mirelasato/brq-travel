@@ -47,17 +47,31 @@ export class UserSignUpComponent implements OnInit {
       ],
       email: [
         '',
-        Validators.compose([Validators.email])
+        Validators.compose([
+          Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"),
+          Validators.required
+        ])
       ],
       cpf: [
         '',
-        Validators.compose([Validators.required, Validacoes.ValidaCpf])
+        Validators.compose([
+          Validators.required,
+          Validacoes.ValidaCpf,
+          Validators.maxLength(11)])
       ],
       rg:[
         '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("[0-9]{9}")
+        ])
       ],
       telefone:[
         '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern("[0-9]{5,11}")
+        ])
       ],
       senha: [
         '',
