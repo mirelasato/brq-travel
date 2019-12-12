@@ -10,7 +10,8 @@ import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.comp
 import { RodapeComponent } from './rodape/rodape.component';
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { CardTravelComponent } from './card-travel/card-travel.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     UserSignUpComponent,
     RodapeComponent,
     RodapeComponent,
+    CardTravelComponent,
 
   ],
   imports: [
