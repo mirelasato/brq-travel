@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'home',  component: HomeComponent},
   { path: 'entrar', component: UserSignInComponent},
   { path: 'cadastrar', component: UserSignUpComponent},
+  { path: 'visualizacao', component: HomeComponent },
 
 
 ];
