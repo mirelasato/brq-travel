@@ -14,7 +14,6 @@
 #myFooter .row {
     margin-bottom: 60px;
 }
-<<<<<<< Updated upstream
 
 #myFooter .navbar-brand {
     margin-top: 45px;
@@ -24,19 +23,6 @@
 #myFooter .footer-copyright p {
     margin: 10px;
     color: #fff;
-=======
-.primeiro{
- background: #FF7400;
- color: inherit;
- padding: 30px;
-}
-.img-fluid{
-    position: relative;
-    top: 15x ;
-    left: 10%;
-    right: 4em;
-    
->>>>>>> Stashed changes
 }
 
 #myFooter ul {

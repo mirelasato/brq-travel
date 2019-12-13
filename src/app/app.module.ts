@@ -12,8 +12,7 @@ import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { CarouselComponent } from './home/carousel/carousel.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -22,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     TopoComponent,
     RodapeComponent,
+    UserSignInComponent,
+    UserSignUpComponent,
 
   ],
   imports: [
@@ -30,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
