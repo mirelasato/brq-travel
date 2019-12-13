@@ -11,7 +11,12 @@ const routes: Routes = [
   { path: 'home',  component: HomeComponent},
   { path: 'entrar', component: UserSignInComponent},
   { path: 'cadastrar', component: UserSignUpComponent},
+<<<<<<< HEAD
   { path: 'pacotes', component: CardTravelComponent},
+=======
+  { path: 'visualizacao', component: HomeComponent },
+
+>>>>>>> 082af4bacec9f3a4bfca2001cfcb925c89416870
 
 ];
 

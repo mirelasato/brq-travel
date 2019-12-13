@@ -23,6 +23,7 @@
     "jquery": "^3.4.1",
     "material-design-icons": "^3.0.1",
     "ngx-bootstrap": "^5.2.0",
+    "ngx-mask": "^8.1.6",
     "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

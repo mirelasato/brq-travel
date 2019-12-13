@@ -7,5 +7,7 @@ a:hover {
     text-decoration: underline;
     color: #0069D9;
 }
-
+.TxtError{
+    color: red;
+}
     

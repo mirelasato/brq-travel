@@ -1,72 +1,74 @@
+<<<<<<< HEAD
 <div class="container">
+=======
+<div class="container col-lg-5 col-md-8 col-sm-12">
+  
+>>>>>>> 082af4bacec9f3a4bfca2001cfcb925c89416870
   <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
-    <div>
-      <label for="nome">Nome Completo: </label>
-        <input type="text" formControlName="nome" class="form-control col-lg-6 col-sm-4" placeholder="Nome Completo">
+      <h2>Novo na BRQ Travel?</h2>
+      <h5>Cadastre-se!</h5>
+      <br>
+      <label for="nome">Nome Completo:</label>
+        <input type="text" formControlName="nome" class="{{!nome.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Nome Completo">
         <div *ngIf="!nome.pristine && nome.errors">
-        <p *ngIf="nome.errors.required">Nome é obrigatório.</p>
-        <p *ngIf="nome.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
-        <p *ngIf="nome.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+          <p class= "TxtError" *ngIf="nome.errors.required">Nome é obrigatório</p>
+          <p class= "TxtError" *ngIf="nome.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
+          <p class= "TxtError" *ngIf="nome.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+        </div>
+    <div class="form-row">
+    <div class="col-lg-6">
+      <label for="cpf">CPF:</label>
+      <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}"  placeholder="Ex.: 000.000.000-00">
+      <div *ngIf="!cpf.pristine && cpf.errors">
+          <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
+          <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+      <label for="rg">RG:</label>
+      <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Ex.: 00.000.000-0">
+      <div *ngIf="!rg.pristine && rg.errors">
+        <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
+        <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
+      </div>
+    </div>
+    </div>
+    <div class="form-row">
+        <div class="col-lg-6">
+      <label for="telefone">Telefone:</label>
+      <input type="phone" formControlName="telefone" mask="(00) 0000-00009" class="{{!telefone.pristine && telefone.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Ex.: (00) 0000-0000">
+      <div *ngIf="!telefone.pristine && telefone.errors">
+        <p class="TxtError" *ngIf="telefone.errors.required">Telefone é obrigatório.</p>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <label for="email">E-mail:</label>
+      <input type="email" formControlName="email" class="{{!email.pristine && email.errors ? 'form-control is-invalid' : 'form-control' }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail de login">
+      <div *ngIf="!email.pristine && email.errors">
+        <p class="TxtError" *ngIf="email.errors.required">E-mail é obrigatório.</p>
+        <p class="TxtError" *ngIf="email.errors.pattern">Digite um e-mail válido.</p>
+      </div>
     </div>
   </div>
-    <div>
-      <label for="cpf">CPF</label>
-      <input type="text" formControlName="cpf" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: 000.000.000-00">
-      <div *ngIf="!cpf.pristine && cpf.errors">
-          <p *ngIf="cpf.errors.required">
-            CPF é obrigatório.
-          </p>
-          <p *ngIf="cpf.errors.cpfInvalido">
-            Digite um CPF válido
-          </p>
-        </div>
-    </div>
-    <div>
-      <label for="rg">RG</label>
-      <input type="text" formControlName="rg" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: 00.000.000-0">
-    </div>
-    <div>
-      <label for="telefone">Telefone</label>
-      <input type="phone" formControlName="telefone" class="form-control col-lg-6 col-sm-4" placeholder="Ex.: (00) 0000-0000">
-    </div>
-    <div>
-      <label for="email">E-mail</label>
-      <input type="email" formControlName="email" class="form-control col-lg-6 col-sm-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail de login">
-      <div *ngIf="!email.pristine && email.errors">
-          <p *ngIf="email.errors.email">
-            Digite um e-mail válido.
-          </p>
-        </div>
-    </div>
-    <div>
-      <label for="senha">Senha</label>
-      <input type="password" formControlName="senha" class="form-control col-lg-6 col-sm-4" id="" placeholder="Senha">
+    <div class="form-group">
+      <label for="senha">Senha:</label>
+      <input type="password" formControlName="senha" class="{{!senha.pristine && senha.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Senha">
       <div *ngIf="!senha.pristine && senha.errors">
-          <p *ngIf="senha.errors.required">
-            Senha é obrigatória.
-          </p>
-          <p *ngIf="senha.errors.minlength">
-            Senha deve ter no mínimo 6 caracters.
-          </p>
-          <p *ngIf="senha.errors.maxlength">
-            Senha deve ter no máximo 12 caracters.
-          </p>
-        </div>
-    </div>  
-    <div>  
-      <label for="confirmarSenha">Repita a Senha</label>
-      <input type="password" formControlName="confirmarSenha" class="form-control col-lg-6 col-sm-4" id="" placeholder="Repita a senha">
-      <div *ngIf="!confirmarSenha.pristine && confirmarSenha.errors">
-          <p *ngIf="confirmarSenha.errors.required">
-            Confirme sua senha.
-          </p>
-          <p *ngIf="confirmarSenha.errors.senhasNaoCoincidem">
-            As senhas não coincidem.
-          </p>
-        </div>
-    </div><br>
-    <div>
-        <button class="btn btn-primary" [disabled]="!formularioDeUsuario.valid">Enviar dados</button>
+        <p class= "TxtError" *ngIf="senha.errors.required">Senha é obrigatória.</p>
+        <p class= "TxtError" *ngIf="senha.errors.minlength">Senha deve ter no mínimo 6 caracters.</p>
+        <p class= "TxtError" *ngIf="senha.errors.maxlength">Senha deve ter no máximo 12 caracters.</p>
       </div>
+    </div>  
+    <div class="form-group">
+      <label for="confirmarSenha">Repita a Senha:</label>
+      <input type="password" formControlName="confirmarSenha" class="{{!confirmarSenha.pristine && confirmarSenha.errors ? 'form-control is-invalid' : 'form-control' }}"placeholder="Repita a senha">
+      <div *ngIf="!confirmarSenha.pristine && confirmarSenha.errors">
+        <p class= "TxtError" *ngIf="confirmarSenha.errors.required">Confirme sua senha.</p>
+        <p class= "TxtError" *ngIf="confirmarSenha.errors.senhasNaoCoincidem">As senhas não coincidem.</p>
+      </div>
+    </div><br>
+    <div class="row d-flex justify-content-center">
+      <button  class="btn btn-primary" [disabled]="!formularioDeUsuario.valid">Enviar dados</button>
+    </div>
   </form>
 </div>
