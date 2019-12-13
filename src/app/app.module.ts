@@ -12,6 +12,7 @@ import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardTravelComponent } from './card-travel/card-travel.component';
+import { CardchoicetravelComponent } from './cardchoicetravel/cardchoicetravel.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CardTravelComponent } from './card-travel/card-travel.component';
     RodapeComponent,
     RodapeComponent,
     CardTravelComponent,
+    CardchoicetravelComponent,
 
   ],
   imports: [
