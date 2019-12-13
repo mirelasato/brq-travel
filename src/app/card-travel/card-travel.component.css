@@ -1,0 +1,19 @@
+section {
+    padding-top: 20px;
+    font-family: 'Roboto';
+}
+
+.inline-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    
+}
+
+
+.card {
+    margin: 20px 20px;
+}
+
