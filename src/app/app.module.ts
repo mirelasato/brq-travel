@@ -12,7 +12,6 @@ import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.comp
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
-import { CardchoicetravelComponent } from './cardchoicetravel/cardchoicetravel.component';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -36,7 +35,6 @@ import { NgxMaskModule } from 'ngx-mask';
     RodapeComponent,
     RodapeComponent,
     CardTravelComponent,
-    CardchoicetravelComponent,
 
   ],
   imports: [
