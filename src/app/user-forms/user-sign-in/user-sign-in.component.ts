@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
+import { UsuarioLogin } from '../usuario';
 
 @Component({
   selector: 'app-user-sign-in',
@@ -8,48 +9,29 @@ import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@an
 })
 export class UserSignInComponent implements OnInit {
 
-  formularioLogin: FormGroup;
+  FormularioLogin: FormGroup;
+
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.criarFormularioLogin();
   }
 
+  FazerLogin(){
+    const dadosLogin = this.FormularioLogin.value;
+
+    const login = new UsuarioLogin(
+      dadosLogin.email,
+      dadosLogin.senha
+    )
+  }
+
   criarFormularioLogin() {
-    this.formularioLogin = this.fb.group({
-      nome: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(100)
-        ])
-      ],
+    this.FormularioLogin = this.fb.group({
       email: [
         '',
         Validators.compose([
-          Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"),
           Validators.required
-        ])
-      ],
-      cpf: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.maxLength(11)])
-      ],
-      rg:[
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern("[0-9]{9}")
-        ])
-      ],
-      telefone:[
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern("[0-9]{5,11}")
         ])
       ],
       senha: [
@@ -60,6 +42,13 @@ export class UserSignInComponent implements OnInit {
       ],
     },
     );
+  }
+
+  get email(){
+    return this.FormularioLogin.get('email');
+  }
+  get senha(){
+    return this.FormularioLogin.get('senha');
   }
 
 }

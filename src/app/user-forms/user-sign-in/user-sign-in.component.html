@@ -1,19 +1,29 @@
 <div class="container col-lg-3 col-md-8 col-sm-12">
-  <form [formGroup]="formularioLogin">
+  <form [formGroup]="FormularioLogin" (ngSubmit)="FazerLogin()">
+    <h2>Login</h2><br>
     <div class="form-group">
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail de login">
+      <input type="email" formControlName="email" class="{{!email.pristine && email.errors ? 'form-control is-invalid' : 'form-control' }}" aria-describedby="emailHelp" placeholder="E-mail de login">
+      <div *ngIf="!email.pristine && email.errors">
+        <p class="TxtError" *ngIf="email.errors.required">E-mail é obrigatório.</p>
+      </div>
     </div>
 
     <div class="form-group">
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+      <input type="password" formControlName="senha" class="{{!senha.pristine && senha.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Senha">
+      <div *ngIf="!senha.pristine && senha.errors">
+        <p class= "TxtError" *ngIf="senha.errors.required">Senha é obrigatória.</p>
+      </div>
     </div>
 
     <!-- <div class="form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Lembre de mim</label>
     </div><br> -->
+    
 
-    <button type="submit" class="btn btn-primary btn-block">Acessar</button>
-    <div class="form-text pwdforgot"><a href="#"> Esqueci minha senha</a></div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+      <p>Ainda não é membro? <a href="\cadastrar">Cadastre-se!</a></p>
+    </div>
   </form>
 </div>
