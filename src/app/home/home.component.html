@@ -29,22 +29,9 @@
     </slide>
   </carousel>
 
-  <div class="container space-top">
-    <div class="secao">
-      <h5 class="text-center">Aproveite as ofertas que separamos para você</h5>
-    </div>
-    <hr />
-  <!--  card  -->
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="assets/pacotes/img1.jpg" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Water Park</h5>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Descrição da viagem </li>
-          <li class="list-group-item"> R$ </li>
-        </ul>
-      </div>
-      <button routerLinkActive="active" routerLink="/visualizacao" type="button" class="btn btn-primary">Visualizar</button>
-    </div>  
+<div class="container">
+  <div class="secao">
+    <h5 class="text-center">Aproveite as ofertas que separamos para você</h5>
   </div>
-</div>
+  <hr />
+<app-card-travel></app-card-travel> <!-- herda a class card -->
