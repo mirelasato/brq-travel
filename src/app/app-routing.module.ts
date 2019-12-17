@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'cadastrar', component: UserSignUpComponent},
   { path: 'pacotes', component: TravelPackagesComponent},
   { path: 'visualizacao', component: HomeComponent },
-  { path: 'recuperar-senha', component: ForgotPasswordComponent }
+  { path: 'recuperar-senha', component: ForgotPasswordComponent },
   { path: 'pacotes', component: CardTravelComponent},
   { path: 'visualizacao', component: VisualizacaoComponent },
 
