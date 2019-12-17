@@ -5,6 +5,7 @@ import { HomeComponent} from './home/home.component';
 import { UserSignInComponent} from './user-forms/user-sign-in/user-sign-in.component';
 import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
 import { TravelPackagesComponent } from './travel-packages/travel-packages.component';
+import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'cadastrar', component: UserSignUpComponent},
   { path: 'pacotes', component: TravelPackagesComponent},
   { path: 'visualizacao', component: HomeComponent },
-
+  { path: 'recuperar-senha', component: ForgotPasswordComponent }
 
 
 ];

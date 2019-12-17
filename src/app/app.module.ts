@@ -18,10 +18,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NgxMaskModule } from 'ngx-mask';
 import { TravelPackagesComponent } from './travel-packages/travel-packages.component';
-
-
-
-
+import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 
 
 
@@ -37,6 +34,7 @@ import { TravelPackagesComponent } from './travel-packages/travel-packages.compo
     RodapeComponent,
     CardTravelComponent,
     TravelPackagesComponent,
+    ForgotPasswordComponent,
 
   ],
   imports: [

@@ -13,7 +13,7 @@ export class UserSignUpComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.criarFormularioDeUsuario();
   }
   enviarDados() {
