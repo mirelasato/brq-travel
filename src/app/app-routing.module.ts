@@ -5,6 +5,7 @@ import { HomeComponent} from './home/home.component';
 import { UserSignInComponent} from './user-forms/user-sign-in/user-sign-in.component';
 import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
+import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'entrar', component: UserSignInComponent},
   { path: 'cadastrar', component: UserSignUpComponent},
   { path: 'pacotes', component: CardTravelComponent},
-  { path: 'visualizacao', component: HomeComponent },
+  { path: 'visualizacao', component: VisualizacaoComponent },
 
 
 
