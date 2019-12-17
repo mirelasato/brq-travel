@@ -22,11 +22,6 @@ import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-pas
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

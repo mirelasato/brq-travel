@@ -1,16 +1,13 @@
-.navbartopo{
-    background-color:    #e86a08;
-    
+.navbartopo {
+    background-color: #e86a08;
 }
-.nav-item{
+.nav-item {
     font-weight: bold;
-}
-#cart{
-
-    padding-right: 30px;
-    
-
 }
 .button{
     padding-right: 250px;
+}
+.icon-cart {
+    height: 48px;
+    width: 48px;
 }

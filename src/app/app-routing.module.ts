@@ -20,8 +20,6 @@ const routes: Routes = [
   { path: 'pacotes', component: CardTravelComponent},
   { path: 'visualizacao', component: VisualizacaoComponent },
 
-
-
 ];
 
 @NgModule({
