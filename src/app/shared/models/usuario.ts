@@ -2,12 +2,12 @@ export class Usuario {
     nome: string;
     email: string;
     cpf: string;
-    rg:string;
-    telefone:string;
+    rg: string;
+    telefone: string;
     senha: string;
     confirmarSenha: string;
 
-    constructor (nome:string, email:string, cpf:string, rg:string, telefone:string, senha:string, confirmarSenha:string){
+    constructor(nome: string, email: string, cpf: string, rg: string, telefone: string, senha: string, confirmarSenha: string) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
@@ -18,11 +18,11 @@ export class Usuario {
     }
 }
 
-export class UsuarioLogin{
-    email:string;
-    senha:string;
+export class UsuarioLogin {
+    email: string;
+    senha: string;
 
-    constructor (email:string, senha:string){
+    constructor(email: string, senha: string) {
         this.email = email;
         this.senha = senha;
     }
