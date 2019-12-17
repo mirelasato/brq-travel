@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
-import { Validacoes } from '../helpers/validacoesHelper';
-import {Usuario} from '../usuario';
+import { Validacoes } from '../../shared/helpers/validacoesHelper';
+import {Usuario} from '../../shared/models/usuario';
 @Component({
   selector: 'app-user-sign-up',
   templateUrl: './user-sign-up.component.html',

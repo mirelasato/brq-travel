@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
-import { UsuarioLogin } from '../usuario';
+import { UsuarioLogin } from '../../shared/models/usuario';
 
 @Component({
   selector: 'app-user-sign-in',
