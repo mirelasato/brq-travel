@@ -17,6 +17,7 @@ import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { NgxMaskModule } from 'ngx-mask';
+import { TravelPackagesComponent } from './travel-packages/travel-packages.component';
 
 
 
@@ -35,6 +36,7 @@ import { NgxMaskModule } from 'ngx-mask';
     RodapeComponent,
     RodapeComponent,
     CardTravelComponent,
+    TravelPackagesComponent,
 
   ],
   imports: [
