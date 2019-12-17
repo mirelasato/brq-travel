@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
-import { Validacoes } from '../helpers/validacoesHelper';
-import {Usuario} from '../usuario';
+import { Validacoes } from '../../shared/helpers/validacoesHelper';
+import {Usuario} from '../../shared/models/usuario';
 @Component({
   selector: 'app-user-sign-up',
   templateUrl: './user-sign-up.component.html',
@@ -13,7 +13,7 @@ export class UserSignUpComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.criarFormularioDeUsuario();
   }
   enviarDados() {
@@ -47,7 +47,7 @@ export class UserSignUpComponent implements OnInit {
       email: [
         '',
         Validators.compose([
-          Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"),
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'),
           Validators.required
         ])
       ],
@@ -58,18 +58,18 @@ export class UserSignUpComponent implements OnInit {
           Validacoes.ValidaCpf,
           Validators.maxLength(11)])
       ],
-      rg:[
+      rg: [
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern("[0-9]{9}")
+          Validators.pattern('[0-9]{9}')
         ])
       ],
-      telefone:[
+      telefone: [
         '',
         Validators.compose([
           Validators.required,
-          Validators.pattern("[0-9]{5,11}")
+          Validators.pattern('[0-9]{5,11}' )
         ])
       ],
       senha: [
@@ -88,25 +88,25 @@ export class UserSignUpComponent implements OnInit {
     );
   }
 
-  get nome(){
+  get nome() {
     return this.formularioDeUsuario.get('nome');
   }
-  get email(){
+  get email() {
     return this.formularioDeUsuario.get('email');
   }
-  get cpf(){
+  get cpf() {
     return this.formularioDeUsuario.get('cpf');
   }
-  get rg(){
+  get rg() {
     return this.formularioDeUsuario.get('rg');
   }
-  get telefone(){
+  get telefone() {
     return this.formularioDeUsuario.get('telefone');
   }
-  get senha(){
+  get senha() {
     return this.formularioDeUsuario.get('senha');
   }
-  get confirmarSenha(){
+  get confirmarSenha() {
     return this.formularioDeUsuario.get('confirmarSenha');
   }
 }
