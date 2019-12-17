@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
-import { UsuarioLogin } from '../usuario';
+import { UsuarioLogin } from '../../shared/models/usuario';
 
 @Component({
   selector: 'app-user-sign-in',
@@ -13,17 +13,17 @@ export class UserSignInComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.criarFormularioLogin();
   }
 
-  FazerLogin(){
+  FazerLogin() {
     const dadosLogin = this.FormularioLogin.value;
 
     const login = new UsuarioLogin(
       dadosLogin.email,
       dadosLogin.senha
-    )
+    );
   }
 
   criarFormularioLogin() {
@@ -44,10 +44,10 @@ export class UserSignInComponent implements OnInit {
     );
   }
 
-  get email(){
+  get email() {
     return this.FormularioLogin.get('email');
   }
-  get senha(){
+  get senha() {
     return this.FormularioLogin.get('senha');
   }
 
