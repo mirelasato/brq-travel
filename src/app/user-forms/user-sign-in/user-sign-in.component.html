@@ -1,6 +1,6 @@
 <div class="container col-lg-3 col-md-8 col-sm-12">
   <form [formGroup]="FormularioLogin" (ngSubmit)="FazerLogin()">
-    <h2>Login</h2><br>
+    <h2>Já sou cliente</h2><br>
     <div class="form-group">
       <input type="email" formControlName="email" class="{{!email.pristine && email.errors ? 'form-control is-invalid' : 'form-control' }}" aria-describedby="emailHelp" placeholder="E-mail de login">
       <div *ngIf="!email.pristine && email.errors">
