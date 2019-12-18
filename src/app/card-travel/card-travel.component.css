@@ -3,6 +3,10 @@ section {
     font-family: 'Roboto';
 }
 
+h2, h5 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
 .inline-cards {
     display: flex;
     flex-direction: row;
@@ -11,7 +15,15 @@ section {
     list-style: none;
 }
 
-.card {
+.style-card {
+    border: 0;
+    border-radius: 10px 10px;
+    box-shadow: 5px 5px 5px 5px;
     margin: 20px 20px;
+}
+
+.style-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px ;
 }
 
