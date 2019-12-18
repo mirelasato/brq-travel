@@ -3,6 +3,10 @@ section {
     font-family: 'Roboto';
 }
 
+h2, h5 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
 .inline-cards {
     display: flex;
     flex-direction: row;
