@@ -1,31 +1,26 @@
 <nav id="topNav" class="navbar navbar-expand-lg navbar-dark navbartopo" >
-  <!-- <div class="container-fluid"> -->
-    <!-- <div class="navbar-header">-->
-    <button class="navbar-toggler collapsed navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" aria-expanded="false" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-  
-      <!--Logo da Empresas-->
-      <a class="navbar-brand mx-auto" href="#">
-      </a>
-    <!-- </div> -->
-    <img  src="/assets/brq-travel-logo.png" alt="Logo da Empresas" class="img-fluid" width="10% auto" height="10%"/>
-    <div class="collapse navbar-collapse" [collapse]=!isCollapsed>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLinkActive="active" routerLink="/home" >Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#" routerLinkActive="active" routerLink="/sobrenos">Sobre Nós</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" routerLinkActive="active" routerLink="/pacotes">Pacotes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cadastropacotes" >Cadastro de Viagens</a>
-          </li>
-      </ul> 
-      </div>
+   <!-- <div class="navbar-header">-->
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" aria-expanded="false" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--Logo da Empresas-->
+  <img  src="/assets/brq-travel-logo.png" alt="Logo da Empresas" class="img-fluid" width="10% auto" height="10%"/>
+<div class="navbar-collapse collapse" [collapse]=!isCollapsed>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/home" >Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/sobrenos">Sobre Nós</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/pacotes">Pacotes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cadastropacotes" >Cadastro de Viagens</a>
+      </li>
+    </ul> 
 
     <!-- <div class="button"> -->
       <!-- <form class="form-inline my-2 " id="InputSearch" >
@@ -33,18 +28,16 @@
         <button class="btn btn-outline-primary search">Search</button>
       </form> -->
     <!-- </div> -->
-    <div class="collapse navbar-collapse" [collapse]=!isCollapsed>
-    <ul class="navbar-nav ">
-        <li class="nav-item ">
-            <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/entrar"> Entrar </a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/cadastrar"> Cadastrar </a>
-        </li>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/entrar"> Entrar </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/cadastrar"> Cadastrar </a>
+      </li>
     </ul>
   </div>
-    <img src="/assets/shopping-cart.svg" alt="Icone do carrinho de compra" id="cart" class="icon-cart"/>
-  <!-- </div> -->
+  <img src="/assets/shopping-cart.svg" alt="Icone do carrinho de compra" id="cart" class="icon-cart"/>
 </nav>
 
 
