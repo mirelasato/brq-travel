@@ -1,11 +1,13 @@
 #myFooter {
-    background-color: #e86a08;
+    
+    background: rgb(6,44,82);
+    background: linear-gradient(90deg, rgba(6,44,82,1) 9%, rgba(6,44,82,1) 22%, rgba(0,212,255,1) 100%);
     color: white;
     padding-top: 30px;
 }
 
 #myFooter .footer-copyright {
-    background-color: #0275D8;
+    background-color: #e86a08;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
