@@ -13,3 +13,7 @@ export class TopoComponent implements OnInit {
   }
 
 }
+
+export class CollapseDemoAnimatedComponent {
+  isCollapsed = false;
+}
