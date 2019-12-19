@@ -13,3 +13,10 @@ export class TravelPackagesComponent implements OnInit {
   }
 
 }
+export class CollapseDemoAnimatedComponent {
+  isCollapsed = false;
+}
+
+export class CollapseDemoAnimatedComponent2 {
+  isCollapsed2 = false;
+}
