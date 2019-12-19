@@ -11,7 +11,7 @@ export class VisualizacaoComponent implements OnInit {
 
   pacotes: Detalhes[];
   imagens: any[];
-
+  // public pacotes: Detalhes;
   constructor() { }
 
   ngOnInit() {
@@ -28,13 +28,13 @@ console.log('this.pacotes' , this.pacotes[0]);
       {
         id: 1,
         titulo: 'Caldas Novas',
-        anunciante: '',
+        anunciante: 'BRQ-Travel',
         valor: 300,
         destaque: false,
-        data: '',
+        data: '14/01/2020',
         feriado: '',
-        descricao: '',
-        tipo: '',
+        descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
+        tipo: 'Bate Volta',
         vagas: 30,
         imagens: [
             {
