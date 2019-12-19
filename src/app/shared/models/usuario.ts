@@ -27,3 +27,11 @@ export class UsuarioLogin {
         this.senha = senha;
     }
 }
+
+export interface User {
+    uid: string;
+   email: string;
+   displayName: string;
+   photoURL: string;
+   emailVerified: boolean;
+}

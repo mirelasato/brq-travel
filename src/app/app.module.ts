@@ -20,7 +20,11 @@ import { NgxMaskModule } from 'ngx-mask';
 import { TravelPackagesComponent } from './travel-packages/travel-packages.component';
 import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
-
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { AuthService } from './shared/services/auth-service';
 
 @NgModule({
   declarations: [
@@ -47,9 +51,12 @@ import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     CarouselModule.forRoot(),
-    ButtonsModule.forRoot()
+    ButtonsModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
