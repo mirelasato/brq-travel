@@ -1,20 +1,22 @@
 <div class="container">
-    <div class="oferta">
+    <div class="oferta" >
   
-      <div class="row">
+      <div class="row" *ngFor="let item of pacotes">
         <div class="col">
-            <h4>{{ titulo }} </h4>
+            <h4>{{ item.titulo }} </h4>
         </div>
       </div>
   
-      <div class="row">
+      <div class="row" >
+
         <div class="col-md-6">
           <div class="img_capa">
-            <img  src="assets/img/capa-destinos.jpg " />
+            
+            <img [src] ="item.imagens[0].url " />
           </div>
   
-          <div class="thumbnails">
-            <img *ngFor="let imagem of imagens" [src]="imagem.url" />
+           <div class="thumbnails">
+            <img src ="assets/img/capa-destinos.jpg" />
             
           </div>
         </div>  
@@ -29,7 +31,7 @@
   
           <div class="row">
             <div class="col text-center">
-              <h1> {{ valor }} </h1>
+              <h1> {{ pacotes.valor }} </h1>
             </div>
           </div>
   
@@ -39,8 +41,18 @@
             </div>
           </div>
             
-        </div>
+        </div> 
+   <!-- <div class="col-md-6">
+          <div class="img_capa">
+            
+            <img  [src]="imagem.url" />
+          </div>
   
+          <div class="thumbnails">
+            <img *ngFor="let imagem of imagens" [src]="imagem.url" />
+            
+          </div> 
+        </div>   -->
       </div>
     </div>
   
