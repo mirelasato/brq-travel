@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
 import { Validacoes } from '../../shared/helpers/validacoesHelper';
 import {Usuario} from '../../shared/models/usuario';
+import { AuthService } from '../../shared/services/auth-service';
+
 @Component({
   selector: 'app-user-sign-up',
   templateUrl: './user-sign-up.component.html',
@@ -11,7 +13,8 @@ export class UserSignUpComponent implements OnInit {
 
   formularioDeUsuario: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              public authService: AuthService) { }
 
   ngOnInit(): void {
     this.criarFormularioDeUsuario();

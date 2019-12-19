@@ -70,7 +70,7 @@
     </div>
     <div class="row text-center">
         <div class="form-group col-sm-12">
-          <button type="submit" class="btn btn-primary" [disabled]="!formularioDeUsuario.valid">Enviar dados</button>
+          <button type="button" class="btn btn-primary" (click)="authService.SignUp(email.value, senha.value)">Enviar dados</button>
           <p>Já é membro? <a href="/entrar">Entre!</a></p>
         </div>
     </div>
