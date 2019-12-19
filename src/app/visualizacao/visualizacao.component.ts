@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Detalhes } from '../shared/models/detalhes.model';
 
 
 @Component({
@@ -8,12 +9,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualizacaoComponent implements OnInit {
 
-  titulo: string;
+  pacotes: Detalhes[];
+  imagens: any[];
 
   constructor() { }
 
   ngOnInit() {
-    this.titulo = 'Caldas Novas';
-  }
+    this.getDetalhes  ();
 
+
+console.log('this.pacotes' , this.pacotes[0]);
+
+
+  }
+  getDetalhes() {
+
+    this.pacotes = [
+      {
+        id: 1,
+        titulo: 'Caldas Novas',
+        anunciante: '',
+        valor: 300,
+        destaque: false,
+        data: '',
+        feriado: '',
+        descricao: '',
+        tipo: '',
+        vagas: 30,
+        imagens: [
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+        ]
+      },
+    ];
+
+  this.imagens = this.pacotes[0].imagens;
+
+  
+}
 }
