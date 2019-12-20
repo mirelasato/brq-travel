@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../shared/models/card.model';
 
+import { DetailsCardTravel } from '../shared/models/DetailsCardTravel';
 
 @Component({
   selector: 'app-card-travel',
@@ -8,27 +8,28 @@ import { Card } from '../shared/models/card.model';
   styleUrls: ['./card-travel.component.css']
 })
 export class CardTravelComponent implements OnInit {
- card: Card[];
- imagens: any[];
+  details: DetailsCardTravel[];
 
   constructor() { }
 
   ngOnInit() {
-    
+    this.getDetalhes();
+  }
+  getDetalhes() {
 
-    this.card = [
+    this.details = [
       {
-          titulo: 'Caldas Novas',
-          descricao: 'Uma breve descrição da viagem',
-          data: '12/04/2020',
-          valor: 300,
-          imagens: [{
-           url: 'assets/img/capa-destino',
+
+        titulo: 'Arraial do Cabo',
+        descricao: 'Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro. A cidade é costeira, e tem uma altitude média de apenas oito metros.',
+        valor: 430,
+        data: '31/05/2020',
+        imagens: [
+          {
+            url: '/assets/img/capa-destinos.jpg'
           }
         ]
       }
     ]
-
   }
-
 }
