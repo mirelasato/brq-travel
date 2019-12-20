@@ -3,5 +3,5 @@ export class DetailsCardTravel {
     public descricao: string;
     public valor: number;
     public data: string;
-    public imagens: Array<object> = [];
+    public imagens: Array<object>;
 }
