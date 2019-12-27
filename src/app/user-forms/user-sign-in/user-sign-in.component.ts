@@ -18,15 +18,6 @@ export class UserSignInComponent implements OnInit {
     this.criarFormularioLogin();
   }
 
-  FazerLogin() {
-    const dadosLogin = this.FormularioLogin.value;
-
-    const login = new UsuarioLogin(
-      dadosLogin.email,
-      dadosLogin.senha
-    );
-  }
-
   criarFormularioLogin() {
     this.FormularioLogin = this.fb.group({
       email: [

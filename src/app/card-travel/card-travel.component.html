@@ -2,35 +2,22 @@
   <h2>Próximas Viagens</h2>
 </section>
 
-<section class="container inline-cards">
-    <div class="style-card card " style="width: 18rem;">
-      <img class="card-img-top style-img" src="../../assets/img/capa-destinos.jpg" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Nome da Viagem</h5>
-        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+<section class="container inline-cards" >
+    <div class="style-card card " style="width: 18rem;" *ngFor=" let imagem of details ">
+      <img class="card-img-top style-img" [src]="imagem.imagens[0].url" alt="Imagem de capa do card">
+
+      <div class="card-body" *ngFor="let item of details">
+        <h5 class="card-title">{{ item.titulo }}</h5>
+        <p class="card-text">{{ item.descricao }}</p>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Valor</li>
+      <ul class="list-group list-group-flush" *ngFor="let item of details">
+        <li class="list-group-item">{{ item.data }}</li>
+        <li class="list-group-item">R$ {{ item.valor }}</li>
       </ul>
       <div class="card-body">
         <a href="#" class="btn btn-primary" routerLink="/visualizacao">Veja mais</a>
       </div>
     </div>
 
-    <div class="card style-card" style="width: 18rem;">
-      <img class="card-img-top style-img" src="../../assets/img/capa-destinos.jpg" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">Nome da Viagem</h5>
-        <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Valor</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="btn btn-primary" routerLink="/visualizacao">Veja mais</a>
-      </div>
-    </div>
 </section> 
   
