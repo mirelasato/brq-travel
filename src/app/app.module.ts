@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +26,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
+
 
 @NgModule({
   declarations: [
@@ -54,9 +56,22 @@ import { AuthService } from './shared/services/auth-service';
     ButtonsModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    RouterModule.forRoot([
+      { path: '', pathMatch: 'full', redirectTo: 'home'},
+      { path: 'home',  component: HomeComponent},
+      { path: 'entrar', component: UserSignInComponent },
+      { path: 'cadastro-de-viagens', component: UserSignUpComponent },
+      { path: 'pacotes', component: TravelPackagesComponent },
+      { path: 'recuperar-senha', component: ForgotPasswordComponent },
+      { path: 'pacotes', component: CardTravelComponent },
+      { path: 'visualizacao', component: VisualizacaoComponent },
+    ])
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

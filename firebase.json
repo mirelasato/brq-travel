@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/brq-travel",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

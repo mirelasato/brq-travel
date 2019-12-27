@@ -10,13 +10,13 @@ import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'home'},
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home',  component: HomeComponent},
-  { path: 'entrar', component: UserSignInComponent},
-  { path: 'cadastrar', component: UserSignUpComponent},
-  { path: 'pacotes', component: TravelPackagesComponent},
+  { path: 'entrar', component: UserSignInComponent },
+  { path: 'cadastrar', component: UserSignUpComponent },
+  { path: 'pacotes', component: TravelPackagesComponent },
   { path: 'recuperar-senha', component: ForgotPasswordComponent },
-  { path: 'pacotes', component: CardTravelComponent},
+  { path: 'pacotes', component: CardTravelComponent },
   { path: 'visualizacao', component: VisualizacaoComponent },
 
 ];
