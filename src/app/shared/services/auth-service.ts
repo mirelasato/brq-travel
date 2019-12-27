@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 
 export class AuthService {
   userData: any; // Save logged in user data
+  status = {
+    isDanger: true,
+    valid: true };
+  MsgError = '';
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -37,11 +41,13 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['home']);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message);
+        this.status.valid = false;
+        this.MsgError = error.message;
+        console.log(error.message);
       });
   }
 
@@ -51,10 +57,10 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
-        this.SendVerificationMail();
+        // this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message);
+        console.log(error.message);
       });
   }
 
@@ -70,9 +76,13 @@ export class AuthService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
+      this.status.valid = false;
+      this.status.isDanger = false;
+      this.MsgError = 'E-mail enviado com sucesso! Por favor, verifique sua caixa de e-mail';
     }).catch((error) => {
-      window.alert(error);
+      this.status.isDanger = true;
+      this.status.valid = false;
+      this.MsgError = error.message;
     });
   }
 
@@ -82,23 +92,6 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
-
-  // Auth logic to run auth providers
-  AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-    .then((result) => {
-       this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-       this.SetUserData(result.user);
-    }).catch((error) => {
-      window.alert(error);
-    });
-  }
 
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
@@ -109,7 +102,6 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
       emailVerified: user.emailVerified
     };
     return userRef.set(userData, {
@@ -121,7 +113,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['home']);
     });
   }
 
