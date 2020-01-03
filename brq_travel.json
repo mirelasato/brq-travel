@@ -8,8 +8,16 @@
       "rg": "12.345.678-90",
       "telefone": "985672-9506",
       "senha": "12446"
-      
-     }
+     },
+     {
+      "id": 2,
+     "nome":"Mirela",
+     "email":"mirelasato@brq.com",
+     "cpf":"124.456.789-02",
+     "rg": "12.345.678-90",
+     "telefone": "985672-9506",
+     "senha": "12446"
+    }
    ],
      "destinos":[
    {

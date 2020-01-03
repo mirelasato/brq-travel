@@ -13,6 +13,7 @@ import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.comp
 import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
+import { MinhacontaComponent } from './minhaconta/minhaconta.component';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -26,7 +27,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AuthService } from './shared/services/auth-service';
     TravelPackagesComponent,
     ForgotPasswordComponent,
     VisualizacaoComponent,
+    MinhacontaComponent,
 
   ],
   imports: [
@@ -57,6 +59,7 @@ import { AuthService } from './shared/services/auth-service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'home'},
       { path: 'home',  component: HomeComponent},
@@ -66,6 +69,7 @@ import { AuthService } from './shared/services/auth-service';
       { path: 'recuperar-senha', component: ForgotPasswordComponent },
       { path: 'pacotes', component: CardTravelComponent },
       { path: 'visualizacao', component: VisualizacaoComponent },
+      { path: 'minha-conta', component: MinhacontaComponent }
     ])
   ],
   providers: [

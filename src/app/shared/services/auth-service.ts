@@ -92,6 +92,12 @@ export class AuthService {
     return (user !== null) ? true : false;
   }
 
+  get GetEmail(): string {
+    if (this.isLoggedIn) {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return (user.email);
+    }
+  }
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */

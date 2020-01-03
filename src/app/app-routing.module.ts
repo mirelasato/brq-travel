@@ -8,6 +8,7 @@ import { TravelPackagesComponent } from './travel-packages/travel-packages.compo
 import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
+import { MinhacontaComponent } from './minhaconta/minhaconta.component';
 
 // Impede visualização de páginas quando está deslogado
 import { AuthGuard } from '../../src/app/shared/services/auth.guard';
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'recuperar-senha', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'pacotes', component: CardTravelComponent },
   { path: 'visualizacao', component: VisualizacaoComponent },
-
+  { path: 'minha-conta', component: MinhacontaComponent }
 ];
 
 @NgModule({

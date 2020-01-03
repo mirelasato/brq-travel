@@ -1,0 +1,58 @@
+<div class="container col-lg-5 col-md-8 col-sm-12">
+    <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+      <h3>Minha conta</h3>
+      <br>
+      <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" formControlName="nome" class="{{!nome.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Nome Completo">
+          <div *ngIf="!nome.pristine && nome.errors">
+            <p class= "TxtError" *ngIf="nome.errors.required">Nome é obrigatório</p>
+            <p class= "TxtError" *ngIf="nome.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
+            <p class= "TxtError" *ngIf="nome.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+          </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="col-lg-6 bottom-label">
+          <label for="cpf">CPF:</label>
+          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}"  placeholder="Ex.: 000.000.000-00">
+          <div *ngIf="!cpf.pristine && cpf.errors">
+            <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
+            <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 bottom-label">
+          <label for="rg">RG:</label>
+          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Ex.: 00.000.000-0">
+          <div *ngIf="!rg.pristine && rg.errors">
+            <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
+            <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="col-lg-6 bottom-label">
+          <label for="telefone">Telefone:</label>
+          <input type="phone" formControlName="telefone" mask="(00) 0000-00009" class="{{!telefone.pristine && telefone.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Ex.: (00) 0000-0000">
+          <div *ngIf="!telefone.pristine && telefone.errors">
+            <p class="TxtError" *ngIf="telefone.errors.required">Telefone é obrigatório.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 bottom-label">
+          <label for="email">E-mail:</label>
+          <input type="email" formControlName="email" readonly="readonly" class="{{!email.pristine && email.errors ? 'form-control is-invalid' : 'form-control' }}" aria-describedby="emailHelp" placeholder="E-mail de login">
+          <div *ngIf="!email.pristine && email.errors">
+            <p class="TxtError" *ngIf="email.errors.required">E-mail é obrigatório.</p>
+            <p class="TxtError" *ngIf="email.errors.pattern">Digite um e-mail válido.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row text-center">
+          <div class="form-group col-sm-12">
+            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+      </div>
+    </form>
+  </div>
