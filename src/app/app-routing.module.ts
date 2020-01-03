@@ -9,13 +9,18 @@ import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-pas
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
+// Impede visualização de páginas quando está deslogado
+import { AuthGuard } from '../../src/app/shared/services/auth.guard';
+// impede visualização de paginas quando já está logado (por exemplo pag de login)
+import { SecureInnerPagesGuard } from '../../src/app/shared/services/secure-inner-pages.guard';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home',  component: HomeComponent},
-  { path: 'entrar', component: UserSignInComponent },
-  { path: 'cadastrar', component: UserSignUpComponent },
+  { path: 'entrar', component: UserSignInComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'cadastrar', component: UserSignUpComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'pacotes', component: TravelPackagesComponent },
-  { path: 'recuperar-senha', component: ForgotPasswordComponent },
+  { path: 'recuperar-senha', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'pacotes', component: CardTravelComponent },
   { path: 'visualizacao', component: VisualizacaoComponent },
 
