@@ -4,7 +4,6 @@ import { AuthService } from '../shared/services/auth-service';
 import { Usuario } from '../shared/models/usuario';
 import { Validacoes } from '../shared/helpers/validacoesHelper';
 import { ApiService } from '../shared/services/api.service';
-import { JsonpInterceptor } from '@angular/common/http';
 
 @Component({
   selector: 'app-minhaconta',
@@ -15,37 +14,24 @@ import { JsonpInterceptor } from '@angular/common/http';
 export class MinhacontaComponent implements OnInit {
 
   formularioDeUsuario: FormGroup;
-  user = this.authService.GetEmail;
-  data = [];
+  emailUser = this.authService.GetEmail;
+  data: Array<Usuario>;
+  CurrentUser: any;
   constructor(private fb: FormBuilder,
               public authService: AuthService,
               public API: ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.criarFormularioDeUsuario();
     // this.getUserList();
-    const Observable = this.API.getUser();
-    Observable.subscribe((UsersData: []) => {
-      this.data = UsersData;
+
+    this.API.getUser().subscribe((data) => {
+      this.CurrentUser = data;
+      this.CurrentUser = this.CurrentUser.filter(d => d.email === this.emailUser);
+      console.log(this.CurrentUser);
+
     });
-    console.log(this.data);
   }
-
-//   public getUserList() {
-//     return this.API.getUser()
-//     .subscribe(
-//       data => { this.data = JSON.stringify(data),
-//         Object.keys(data).map((key) => { this.data.push(data[key]); });
-//       });
-// }
-
-  //  FillTable(user) {
-  //    const dadosFormulario = this.formularioDeUsuario.value;
-
-  //    let info = this.getUserList();
-
-  //    console.log(info);
-  //  }
 
   criarFormularioDeUsuario() {
     this.formularioDeUsuario = this.fb.group({

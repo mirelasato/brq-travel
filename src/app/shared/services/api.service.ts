@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of  } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +13,10 @@ export class ApiService {
   api_url = 'http://localhost:3000/usuarios';
   user: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  getUser() {
-    return this.http.get(this.api_url);
+  public getUser() {
+    return this.httpClient.get(this.api_url);
   }
 
 
