@@ -1,5 +1,5 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
-    <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()" *ngFor="let user of CurrentUser">
+    <form [formGroup]="formularioDeUsuario" *ngFor="let user of CurrentUser">
       <h3>Minha conta</h3>
       <br>
       <div class="form-group">
@@ -15,7 +15,7 @@
       <div class="form-row">
         <div class="col-lg-6 bottom-label">
           <label for="cpf">CPF:</label>
-          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}"  value={{(user.cpf)}}>
+          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.cpf)}}>
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
             <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-6 bottom-label">
           <label for="rg">RG:</label>
-          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}"value={{(user.rg)}}>
+          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.rg)}}>
           <div *ngIf="!rg.pristine && rg.errors">
             <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
             <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
@@ -48,11 +48,10 @@
           </div>
         </div>
       </div>
-
       <div class="row text-center">
-          <div class="form-group col-sm-12">
-            <button type="button" class="btn btn-primary">Salvar Alterações</button>
-          </div>
-      </div>
+        <div class="form-group col-sm-12">
+          <button type="button" class="btn btn-primary" (click)="salvarDados()">Salvar Alterações</button>
+        </div>
+    </div>
     </form>
   </div>

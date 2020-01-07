@@ -12,24 +12,39 @@ import { ApiService } from '../shared/services/api.service';
 })
 
 export class MinhacontaComponent implements OnInit {
-
   formularioDeUsuario: FormGroup;
   emailUser = this.authService.GetEmail;
   data: Array<Usuario>;
-  CurrentUser: any;
+  CurrentUser;
+  id;
+
   constructor(private fb: FormBuilder,
               public authService: AuthService,
               public API: ApiService) { }
 
   ngOnInit() {
     this.criarFormularioDeUsuario();
-    // this.getUserList();
 
     this.API.getUser().subscribe((data) => {
       this.CurrentUser = data;
-      this.CurrentUser = this.CurrentUser.filter(d => d.email === this.emailUser);
+      this.id = data[0].id;
       console.log(this.CurrentUser);
+    });
 
+  }
+
+  salvarDados() {
+    const dadosFormulario = this.formularioDeUsuario.value;
+
+    const usuario = new Usuario(
+      dadosFormulario.nome === '' ?  this.CurrentUser[0].nome : dadosFormulario.nome,
+      this.CurrentUser[0].email,
+      dadosFormulario.cpf === '' ? this.CurrentUser[0].cpf : dadosFormulario.cpf,
+      dadosFormulario.rg === '' ? this.CurrentUser[0].rg : dadosFormulario.rg,
+      dadosFormulario.telefone === '' ? this.CurrentUser[0].telefone : dadosFormulario.telefone
+    );
+    this.API.updateUser(this.id, usuario).subscribe(() => { 
+      console.log('Sucesso');
     });
   }
 
@@ -71,18 +86,6 @@ export class MinhacontaComponent implements OnInit {
           Validators.pattern('[0-9]{5,11}' )
         ])
       ],
-      senha: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(12)
-        ])
-      ],
-      confirmarSenha: ['', Validators.compose([Validators.required])]
-    },
-    {
-      validator: Validacoes.SenhasCombinam
     }
     );
   }

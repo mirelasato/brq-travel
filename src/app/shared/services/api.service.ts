@@ -1,31 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Observable, of  } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { AuthService } from '../services/auth-service';
+import { Usuario } from '../models/usuario';
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiService {
+  apiURL = 'http://localhost:3000';
+  emailUser = this.authService.GetEmail;
+
+  constructor(private http: HttpClient,
+              private authService: AuthService) { }
+
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
   };
-  api_url = 'http://localhost:3000/usuarios';
-  user: any[];
 
-  constructor(private httpClient: HttpClient) { }
 
-  public getUser() {
-    return this.httpClient.get(this.api_url);
+  getUser() {
+    return this.http.get<Usuario[]>(this.apiURL + '/usuarios?email=' + this.emailUser);
   }
 
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-
-      console.error(error);
-
-      return of(result as T);
-    };
+  createUser(newUser) {
+    return this.http.post<Usuario>(this.apiURL + '/usuarios', newUser, this.httpOptions).pipe(take(1));
   }
+
+  updateUser(userId, newInfo) {
+    return this.http.put<Usuario>(this.apiURL + '/usuarios/' + userId, newInfo, this.httpOptions).pipe(take(1));
+  }
+
 }
