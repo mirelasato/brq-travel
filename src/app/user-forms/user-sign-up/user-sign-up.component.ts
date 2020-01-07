@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
 import { Validacoes } from '../../shared/helpers/validacoesHelper';
-import {Usuario} from '../../shared/models/usuario';
+import { Usuario } from '../../shared/models/usuario';
 import { AuthService } from '../../shared/services/auth-service';
-
+import { ApiService } from '../../shared/services/api.service';
 @Component({
   selector: 'app-user-sign-up',
   templateUrl: './user-sign-up.component.html',
   styleUrls: ['./user-sign-up.component.css']
 })
 export class UserSignUpComponent implements OnInit {
-
   formularioDeUsuario: FormGroup;
+  CurrentUser: Usuario;
 
   constructor(private fb: FormBuilder,
-              public authService: AuthService) { }
+              public authService: AuthService,
+              public API: ApiService) { }
 
   ngOnInit(): void {
     this.criarFormularioDeUsuario();
@@ -27,10 +28,12 @@ export class UserSignUpComponent implements OnInit {
       dadosFormulario.email,
       dadosFormulario.cpf,
       dadosFormulario.rg,
-      dadosFormulario.telefone,
-      dadosFormulario.senha,
-      dadosFormulario.confirmarSenha
+      dadosFormulario.telefone
     );
+    this.authService.SignUp(dadosFormulario.email, dadosFormulario.senha);
+    this.API.createUser(usuario).subscribe(() => {
+      console.log('Sucesso');
+    });
 
     alert(`O usuário ${usuario.nome} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(usuario)}`);
 

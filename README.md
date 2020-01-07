@@ -6,6 +6,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1 - Movam no Jira a tarefa para code review ao finaliza-la.
 2 - Não atualize o git com erros no projeto. Corrijam antes.
 
+- Run the following command to run the JSON server.
+`json-server --watch brq_travel.json`
+
+- After that you can check your local json file on this URL
+`http://localhost:3000`
+
 
 ## Development server
 

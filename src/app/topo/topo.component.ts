@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth-service';
+import { ApiService } from '../shared/services/api.service';
 
 @Component({
   selector: 'app-topo',
@@ -7,16 +8,16 @@ import { AuthService } from '../shared/services/auth-service';
   styleUrls: ['./topo.component.css']
 })
 export class TopoComponent implements OnInit {
+  CurrentUser: any;
 
-  constructor( public authService: AuthService ) { }
+  constructor( public authService: AuthService,
+               public API: ApiService ) { }
 
   ngOnInit() {
-  }
-
-  get GetUser(): string {
-    const name = JSON.parse(localStorage.getItem('user'));
-    name.email = name.email.substring(0, ((name.email).indexOf('@')));
-    return (name.email);
+    this.API.getUser().subscribe((data) => {
+      this.CurrentUser = data;
+      // console.log(this.CurrentUser);
+    });
   }
 
 }

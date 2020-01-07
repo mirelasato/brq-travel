@@ -1,5 +1,5 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
-  <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()">
+  <form [formGroup]="formularioDeUsuario">
     <h3>Novo na BRQ Travel?</h3>
     <h5>Cadastre-se!</h5>
     <br>
@@ -70,7 +70,7 @@
     </div>
     <div class="row text-center">
         <div class="form-group col-sm-12">
-          <button type="button" class="btn btn-primary" (click)="authService.SignUp(email.value, senha.value)">Enviar dados</button>
+          <button type="button" class="btn btn-primary" (click)="enviarDados()">Enviar dados</button>
           <p>Já é membro? <a href="/entrar">Entre!</a></p>
         </div>
     </div>
