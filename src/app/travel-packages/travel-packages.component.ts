@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PacotesDestinoService } from '../shared/services/pacotes-destino.service';
+import { Destino } from '../shared/models/destino';
 
 @Component({
   selector: 'app-travel-packages',
@@ -7,16 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelPackagesComponent implements OnInit {
 
-  constructor() { }
+  destinoCards: Destino[];
+  destinoCardsDisplay: Destino[];
+  isCollapsed = false;
+
+  constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
+    this.service.lista()
+    .subscribe(dados => this.destinoCards = dados);
+  }
+
+  setTypeTravel(typeTravel){
+    
+    this.isCollapsed = true;
+    this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel )
+    console.log('destinosFiltrados => ', this.destinoCardsDisplay)
   }
 
 }
-export class CollapseDemoAnimatedComponent {
-  isCollapsed = false;
-}
 
-export class CollapseDemoAnimatedComponent2 {
-  isCollapsed2 = false;
-}
