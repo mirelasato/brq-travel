@@ -18,7 +18,7 @@ export class SecureInnerPagesGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.authService.isLoggedIn) {
-      window.alert('Você já está logado!');
+      // window.alert('Você já está logado!');
       this.router.navigate(['home']);
     }
     return true;

@@ -50,12 +50,12 @@ export class Validacoes {
     return { cpfInvalido: true };
   }
 
-  static SenhasCombinam(controle: AbstractControl) {
-    const senha = controle.get('senha').value;
-    const confirmarSenha = controle.get('confirmarSenha').value;
+  static CombinePwd(controle: AbstractControl) {
+    const password = controle.get('password').value;
+    const confirmPassword = controle.get('confirmPassword').value;
 
-    if (senha === confirmarSenha) { return null; }
+    if (password === confirmPassword) { return null; }
 
-    controle.get('confirmarSenha').setErrors({ senhasNaoCoincidem: true });
+    controle.get('confirmPassword').setErrors({ senhasNaoCoincidem: true });
   }
 }

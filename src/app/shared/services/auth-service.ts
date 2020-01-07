@@ -2,7 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Usuario } from '../models/usuario';
+import { User } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,7 @@ export class AuthService {
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['home']);
+          window.location.reload();
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -102,12 +103,12 @@ export class AuthService {
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: Usuario = {
-      nome: user.uid,
+    const userData: User = {
+      name: user.uid,
       email: user.email,
       cpf: user.cpf,
       rg: user.rg,
-      telefone: user.telefone,
+      phone: user.phone,
       id: user.id
     };
     return userRef.set(userData, {

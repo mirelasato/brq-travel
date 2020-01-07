@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/services/auth-service';
 import { ApiService } from '../shared/services/api.service';
-
+import { User } from '../shared/models/usuario';
 @Component({
   selector: 'app-topo',
   templateUrl: './topo.component.html',
   styleUrls: ['./topo.component.css']
 })
 export class TopoComponent implements OnInit {
-  CurrentUser: any;
+  CurrentUser: User;
 
   constructor( public authService: AuthService,
                public API: ApiService ) { }

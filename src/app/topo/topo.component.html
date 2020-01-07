@@ -36,7 +36,7 @@
         <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/cadastrar"> Cadastrar </a>
       </li>
       <li *ngIf="authService.isLoggedIn" class="nav-item">
-        <a class="nav-link" href="#" routerLinkActive="active" *ngFor="let user of CurrentUser" routerLink="/minha-conta">Olá, {{(user.nome)}}!</a>
+        <a class="nav-link" href="#" routerLinkActive="active" *ngFor="let user of CurrentUser" routerLink="/minha-conta">Olá, {{(user.name)}}!</a>
       </li>
       <li *ngIf="authService.isLoggedIn" class="nav-item">
         <a class="nav-link" href="#" routerLinkActive="active" (click)="authService.SignOut()">Sair</a>

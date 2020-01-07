@@ -1,5 +1,5 @@
 <div class="container col-lg-3 col-md-8 col-sm-12">
-  <form [formGroup]="FormularioLogin" >
+  <form [formGroup]="FormLogin">
     <h2>Já sou cliente</h2><br>
     <div id="mensagemView">
       <p class="alert alert-danger" *ngIf="!authService.status.valid" >{{authService.MsgError}}</p>
@@ -12,9 +12,9 @@
     </div>
 
     <div class="form-group">
-      <input type="password" formControlName="senha" class="{{!senha.pristine && senha.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Senha">
-      <div *ngIf="!senha.pristine && senha.errors">
-        <p class= "TxtError" *ngIf="senha.errors.required">Senha é obrigatória.</p>
+      <input type="password" formControlName="password" class="{{!password.pristine && password.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Senha">
+      <div *ngIf="!password.pristine && password.errors">
+        <p class= "TxtError" *ngIf="password.errors.required">Senha é obrigatória.</p>
       </div>
     </div>
 
@@ -24,7 +24,7 @@
     </div><br> -->
     
 
-    <button type="button" class="btn btn-primary btn-block" (click)="authService.SignIn(email.value, senha.value)">Acessar</button>
+    <button type="button" class="btn btn-primary btn-block" (click)="authService.SignIn(email.value, password.value)">Acessar</button>
     <div class="form-text pwdforgot"><a href="/recuperar-senha"> Esqueci minha senha</a></div>
     <div class="form-group">
       <p>Ainda não é membro? <a href="\cadastrar">Cadastre-se!</a></p>

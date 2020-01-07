@@ -2,19 +2,19 @@
   "usuarios": [
     {
       "id": 1,
-      "nome": "joao",
+      "name": "joao",
       "email": "joao123@gmail.com",
       "cpf": "124.456.789-02",
       "rg": "12.345.678-90",
-      "telefone": "985672-9506",
+      "phone": "985672-9506",
       "senha": "12446"
     },
     {
-      "nome": "Mirela Sato",
+      "name": "Mirela",
       "email": "mirelasato@brq.com",
-      "cpf": "21321313131",
-      "rg": "321313131",
-      "telefone": "33333333333",
+      "cpf": "12312312321",
+      "rg": "123213213",
+      "phone": "11986454646",
       "id": 2
     }
   ],
