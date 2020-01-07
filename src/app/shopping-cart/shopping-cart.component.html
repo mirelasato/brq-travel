@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="secao"></div>
+    <h5 class="text-center"></h5>
+</div>
+<hr />
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 *ngIf="authService.isLoggedIn; else !authService.isLoggedIn" class="display-4">Olá, {{(GetUser)}}!</h1>
+      <p class="lead">O seu carrinho está vazio.</p>
+    </div>
+  </div>
+

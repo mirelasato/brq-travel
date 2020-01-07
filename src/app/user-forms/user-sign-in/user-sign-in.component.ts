@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '../../../../node_modules/@angular/forms';
 import { UsuarioLogin } from '../../shared/models/usuario';
 import { AuthService } from '../../shared/services/auth-service';
+import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-user-sign-in',
   templateUrl: './user-sign-in.component.html',
   styleUrls: ['./user-sign-in.component.css']
 })
 export class UserSignInComponent implements OnInit {
-
+  user: Observable<firebase.User>;
   FormularioLogin: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -16,6 +19,15 @@ export class UserSignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.criarFormularioLogin();
+  }
+
+  FazerLogin() {
+    const dadosLogin = this.FormularioLogin.value;
+
+    const login = new UsuarioLogin(
+      dadosLogin.email,
+      dadosLogin.senha
+    );
   }
 
   criarFormularioLogin() {

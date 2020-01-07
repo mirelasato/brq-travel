@@ -10,6 +10,7 @@ export class ApiService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+
   api_url = 'http://localhost:3000/usuarios';
   user: any[];
 

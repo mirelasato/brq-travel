@@ -28,6 +28,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
 import { HttpClientModule } from '@angular/common/http';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     ForgotPasswordComponent,
     VisualizacaoComponent,
     MinhacontaComponent,
+    ShoppingCartComponent,
 
   ],
   imports: [
@@ -54,6 +58,7 @@ import { HttpClientModule } from '@angular/common/http';
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+    NgxMaskModule,
     CarouselModule.forRoot(),
     ButtonsModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -69,11 +74,13 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'recuperar-senha', component: ForgotPasswordComponent },
       { path: 'pacotes', component: CardTravelComponent },
       { path: 'visualizacao', component: VisualizacaoComponent },
-      { path: 'minha-conta', component: MinhacontaComponent }
+      { path: 'minha-conta', component: MinhacontaComponent },
+      { path: 'carrinho-de-compras', component: ShoppingCartComponent }
     ])
   ],
   providers: [
     AuthService,
+
 
   ],
   bootstrap: [AppComponent]

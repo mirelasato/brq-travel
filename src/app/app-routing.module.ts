@@ -14,6 +14,7 @@ import { MinhacontaComponent } from './minhaconta/minhaconta.component';
 import { AuthGuard } from '../../src/app/shared/services/auth.guard';
 // impede visualização de paginas quando já está logado (por exemplo pag de login)
 import { SecureInnerPagesGuard } from '../../src/app/shared/services/secure-inner-pages.guard';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'recuperar-senha', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'pacotes', component: CardTravelComponent },
   { path: 'visualizacao', component: VisualizacaoComponent },
-  { path: 'minha-conta', component: MinhacontaComponent }
+  { path: 'minha-conta', component: MinhacontaComponent },
+  { path: 'carrinho-de-compras', component: ShoppingCartComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
