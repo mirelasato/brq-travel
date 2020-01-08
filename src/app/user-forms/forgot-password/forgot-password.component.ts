@@ -9,15 +9,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  formSenhaEsquecida: FormGroup;
+  formForgotPasswd: FormGroup;
   constructor(private fb: FormBuilder, public authService: AuthService) { }
 
   ngOnInit() {
-    this.criarFormRecuperarSenha();
+    this.newformForgotPasswd();
   }
 
-  criarFormRecuperarSenha() {
-    this.formSenhaEsquecida = this.fb.group({
+  newformForgotPasswd() {
+    this.formForgotPasswd = this.fb.group({
       email: [
         '',
         Validators.compose([
@@ -28,6 +28,6 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   get email() {
-    return this.formSenhaEsquecida.get('email');
+    return this.formForgotPasswd.get('email');
   }
 }

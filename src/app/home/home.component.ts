@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PacotesDestinoService } from '../shared/services/pacotes-destino.service';
+import { Destino } from '../shared/models/destino';
 
 
 @Component({
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  destaqueCards: Destino[];
+  destaqueCardsDisplay: Destino[];
+  
+  constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
+    this.service.lista()
+    .subscribe(dados => this.destaqueCards = dados);
+
+    this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)
+    console.log('destaqueCards', this.destaqueCardsDisplay)
   }
 
 }

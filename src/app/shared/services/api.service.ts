@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../services/auth-service';
-import { Usuario } from '../models/usuario';
+import { User } from '../models/usuario';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,15 +25,15 @@ export class ApiService {
 
 
   getUser() {
-    return this.http.get<Usuario[]>(this.apiURL + '/usuarios?email=' + this.emailUser);
+    return this.http.get<User>(this.apiURL + '/usuarios?email=' + this.emailUser);
   }
 
   createUser(newUser) {
-    return this.http.post<Usuario>(this.apiURL + '/usuarios', newUser, this.httpOptions).pipe(take(1));
+    return this.http.post<User>(this.apiURL + '/usuarios', newUser, this.httpOptions).pipe(take(1));
   }
 
   updateUser(userId, newInfo) {
-    return this.http.put<Usuario>(this.apiURL + '/usuarios/' + userId, newInfo, this.httpOptions).pipe(take(1));
+    return this.http.put<User>(this.apiURL + '/usuarios/' + userId, newInfo, this.httpOptions).pipe(take(1));
   }
 
 }

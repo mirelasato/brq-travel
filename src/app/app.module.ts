@@ -9,11 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
-import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
-import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
+import { UserRegisterComponent } from './user-forms/register/register.component';
+import { UserLoginComponent } from './user-forms/login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
-import { MinhacontaComponent } from './minhaconta/minhaconta.component';
+import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -31,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
+import { UserLogin } from './shared/models/usuario';
 
 @NgModule({
   declarations: [
@@ -38,16 +39,16 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     HomeComponent,
     TopoComponent,
     RodapeComponent,
-    UserSignInComponent,
-    UserSignUpComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
     RodapeComponent,
     RodapeComponent,
     CardTravelComponent,
     TravelPackagesComponent,
     ForgotPasswordComponent,
     VisualizacaoComponent,
-    MinhacontaComponent,
     ShoppingCartComponent,
+    MyaccountComponent,
 
   ],
   imports: [
@@ -68,14 +69,14 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'home'},
       { path: 'home',  component: HomeComponent},
-      { path: 'entrar', component: UserSignInComponent },
-      { path: 'cadastro-de-viagens', component: UserSignUpComponent },
+      { path: 'entrar', component: UserLoginComponent },
+      { path: 'cadastro', component: UserRegisterComponent },
       { path: 'pacotes', component: TravelPackagesComponent },
       { path: 'recuperar-senha', component: ForgotPasswordComponent },
       { path: 'pacotes', component: CardTravelComponent },
       { path: 'visualizacao', component: VisualizacaoComponent },
-      { path: 'minha-conta', component: MinhacontaComponent },
-      { path: 'carrinho-de-compras', component: ShoppingCartComponent }
+      { path: 'carrinho-de-compras', component: ShoppingCartComponent },
+      { path: 'minha-conta', component: MyaccountComponent }
     ])
   ],
   providers: [
