@@ -5,8 +5,8 @@
           <div class="card-body">
             <h5 class="card-title">Pacotes com Hospedagem</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
-              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Pacotes com Hospedagem
+            <button type="button" class="btn btn-primary" (click)="setTypeTravel(1)"
+              aria-controls="collapseBasic">Pacotes com Hospedagem
             </button>
           </div>
         </div>
@@ -17,8 +17,8 @@
           <div class="card-body">
             <h5 class="card-title">Pacotes de Bate e volta</h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-primary" (click)="isCollapsed2 = !isCollapsed2"
-              [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic">Pacotes de Bate e Volta
+            <button type="button" class="btn btn-primary" (click)="setTypeTravel(2)"
+              aria-controls="collapseBasic">Pacotes de Bate e Volta
             </button>
           </div>
         </div>
@@ -26,12 +26,9 @@
     </div>
   </section>
 
-
-<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
-  <app-card-travel></app-card-travel>
-</div>
-<div id="collapseBasic" [collapse]="!isCollapsed2" [isAnimated]="true">
-  <app-card-travel></app-card-travel>
+<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true" >
+  <h2>Próximas viagens</h2>
+  <app-card-travel *ngFor="let destinos of destinoCardsDisplay" [destino]="destinos"></app-card-travel>
 </div>
 
 

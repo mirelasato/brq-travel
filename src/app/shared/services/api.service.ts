@@ -20,6 +20,9 @@ export class ApiService {
     })
   };
 
+  api_url = 'http://localhost:3000/usuarios';
+  user: any[];
+
 
   getUser() {
     return this.http.get<User>(this.apiURL + '/usuarios?email=' + this.emailUser);

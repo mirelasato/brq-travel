@@ -5,11 +5,11 @@
   </button>
 
   <!--Logo da Empresas-->
-  <img  src="/assets/brq-travel-logo.png" alt="Logo da Empresas" class="icone-empresa"/>
+  <img src="/assets/brq-travel-logo.png" alt="Logo da Empresas" class="icone-empresa" />
   <div class="navbar-collapse collapse" [collapse]=!isCollapsed [isAnimated]="true">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/home" >Home</a>
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/home">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" routerLinkActive="active" routerLink="/sobrenos">Sobre Nós</a>
@@ -18,22 +18,22 @@
         <a class="nav-link" href="#" routerLinkActive="active" routerLink="/pacotes">Pacotes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cadastropacotes" >Cadastro de Viagens</a>
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cadastropacotes">Cadastro de Viagens</a>
       </li>
-    </ul> 
+    </ul>
 
     <!-- <div class="button"> -->
-      <!-- <form class="form-inline my-2 " id="InputSearch" >
+    <!-- <form class="form-inline my-2 " id="InputSearch" >
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary search">Search</button>
       </form> -->
     <!-- </div> -->
     <ul class="navbar-nav">
       <li *ngIf="!authService.isLoggedIn" class="nav-item">
-        <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/entrar"> Entrar </a>
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/entrar"> Entrar </a>
       </li>
       <li *ngIf="!authService.isLoggedIn" class="nav-item">
-        <a class="nav-link" href="#" routerLinkActive="active"  routerLink="/cadastrar"> Cadastrar </a>
+        <a class="nav-link" href="#" routerLinkActive="active" routerLink="/cadastrar"> Cadastrar </a>
       </li>
       <li *ngIf="authService.isLoggedIn" class="nav-item">
         <a class="nav-link" href="#" routerLinkActive="active" *ngFor="let user of CurrentUser" routerLink="/minha-conta">Olá, {{(user.name)}}!</a>
@@ -43,9 +43,8 @@
       </li>
     </ul>
   </div>
-  <img src="/assets/shopping-cart.svg" alt="Icone do carrinho de compra" id="cart" class="icon-cart"/>
+  <a class="nav-link" href="#" routerLinkActive="active" routerLink="/carrinho-de-compras">
+    <img src="/assets/shopping-cart.svg" alt="Icone do carrinho de compra" id="cart" class="icon-cart" />
+  </a>
+
 </nav>
-
-
-
-

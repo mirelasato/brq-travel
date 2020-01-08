@@ -16,6 +16,22 @@
       "rg": "333333333",
       "phone": "22222222222",
       "id": 2
+    },
+    {
+      "nome": "Anderson Jovani Souza Santos",
+      "email": "anderson.jovani9522@gmail.com",
+      "cpf": "43686874857",
+      "rg": "455153322",
+      "telefone": "11947328907",
+      "id": 3
+    },
+    {
+      "nome": "Anderson Jovani Souza Santos",
+      "email": "andersonjovani@brq.com",
+      "cpf": "43686874857",
+      "rg": "455153322",
+      "telefone": "11947328907",
+      "id": 4
     }
   ],
   "destinos": [
@@ -33,15 +49,15 @@
       "tipo": 1,
       "imagens": [
         {
-          "url": "assets/1.jpg"
-        },
-        {
-          "url": "assets/2.jpg"
-        },
-        {
-          "url": "assets/3.jpg"
-        }
-      ]
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+           "url": "assets/img/capa-destinos.jpg"
+         }
+        ] 
     },
     {
       "id": 2,
@@ -58,18 +74,18 @@
       "tipo": 2,
       "imagens": [
         {
-          "id": 1,
-          "url": "assets/1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "assets/2.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/3.jpg"
-        }
-      ]
+          "id":1,
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":2,
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":3,
+          "url": "assets/img/capa-destinos.jpg"
+         }
+        ] 
     },
     {
       "id": 3,
@@ -86,18 +102,18 @@
       "tipo": 2,
       "imagens": [
         {
-          "id": 1,
-          "url": "assets/1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "assets/2.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/3.jpg"
-        }
-      ]
+          "id":1,
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":2,
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":3,
+          "url": "assets/img/capa-destinos.jpg"
+         }
+        ] 
     },
     {
       "id": 4,
@@ -114,18 +130,18 @@
       "tipo": 2,
       "imagens": [
         {
-          "id": 1,
-          "url": "assets/1.jpg"
-        },
-        {
-          "id": 2,
-          "url": "assets/2.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/3.jpg"
-        }
-      ]
+          "id":1,
+          "url": "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":2,
+          "url":  "assets/img/capa-destinos.jpg"
+         },
+         {
+          "id":3,
+          "url":  "assets/img/capa-destinos.jpg"
+         }
+        ] 
     }
   ],
   "tipoViagem": [
