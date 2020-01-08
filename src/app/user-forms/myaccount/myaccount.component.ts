@@ -14,9 +14,12 @@ import { ApiService } from '../../shared/services/api.service';
 export class MyaccountComponent implements OnInit {
   MyAccountForm: FormGroup;
   emailUser = this.authService.GetEmail;
-  data: Array<User>;
   CurrentUser;
   id;
+  status = {
+    isDanger: true,
+    valid: true };
+  MsgError = '';
 
   constructor(private fb: FormBuilder,
               public authService: AuthService,
@@ -33,18 +36,28 @@ export class MyaccountComponent implements OnInit {
 
   }
 
-  salvarDados() {
+  saveChanges() {
     const FormData = this.MyAccountForm.value;
 
     const user = new User(
-      FormData.nome === '' ?  this.CurrentUser[0].nome : FormData.name,
+      FormData.name === '' ?  this.CurrentUser[0].name : FormData.name,
       this.CurrentUser[0].email,
       FormData.cpf === '' ? this.CurrentUser[0].cpf : FormData.cpf,
       FormData.rg === '' ? this.CurrentUser[0].rg : FormData.rg,
       FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone
     );
-    this.API.updateUser(this.id, user).subscribe(() => {
-      console.log('Sucesso');
+    this.API.updateUser(this.id, user).subscribe(
+      res => {
+        console.log(res);
+        this.status.valid = false;
+        this.status.isDanger = false;
+        this.MsgError = 'Dados atualizados com sucesso!';
+      },
+      err => {
+        console.log(err.message);
+        this.status.isDanger = true;
+        this.status.valid = false;
+        this.MsgError = err.message;
     });
   }
 

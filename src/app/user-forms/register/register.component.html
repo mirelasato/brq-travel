@@ -2,7 +2,9 @@
   <form [formGroup]="FormRegister">
     <h3>Novo na BRQ Travel?</h3>
     <h5>Cadastre-se!</h5>
-    <br>
+    <br><div id="mensagemView">
+      <p class="{{authService.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!authService.status.valid" >{{authService.MsgError}}</p>
+    </div>
     <div class="form-group">
         <label for="name">Nome Completo:</label>
         <input type="text" formControlName="name" class="{{!name.pristine && name.errors ? 'form-control is-invalid' : 'form-control' }}" placeholder="Nome Completo">

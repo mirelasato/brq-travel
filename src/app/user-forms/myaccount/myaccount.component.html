@@ -1,7 +1,9 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
     <form [formGroup]="MyAccountForm" *ngFor="let user of CurrentUser">
       <h3>Minha conta</h3>
-      <br>
+      <br><div id="mensagemView">
+        <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
+      </div>
       <div class="form-group">
           <label for="name">Nome Completo:</label>
           <input type="text" formControlName="name" class="{{!name.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.name)}}>
@@ -50,7 +52,7 @@
       </div>
       <div class="row text-center">
         <div class="form-group col-sm-12">
-          <button type="button" class="btn btn-primary" (click)="salvarDados()">Salvar Alterações</button>
+          <button type="button" class="btn btn-primary" (click)="saveChanges()">Salvar Alterações</button>
         </div>
     </div>
     </form>

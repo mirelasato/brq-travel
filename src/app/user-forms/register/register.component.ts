@@ -11,7 +11,6 @@ import { ApiService } from '../../shared/services/api.service';
 })
 export class UserRegisterComponent implements OnInit {
   FormRegister: FormGroup;
-  CurrentUser: User;
 
   constructor(private fb: FormBuilder,
               public authService: AuthService,
@@ -35,9 +34,8 @@ export class UserRegisterComponent implements OnInit {
       console.log('Sucesso');
     });
 
-    console.log(`O usuário ${user.name} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(user)}`);
+    // console.log(`O usuário ${user.name} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(user)}`);
 
-    this.FormRegister.reset();
   }
 
   newRegisterForm() {

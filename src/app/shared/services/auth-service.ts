@@ -58,9 +58,14 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         // this.SendVerificationMail();
-        this.SetUserData(result.user);
+        this.status.valid = false;
+        this.status.isDanger = false;
+        this.MsgError = 'Cadastro realizado com sucesso!';
       }).catch((error) => {
         console.log(error.message);
+        this.status.isDanger = true;
+        this.status.valid = false;
+        this.MsgError = error.message;
       });
   }
 
