@@ -1,21 +1,21 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
-    <form [formGroup]="formularioDeUsuario" (ngSubmit)="enviarDados()" *ngFor="let user of CurrentUser">
+    <form [formGroup]="MyAccountForm" *ngFor="let user of CurrentUser">
       <h3>Minha conta</h3>
       <br>
       <div class="form-group">
-          <label for="nome">Nome Completo:</label>
-          <input type="text" formControlName="nome" class="{{!nome.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.nome)}}>
-          <div *ngIf="!nome.pristine && nome.errors">
-            <p class= "TxtError" *ngIf="nome.errors.required">Nome é obrigatório</p>
-            <p class= "TxtError" *ngIf="nome.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
-            <p class= "TxtError" *ngIf="nome.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+          <label for="name">Nome Completo:</label>
+          <input type="text" formControlName="name" class="{{!name.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.name)}}>
+          <div *ngIf="!name.pristine && name.errors">
+            <p class= "TxtError" *ngIf="name.errors.required">Nome é obrigatório</p>
+            <p class= "TxtError" *ngIf="name.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
+            <p class= "TxtError" *ngIf="name.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
           </div>
       </div>
   
       <div class="form-row">
         <div class="col-lg-6 bottom-label">
           <label for="cpf">CPF:</label>
-          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}"  value={{(user.cpf)}}>
+          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.cpf)}}>
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
             <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
@@ -23,7 +23,7 @@
         </div>
         <div class="col-lg-6 bottom-label">
           <label for="rg">RG:</label>
-          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}"value={{(user.rg)}}>
+          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.rg)}}>
           <div *ngIf="!rg.pristine && rg.errors">
             <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
             <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
@@ -33,10 +33,10 @@
       
       <div class="form-row">
         <div class="col-lg-6 bottom-label">
-          <label for="telefone">Telefone:</label>
-          <input type="phone" formControlName="telefone" mask="(00) 0000-00009" class="{{!telefone.pristine && telefone.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.telefone)}}>
-          <div *ngIf="!telefone.pristine && telefone.errors">
-            <p class="TxtError" *ngIf="telefone.errors.required">Telefone é obrigatório.</p>
+          <label for="phone">Telefone:</label>
+          <input type="phone" formControlName="phone" mask="(00) 0000-00009" class="{{!phone.pristine && phone.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.phone)}}>
+          <div *ngIf="!phone.pristine && phone.errors">
+            <p class="TxtError" *ngIf="phone.errors.required">Telefone é obrigatório.</p>
           </div>
         </div>
         <div class="col-lg-6 bottom-label">
@@ -48,11 +48,10 @@
           </div>
         </div>
       </div>
-
       <div class="row text-center">
-          <div class="form-group col-sm-12">
-            <button type="button" class="btn btn-primary">Salvar Alterações</button>
-          </div>
-      </div>
+        <div class="form-group col-sm-12">
+          <button type="button" class="btn btn-primary" (click)="salvarDados()">Salvar Alterações</button>
+        </div>
+    </div>
     </form>
   </div>

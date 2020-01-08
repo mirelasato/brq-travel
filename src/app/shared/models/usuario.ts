@@ -1,36 +1,27 @@
-export class Usuario {
-    nome: string;
+export class User {
+    name: string;
     email: string;
     cpf: string;
     rg: string;
-    telefone: string;
-    senha: string;
-    confirmarSenha: string;
+    phone: string;
+    id;
 
-    constructor(nome: string, email: string, cpf: string, rg: string, telefone: string, senha: string, confirmarSenha: string) {
-        this.nome = nome;
+    constructor(name: string, email: string, cpf: string, rg: string, phone: string) {
+        this.name = name;
         this.email = email;
         this.cpf = cpf;
         this.rg = rg;
-        this.telefone = telefone;
-        this.senha = senha;
-        this.confirmarSenha = confirmarSenha;
+        this.phone = phone;
     }
 }
 
-export class UsuarioLogin {
+export class UserLogin {
     email: string;
-    senha: string;
+    password: string;
 
-    constructor(email: string, senha: string) {
+    constructor(email: string, password: string) {
         this.email = email;
-        this.senha = senha;
+        this.password = password;
     }
 }
 
-export interface User {
-    uid: string;
-   email: string;
-   displayName: string;
-   emailVerified: boolean;
-}

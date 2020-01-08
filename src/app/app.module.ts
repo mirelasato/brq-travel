@@ -9,11 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopoComponent } from './topo/topo.component';
-import { UserSignUpComponent } from './user-forms/user-sign-up/user-sign-up.component';
-import { UserSignInComponent } from './user-forms/user-sign-in/user-sign-in.component';
+import { UserRegisterComponent } from './user-forms/register/register.component';
+import { UserLoginComponent } from './user-forms/login/login.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
-import { MinhacontaComponent } from './minhaconta/minhaconta.component';
+import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
 
 import { CollapseModule, BsDropdownModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -28,6 +28,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
 import { HttpClientModule } from '@angular/common/http';
+import { UserLogin } from './shared/models/usuario';
 
 @NgModule({
   declarations: [
@@ -35,15 +36,15 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     TopoComponent,
     RodapeComponent,
-    UserSignInComponent,
-    UserSignUpComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
     RodapeComponent,
     RodapeComponent,
     CardTravelComponent,
     TravelPackagesComponent,
     ForgotPasswordComponent,
     VisualizacaoComponent,
-    MinhacontaComponent,
+    MyaccountComponent,
 
   ],
   imports: [
@@ -63,13 +64,13 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'home'},
       { path: 'home',  component: HomeComponent},
-      { path: 'entrar', component: UserSignInComponent },
-      { path: 'cadastro-de-viagens', component: UserSignUpComponent },
+      { path: 'entrar', component: UserLoginComponent },
+      { path: 'cadastro', component: UserRegisterComponent },
       { path: 'pacotes', component: TravelPackagesComponent },
       { path: 'recuperar-senha', component: ForgotPasswordComponent },
       { path: 'pacotes', component: CardTravelComponent },
       { path: 'visualizacao', component: VisualizacaoComponent },
-      { path: 'minha-conta', component: MinhacontaComponent }
+      { path: 'minha-conta', component: MyaccountComponent }
     ])
   ],
   providers: [

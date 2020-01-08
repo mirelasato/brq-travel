@@ -1,38 +1,37 @@
- {
-   "usuarios": [
-     {
-       "id": 1,
-      "nome":"joao",
-      "email":"joao123@gmail.com",
-      "cpf":"124.456.789-02",
-      "rg": "12.345.678-90",
-      "telefone": "985672-9506",
-      "senha": "12446"
-     },
-     {
-      "id": 2,
-     "nome":"Mirela",
-     "email":"mirelasato@brq.com",
-     "cpf":"124.456.789-02",
-     "rg": "12.345.678-90",
-     "telefone": "985672-9506",
-     "senha": "12446"
-    }
-   ],
-     "destinos":[
-   {
+{
+  "usuarios": [
+    {
       "id": 1,
-      "titulo":"Arraial do Cabo",
-      "descricao":"Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro.",
+      "name": "joao",
+      "email": "joao123@gmail.com",
+      "cpf": "124.456.789-02",
+      "rg": "12.345.678-90",
+      "phone": "985672-9506",
+      "senha": "12446"
+    },
+    {
+      "name": "Mirela",
+      "email": "mirelasato@brq.com",
+      "cpf": "12312312321",
+      "rg": "123213213",
+      "phone": "11986454646",
+      "id": 2
+    }
+  ],
+  "destinos": [
+    {
+      "id": 1,
+      "titulo": "Arraial do Cabo",
+      "descricao": "Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro.",
       "destaque": true,
       "data": "13/12/2019",
       "retorno": "15/12/2019",
       "embarque": "Barra Funda",
-      "valor":"500,00",
-      "vagas":45,
-      "feriado":1,
-      "tipo":1,
-      "imagens":[
+      "valor": "500,00",
+      "vagas": 45,
+      "feriado": 1,
+      "tipo": 1,
+      "imagens": [
         {
           "url": "assets/img/capa-destinos.jpg"
          },
@@ -46,18 +45,18 @@
     },
     {
       "id": 2,
-      "titulo":"Campos do Jordão",
-      "descricao":"Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
+      "titulo": "Campos do Jordão",
+      "descricao": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
       "destaque": false,
       "data": "21/12/2019",
-      "retorno":"22/12/2019",
-      "embarque":"Barra Funda",
-      "anunciante":"BRQ-Travel",
-      "valor":"160,00",
-      "vagas":45,
-      "feriado":"2",
-      "tipo":2,
-      "imagens":[
+      "retorno": "22/12/2019",
+      "embarque": "Barra Funda",
+      "anunciante": "BRQ-Travel",
+      "valor": "160,00",
+      "vagas": 45,
+      "feriado": "2",
+      "tipo": 2,
+      "imagens": [
         {
           "id":1,
           "url": "assets/img/capa-destinos.jpg"
@@ -74,18 +73,18 @@
     },
     {
       "id": 3,
-      "titulo":"Foz do Iguaçu",
-      "descricao":"Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
+      "titulo": "Foz do Iguaçu",
+      "descricao": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
       "destaque": false,
-      "anunciante":"BRQ-Travel",
+      "anunciante": "BRQ-Travel",
       "data": "15/01/2020",
-      "retorno":"18/01/2020",
-      "embarque":"Barra Funda",
-      "valor":"690,00",
-      "vagas":45,
-      "feriado":"",
-      "tipo":2,
-      "imagens":[
+      "retorno": "18/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "690,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
         {
           "id":1,
           "url": "assets/img/capa-destinos.jpg"
@@ -102,18 +101,18 @@
     },
     {
       "id": 4,
-      "titulo":"São Roque",
-      "descricao":"Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "titulo": "São Roque",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
       "destaque": false,
-      "anunciante":"BRQ-Travel",
+      "anunciante": "BRQ-Travel",
       "data": "04/01/2020",
-      "retorno":"05/01/2020",
-      "embarque":"Barra Funda",
-      "valor":"120,00",
-      "vagas":45,
-      "feriado":"",
-      "tipo":2,
-      "imagens":[
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
         {
           "id":1,
           "url": "assets/img/capa-destinos.jpg"
@@ -129,25 +128,24 @@
         ] 
     }
   ],
-  
-  "tipoViagem" :[
+  "tipoViagem": [
     {
-      "id":1,
-      "nome":"Pacotes com Hospedagem"
+      "id": 1,
+      "nome": "Pacotes com Hospedagem"
     },
     {
-      "id":2,
-      "nome":"Pacotes de Bate e volta"
+      "id": 2,
+      "nome": "Pacotes de Bate e volta"
     }
   ],
-  "feriado" :[
+  "feriado": [
     {
-      "id":1,
-      "nome":"Carnaval"
+      "id": 1,
+      "nome": "Carnaval"
     },
     {
-      "id":2,
-      "nome":"Pascoa"
+      "id": 2,
+      "nome": "Pascoa"
     }
   ]
 }
