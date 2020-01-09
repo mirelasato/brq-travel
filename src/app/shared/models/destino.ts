@@ -1,14 +1,14 @@
 export class Destino {
-    id: number;
-    titulo: string;
-    descricao: string;
-    destaque: boolean;
-    data: string;
-    retorno: string;
-    embarque: string;
-    valor: string;
-    vagas: number;
-    feriado: number;
-    tipo: number;
-    imagens: Array<object>
+    public id: number;
+    public titulo: string;
+    public descricao: string;
+    public destaque: boolean;
+    public data: string;
+    public retorno: string;
+    public embarque: string;
+    public valor: string;
+    public vagas: number;
+    public feriado: number;
+    public tipo: number;
+    public imagens: Array<object>
 }
