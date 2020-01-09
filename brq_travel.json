@@ -34,12 +34,37 @@
       "id": 4
     },
     {
+<<<<<<< HEAD
       "name": "Vinicius Rossi da Silva",
       "email": "viniciusrossi@brq.com",
       "cpf": "12345678910",
       "rg": "123456789",
       "phone": "12345678900",
       "id": 5
+=======
+      "name": "william",
+      "email": "wilshin@teste.com",
+      "cpf": "32951808810",
+      "rg": "428613858",
+      "phone": "11988444763",
+      "id": 5
+    },
+    {
+      "name": "william",
+      "email": "wilshin@teste.com",
+      "cpf": "32951808810",
+      "rg": "428613858",
+      "phone": "11988444763",
+      "id": 6
+    },
+    {
+      "name": "william",
+      "email": "wilshin@yahoo.com.br",
+      "cpf": "32951808810",
+      "rg": "428613858",
+      "phone": "11988444763",
+      "id": 7
+>>>>>>> f6afe371aa594408fc6fd23ff85ae7344e68fc54
     }
   ],
   "destinos": [
@@ -60,10 +85,17 @@
           "url": "assets/img/capa-destinos.jpg"
         },
         {
+<<<<<<< HEAD
           "url": "assets/img/capa-destinos.jpg"
         },
         {
           "url": "assets/img/capa-destinos.jpg"
+=======
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "url": "assets/img/capa-destinos.jpg"
+>>>>>>> f6afe371aa594408fc6fd23ff85ae7344e68fc54
         }
       ]
     },
