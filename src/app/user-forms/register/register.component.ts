@@ -11,6 +11,11 @@ import { ApiService } from '../../shared/services/api.service';
 })
 export class UserRegisterComponent implements OnInit {
   FormRegister: FormGroup;
+  IsRegistered;
+  status = {
+    isDanger: true,
+    valid: true };
+  MsgError = '';
 
   constructor(private fb: FormBuilder,
               public authService: AuthService,
@@ -29,13 +34,25 @@ export class UserRegisterComponent implements OnInit {
       FormData.rg,
       FormData.phone
     );
-    this.authService.SignUp(FormData.email, FormData.password);
-    this.API.createUser(user).subscribe(() => {
-      console.log('Sucesso');
+    this.API.getUser(user.email).subscribe((data) => {
+      this.IsRegistered = data[0];
     });
+    if (this.IsRegistered === null) {
+      this.authService.SignUp(FormData.email, FormData.password);
+      this.API.createUser(user).subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
 
+        });
+      } else {
+        console.log('Usuário ja está registrado!');
+        this.status.isDanger = true;
+        this.status.valid = false;
+        this.MsgError = 'Usuário ja está registrado!';
+      }
     // console.log(`O usuário ${user.name} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(user)}`);
-
   }
 
   newRegisterForm() {

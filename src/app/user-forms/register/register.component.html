@@ -4,6 +4,7 @@
     <h5>Cadastre-se!</h5>
     <br><div id="mensagemView">
       <p class="{{authService.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!authService.status.valid" >{{authService.MsgError}}</p>
+      <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
     </div>
     <div class="form-group">
         <label for="name">Nome Completo:</label>

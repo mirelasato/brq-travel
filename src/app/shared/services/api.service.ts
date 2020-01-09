@@ -9,7 +9,7 @@ import { User } from '../models/usuario';
 
 export class ApiService {
   apiURL = 'http://localhost:3000';
-  emailUser = this.authService.GetEmail;
+  userExists;
 
   constructor(private http: HttpClient,
               private authService: AuthService) { }
@@ -20,12 +20,9 @@ export class ApiService {
     })
   };
 
-  api_url = 'http://localhost:3000/usuarios';
-  user: any[];
-
-
-  getUser() {
-    return this.http.get<User>(this.apiURL + '/usuarios?email=' + this.emailUser);
+  getUser(emailUser) {
+    if (emailUser === '') { emailUser = this.authService.GetEmail; }
+    return this.http.get<User>(this.apiURL + '/usuarios?email=' + emailUser);
   }
 
   createUser(newUser) {

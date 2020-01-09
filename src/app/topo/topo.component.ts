@@ -9,12 +9,13 @@ import { User } from '../shared/models/usuario';
 })
 export class TopoComponent implements OnInit {
   CurrentUser: User;
+  emailUser = this.authService.GetEmail;
 
   constructor( public authService: AuthService,
                public API: ApiService ) { }
 
   ngOnInit() {
-    this.API.getUser().subscribe((data) => {
+    this.API.getUser(this.emailUser).subscribe((data) => {
       this.CurrentUser = data;
       // console.log(this.CurrentUser);
     });

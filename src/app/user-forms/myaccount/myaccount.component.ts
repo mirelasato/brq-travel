@@ -28,7 +28,7 @@ export class MyaccountComponent implements OnInit {
   ngOnInit() {
     this.newMyAccountForm();
 
-    this.API.getUser().subscribe((data) => {
+    this.API.getUser(this.emailUser).subscribe((data) => {
       this.CurrentUser = data;
       this.id = data[0].id;
       console.log(this.CurrentUser);
