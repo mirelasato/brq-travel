@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { PacotesDestinoService } from '../shared/services/pacotes-destino.service';
 import { Destino } from '../shared/models/destino';
 
@@ -17,10 +17,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.service.lista()
-    .subscribe(dados => this.destaqueCards = dados);
-
-    this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)
-    console.log('destaqueCards', this.destaqueCardsDisplay)
+    .subscribe(dados => {this.destaqueCards = dados;
+      this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true
+     )});
   }
-
 }
