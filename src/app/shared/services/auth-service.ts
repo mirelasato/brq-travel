@@ -15,6 +15,13 @@ export class AuthService {
     valid: true };
   MsgError = '';
 
+  map = new Map([
+    [ 'auth/wrong-password', 'A senha está incorreta!' ],
+    [ 'auth/invalid-email', 'Verifique se o seu endereço de e-mail está correto' ],
+    [ 'auth/user-not-found', 'Não encontramos seu registro na nossa base de dados.' ],
+    [ '', '' ]
+  ]);
+
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -46,8 +53,7 @@ export class AuthService {
         this.SetUserData(result.user);
       }).catch((error) => {
         this.status.valid = false;
-        this.MsgError = error.message;
-        console.log(error.message);
+        this.MsgError = this.map.get(error.code);
       });
   }
 
@@ -65,7 +71,7 @@ export class AuthService {
         console.log(error.message);
         this.status.isDanger = true;
         this.status.valid = false;
-        this.MsgError = error.message;
+        this.MsgError = error.code;
       });
   }
 
@@ -114,7 +120,8 @@ export class AuthService {
       cpf: user.cpf,
       rg: user.rg,
       phone: user.phone,
-      id: user.id
+      id: user.id,
+      admin: false
     };
     return userRef.set(userData, {
       merge: true

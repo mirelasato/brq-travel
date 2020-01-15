@@ -32,7 +32,8 @@ export class UserRegisterComponent implements OnInit {
       FormData.email,
       FormData.cpf,
       FormData.rg,
-      FormData.phone
+      FormData.phone,
+      false
     );
     this.API.getUser(user.email).subscribe((data) => {
       this.IsRegistered = data[0];

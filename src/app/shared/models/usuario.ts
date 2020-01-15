@@ -5,13 +5,15 @@ export class User {
     rg: string;
     phone: string;
     id;
+    admin: boolean;
 
-    constructor(name: string, email: string, cpf: string, rg: string, phone: string) {
+    constructor(name: string, email: string, cpf: string, rg: string, phone: string, admin: boolean) {
         this.name = name;
         this.email = email;
         this.cpf = cpf;
         this.rg = rg;
         this.phone = phone;
+        this.admin = admin;
     }
 }
 

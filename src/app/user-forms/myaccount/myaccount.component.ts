@@ -44,7 +44,8 @@ export class MyaccountComponent implements OnInit {
       this.CurrentUser[0].email,
       FormData.cpf === '' ? this.CurrentUser[0].cpf : FormData.cpf,
       FormData.rg === '' ? this.CurrentUser[0].rg : FormData.rg,
-      FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone
+      FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone,
+      false
     );
     this.API.updateUser(this.id, user).subscribe(
       res => {
