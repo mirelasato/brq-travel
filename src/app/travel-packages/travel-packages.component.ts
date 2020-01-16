@@ -24,7 +24,6 @@ export class TravelPackagesComponent implements OnInit {
     
     this.isCollapsed = true;
     this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel )
-    console.log('destinosFiltrados => ', this.destinoCardsDisplay)
   }
 
 }
