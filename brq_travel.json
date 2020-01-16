@@ -87,7 +87,7 @@
       "id": 2,
       "titulo": "Campos do Jordão",
       "descricao": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
-      "destaque": false,
+      "destaque": true,
       "data": "21/12/2019",
       "retorno": "22/12/2019",
       "embarque": "Barra Funda",
@@ -96,6 +96,7 @@
       "vagas": 45,
       "feriado": "2",
       "tipo": 2,
+      "imagens-banner": "assets/img/capa-destinos.jpg",
       "imagens": [
         {
           "id": 1,
@@ -115,7 +116,7 @@
       "id": 3,
       "titulo": "Foz do Iguaçu",
       "descricao": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
-      "destaque": false,
+      "destaque": true,
       "anunciante": "BRQ-Travel",
       "data": "15/01/2020",
       "retorno": "18/01/2020",
@@ -181,11 +182,23 @@
   "feriado": [
     {
       "id": 1,
-      "nome": "Carnaval"
+      "nome": "Carnaval",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
     },
     {
       "id": 2,
-      "nome": "Pascoa"
+      "nome": "Pascoa",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/banner1.jpg"
+        }
+      ]
     }
   ]
 }

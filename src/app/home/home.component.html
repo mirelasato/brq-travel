@@ -1,18 +1,18 @@
 <br>
 <div class="container size-screen">
   <div class="secao">
-    <h3 class="text-center">Destaques do dia!</h3>
+    <h3 class="text-center">Destaques do dia {{ carrossel.nome }}!</h3>
   </div>
   <hr />
 <!--  carrosel  -->
 <carousel>
-  <slide>
-    <img src="assets/pacotes/banner1.jpg" alt="first slide" style="display: block; width: 100%;">
+  <slide *ngFor="let carrossel of feriadoImg">
+    <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block; width: 100%;">
     <div class="carousel-caption d-none d-md-block">
     </div>
   </slide>
-  <slide>
-    <img src="assets/pacotes/banner2.jpg" alt="second slide" style="display: block; width: 100%;">
+  <!-- <slide>
+    <img [src]="final.imagens[1].url" alt="second slide" style="display: block; width: 100%;">
     <div class="carousel-caption d-none d-md-block">
     </div>
   </slide>
@@ -20,7 +20,7 @@
     <img src="assets/pacotes/banner3.jpg" alt="third slide" style="display: block; width: 100%;">
     <div class="carousel-caption d-none d-md-block">
     </div>
-  </slide>
+  </slide> -->
 </carousel>
 <br>
 
