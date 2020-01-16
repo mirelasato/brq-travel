@@ -39,27 +39,33 @@ export class MyaccountComponent implements OnInit {
   saveChanges() {
     const FormData = this.MyAccountForm.value;
 
-    const user = new User(
-      FormData.name === '' ?  this.CurrentUser[0].name : FormData.name,
-      this.CurrentUser[0].email,
-      FormData.cpf === '' ? this.CurrentUser[0].cpf : FormData.cpf,
-      FormData.rg === '' ? this.CurrentUser[0].rg : FormData.rg,
-      FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone,
-      false
-    );
-    this.API.updateUser(this.id, user).subscribe(
-      res => {
-        console.log(res);
-        this.status.valid = false;
-        this.status.isDanger = false;
-        this.MsgError = 'Dados atualizados com sucesso!';
-      },
-      err => {
-        console.log(err.message);
-        this.status.isDanger = true;
-        this.status.valid = false;
-        this.MsgError = err.message;
-    });
+    if (this.MyAccountForm.valid) {
+      const user = new User(
+        FormData.name === '' ?  this.CurrentUser[0].name : FormData.name,
+        this.CurrentUser[0].email,
+        FormData.cpf === '' ? this.CurrentUser[0].cpf : FormData.cpf,
+        FormData.rg === '' ? this.CurrentUser[0].rg : FormData.rg,
+        FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone,
+        false
+      );
+      this.API.updateUser(this.id, user).subscribe(
+        res => {
+          console.log(res);
+          this.status.valid = false;
+          this.status.isDanger = false;
+          this.MsgError = 'Dados atualizados com sucesso!';
+        },
+        err => {
+          console.log(err.message);
+          this.status.isDanger = true;
+          this.status.valid = false;
+          this.MsgError = err.message;
+      });
+    } else {
+      this.status.isDanger = true;
+      this.status.valid = false;
+      this.MsgError = 'Por favor, verifique todos os campos do formulário';
+    }
   }
 
   newMyAccountForm() {

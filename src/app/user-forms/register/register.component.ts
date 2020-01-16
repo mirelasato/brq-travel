@@ -25,34 +25,40 @@ export class UserRegisterComponent implements OnInit {
     this.newRegisterForm();
   }
   NewRegister() {
-    const FormData = this.FormRegister.value;
+    if (this.FormRegister.valid) {
+      const FormData = this.FormRegister.value;
 
-    const user = new User(
-      FormData.name,
-      FormData.email,
-      FormData.cpf,
-      FormData.rg,
-      FormData.phone,
-      false
-    );
-    this.API.getUser(user.email).subscribe((data) => {
-      this.IsRegistered = data[0];
-    });
-    if (this.IsRegistered === null) {
-      this.authService.SignUp(FormData.email, FormData.password);
-      this.API.createUser(user).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
+      const user = new User(
+        FormData.name,
+        FormData.email,
+        FormData.cpf,
+        FormData.rg,
+        FormData.phone,
+        false
+      );
+      this.API.getUser(user.email).subscribe((data) => {
+        this.IsRegistered = data[0];
+      });
+      if (this.IsRegistered === undefined) {
+        this.authService.SignUp(FormData.email, FormData.password);
+        this.API.createUser(user).subscribe(
+          res => {
+            console.log(res);
+          },
+          err => {
 
-        });
-      } else {
-        console.log('Usuário ja está registrado!');
-        this.status.isDanger = true;
-        this.status.valid = false;
-        this.MsgError = 'Usuário ja está registrado!';
-      }
+          });
+        } else {
+          console.log('Usuário ja está registrado!');
+          this.status.isDanger = true;
+          this.status.valid = false;
+          this.MsgError = 'Usuário ja está registrado!';
+        }
+    } else {
+      this.status.isDanger = true;
+      this.status.valid = false;
+      this.MsgError = 'Verifique os campos do seu formulário!';
+    }
     // console.log(`O usuário ${user.name} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(user)}`);
   }
 
