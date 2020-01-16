@@ -32,6 +32,10 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 import { UserLogin } from './shared/models/usuario';
+import { ShoppingCartService } from './shopping-cart.service';
+import { DescriptionComponent } from './visualizacao/description/description.component';
+import { InformationComponent } from './visualizacao/information/information.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,8 @@ import { UserLogin } from './shared/models/usuario';
     VisualizacaoComponent,
     ShoppingCartComponent,
     MyaccountComponent,
+    DescriptionComponent,
+    InformationComponent,
 
   ],
   imports: [
@@ -66,21 +72,12 @@ import { UserLogin } from './shared/models/usuario';
     AngularFireAuthModule,
     AngularFirestoreModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'home'},
-      { path: 'home',  component: HomeComponent},
-      { path: 'entrar', component: UserLoginComponent },
-      { path: 'cadastro', component: UserRegisterComponent },
-      { path: 'pacotes', component: TravelPackagesComponent },
-      { path: 'recuperar-senha', component: ForgotPasswordComponent },
-      { path: 'pacotes', component: CardTravelComponent },
-      { path: 'visualizacao', component: VisualizacaoComponent },
-      { path: 'carrinho-de-compras', component: ShoppingCartComponent },
-      { path: 'minha-conta', component: MyaccountComponent }
-    ])
+    RouterModule.forRoot([]),
+    TabsModule.forRoot()
   ],
   providers: [
     AuthService,
+    ShoppingCartService
 
 
   ],

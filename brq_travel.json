@@ -2,12 +2,12 @@
   "usuarios": [
     {
       "id": 1,
-      "name": "joao",
-      "email": "joao123@gmail.com",
+      "name": "ADMIN",
+      "email": "admin@brqtravel.com",
       "cpf": "124.456.789-02",
       "rg": "12.345.678-90",
       "phone": "985672-9506",
-      "senha": "12446"
+      "admin": true
     },
     {
       "name": "Mirela Sato",
@@ -15,7 +15,8 @@
       "cpf": "22222312321",
       "rg": "333333333",
       "phone": "22222222222",
-      "id": 2
+      "id": 2,
+      "admin": false
     },
     {
       "name": "Anderson Jovani Souza Santos",
@@ -23,7 +24,8 @@
       "cpf": "43686874857",
       "rg": "455153322",
       "telefone": "11947328907",
-      "id": 3
+      "id": 3,
+      "admin": false
     },
     {
       "name": "Anderson Jovani Souza Santos",
@@ -31,7 +33,8 @@
       "cpf": "43686874857",
       "rg": "455153322",
       "telefone": "11947328907",
-      "id": 4
+      "id": 4,
+      "admin": false
     },
     {
       "name": "william",
@@ -39,15 +42,8 @@
       "cpf": "32951808810",
       "rg": "428613858",
       "phone": "11988444763",
-      "id": 5
-    },
-    {
-      "name": "william",
-      "email": "wilshin@teste.com",
-      "cpf": "32951808810",
-      "rg": "428613858",
-      "phone": "11988444763",
-      "id": 6
+      "id": 5,
+      "admin": false
     },
     {
       "name": "william",
@@ -55,7 +51,8 @@
       "cpf": "32951808810",
       "rg": "428613858",
       "phone": "11988444763",
-      "id": 7
+      "id": 6,
+      "admin": false
     }
   ],
   "destinos": [

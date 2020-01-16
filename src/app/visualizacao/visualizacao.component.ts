@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Detalhes } from '../shared/models/detalhes.model';
+import { ShoppingCartService } from '../shopping-cart.service';
+import { Destino } from '../shared/models/destino';
 
 
 @Component({
@@ -11,10 +13,18 @@ export class VisualizacaoComponent implements OnInit {
 
   pacotes: Detalhes[];
   imagens: any[];
+  destaqueCards: Destino[];
+  destaqueCardsDisplay: Destino[];
   // public pacotes: Detalhes;
-  constructor() { }
+  constructor(private service: ShoppingCartService) { }
 
   ngOnInit() {
+    this.service.addToCart()
+    .subscribe(dados => {this.pacotes = dados;
+      // tslint:disable-next-line:align
+      this.pacotes = this.pacotes.filter(x => x.destaque === true
+    )});
+
     this.getDetalhes  ();
 
 
@@ -52,6 +62,6 @@ console.log('this.pacotes' , this.pacotes[0]);
 
   this.imagens = this.pacotes[0].imagens;
 
-  
+
 }
 }

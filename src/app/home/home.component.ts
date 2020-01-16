@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
 
+
   feriadoImg: Banner[];
   feriadoImgDisplay: Banner[];
 
@@ -25,9 +26,11 @@ export class HomeComponent implements OnInit {
     private serviceBanner: HomeBannerService
     ) { }
 
+
   ngOnInit() {
     this.service.lista()
     .subscribe(dados => {this.destaqueCards = dados;
+
                          this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)});
 
 
