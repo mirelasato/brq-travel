@@ -12,13 +12,13 @@ export class HomeComponent implements OnInit {
 
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
-  
+
   constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
     this.service.lista()
     .subscribe(dados => {this.destaqueCards = dados;
       this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true
-     )});
+)});
   }
 }

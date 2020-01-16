@@ -32,6 +32,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 import { UserLogin } from './shared/models/usuario';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { UserLogin } from './shared/models/usuario';
   ],
   providers: [
     AuthService,
+    ShoppingCartService
 
 
   ],
