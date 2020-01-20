@@ -40,19 +40,28 @@
                 <p> Data do embarque: {{ item.data }}</p>
                 <p>Vagas Restantes: {{ item.vagas}} </p>
                 <p> Anunciado por: {{ item.anunciante}} </p>
-                <p> Descrição: {{ item.descricao }} </p>
+                
                 </label>
               </div>
             </div>
         </div> 
       </div>
 
-      <div>
-        <tabset>
-          <tab heading="Descrição" routerLink="description" id="tab1"></tab>
-          <tab heading="Basic Title 1">Basic content 1</tab>
-        </tabset>
+      <div class="mb-3" >
+        <pre class="card card-block card-header" *ngIf="value">{{value}}</pre>
       </div>
+      <tabset  *ngFor="let destino of destinos">
+        <tab heading="Descrição" class="mt-2" (selectTab)="onSelect($event)">
+          <p> {{ item.descricao }}</p>
+          
+        </tab>
+        <tab heading="Second tab" class="mt-2" (selectTab)="onSelect($event)">
+          <h4>Title 2</h4>
+          <p>It has survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages</p>
+        </tab>
+      </tabset>
        
       <!-- <div class="row" style="margin-top: 25px; margin-bottom: 25px;">
         <div class="col">
