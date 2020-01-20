@@ -8,8 +8,7 @@ import { TravelPackagesComponent } from './travel-packages/travel-packages.compo
 import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
-import { DescriptionComponent} from './visualizacao/description/description.component';
-import {InformationComponent,} from './visualizacao/information/information.component';
+
 import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
 
 // Impede visualização de páginas quando está deslogado
@@ -27,7 +26,7 @@ const routes: Routes = [
   { path: 'pacotes', component: TravelPackagesComponent },
   { path: 'recuperar-senha', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'pacotes', component: CardTravelComponent },
-  { path: 'visualizacao', component: VisualizacaoComponent},
+  { path: 'visualizacao/:id', component: VisualizacaoComponent},
   { path: 'carrinho-de-compras', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'minha-conta', component: MyaccountComponent, canActivate: [AuthGuard] }
 ];
