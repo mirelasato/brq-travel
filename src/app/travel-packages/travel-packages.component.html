@@ -23,12 +23,23 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true" >
-  <h2>Próximas viagens</h2>
-  <app-card-travel *ngFor="let destinos of destinoCardsDisplay" [destino]="destinos"></app-card-travel>
-</div>
-
+      
+      <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+        <ul>
+          <li *ngFor="let todosDestinos of destinoCards">
+           <app-card-travel [destino]="todosDestinos"></app-card-travel>
+          </li>
+        </ul>
+      </div>
+    
+      <div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
+        <!-- <h2>Próximas viagens</h2> -->
+        <ul>
+          <li *ngFor="let destinos of destinoCardsDisplay">
+            <app-card-travel [destino]="destinos"></app-card-travel>
+          </li>      
+        </ul>
+      </div>
+    </div>   
+</section>
 

@@ -60,6 +60,7 @@
       "id": 1,
       "titulo": "Arraial do Cabo",
       "descricao": "Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro.",
+      "descricaocard": "Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro. Não fique fora dessa.",
       "destaque": true,
       "data": "13/12/2019",
       "retorno": "15/12/2019",
@@ -67,7 +68,7 @@
       "valor": "500,00",
       "vagas": 45,
       "feriado": 1,
-      "tipo": 1,
+      "tipo": 2,
       "imagens": [
         {
           "url": "assets/img/capa-destinos.jpg"
@@ -84,6 +85,7 @@
       "id": 2,
       "titulo": "Campos do Jordão",
       "descricao": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
+      "descricaocard": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
       "destaque": true,
       "data": "21/12/2019",
       "retorno": "22/12/2019",
@@ -113,6 +115,7 @@
       "id": 3,
       "titulo": "Foz do Iguaçu",
       "descricao": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
+      "descricaocard": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região.",
       "destaque": true,
       "anunciante": "BRQ-Travel",
       "data": "15/01/2020",
@@ -121,7 +124,7 @@
       "valor": "690,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 2,
+      "tipo": 1,
       "imagens": [
         {
           "id": 1,
@@ -141,6 +144,7 @@
       "id": 4,
       "titulo": "São Roque",
       "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
       "destaque": false,
       "anunciante": "BRQ-Travel",
       "data": "04/01/2020",
@@ -149,7 +153,152 @@
       "valor": "120,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 2,
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "TESTE 5",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "04/01/2020",
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "titulo": "TESTE 6",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "04/01/2020",
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "TESTE 7",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "04/01/2020",
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "titulo": "TESTE 8",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "04/01/2020",
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/img/capa-destinos.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/img/capa-destinos.jpg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "TESTE 9",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "04/01/2020",
+      "retorno": "05/01/2020",
+      "embarque": "Barra Funda",
+      "valor": "120,00",
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
       "imagens": [
         {
           "id": 1,
@@ -165,7 +314,9 @@
         }
       ]
     }
+
   ],
+  
   "tipoViagem": [
     {
       "id": 1,

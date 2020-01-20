@@ -19,3 +19,9 @@ section {
 h2 {
     font-family: 'Alfa Slab One', cursive;
 }
+
+li {
+    /* float: left; */
+    display: inline-block;
+    padding-right: 4px;
+}
