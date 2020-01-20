@@ -1,29 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { VisuaizacaoService } from '../shared/services/visualizacao.service';
+
 import { Destino } from '../shared/models/destino';
+import { ActivatedRoute } from '@angular/router';
+import { ShoppingCartService } from '../shopping-cart.service';
+import { Detalhes } from '../shared/models/detalhes.model';
 
 
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
   styleUrls: ['./visualizacao.component.css'],
-  providers: [VisuaizacaoService],
+  
 })
 export class VisualizacaoComponent implements OnInit {
 
-  public destinos: Destino[ ]
-
-  constructor( private visuaizacaoService: VisuaizacaoService ) { }
+  pacotes: Detalhes[];
+  imagens: any[];
+  destaqueCards: Destino[];
+  destaqueCardsDisplay: Destino[];
+  // public pacotes: Detalhes;
+  constructor(private service: ShoppingCartService) { }
 
   ngOnInit() {
-    this.visuaizacaoService.getDestinos();
-    // .then(( destinos: Destino[]) => {
-    //   this.destinos = destinos
-    // }) 
-    // .catch (( param:any) => {})
+    this.service.addToCart()
+    .subscribe(dados => {this.pacotes = dados;
+      // tslint:disable-next-line:align
+      this.pacotes = this.pacotes.filter(x => x.destaque === true
+    )});
 
-
-
+    this.getDetalhes  ();
+  }
+  getDetalhes() {
+   return this.pacotes
 
   }
 }
