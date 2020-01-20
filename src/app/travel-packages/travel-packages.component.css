@@ -1,6 +1,6 @@
 section {
     padding-top: 20px;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
 }
 
 .inline-cards {
@@ -24,4 +24,27 @@ li {
     /* float: left; */
     display: inline-block;
     padding-right: 4px;
+}
+
+.btn-secondary {
+    background-color: #0062cc;
+    border-color: #0062cc;
+}
+
+.btn-secondary:focus {
+    background-color: blueviolet !important;
+}
+
+.btn-secondary:hover {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+@media (min-width: 992px){
+.jumbotron-desktop {
+    padding: 6rem 2rem;
+    background-color: brown;
+    margin-right: 150px;
+    margin-left: 181px;
+}
 }
