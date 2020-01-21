@@ -4,14 +4,14 @@
 
     <div class="card-body" >
       <h5 class="card-title">{{ destino.titulo }}</h5>
-      <p class="card-text">{{ destino.descricao }}</p>
+      <p class="card-text">{{ destino.descricaocard }}</p>
     </div>
     <ul class="list-group list-group-flush" >
       <li class="list-group-item">{{ destino.data }}</li>
       <li class="list-group-item">R$ {{ destino.valor }}</li>
     </ul>
     <div class="card-body">
-      <button class="btn btn-primary" routerLink="/visualizacao">Veja mais</button>
+      <button class="btn btn-primary" routerLink="/visualizacao/{{destino.id}}">Veja mais</button>
     </div>
   </div>
 </section> 

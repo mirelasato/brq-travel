@@ -19,7 +19,8 @@ export class AuthService {
     [ 'auth/wrong-password', 'A senha está incorreta!' ],
     [ 'auth/invalid-email', 'Verifique se o seu endereço de e-mail está correto' ],
     [ 'auth/user-not-found', 'Não encontramos seu registro na nossa base de dados.' ],
-    [ '', '' ]
+    [ 'auth/user-disabled', 'Esse usuário foi desativado e está impossibilitado de realizar login.' ],
+    [ 'auth/email-already-in-use', 'Usuário já está registrado!']
   ]);
 
   constructor(
@@ -58,7 +59,7 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
@@ -71,7 +72,7 @@ export class AuthService {
         console.log(error.message);
         this.status.isDanger = true;
         this.status.valid = false;
-        this.MsgError = error.code;
+        this.MsgError = this.map.get(error.code);
       });
   }
 
@@ -84,7 +85,7 @@ export class AuthService {
   }
 
   // Reset Forggot password
-  ForgotPassword(passwordResetEmail) {
+  ForgotPassword(passwordResetEmail: string) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
       this.status.valid = false;
@@ -93,7 +94,7 @@ export class AuthService {
     }).catch((error) => {
       this.status.isDanger = true;
       this.status.valid = false;
-      this.MsgError = error.message;
+      this.MsgError = this.map.get(error.code);
     });
   }
 

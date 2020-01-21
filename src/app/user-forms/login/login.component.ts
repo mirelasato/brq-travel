@@ -16,6 +16,8 @@ export class UserLoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.newFormLogin();
+    this.authService.status.valid = true;
+
   }
 
   newFormLogin() {

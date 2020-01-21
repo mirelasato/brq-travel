@@ -34,18 +34,28 @@ export class MyaccountComponent implements OnInit {
       console.log(this.CurrentUser);
     });
 
+    this.authService.status.valid = true;
+
   }
 
   saveChanges() {
-    const FormData = this.MyAccountForm.value;
+    this.status.valid = false;
+    const form = this.MyAccountForm.controls;
 
-    if (this.MyAccountForm.valid) {
+    if ((!form.name.pristine && form.name.status === 'INVALID') ||
+        (!form.cpf.pristine && form.cpf.status === 'INVALID') ||
+        (!form.rg.pristine && form.rg.status === 'INVALID') ||
+        (!form.phone.pristine && form.phone.status === 'INVALID')) {
+      this.status.isDanger = true;
+      this.status.valid = false;
+      this.MsgError = 'Por favor, verifique todos os campos do formulário';
+    } else {
       const user = new User(
-        FormData.name === '' ?  this.CurrentUser[0].name : FormData.name,
+        form.name.pristine ? this.CurrentUser[0].name : form.name.value,
         this.CurrentUser[0].email,
-        FormData.cpf === '' ? this.CurrentUser[0].cpf : FormData.cpf,
-        FormData.rg === '' ? this.CurrentUser[0].rg : FormData.rg,
-        FormData.phone === '' ? this.CurrentUser[0].phone : FormData.phone,
+        form.cpf.pristine ? this.CurrentUser[0].cpf : form.cpf.value,
+        form.rg.pristine ? this.CurrentUser[0].rg : form.rg.value,
+        form.phone.pristine ? this.CurrentUser[0].phone : form.phone.value,
         false
       );
       this.API.updateUser(this.id, user).subscribe(
@@ -61,10 +71,6 @@ export class MyaccountComponent implements OnInit {
           this.status.valid = false;
           this.MsgError = err.message;
       });
-    } else {
-      this.status.isDanger = true;
-      this.status.valid = false;
-      this.MsgError = 'Por favor, verifique todos os campos do formulário';
     }
   }
 
