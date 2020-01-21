@@ -5,6 +5,7 @@ import { User } from '../../shared/models/usuario';
 import { AuthService } from '../../shared/services/auth-service';
 import { ApiService } from '../../shared/services/api.service';
 import { isDefined } from '@angular/compiler/src/util';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

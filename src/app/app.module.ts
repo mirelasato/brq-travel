@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +37,9 @@ import { ShoppingCartService } from './shopping-cart.service';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +64,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
+    FormsModule,
     NgxMaskModule.forRoot(),
     NgxMaskModule,
     CarouselModule.forRoot(),
@@ -69,7 +74,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     AngularFirestoreModule,
     HttpClientModule,
     RouterModule.forRoot([]),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    MatSliderModule,
+    MatInputModule
   ],
   providers: [
     ApiService,
