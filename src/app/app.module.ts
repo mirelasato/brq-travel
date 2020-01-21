@@ -32,10 +32,11 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 import { UserLogin } from './shared/models/usuario';
-import { ShoppingCartService } from './shopping-cart.service';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
 import { DescriptionComponent } from './visualizacao/description/description.component';
 import { InformationComponent } from './visualizacao/information/information.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
   ],
   providers: [
     AuthService,
-    ShoppingCartService
+    ShoppingCartService,
+    AngularFireDatabase
 
 
   ],

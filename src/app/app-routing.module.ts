@@ -9,7 +9,7 @@ import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-pas
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 import { DescriptionComponent} from './visualizacao/description/description.component';
-import {InformationComponent,} from './visualizacao/information/information.component';
+import {InformationComponent} from './visualizacao/information/information.component';
 import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
 
 // Impede visualização de páginas quando está deslogado

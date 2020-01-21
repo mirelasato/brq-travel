@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Detalhes } from '../shared/models/detalhes.model';
-import { ShoppingCartService } from '../shopping-cart.service';
+import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -11,24 +14,33 @@ import { Destino } from '../shared/models/destino';
 })
 export class VisualizacaoComponent implements OnInit {
 
+  @Input() destino: any;
+  id: number;
   pacotes: Detalhes[];
   imagens: any[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
-  // public pacotes: Detalhes;
-  constructor(private service: ShoppingCartService) { }
+  // public pacotes: Destino;
+  constructor(private shoppingCartService: ShoppingCartService, private route: ActivatedRoute) { }
+
+
+
 
   ngOnInit() {
-    this.service.addToCart()
-    .subscribe(dados => {this.pacotes = dados;
-      // tslint:disable-next-line:align
-      this.pacotes = this.pacotes.filter(x => x.destaque === true
-    )});
+    // this.service.addToCart()
+    // .subscribe(dados => {this.pacotes = dados;
+    //   // tslint:disable-next-line:align
+    //   this.pacotes = this.pacotes.filter(x => x.destaque === true
+    // )});
+
+    // this.route.params.subscribe(( params: any) => {
+    //   this.id = params['id'];
+    // });
 
     this.getDetalhes  ();
 
 
-console.log('this.pacotes' , this.pacotes[0]);
+    console.log('this.pacotes' , this.pacotes[0]);
 
 
   }
@@ -60,7 +72,7 @@ console.log('this.pacotes' , this.pacotes[0]);
       },
     ];
 
-  this.imagens = this.pacotes[0].imagens;
+    this.imagens = this.pacotes[0].imagens;
 
 
 }
