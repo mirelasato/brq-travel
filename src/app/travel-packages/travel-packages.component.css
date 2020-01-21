@@ -26,25 +26,29 @@ li {
     padding-right: 4px;
 }
 
-.btn-secondary {
+.btn-primary {
     background-color: #0062cc;
     border-color: #0062cc;
 }
 
-.btn-secondary:focus {
-    background-color: blueviolet !important;
+/* .btn-primary:focus {
+    background-color: #ff4500 !important;
+} */
+
+/* .btn-primary:hover {
+    background-color: #ff4500;
+    border-color: #ff4500;
+} */
+
+.jumbotron {
+    padding: 2rem 4rem;
 }
 
-.btn-secondary:hover {
-    background-color: blueviolet;
-    border-color: blueviolet;
+.container {
+    max-width: 1157px;
 }
 
-@media (min-width: 992px){
-.jumbotron-desktop {
-    padding: 6rem 2rem;
-    background-color: brown;
-    margin-right: 150px;
-    margin-left: 181px;
-}
+.active {
+    background-color: #ff4500 !important;
+    border-color: #ff4500 !important;
 }

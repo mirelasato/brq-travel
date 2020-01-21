@@ -1,17 +1,17 @@
-<section>
-  <div class="btn-group jumbotron jumbotron-desktop col-sm-8" role="group" aria-label="Basic example">
-    <div class="container-fluid ">
-    <button type="button" class="btn btn-secondary" (click)="setTypeTravel(1)">Pacotes com hospedagem</button>
-    <button type="button" class="btn btn-secondary" (click)="setTypeTravel(2)">Pacotes com bate volta</button>
-    <button type="button" class="btn btn-secondary">Todos</button>
-  </div>
+<section class="container">
+  <div class="jumbotron col-sm-12">
+    <h1 class="display-5">Pacotes de viagens</h1>
+    <hr>
+    <div id="button" class="container btn-group">
+      <button type="button" class="btn btn-lg btn-primary active" (click)="setTypeTravel(1)">Pacotes com hospedagem</button>
+      <button type="button" class="btn btn-lg btn-primary" (click)="setTypeTravel(2)">Pacotes com bate volta</button>
+      <!-- <button type="button" class="btn btn-lg btn-primary" (click)="carregarPacotes()" >Todos os pacotes</button> -->
+    </div>
   </div>
 </section>
 
-<section class="container inline-cards">
-  <div class="row margin-card">
-
-
+<section class="container">
+  <div>
     <!-- <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
@@ -36,15 +36,15 @@
         </div>
       </div> -->
 
-    <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+    <div id="collapseBasic" [collapse]="isCollapsed">
       <ul>
-        <li *ngFor="let todosDestinos of destinoCards">
-          <app-card-travel [destino]="todosDestinos"></app-card-travel>
+        <li *ngFor="let destinosHosp of destinoCardsHosp">
+          <app-card-travel [destino]="destinosHosp"></app-card-travel>
         </li>
       </ul>
     </div>
 
-    <div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
+    <div id="collapseBasic" [collapse]="!isCollapsed">
       <!-- <h2>Próximas viagens</h2> -->
       <ul>
         <li *ngFor="let destinos of destinoCardsDisplay">
@@ -52,5 +52,13 @@
         </li>
       </ul>
     </div>
+
+    <!-- <div id="collapseBasic" [collapse]="!isCollapsed">
+      <ul>
+        <li *ngFor="let filtroTodosDestinos of filtroTodosDestinos">
+          <app-card-travel [destino]="filtroTodosDestinos"></app-card-travel>
+        </li>
+      </ul>
+    </div> -->
   </div>
 </section>
