@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+import { Detalhes } from '../shared/models/detalhes';
+import { ShoppingCartService } from '../shopping-cart.service';
+=======
 
+>>>>>>> ae9f6a7b51fb27c61f3bc4f5d596361f060b868b
 import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../shopping-cart.service';

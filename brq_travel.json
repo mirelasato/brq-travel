@@ -332,7 +332,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/img/banner1.jpg"
         }
       ]
     },
@@ -342,7 +342,17 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/banner1.jpg"
+          "url": "assets/img/banner2.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Tiradentes",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/img/banner3.jpg"
         }
       ]
     }

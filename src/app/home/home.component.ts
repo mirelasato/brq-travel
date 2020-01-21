@@ -3,6 +3,9 @@ import { PacotesDestinoService } from '../shared/services/pacotes-destino.servic
 import { Destino } from '../shared/models/destino';
 import { HomeBannerService } from '../shared/services/home-banner.service';
 import { Banner } from '../shared/models/banner';
+import { Detalhes } from '../shared/models/detalhes';
+import { HttpClient } from '@angular/common/http';
+import { take, tap } from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +18,7 @@ export class HomeComponent implements OnInit {
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
 
+  detalhes: Detalhes;
 
   feriadoImg: Banner[];
   feriadoImgDisplay: Banner[];
@@ -23,26 +27,23 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private service: PacotesDestinoService,
-    private serviceBanner: HomeBannerService
-    ) { }
+    private serviceBanner: HomeBannerService,
+    private httpClient: HttpClient
+  ) { }
 
 
   ngOnInit() {
     this.service.lista()
-    .subscribe(dados => {this.destaqueCards = dados;
+      .subscribe(dados => {
+      this.destaqueCards = dados;
 
-                         this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)});
+        this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)
+      });
 
 
     this.serviceBanner.listaBanner()
-    .subscribe(img => {this.feriadoImg = img;
-                      //  this.feriadoImgDisplay = this.feriadoImg.filter(y => y.id === 1);
-
-                      //  this.final = this.feriadoImgDisplay[0];
-                       console.log('teste', this.feriadoImg);
-                       this.final = this.feriadoImg[0];
-                       console.log('AAAAA', this.final);
-    // tslint:disable-next-line: semicolon
-    })
-  }
-}
+      .subscribe(img => {
+      this.feriadoImg = img;
+        this.final = this.feriadoImg[0];
+      });
+    }
