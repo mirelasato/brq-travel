@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,15 +28,17 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
+import { ApiService } from './shared/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
-import { UserLogin } from './shared/models/usuario';
 import { ShoppingCartService } from './shopping-cart.service';
-import { DescriptionComponent } from './visualizacao/description/description.component';
-import { InformationComponent } from './visualizacao/information/information.component';
+
 import { TabsModule } from 'ngx-bootstrap/tabs';
+
+import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -53,9 +56,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     VisualizacaoComponent,
     ShoppingCartComponent,
     MyaccountComponent,
-    DescriptionComponent,
-    InformationComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -64,6 +64,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     ReactiveFormsModule,
+    FormsModule,
     NgxMaskModule.forRoot(),
     NgxMaskModule,
     CarouselModule.forRoot(),
@@ -73,9 +74,12 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     AngularFirestoreModule,
     HttpClientModule,
     RouterModule.forRoot([]),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    MatSliderModule,
+    MatInputModule
   ],
   providers: [
+    ApiService,
     AuthService,
     ShoppingCartService
 
