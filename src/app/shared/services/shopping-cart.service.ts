@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Destino } from '../models/destino';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Detalhes } from '../models/detalhes.model';
+
 import 'rxjs/add/operator/take';
 
 

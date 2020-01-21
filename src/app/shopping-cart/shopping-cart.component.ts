@@ -3,7 +3,7 @@ import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth-service';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
-import { Detalhes } from '../shared/models/detalhes.model';
+
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,7 +12,6 @@ import { Detalhes } from '../shared/models/detalhes.model';
 })
 export class ShoppingCartComponent implements OnInit {
   id: number;
-  pacotes: Detalhes[];
   imagens: any[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
