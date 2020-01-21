@@ -13,19 +13,28 @@ import { Detalhes } from '../shared/models/detalhes';
 })
 export class VisualizacaoComponent implements OnInit {
 
+  
+  id: number;
   pacotes: Detalhes[];
   imagens: any[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
-  // public pacotes: Detalhes;
-  constructor(private service: ShoppingCartService) { }
+  // public pacotes: Destino;
+  constructor(private shoppingCartService: ShoppingCartService, private route: ActivatedRoute) { }
+
+
+
 
   ngOnInit() {
-    this.service.addToCart()
-    .subscribe(dados => {this.pacotes = dados;
-      // tslint:disable-next-line:align
-      this.pacotes = this.pacotes.filter(x => x.destaque === true
-    )});
+    // this.service.addToCart()
+    // .subscribe(dados => {this.pacotes = dados;
+    //   // tslint:disable-next-line:align
+    //   this.pacotes = this.pacotes.filter(x => x.destaque === true
+    // )});
+
+    // this.route.params.subscribe(( params: any) => {
+    //   this.id = params['id'];
+    // });
 
     this.getDetalhes  ();
   }

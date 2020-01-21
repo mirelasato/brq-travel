@@ -36,6 +36,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingCartService } from './shopping-cart.service';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
@@ -81,7 +82,8 @@ import { MatInputModule } from '@angular/material/input';
   providers: [
     ApiService,
     AuthService,
-    ShoppingCartService
+    ShoppingCartService,
+    AngularFireDatabase
 
 
   ],
