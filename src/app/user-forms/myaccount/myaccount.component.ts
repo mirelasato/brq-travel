@@ -34,9 +34,12 @@ export class MyaccountComponent implements OnInit {
       console.log(this.CurrentUser);
     });
 
+    this.authService.status.valid = true;
+
   }
 
   saveChanges() {
+    this.status.valid = false;
     const FormData = this.MyAccountForm.value;
 
     if (this.MyAccountForm.valid) {

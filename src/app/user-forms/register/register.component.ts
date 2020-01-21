@@ -4,6 +4,7 @@ import { Validacoes } from '../../shared/helpers/validacoesHelper';
 import { User } from '../../shared/models/usuario';
 import { AuthService } from '../../shared/services/auth-service';
 import { ApiService } from '../../shared/services/api.service';
+import { isDefined } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,7 @@ import { ApiService } from '../../shared/services/api.service';
 })
 export class UserRegisterComponent implements OnInit {
   FormRegister: FormGroup;
-  IsRegistered;
+  IsRegistered: User;
   status = {
     isDanger: true,
     valid: true };
@@ -23,11 +24,15 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.newRegisterForm();
+    this.status.valid = true;
+    this.authService.status.valid = true;
   }
   NewRegister() {
-    if (this.FormRegister.valid) {
-      const FormData = this.FormRegister.value;
+    this.status.valid = true;
 
+    if (this.FormRegister.valid) {
+
+      const FormData = this.FormRegister.value;
       const user = new User(
         FormData.name,
         FormData.email,
@@ -36,10 +41,8 @@ export class UserRegisterComponent implements OnInit {
         FormData.phone,
         false
       );
-      this.API.getUser(user.email).subscribe((data) => {
-        this.IsRegistered = data[0];
-      });
-      if (this.IsRegistered === undefined) {
+
+      if (!this.userExists(FormData.email)) {
         this.authService.SignUp(FormData.email, FormData.password);
         this.API.createUser(user).subscribe(
           res => {
@@ -48,11 +51,11 @@ export class UserRegisterComponent implements OnInit {
           err => {
 
           });
+
         } else {
-          console.log('Usuário ja está registrado!');
           this.status.isDanger = true;
           this.status.valid = false;
-          this.MsgError = 'Usuário ja está registrado!';
+          this.MsgError = 'Usuário já está registrado! (get retornou undefined)';
         }
     } else {
       this.status.isDanger = true;
@@ -62,6 +65,13 @@ export class UserRegisterComponent implements OnInit {
     // console.log(`O usuário ${user.name} foi cadastrado com sucesso. \n Dados: ${JSON.stringify(user)}`);
   }
 
+  userExists(email: string): boolean {
+    this.API.getUser(email).subscribe((data) => {
+      this.IsRegistered = data;
+    });
+    return isDefined(this.IsRegistered);
+
+  }
   newRegisterForm() {
     this.FormRegister = this.fb.group({
       name: [
