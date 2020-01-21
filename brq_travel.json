@@ -12,11 +12,11 @@
     {
       "name": "Mirela Sato",
       "email": "mirelasato@brq.com",
-      "cpf": "22222312321",
+      "cpf": "32131231231",
       "rg": "333333333",
       "phone": "22222222222",
-      "id": 2,
-      "admin": false
+      "admin": false,
+      "id": 2
     },
     {
       "name": "Anderson Jovani Souza Santos",

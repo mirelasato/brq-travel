@@ -68,7 +68,7 @@ export class UserRegisterComponent implements OnInit {
       this.IsRegistered = data;
       console.log(data);
     });
-    return (this.IsRegistered === undefined);
+    return (this.IsRegistered !== undefined);
 
   }
   newRegisterForm() {
