@@ -31,8 +31,10 @@ export class UserRegisterComponent implements OnInit {
     this.status.valid = true;
 
     if (this.FormRegister.valid) {
-
       const FormData = this.FormRegister.value;
+      const registered = this.userExists(FormData.email);
+      if (!registered) {
+
       const user = new User(
         FormData.name,
         FormData.email,
@@ -42,21 +44,16 @@ export class UserRegisterComponent implements OnInit {
         false
       );
 
-      if (!this.userExists(FormData.email)) {
-        this.authService.SignUp(FormData.email, FormData.password);
-        this.API.createUser(user).subscribe(
-          res => {
-            console.log(res);
-          },
-          err => {
-
-          });
-
-        } else {
-          this.status.isDanger = true;
-          this.status.valid = false;
-          this.MsgError = 'Usuário já está registrado! (get retornou undefined)';
-        }
+      this.authService.SignUp(FormData.email, FormData.password);
+      this.API.createUser(user).subscribe(
+        res => { console.log('Novo usuário add com sucesso'); },
+        err => { console.log('falha:' + err); }
+        );
+      } else {
+        this.status.isDanger = true;
+        this.status.valid = false;
+        this.MsgError = 'Usuário já está registrado!';
+      }
     } else {
       this.status.isDanger = true;
       this.status.valid = false;
@@ -66,10 +63,12 @@ export class UserRegisterComponent implements OnInit {
   }
 
   userExists(email: string): boolean {
+    this.IsRegistered = undefined;
     this.API.getUser(email).subscribe((data) => {
       this.IsRegistered = data;
+      console.log(data);
     });
-    return isDefined(this.IsRegistered);
+    return (this.IsRegistered === undefined);
 
   }
   newRegisterForm() {

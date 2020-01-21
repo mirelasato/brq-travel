@@ -27,11 +27,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
+import { ApiService } from './shared/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
-import { UserLogin } from './shared/models/usuario';
 import { ShoppingCartService } from './shopping-cart.service';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -52,7 +52,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     VisualizacaoComponent,
     ShoppingCartComponent,
     MyaccountComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -73,6 +72,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     TabsModule.forRoot()
   ],
   providers: [
+    ApiService,
     AuthService,
     ShoppingCartService
 

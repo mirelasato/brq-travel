@@ -20,7 +20,7 @@ export class AuthService {
     [ 'auth/invalid-email', 'Verifique se o seu endereço de e-mail está correto' ],
     [ 'auth/user-not-found', 'Não encontramos seu registro na nossa base de dados.' ],
     [ 'auth/user-disabled', 'Esse usuário foi desativado e está impossibilitado de realizar login.' ],
-    [ 'auth/email-already-in-use', 'Usuário já está registrado! retorno firebase']
+    [ 'auth/email-already-in-use', 'Usuário já está registrado!']
   ]);
 
   constructor(
