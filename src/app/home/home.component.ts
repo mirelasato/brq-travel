@@ -47,3 +47,4 @@ export class HomeComponent implements OnInit {
         this.final = this.feriadoImg[0];
       });
     }
+  }
