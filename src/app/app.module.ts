@@ -38,6 +38,7 @@ import { ShoppingCartService } from './shopping-cart.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AngularFireDatabase } from 'angularfire2/database';
 
+//Angular Material
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 

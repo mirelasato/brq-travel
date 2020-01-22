@@ -4,7 +4,7 @@ import { Detalhes } from '../models/detalhes';
 import { URL_API } from './app.api';
 
 
-import 'rxjs/add/operator/take';
+// import 'rxjs/add/operator/take';
 
 
 @Injectable({
