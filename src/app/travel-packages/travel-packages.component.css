@@ -27,8 +27,10 @@ li {
 }
 
 .btn-primary {
-    background-color: #0062cc;
-    border-color: #0062cc;
+    background-color: white;
+    border-color: #120b36;
+    color: #19058a;
+    font-weight: bold;
 }
 
 /* .btn-primary:focus {
@@ -41,14 +43,19 @@ li {
 } */
 
 .jumbotron {
-    padding: 2rem 4rem;
+    padding: 1rem 4rem;
 }
 
 .container {
     max-width: 1157px;
 }
 
-.active {
+/* .active {
     background-color: #ff4500 !important;
     border-color: #ff4500 !important;
-}
+} */
+
+.active, .btn:hover {
+    background-color: #19058a !important;
+    color: white;
+  }

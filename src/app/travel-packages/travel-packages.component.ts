@@ -21,8 +21,11 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.inscricao = this.service.lista()
-    .subscribe(dados => {this.destinoCards = dados;
-      this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1)});
+    .subscribe(dados => {
+      this.destinoCards = dados;
+      this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
+    });
+    
   }
 
   ngOnDestroy() {
@@ -30,27 +33,22 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   }
 
   setTypeTravel(typeTravel) {
-    
+
     this.isCollapsed = true;
     this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel);
-// debugger
+    this.ativarBotao();    
+  }
+
+  // Efeito que deixa o botão ativado no filtro de pacotes de viagens  
+  ativarBotao() {
     let header = document.getElementById('button');
     let btns = header.getElementsByClassName('btn');
     for (let i = 0; i < btns.length; i++) {
-      btns[i].addEventListener('click', function() {let current = document.getElementsByClassName('active');
-      current[0].className = current[0].className.replace(' active', '');
-      this.className += ' active';
-
-
-      console.log('teste', current)
-      console.log('AAAA', this.className )
-    })
-
-      // ('click', function() {
-      //   let current = document.getElementsByClassName('active');
-      //   current[0].className = current[0].className.replace(' active', '');
-      //   this.className += ' active';
-      // });
+      btns[i].addEventListener('click', function() {
+        let current = document.getElementsByClassName(' active');
+        current[1].className = current[1].className.replace(" active", "");
+        this.className += " active";
+      })
       
     }
   }
