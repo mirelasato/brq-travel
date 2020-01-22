@@ -37,12 +37,12 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     this.isCollapsed = true;
     this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel);
     this.ativarBotao();    
-  }
+  } 
 
   // Efeito que deixa o botão ativado no filtro de pacotes de viagens  
   ativarBotao() {
-    let header = document.getElementById('button');
-    let btns = header.getElementsByClassName('btn');
+    let id = document.getElementById('button');
+    let btns = id.getElementsByClassName('btn');
     for (let i = 0; i < btns.length; i++) {
       btns[i].addEventListener('click', function() {
         let current = document.getElementsByClassName(' active');
