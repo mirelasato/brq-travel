@@ -5,8 +5,10 @@
         <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
       </div>
       <div class="form-group">
-          <label for="name">Nome Completo:</label>
-          <input type="text" formControlName="name" class="{{!name.pristine && nome.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.name)}}>
+          <!-- <label for="name">Nome Completo:</label> -->
+          <mat-form-field>
+            <input type="text" matInput formControlName="name" placeholder="Nome Completo" value= {{(user.name)}}>
+          </mat-form-field>
           <div *ngIf="!name.pristine && name.errors">
             <p class= "TxtError" *ngIf="name.errors.required">Nome é obrigatório</p>
             <p class= "TxtError" *ngIf="name.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
@@ -16,16 +18,20 @@
   
       <div class="form-row">
         <div class="col-lg-6 bottom-label">
-          <label for="cpf">CPF:</label>
-          <input type="text" formControlName="cpf" mask="000.000.000-00" class="{{!cpf.pristine && cpf.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.cpf)}}>
+          <!-- <label for="cpf">CPF:</label> -->
+          <mat-form-field>
+            <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="RG" value={{(user.cpf)}}>
+          </mat-form-field>
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
             <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
           </div>
         </div>
         <div class="col-lg-6 bottom-label">
-          <label for="rg">RG:</label>
-          <input type="text" formControlName="rg" mask="00.000.000-0" class="{{!rg.pristine && rg.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.rg)}}>
+          <!-- <label for="rg">RG:</label> -->
+          <mat-form-field>
+            <input type="text" matInput formControlName="rg" mask="00.000.000-0" placeholder="RG" value={{(user.rg)}}>
+          </mat-form-field> 
           <div *ngIf="!rg.pristine && rg.errors">
             <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
             <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
@@ -35,15 +41,19 @@
       
       <div class="form-row">
         <div class="col-lg-6 bottom-label">
-          <label for="phone">Telefone:</label>
-          <input type="phone" formControlName="phone" mask="(00) 0000-00009" class="{{!phone.pristine && phone.errors ? 'form-control is-invalid' : 'form-control' }}" value={{(user.phone)}}>
+          <!-- <label for="phone">Telefone:</label> -->
+          <mat-form-field>
+            <input type="phone" matInput formControlName="phone" mask="(00) 0000-00009" placeholder="Telefone" value={{(user.phone)}}>
+          </mat-form-field>
           <div *ngIf="!phone.pristine && phone.errors">
             <p class="TxtError" *ngIf="phone.errors.required">Telefone é obrigatório.</p>
           </div>
         </div>
         <div class="col-lg-6 bottom-label">
-          <label for="email">E-mail:</label>
-          <input type="email" formControlName="email" readonly="readonly" class="{{!email.pristine && email.errors ? 'form-control is-invalid' : 'form-control' }}" aria-describedby="emailHelp" value={{(user.email)}}>
+          <!-- <label for="email">E-mail:</label> -->
+          <mat-form-field>
+            <input type="email" matInput formControlName="email" placeholder="E-mail de login" readonly="readonly" value={{(user.email)}}>
+          </mat-form-field>
           <div *ngIf="!email.pristine && email.errors">
             <p class="TxtError" *ngIf="email.errors.required">E-mail é obrigatório.</p>
             <p class="TxtError" *ngIf="email.errors.pattern">Digite um e-mail válido.</p>
