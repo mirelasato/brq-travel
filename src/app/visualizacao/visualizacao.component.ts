@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingCartService } from '../shopping-cart.service';
-import { Detalhes } from './shared/models/detalhes.js';
+import { Detalhes } from '../shared/models/detalhes';
 import { VisualizacaoService } from '../shared/services/visualizacao.service';
 import { TabDirective } from 'ngx-bootstrap';
 
