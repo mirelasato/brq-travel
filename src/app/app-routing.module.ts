@@ -8,7 +8,6 @@ import { TravelPackagesComponent } from './travel-packages/travel-packages.compo
 import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-password.component';
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
-
 import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
 
 // Impede visualização de páginas quando está deslogado

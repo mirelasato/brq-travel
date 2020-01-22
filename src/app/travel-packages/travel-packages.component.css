@@ -1,6 +1,6 @@
 section {
     padding-top: 20px;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
 }
 
 .inline-cards {
@@ -24,4 +24,31 @@ li {
     /* float: left; */
     display: inline-block;
     padding-right: 4px;
+}
+
+.btn-primary {
+    background-color: #0062cc;
+    border-color: #0062cc;
+}
+
+/* .btn-primary:focus {
+    background-color: #ff4500 !important;
+} */
+
+/* .btn-primary:hover {
+    background-color: #ff4500;
+    border-color: #ff4500;
+} */
+
+.jumbotron {
+    padding: 2rem 4rem;
+}
+
+.container {
+    max-width: 1157px;
+}
+
+.active {
+    background-color: #ff4500 !important;
+    border-color: #ff4500 !important;
 }

@@ -22,7 +22,7 @@ export class ApiService {
 
   getUser(emailUser: string) {
     if (emailUser === '') { emailUser = this.authService.GetEmail; }
-    return this.http.get<User>(this.apiURL + '/usuarios?email=' + emailUser);
+    return this.http.get<User>(this.apiURL + '/usuarios?email=' + emailUser).pipe(take(1));
   }
 
   createUser(newUser) {

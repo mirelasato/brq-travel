@@ -1,26 +1,16 @@
 <br>
 <div class="container size-screen">
   <div class="secao">
-    <h3 class="text-center">Destaques do dia!</h3>
+    <h3 class="text-center">Destaques do dia</h3>
   </div>
   <hr />
 <!--  carrosel  -->
 <carousel>
-  <slide *ngFor="let carrossel of feriadoImg">
+  <slide class="size-banner" *ngFor="let carrossel of feriadoImg">
     <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block; width: 100%;">
     <div class="carousel-caption d-none d-md-block">
     </div>
   </slide>
-  <!-- <slide>
-    <img [src]="final.imagens[1].url" alt="second slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/pacotes/banner3.jpg" alt="third slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-    </div>
-  </slide> -->
 </carousel>
 <br>
 

@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http'; //importar desse jeito, lembr
 import { Injectable} from '@angular/core';
 
 import{ URL_API} from './app.api';
-import { Detalhes } from '../models/detalhes.model';
+import { Detalhes } from '../models/detalhes';
+
 
 
 @Injectable()

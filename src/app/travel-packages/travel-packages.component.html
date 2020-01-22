@@ -1,6 +1,18 @@
-<section class="container inline-cards">
-    <div class="row margin-card">
-      <div class="col-sm-6">
+<section class="container">
+  <div class="jumbotron col-sm-12">
+    <h1 class="display-5">Pacotes de viagens</h1>
+    <hr>
+    <div id="button" class="container btn-group">
+      <button type="button" class="btn btn-lg btn-primary active" (click)="setTypeTravel(1)">Pacotes com hospedagem</button>
+      <button type="button" class="btn btn-lg btn-primary" (click)="setTypeTravel(2)">Pacotes com bate volta</button>
+      <!-- <button type="button" class="btn btn-lg btn-primary" (click)="carregarPacotes()" >Todos os pacotes</button> -->
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div>
+    <!-- <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Pacotes com Hospedagem</h5>
@@ -10,9 +22,9 @@
             </button>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="col-sm-6">
+    <!-- <div class="col-sm-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Pacotes de Bate e volta</h5>
@@ -22,24 +34,31 @@
             </button>
           </div>
         </div>
-      </div>
-      
-      <div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
-        <ul>
-          <li *ngFor="let todosDestinos of destinoCards">
-           <app-card-travel [destino]="todosDestinos"></app-card-travel>
-          </li>
-        </ul>
-      </div>
-    
-      <div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
-        <!-- <h2>Próximas viagens</h2> -->
-        <ul>
-          <li *ngFor="let destinos of destinoCardsDisplay">
-            <app-card-travel [destino]="destinos"></app-card-travel>
-          </li>      
-        </ul>
-      </div>
-    </div>   
-</section>
+      </div> -->
 
+    <div id="collapseBasic" [collapse]="isCollapsed">
+      <ul>
+        <li *ngFor="let destinosHosp of destinoCardsHosp">
+          <app-card-travel [destino]="destinosHosp"></app-card-travel>
+        </li>
+      </ul>
+    </div>
+
+    <div id="collapseBasic" [collapse]="!isCollapsed">
+      <!-- <h2>Próximas viagens</h2> -->
+      <ul>
+        <li *ngFor="let destinos of destinoCardsDisplay">
+          <app-card-travel [destino]="destinos"></app-card-travel>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div id="collapseBasic" [collapse]="!isCollapsed">
+      <ul>
+        <li *ngFor="let filtroTodosDestinos of filtroTodosDestinos">
+          <app-card-travel [destino]="filtroTodosDestinos"></app-card-travel>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+</section>
