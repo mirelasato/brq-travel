@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Destino } from '../models/destino';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { Detalhes } from '../models/detalhes';
+import { URL_API } from './app.api';
+
 
 import 'rxjs/add/operator/take';
 
@@ -11,14 +12,49 @@ import 'rxjs/add/operator/take';
 })
 export class ShoppingCartService {
 
-  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
+  constructor(private http: HttpClient, ) { }
 
-  private readonly API = 'http://localhost:3000/destinos';
-  cardId = localStorage.getItem('cardId');
+  private url_api = 'http://localhost:3000/destinos';
+  public pacotes: Detalhes[];
 
-  addToCart() {
-    return this.http.get<Destino[]>(this.API);
+   getDetalhes() {
+
+    this.pacotes = [
+      {
+        id: 1,
+        titulo: 'Caldas Novas',
+        anunciante: 'BRQ-Travel',
+        valor: 300,
+        destaque: false,
+        data: '14/01/2020',
+        feriado: '',
+        descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
+        tipo: 'Bate Volta',
+        vagas: 30,
+        imagens: [
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+            {
+              url: '../assets/img/capa-destinos.jpg',
+            },
+        ]
+      },
+    ];
+
   }
+  
+
+
+
+  // cardId = localStorage.getItem('cardId');
+
+  // addToCart() {
+  //   return this.http.get<Destino[]>(this.API);
+  // }
 
   // private create() {
   //   return this.db.list('/carrinho-de-compras').push({

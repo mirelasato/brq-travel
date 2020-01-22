@@ -3,14 +3,19 @@ import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth-service';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
+import { ActivatedRoute } from '@angular/router';
+import { Detalhes } from '../shared/models/detalhes';
 
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.css'],
+  providers: [ShoppingCartService]
 })
 export class ShoppingCartComponent implements OnInit {
+  
+  public oferta: Detalhes;
   id: number;
   imagens: any[];
   destaqueCards: Destino[];
@@ -18,7 +23,7 @@ export class ShoppingCartComponent implements OnInit {
   // public pacotes: Destino;
 
 
-  constructor(public ShoppingCartService: ShoppingCartService, public API: ApiService, public authService: AuthService) { }
+  constructor(public ShoppingCartService: ShoppingCartService, public API: ApiService, public authService: AuthService, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
