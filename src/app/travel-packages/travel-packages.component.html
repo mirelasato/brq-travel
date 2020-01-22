@@ -2,9 +2,14 @@
   <div class="jumbotron col-sm-12">
     <h1 class="display-5">Pacotes de viagens</h1>
     <hr>
-    <div id="button" class="container btn-group">
-      <button type="button" class="btn btn-lg btn-primary active" (click)="setTypeTravel(1)">Pacotes com hospedagem</button>
-      <button type="button" class="btn btn-lg btn-primary" (click)="setTypeTravel(2)">Pacotes com bate volta</button>
+    <div id="button" class="container btn-group btn-group-toggle">
+      <label type="button" class="btn btn-lg btn-primary active" (click)="setTypeTravel(1)">
+        <input type="radio"> Pacotes com hospedagem
+      </label>
+
+      <label type="button" class="btn btn-lg btn-primary" (click)="setTypeTravel(2)">
+        <input type="radio"> Pacotes com bate volta
+      </label>
       <!-- <button type="button" class="btn btn-lg btn-primary" (click)="carregarPacotes()" >Todos os pacotes</button> -->
     </div>
   </div>
