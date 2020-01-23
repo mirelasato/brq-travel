@@ -17,6 +17,8 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   inscricao: Subscription;
 
+  className: string
+
   constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
@@ -46,12 +48,16 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     for (let i = 0; i < btns.length; i++) {
       btns[i].addEventListener('click', function() {
         let current = document.getElementsByClassName(' active');
-        current[1].className = current[1].className.replace(" active", "");
-        this.className += " active";
+        current[1].className = current[1].className.replace(' active', '');
+        this.className += ' active';
       })
       
     }
   }
+
+  // carregarMais1() {
+    
+  // }
 
 }
 
