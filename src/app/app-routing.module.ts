@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './user-forms/forgot-password/forgot-pas
 import { CardTravelComponent } from './card-travel/card-travel.component';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 import { MyaccountComponent } from './user-forms/myaccount/myaccount.component';
+import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
 
 // Impede visualização de páginas quando está deslogado
 import { AuthGuard } from '../../src/app/shared/services/auth.guard';
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'pacotes', component: CardTravelComponent },
   { path: 'visualizacao/:id', component: VisualizacaoComponent},
   { path: 'carrinho-de-compras', component: ShoppingCartComponent, canActivate: [AuthGuard] },
-  { path: 'minha-conta', component: MyaccountComponent, canActivate: [AuthGuard] }
+  { path: 'minha-conta', component: MyaccountComponent, canActivate: [AuthGuard] },
+  { path: 'cadastro-de-viagem', component: RegistertravelComponent }
 ];
 
 @NgModule({

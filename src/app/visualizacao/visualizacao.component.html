@@ -1,92 +1,26 @@
-<!-- <div class="container">
-  <div class="oferta" *ngIf="oferta !==undefined">
-    <div class="row" >
-      <div class="col">
-          <h4>{{ oferta.titulo }}</h4>
-      </div>
-    </div>
-    <br>
-    <div class="row" >
-      <div class="col-md-6">
-        <div class="img_capa" >
-          <img class="img-fluid" [src] ="item.imagens[0].url " /> 
-        </div>
-        <div class="inline-img">
-          <div class="thumbnails" *ngFor="let imagem of oferta">
-           <img class="img-fluid" [src] ="imagem.url" />
-         </div>
-       </div> 
-      </div>
-      <div class="col-md-6">
-        <div class="row">
-          <div class="col text-center">
-            <p>Por apenas</p>
-          </div>
-        </div>
-        <div class="row" >
-          <div class="col text-center">
-            <h1> R$ {{ oferta.valor }} </h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col text-center">
-            <button type="button" routerLink="/carrinho-de-compras" href="#carrinho-de-compras" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <br>
-          <div class="row">
-            <div class="col text-center">
-<<<<<<< HEAD
-              <button type="button"  routerLink="['/carrinho-de-compras', item.id]" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
-=======
-              <label>
-              <p> Data do embarque: {{ oferta.data }}</p>
-              <p>Vagas Restantes: {{ oferta.vagas }} </p>
-              <p> Anunciado por: {{ oferta.anunciante}} </p>
-              <p> Descrição: {{ oferta.descricao }} </p>
-              </label>
->>>>>>> 05ad3fcd6f4aeeaa1fd65dcd77a932b039f4fcf2
-            </div>
-          </div>
-      </div> 
-    </div>
 
-    <div>
-      <tabset>
-        <tab heading="Descrição" routerLink="description" id="tab1"></tab>
-        <tab heading="Basic Title 1">Basic content 1</tab>
-      </tabset>
-      
-    </div>  
-  </div>
-    
-</div> -->
 <div class="container">
   <div class="oferta" *ngIf="oferta !==undefined">
-
+    <br>
     <div class="row">
       <div class="col">
         <h4>{{ oferta.titulo }}</h4>
       </div>
     </div>
     <br>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="img_capa">
-          <img [src]="oferta.imagens[0].url" />
-        </div>
-        <div class="thumbnails">
-          <img *ngFor="let imagem of oferta.imagens" [src]="imagem.url" />
-          
-        </div>
-      </div>
+    
+  
+    <div class="col-md-6 col-sm-4">
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+  </div>
 
-      <div class="col-md-6">
+
+      <div class="col-md-6 col-sm-6 alinhar">
         <div class="row">
           <div class="col text-center">
             <p>Por apenas</p>
           </div>
-          
+
         </div>
 
         <div class="row">
@@ -101,6 +35,7 @@
           </div>
         </div>
         <br>
+
         <div class="row">
           <div class="col text-center">
             <label>
@@ -112,15 +47,16 @@
         </div>
       </div>
 
-    </div>
+
+
   </div>
   <br>
   <tabset>
-    <tab heading="First tab" class="mt-2" (selectTab)="onSelect($event)">
+    <tab heading="Descrição" class="mt-2" (selectTab)="onSelect($event)">
       <p>Descrição: {{ oferta.descricao }}</p>
       <p>Embarque: {{ oferta.embarque }}</p>
     </tab>
   </tabset>
   <br>
-  
+
 </div>

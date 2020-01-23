@@ -1,4 +1,4 @@
-h2 {
+h3, h5 {
     font-family: 'Alfa Slab One', cursive;
 }
 
@@ -15,7 +15,6 @@ a:hover {
     color: red;
 }
 
-.mat-form-field{
-    width:100% !important;
-  }
-    
+.bottom-label {
+    padding-bottom: 20px;
+}
