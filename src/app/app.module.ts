@@ -42,6 +42,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { RegistertravelComponent } from './user-forms/registertravel/registertra
     RouterModule.forRoot([]),
     TabsModule.forRoot(),
     MatSliderModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule
   ],
   providers: [
     ApiService,
