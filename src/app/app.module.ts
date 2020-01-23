@@ -41,6 +41,19 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+ import * as Hammer from 'hammerjs';
+ import { NgxGalleryModule } from 'ngx-gallery';
+
+
+ export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    'pan': {
+      direction: Hammer.DIRECTION_ALL,
+    }
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,13 +90,15 @@ import { MatInputModule } from '@angular/material/input';
     RouterModule.forRoot([]),
     TabsModule.forRoot(),
     MatSliderModule,
-    MatInputModule
+    MatInputModule,
+    NgxGalleryModule
   ],
   providers: [
     ApiService,
     AuthService,
     ShoppingCartService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
 
 
   ],

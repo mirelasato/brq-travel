@@ -70,16 +70,9 @@
       </div>
     </div>
     <br>
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> 
     <div class="row">
-      <div class="col-md-6">
-        <div class="img_capa">
-          <img [src]="oferta.imagens[0].url" />
-        </div>
-        <div class="thumbnails">
-          <img *ngFor="let imagem of oferta.imagens" [src]="imagem.url" />
-          
-        </div>
-      </div>
+      
 
       <div class="col-md-6">
         <div class="row">
