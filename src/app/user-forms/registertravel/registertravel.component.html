@@ -1,0 +1,97 @@
+<div class="container col-lg-5 col-md-8 col-sm-12">
+  
+    <form [formGroup]="FormRegister">
+        <h3>Anúncie sua viagem!</h3>
+        <h5>Cadastre já sua viagem:</h5>
+        <br><div id="mensagemView">
+          <p class="{{authService.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!authService.status.valid" >{{authService.MsgError}}</p>
+          <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
+        </div>
+        <div class="form-group">
+            <!--<label for="name">Nome Completo:</label>-->
+            <!--Input do Angular Material-->
+              <mat-form-field>
+                <input type="text" matInput formControlName="name" placeholder="Nome Completo">
+              </mat-form-field>
+            <div *ngIf="!name.pristine && name.errors">
+              <p class= "TxtError" *ngIf="name.errors.required">Nome é obrigatório</p>
+              <p class= "TxtError" *ngIf="name.errors.minlength">Nome deve ter no mínimo 3 caracters.</p>
+              <p class= "TxtError" *ngIf="name.errors.maxlength">Nome deve ter no máximo 100 caracters.</p>
+            </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="col-lg-6 bottom-label">
+            <!--<label for="cpf">CPF:</label>-->
+            <mat-form-field>
+              <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="CPF">
+            </mat-form-field>
+            <div *ngIf="!cpf.pristine && cpf.errors">
+              <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
+              <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 bottom-label">
+            <!--<label for="rg">RG:</label>-->
+            <mat-form-field>
+              <input type="text" matInput formControlName="rg" mask="00.000.000-0" placeholder="RG">
+            </mat-form-field>
+            <div *ngIf="!rg.pristine && rg.errors">
+              <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
+              <p class= "TxtError" *ngIf="rg.errors.maxlength">Digite um RG válido.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="col-lg-6 bottom-label">
+            <!--<label for="phone">Telefone:</label>-->
+            <mat-form-field>
+              <input type="phone" matInput formControlName="phone" mask="(00) 0000-00009" placeholder="Telefone">
+            </mat-form-field>
+            <div *ngIf="!phone.pristine && phone.errors">
+              <p class="TxtError" *ngIf="phone.errors.required">Telefone é obrigatório.</p>
+            </div>
+          </div>
+          <div class="col-lg-6 bottom-label">
+            <!--<label for="email">E-mail:</label>-->
+            <mat-form-field>  
+              <input type="email" matInput formControlName="email" aria-describedby="emailHelp" placeholder="E-mail de login">
+            </mat-form-field>
+            <div *ngIf="!email.pristine && email.errors">
+              <p class="TxtError" *ngIf="email.errors.required">E-mail é obrigatório.</p>
+              <p class="TxtError" *ngIf="email.errors.pattern">Digite um e-mail válido.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <!--<label for="password">Senha:</label>-->
+          <mat-form-field>  
+            <input type="password" matInput formControlName="password" placeholder="Senha">
+          </mat-form-field>  
+          <div *ngIf="!password.pristine && password.errors">
+            <p class= "TxtError" *ngIf="password.errors.required">Senha é obrigatória.</p>
+            <p class= "TxtError" *ngIf="password.errors.minlength">Senha deve ter no mínimo 6 caracters.</p>
+            <p class= "TxtError" *ngIf="password.errors.maxlength">Senha deve ter no máximo 12 caracters.</p>
+          </div>
+        </div>  
+      
+        <div class="form-group">
+          <!--<label for="confirmPassword">Repita a Senha:</label>-->
+          <mat-form-field>
+            <input type="password" matInput formControlName="confirmPassword" placeholder="Repita a senha">
+          </mat-form-field>
+          <!--<div *ngIf="!confirmPassword.pristine && confirmPassword.errors">
+            <p class= "TxtError" *ngIf="confirmPassword.errors.required">Confirme sua senha.</p>
+            <p class= "TxtError" *ngIf="confirmPassword.errors.senhasNaoCoincidem">As senhas não coincidem.</p>
+          </div>-->
+        </div>
+        <div class="row text-center">
+            <div class="form-group col-sm-12">
+              <button type="submit" class="btn btn-primary" (click)="NewRegister()">Enviar dados</button>
+              <p>Já é membro? <a href="/entrar">Entre!</a></p>
+            </div>
+        </div>
+    </form>
+  </div>
