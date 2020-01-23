@@ -1,7 +1,20 @@
 h1 {
     color: #555
 }
-p{
-    margin-top: 10px;
 
-}
+/* .alinhar{
+    border: .1em solid black;
+    background-color: #FAFFFC;
+    width: 45%;
+    box-sizing: inherit;
+    padding: 1em;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    left: 45em;
+    bottom: 26em;
+} */
+/* .oferta{
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+} */

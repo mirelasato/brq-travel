@@ -18,6 +18,7 @@ export class VisualizacaoComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages:NgxGalleryImage [];
 
+  
 
   public oferta: Detalhes;
 
@@ -62,8 +63,8 @@ this.galleryOptions = [
     // max-width 800
     {
         breakpoint: 800,
-        width: '100%',
-        height: '600px',
+        // width: '100%',
+        // height: '600px',
         imagePercent: 80,
         thumbnailsPercent: 20,
         thumbnailsMargin: 20,
@@ -95,7 +96,7 @@ this.galleryImages = [
     }
  ];
 
-  }
+ 
 }
-  
+}
 
