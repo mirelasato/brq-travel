@@ -9,6 +9,7 @@
       </div>
       <div class="form-group">
           <!--<label for="name">Nome Completo:</label>-->
+          <!--Input do Angular Material-->
             <mat-form-field>
               <input type="text" matInput formControlName="name" placeholder="Nome Completo">
             </mat-form-field>
@@ -23,7 +24,7 @@
         <div class="col-lg-6 bottom-label">
           <!--<label for="cpf">CPF:</label>-->
           <mat-form-field>
-            <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="CPF: 000.000.000-00">
+            <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="CPF">
           </mat-form-field>
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
@@ -33,7 +34,7 @@
         <div class="col-lg-6 bottom-label">
           <!--<label for="rg">RG:</label>-->
           <mat-form-field>
-            <input type="text" matInput formControlName="rg" mask="00.000.000-0" placeholder="RG: 00.000.000-0">
+            <input type="text" matInput formControlName="rg" mask="00.000.000-0" placeholder="RG">
           </mat-form-field>
           <div *ngIf="!rg.pristine && rg.errors">
             <p class= "TxtError" *ngIf="rg.errors.required">RG é obrigatório.</p>
@@ -46,7 +47,7 @@
         <div class="col-lg-6 bottom-label">
           <!--<label for="phone">Telefone:</label>-->
           <mat-form-field>
-            <input type="phone" matInput formControlName="phone" mask="(00) 0000-00009" placeholder="Tel: (00) 0000-0000">
+            <input type="phone" matInput formControlName="phone" mask="(00) 0000-00009" placeholder="Telefone">
           </mat-form-field>
           <div *ngIf="!phone.pristine && phone.errors">
             <p class="TxtError" *ngIf="phone.errors.required">Telefone é obrigatório.</p>
