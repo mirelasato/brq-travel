@@ -97,8 +97,8 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
     TabsModule.forRoot(),
     MatSliderModule,
     MatInputModule,
-    MatDatepickerModule
-    NgxGalleryModule,
+    MatDatepickerModule,
+    NgxGalleryModule
     
   ],
   providers: [
