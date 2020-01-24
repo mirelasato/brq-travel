@@ -71,13 +71,13 @@
       "tipo": 2,
       "imagens": [
         {
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/arraial-do-cabo/image1.jpg"
         },
         {
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/arraial-do-cabo/image2.jpg"
         },
         {
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/arraial-do-cabo/image3.jpg"
         }
       ]
     },
@@ -99,15 +99,15 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/campos-do-jordao/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/campos-do-jordao/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/campos-do-jordao/image3.jpg"
         }
       ]
     },
@@ -128,15 +128,15 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/foz/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/foz/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/foz/image3.jpg"
         }
       ]
     },
@@ -157,21 +157,21 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/sao-roque/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/sao-roque/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/sao-roque/image3.jpg"
         }
       ]
     },
     {
       "id": 5,
-      "titulo": "TESTE 5",
+      "titulo": "Capitólio",
       "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
       "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
       "destaque": false,
@@ -186,21 +186,21 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/capitolio/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/capitolio/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/capitolio/image3.jpg"
         }
       ]
     },
     {
       "id": 6,
-      "titulo": "TESTE 6",
+      "titulo": "Ilhabela",
       "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
       "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
       "destaque": false,
@@ -215,21 +215,21 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/ilhabela/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/ilhabela/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/ilhabela/image3.jpg"
         }
       ]
     },
     {
       "id": 7,
-      "titulo": "TESTE 7",
+      "titulo": "Monte Verde",
       "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
       "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
       "destaque": false,
@@ -244,15 +244,15 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/monte-verde/image1.jpg"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/monte-verde/image2.jpg"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         }
       ]
     },
@@ -273,15 +273,15 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         }
       ]
     },
@@ -302,15 +302,15 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         },
         {
           "id": 2,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         },
         {
           "id": 3,
-          "url": "assets/img/capa-destinos.jpg"
+          "url": "assets/travel-packages/"
         }
       ]
     }
@@ -332,7 +332,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/banner1.jpg"
+          "url": "assets/travel-banner/banner1.jpg"
         }
       ]
     },
@@ -342,7 +342,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/banner2.jpg"
+          "url": "assets/travel-banner/banner2.jpg"
         }
       ]
     },
@@ -352,7 +352,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/img/banner3.jpg"
+          "url": "assets/travel-banner/banner3.jpg"
         }
       ]
     }
