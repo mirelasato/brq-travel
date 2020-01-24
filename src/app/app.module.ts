@@ -44,10 +44,11 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
- import * as Hammer from 'hammerjs';
- import { NgxGalleryModule } from 'ngx-gallery';
+import * as Hammer from 'hammerjs';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 
 
@@ -97,18 +98,17 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
     TabsModule.forRoot(),
     MatSliderModule,
     MatInputModule,
+    NgxGalleryModule,
     MatDatepickerModule,
-    NgxGalleryModule
-    
+    MatNativeDateModule
   ],
   providers: [
     ApiService,
     AuthService,
     ShoppingCartService,
+    MatDatepickerModule,
     AngularFireDatabase,
     {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
-
-
   ],
   bootstrap: [AppComponent]
 })
