@@ -18,3 +18,34 @@ a:hover {
 .bottom-label {
     padding-bottom: 20px;
 }
+
+.mat-form-field{
+    width:100% !important;
+}
+
+textarea {
+    width:100% !important;
+}
+
+/* CSS INPUT PRICE */
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
