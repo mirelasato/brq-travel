@@ -1,6 +1,10 @@
 h1 {
     color: #555
 }
+.size-banner {
+    height: 45%;
+    width: 50%;
+}
 
 /* .alinhar{
     border: .1em solid black;

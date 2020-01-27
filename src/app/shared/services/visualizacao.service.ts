@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 
 import{ URL_API} from './app.api';
 import { Detalhes } from '../models/detalhes';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -34,7 +35,17 @@ public getOfertas(): Promise<Detalhes[]>
         return resposta[0]
     })
     }
+    
+    carrosel() {
+        return this.http.get<Detalhes[]>(this.url_api)
+        .pipe(
+          tap(console.log)
+        )
+      }
+
     getDestino(id: string) {
         return this.http.get<Detalhes>(this.url_api + '/' + id);
       }
+
 }
+
