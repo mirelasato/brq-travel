@@ -1,21 +1,26 @@
 
-<div class="container">
-  <div class="oferta" *ngIf="oferta !==undefined">
-    <br>
-    <div class="row">
+<div class="container" *ngIf="oferta ">
+    <div class="row" >
       <div class="col">
         <h4>{{ oferta.titulo }}</h4>
       </div>
     </div>
     <br>
+    <div class="teste">
+      <carousel >
+        <slide  *ngFor="let carrossel of oferta.imagens" >
+          <img class="imagens" [src]="carrossel.url" alt="first slide">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </slide>
+      </carousel>
+    </div>
     
-    <carousel>
-      <slide class="size-banner" *ngFor="let carrossel of imagens">
-        <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block;">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
-      </slide>
-    </carousel>
+     
+     
+  
+
+  
     <!-- <div class="col-md-6 col-sm-4">
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
   </div> -->
@@ -52,10 +57,8 @@
           </div>
         </div>
       </div>
+  
 
-
-
-  </div>
   <br>
   <tabset>
     <tab heading="Descrição" class="mt-2" (selectTab)="onSelect($event)">

@@ -34,15 +34,10 @@ public getOfertas(): Promise<Detalhes[]>
         //o metodo .ishift ele extrai a primeira posição de um array 
         return resposta[0]
     })
-    }
+    } 
     
-    carrosel() {
-        return this.http.get<Detalhes[]>(this.url_api)
-        .pipe(
-          tap(console.log)
-        )
-      }
-
+    
+    
     getDestino(id: string) {
         return this.http.get<Detalhes>(this.url_api + '/' + id);
       }
