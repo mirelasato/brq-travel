@@ -15,6 +15,9 @@ import { Detalhes } from '../shared/models/detalhes';
 })
 export class ShoppingCartComponent implements OnInit {
   
+  defaultQuantity: number = 1;
+  productAddedToCart: Detalhes[];
+  allTotal: number;
   public oferta: Detalhes;
   id: number;
   imagens: any[];
@@ -27,10 +30,27 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.getDetalhes();
+    this.productAddedToCart = this.ShoppingCartService.getProductFromCart();
+    for (let i in this.productAddedToCart) {
+      this.productAddedToCart[i].quantity = 1;
+    }
+    this.ShoppingCartService.removeAllProductFromCart();
+    this.ShoppingCartService.addProductToCart(this.productAddedToCart);
+    this.calculateAllTotal(this.productAddedToCart);
+    
+  }
+  calculateAllTotal(allItemns: Detalhes[])
+  {
+    let total = 0;
+    for (let i in allItemns) {
+      total = total + (allItemns[i].quantity * allItemns[i].valor);
+    }
+    this.allTotal = total;
+  }
+
+  // this.getDetalhes();
 
     // console.log('this.pacotes', this.pacotes[0]);
-  }
 
   // getDetalhes() {
 

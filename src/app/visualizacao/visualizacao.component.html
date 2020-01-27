@@ -31,7 +31,7 @@
 
         <div class="row">
           <div class="col text-center">
-            <button type="button" routerLink="/carrinho-de-compras" href="#carrinho-de-compras" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
+            <button type="button" routerLink="/carrinho-de-compras" href="#carrinho-de-compras" class="btn btn-warning btn-lg" (click)="OnAddCart(oferta)">Adicionar ao carrinho</button>
           </div>
         </div>
         <br>
@@ -52,7 +52,7 @@
   </div>
   <br>
   <tabset>
-    <tab heading="Descrição" class="mt-2" (selectTab)="onSelect($event)">
+    <tab heading="Descrição" class="mt-2" (selectTab)="onSelect($event)"> 
       <p>Descrição: {{ oferta.descricao }}</p>
       <p>Embarque: {{ oferta.embarque }}</p>
     </tab>

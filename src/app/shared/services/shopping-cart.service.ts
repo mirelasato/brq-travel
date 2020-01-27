@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Detalhes } from '../models/detalhes';
 import { URL_API } from './app.api';
+import { BehaviorSubject } from 'rxjs';
 
 
 // import 'rxjs/add/operator/take';
@@ -12,15 +13,35 @@ import { URL_API } from './app.api';
 })
 export class ShoppingCartService {
 
+
   constructor(private http: HttpClient, ) { }
 
+  private currentCartCount = new BehaviorSubject(0);
+  currentMessage = this.currentCartCount.asObservable();
   private url_api = 'http://localhost:3000/destinos';
   public pacotes: Detalhes[];
+
+  updateCartCount(count: number) {
+    this.currentCartCount.next(count)
+  }
+
+  addProductToCart(pacotes: any) {
+    localStorage.setItem("pacote", JSON.stringify(pacotes));
+  }
+
+  getProductFromCart() {
+    return JSON.parse(localStorage.getItem('pacote'));
+  }
+
+  removeAllProductFromCart() {
+    return localStorage.removeItem("pacote");
+  }
 
    getDetalhes() {
 
     this.pacotes = [
       {
+        quantity: 1,
         id: 1,
         titulo: 'Caldas Novas',
         anunciante: 'BRQ-Travel',
@@ -46,15 +67,17 @@ export class ShoppingCartService {
     ];
 
   }
+
+  addToCart(pacotes: Detalhes) {
+    
+  }
   
 
 
 
   // cardId = localStorage.getItem('cardId');
 
-  // addToCart() {
-  //   return this.http.get<Destino[]>(this.API);
-  // }
+  
 
   // private create() {
   //   return this.db.list('/carrinho-de-compras').push({

@@ -10,5 +10,7 @@ export class Detalhes {
     public tipo: string;
     public anunciante: string;
     public imagens: Array<object>;
+    public quantity: number;
+    
 
 }
