@@ -6,7 +6,6 @@
       <label type="button" class="btn btn-lg btn-primary active" (click)="setTypeTravel(1)">
         <input type="radio"> Pacotes com hospedagem
       </label>
-
       <label type="button" class="btn btn-lg btn-primary" (click)="setTypeTravel(2)">
         <input type="radio"> Pacotes com bate volta
       </label>
@@ -43,21 +42,25 @@
 
     <div id="collapseBasic" [collapse]="isCollapsed">
       <ul>
-        <li *ngFor="let destinosHosp of destinoCardsHosp">
+        <li *ngFor="let destinosHosp of destinoCardsHosp | slice:0:3" let i = "index">
           <app-card-travel [destino]="destinosHosp"></app-card-travel>
         </li>
+        <button >Carregar mais1</button>
       </ul>
+      
     </div>
 
     <div id="collapseBasic" [collapse]="!isCollapsed">
       <!-- <h2>Próximas viagens</h2> -->
       <ul>
-        <li *ngFor="let destinos of destinoCardsDisplay">
+        <li *ngFor="let destinos of destinoCardsDisplay | slice:0:3">
           <app-card-travel [destino]="destinos"></app-card-travel>
         </li>
+        <button>Carregar mais2</button>
       </ul>
+      
     </div>
-
+    
     <!-- <div id="collapseBasic" [collapse]="!isCollapsed">
       <ul>
         <li *ngFor="let filtroTodosDestinos of filtroTodosDestinos">

@@ -16,8 +16,9 @@ section {
     margin: 20px 20px;
 }
 
-h2 {
-    font-family: 'Alfa Slab One', cursive;
+h1 {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
 }
 
 li {
@@ -28,34 +29,24 @@ li {
 
 .btn-primary {
     background-color: white;
-    border-color: #120b36;
     color: #19058a;
     font-weight: bold;
 }
 
-/* .btn-primary:focus {
-    background-color: #ff4500 !important;
-} */
-
-/* .btn-primary:hover {
-    background-color: #ff4500;
-    border-color: #ff4500;
-} */
-
 .jumbotron {
     padding: 1rem 4rem;
+    background-color: #00abe4;
+}
+
+hr {
+    background-color: whitesmoke;
 }
 
 .container {
     max-width: 1157px;
 }
 
-/* .active {
-    background-color: #ff4500 !important;
-    border-color: #ff4500 !important;
-} */
-
 .active, .btn:hover {
     background-color: #19058a !important;
     color: white;
-  }
+}

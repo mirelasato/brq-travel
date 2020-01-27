@@ -38,9 +38,27 @@ import { ShoppingCartService } from './shopping-cart.service';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AngularFireDatabase } from 'angularfire2/database';
 
+
 //Angular Material
 import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
+import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material';
+
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import * as Hammer from 'hammerjs';
+import { NgxGalleryModule } from 'ngx-gallery';
+
+
+
+ export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = {
+    'pan': {
+      direction: Hammer.DIRECTION_ALL,
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -58,6 +76,7 @@ import { MatInputModule } from '@angular/material/input';
     VisualizacaoComponent,
     ShoppingCartComponent,
     MyaccountComponent,
+    RegistertravelComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,15 +97,18 @@ import { MatInputModule } from '@angular/material/input';
     RouterModule.forRoot([]),
     TabsModule.forRoot(),
     MatSliderModule,
-    MatInputModule
+    MatInputModule,
+    NgxGalleryModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     ApiService,
     AuthService,
     ShoppingCartService,
-    AngularFireDatabase
-
-
+    MatDatepickerModule,
+    AngularFireDatabase,
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]
 })
