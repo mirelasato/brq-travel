@@ -104,10 +104,6 @@
         {
           "id": 2,
           "url": "assets/travel-packages/campos-do-jordao/image2.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/travel-packages/campos-do-jordao/image3.jpg"
         }
       ]
     },
@@ -313,6 +309,28 @@
           "url": "assets/travel-packages/monte-verde/image3.jpg"
         }
       ]
+    },
+    {
+      "name": "Portugal",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 34,
+      "minidescription": "dfsfsf",
+      "completedescription": "sdfdsfsdfs",
+      "id": 10
+    },
+    {
+      "name": "Brasil",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 33,
+      "minidescription": "sdvsdvsd",
+      "completedescription": "dsvdfvbfgfgd",
+      "id": 11
     }
   ],
   "tipoViagem": [

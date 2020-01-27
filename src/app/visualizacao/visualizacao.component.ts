@@ -23,7 +23,7 @@ export class VisualizacaoComponent implements OnInit {
   feriadoImgDisplay: Detalhes[];
 
   // private service: ,
-    
+
 
   public oferta: Detalhes;
 
@@ -54,16 +54,17 @@ console.log(this.route.snapshot.params['id']);
      this.visualizacaoService.getDetalhesPorId(this.route.snapshot.params['id'])
      .then(( oferta: Detalhes) => {
        this.oferta = oferta;
+       console.log(this.oferta);
 
  }
      )
      //carrosel
 
-     this.visualizacaoService.carrosel()
-     .subscribe(img => {
-     this.imagens = img;
-       this.final = this.imagens[0];
-     });
+    //  this.visualizacaoService.get()
+    //  .subscribe(img => {
+    //  this.imagens = img;
+    //    this.final = this.imagens[0];
+    //  });
 
 
 // this.galleryOptions = [
@@ -108,7 +109,7 @@ console.log(this.route.snapshot.params['id']);
 //     }
 //  ];
 
- 
+
 }
 }
 
