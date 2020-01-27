@@ -313,6 +313,28 @@
           "url": "assets/travel-packages/"
         }
       ]
+    },
+    {
+      "name": "Portugal",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 34,
+      "minidescription": "dfsfsf",
+      "completedescription": "sdfdsfsdfs",
+      "id": 10
+    },
+    {
+      "name": "Brasil",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 33,
+      "minidescription": "sdvsdvsd",
+      "completedescription": "dsvdfvbfgfgd",
+      "id": 11
     }
   ],
   "tipoViagem": [
