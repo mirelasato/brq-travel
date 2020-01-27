@@ -5,6 +5,7 @@ import { ShoppingCartService } from '../shopping-cart.service';
 import { VisualizacaoService } from '../shared/services/visualizacao.service';
 import { TabDirective } from 'ngx-bootstrap';
 import { Detalhes } from '../shared/models/detalhes';
+
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 
 
@@ -15,14 +16,20 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   providers: [VisualizacaoService]
 })
 export class VisualizacaoComponent implements OnInit {
-  galleryOptions: NgxGalleryOptions[];
-  galleryImages:NgxGalleryImage [];
+  // galleryOptions: NgxGalleryOptions[];
+  // galleryImages:NgxGalleryImage [];
 
-  
+  feriadoImg: Detalhes[];
+  feriadoImgDisplay: Detalhes[];
+
+  // private service: ,
+    
 
   public oferta: Detalhes;
 
-  imagens: Destino[];
+  final: any;
+
+  imagens: Detalhes[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
    public pacotes: Detalhes;
@@ -31,11 +38,11 @@ export class VisualizacaoComponent implements OnInit {
   onSelect(data: TabDirective): void {
     this.value = data.heading;
   }
-  constructor(private service: ShoppingCartService,
+  constructor(
     private route: ActivatedRoute,
     private visualizacaoService: VisualizacaoService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
     //  this.service.addToCart()
     //  .subscribe(dados => {this.pacotes = dados;
     //     //tslint:disable-next-line:align
@@ -52,49 +59,54 @@ console.log(this.route.snapshot.params['id']);
      )
      //carrosel
 
-
-this.galleryOptions = [
-    {
-        width: '600px',
-        height: '400px',
-        thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide
-    },
-    // max-width 800
-    {
-        breakpoint: 800,
-        // width: '100%',
-        // height: '600px',
-        imagePercent: 80,
-        thumbnailsPercent: 20,
-        thumbnailsMargin: 20,
-        thumbnailMargin: 20
-    },
-    // max-width 400
-    {
-        breakpoint: 400,
-        preview: false
-    }
-];
+     this.visualizacaoService.carrosel()
+     .subscribe(img => {
+     this.imagens = img;
+       this.final = this.imagens[0];
+     });
 
 
-this.galleryImages = [
-    {
-        small: 'assets/pacotes/banner1.jpg',
-        medium: 'assets/pacotes/banner1.jpg',
-        big: 'assets/pacotes/banner1.jpg'
-     },
-     {
-         small: 'assets/pacotes/banner1.jpg',
-          medium: 'assets/pacotes/banner1.jpg',
-         big: 'assets/pacotes/banner1.jpg'
-    },
-     {
-         small: 'assets/pacotes/banner1.jpg',
-        medium: 'assets/pacotes/banner1.jpg',
-         big: 'assets/pacotes/banner1.jpg'
-    }
- ];
+// this.galleryOptions = [
+//     {
+//         width: '600px',
+//         height: '400px',
+//         thumbnailsColumns: 4,
+//         imageAnimation: NgxGalleryAnimation.Slide
+//     },
+//     // max-width 800
+//     {
+//         breakpoint: 800,
+//         // width: '100%',
+//         // height: '600px',
+//         imagePercent: 80,
+//         thumbnailsPercent: 20,
+//         thumbnailsMargin: 20,
+//         thumbnailMargin: 20
+//     },
+//     // max-width 400
+//     {
+//         breakpoint: 400,
+//         preview: false
+//     }
+// ];
+
+// this.galleryImages = [
+//     {
+//         small: 'assets/trevel-packages',
+//         medium: '',
+//         big: ''
+//      },
+//      {
+//          small: 'assets/pacotes/banner1.jpg',
+//           medium: 'assets/pacotes/banner1.jpg',
+//          big: 'assets/pacotes/banner1.jpg'
+//     },
+//      {
+//          small: 'assets/pacotes/banner1.jpg',
+//         medium: 'assets/pacotes/banner1.jpg',
+//          big: 'assets/pacotes/banner1.jpg'
+//     }
+//  ];
 
  
 }

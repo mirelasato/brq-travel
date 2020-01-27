@@ -9,10 +9,16 @@
     </div>
     <br>
     
-  
-    <div class="col-md-6 col-sm-4">
+    <carousel>
+      <slide class="size-banner" *ngFor="let carrossel of imagens">
+        <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block;">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </slide>
+    </carousel>
+    <!-- <div class="col-md-6 col-sm-4">
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-  </div>
+  </div> -->
 
 
       <div class="col-md-6 col-sm-6 alinhar">
