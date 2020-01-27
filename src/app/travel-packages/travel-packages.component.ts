@@ -13,24 +13,33 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   destinoCards: Destino[];
   destinoCardsDisplay: Destino[];
   destinoCardsHosp: Destino[];
+  destinoCardsBateVolta: Destino[];
   isCollapsed = false;
 
   inscricao: Subscription;
 
-  className: string
+  seeMore: boolean = false;
+  viewBtn: boolean = false;
 
   constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
+
     this.inscricao = this.service.lista()
     .subscribe(dados => {
       this.destinoCards = dados;
       this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
+      // this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
+      this.viewBtn2();
+      // this.viewBtn3()
+
+      console.log('Bate Volta',this.destinoCardsBateVolta)
     });
     
   }
 
   ngOnDestroy() {
+
     this.inscricao.unsubscribe();
   }
 
@@ -38,11 +47,15 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
     this.isCollapsed = true;
     this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel);
-    this.ativarBotao();    
+    this.ativarBotao();
+    this.viewBtn3();
+    
   } 
 
   // Efeito que deixa o botão ativado no filtro de pacotes de viagens  
   ativarBotao() {
+
+    this.seeMore = false;
     let id = document.getElementById('button');
     let btns = id.getElementsByClassName('btn');
     for (let i = 0; i < btns.length; i++) {
@@ -53,11 +66,36 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
       })
       
     }
+    
   }
 
-  // carregarMais1() {
+  setSeeMoreHosp() {
+
+    this.seeMore = !this.seeMore;
+
+  }
+
+  setSeeMoreBat() {
+
+    this.seeMore = !this.seeMore;
+
+  }
+
+  viewBtn2() {
     
-  // }
+    if (this.destinoCardsHosp.length > 3) {
+      this.viewBtn = !this.viewBtn;
+      console.log('AAAA', this.destinoCardsHosp)
+    }
+  }
+
+  viewBtn3() {
+    
+    if (this.destinoCardsDisplay.length > 3) {
+      this.viewBtn = !this.viewBtn;
+      console.log('BBBB', this.destinoCardsDisplay)
+    }
+  }
 
 }
 
