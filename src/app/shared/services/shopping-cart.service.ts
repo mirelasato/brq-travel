@@ -19,25 +19,30 @@ export class ShoppingCartService {
   private currentCartCount = new BehaviorSubject(0);
   currentMessage = this.currentCartCount.asObservable();
   private url_api = 'http://localhost:3000/destinos';
+  public itemsCart: Detalhes[] = [];
   public pacotes: Detalhes[];
 
   updateCartCount(count: number) {
-    this.currentCartCount.next(count)
+    this.currentCartCount.next(count);
   }
 
-  addProductToCart(pacotes: any) {
-    localStorage.setItem("pacote", JSON.stringify(pacotes));
+  addProductToCart(pacote: Detalhes) {
+    this.itemsCart.push(pacote);
+    localStorage.setItem('pacotes', JSON.stringify(this.itemsCart));
+    console.log('shoppinh-cart items cart',  JSON.stringify(this.itemsCart));
   }
 
   getProductFromCart() {
-    return JSON.parse(localStorage.getItem('pacote'));
+    return JSON.parse(localStorage.getItem('pacotes'));
   }
 
   removeAllProductFromCart() {
-    return localStorage.removeItem("pacote");
+    return localStorage.removeItem("pacotes");
   }
 
-   getDetalhes() {
+  getById(id: number) {
+    return this.http.get<Detalhes>(this.url_api + '/' + id);
+  
 
     this.pacotes = [
       {
@@ -67,10 +72,11 @@ export class ShoppingCartService {
     ];
 
   }
+}
 
-  addToCart(pacotes: Detalhes) {
+  // addToCart(pacotes: Detalhes) {
     
-  }
+  // }
   
 
 
@@ -117,4 +123,4 @@ export class ShoppingCartService {
     //   .pipe(
     //     tap(console.log)
     //   );
-  }
+  

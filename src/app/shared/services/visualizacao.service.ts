@@ -3,6 +3,7 @@ import { Injectable} from '@angular/core';
 
 import{ URL_API} from './app.api';
 import { Detalhes } from '../models/detalhes';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -33,8 +34,13 @@ public getOfertas(): Promise<Detalhes[]>
         //o metodo .ishift ele extrai a primeira posição de um array 
         return resposta[0]
     })
-    }
+    } 
+    
+    
+    
     getDestino(id: string) {
         return this.http.get<Detalhes>(this.url_api + '/' + id);
       }
+
 }
+

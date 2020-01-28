@@ -5,6 +5,7 @@ import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
 import { Detalhes } from '../shared/models/detalhes';
+import { Key } from 'protractor';
 
 
 @Component({
@@ -26,17 +27,24 @@ export class ShoppingCartComponent implements OnInit {
   // public pacotes: Destino;
 
 
-  constructor(public ShoppingCartService: ShoppingCartService, public API: ApiService, public authService: AuthService, private route: ActivatedRoute) { }
+  constructor(
+    public shoppingCartService: ShoppingCartService,
+    public API: ApiService,
+    public authService: AuthService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
 
-    this.productAddedToCart = this.ShoppingCartService.getProductFromCart();
+    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
+    debugger;
+    console.log('itemns shopping cart', this.productAddedToCart);
     for (let i in this.productAddedToCart) {
       this.productAddedToCart[i].quantity = 1;
     }
-    this.ShoppingCartService.removeAllProductFromCart();
-    this.ShoppingCartService.addProductToCart(this.productAddedToCart);
-    this.calculateAllTotal(this.productAddedToCart);
+    // this.shoppingCartService.removeAllProductFromCart();
+    // this.shoppingCartService.addProductToCart();
+    // this.calculateAllTotal(this.productAddedToCart);
     
   }
   calculateAllTotal(allItemns: Detalhes[])
