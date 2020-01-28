@@ -3,12 +3,25 @@ h1 {
 }
 .imagens {
     height: 260px;
+    width: 400px;
+    
     /*ALtura*/
     
 }
-.teste{
-    width: 320px;
+
+.alinhar{
+    bottom: 300px;
+    left: 200px;
+    
 }
+@media screen and (max-width: 500px) {
+    .alinhar {
+        padding-top: 300px;
+       left: 10%;
+       
+        
+        }
+  }
 
 
 /* .alinhar{
