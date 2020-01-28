@@ -19,7 +19,11 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
 
   seeMore: boolean = false;
+  // seeMore2: boolean = false;
   viewBtn: boolean = false;
+  viewBtn2: boolean = false;
+
+  hideBtn: boolean = true;
 
   constructor(private service: PacotesDestinoService) { }
 
@@ -29,9 +33,11 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     .subscribe(dados => {
       this.destinoCards = dados;
       this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
-      // this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
-      this.viewBtn2();
-      // this.viewBtn3()
+      this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
+      this.viewBtnHosp();
+      this.viewBtnBV();
+
+      
 
       console.log('Bate Volta',this.destinoCardsBateVolta)
     });
@@ -40,15 +46,48 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
-    this.inscricao.unsubscribe();
+    // this.inscricao.unsubscribe();
   }
 
-  setTypeTravel(typeTravel) {
+  setTypeTravelHosp() {
 
-    this.isCollapsed = true;
-    this.destinoCardsDisplay = this.destinoCards.filter(x => x.tipo === typeTravel);
+    this.hideBtn = true
+    this.isCollapsed = false;
     this.ativarBotao();
-    this.viewBtn3();
+    this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
+    console.log('eita', this.destinoCardsHosp)
+    console.log('BtnHosp', this.viewBtn)
+  }
+
+  setTypeTravelBV() {
+
+    this.hideBtn = true
+    this.isCollapsed = true;
+    this.ativarBotao();
+    this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
+    // this.viewBtnBV();
+    
+
+    // setTimeout(() => { 
+    //   if (this.destinoCardsBateVolta.length > 3) {
+    //     alert('teste')
+    //     this.viewBtn2 = !this.viewBtn2;
+
+        console.log('BBBB', this.destinoCardsBateVolta)
+        console.log('BtnBV', this.viewBtn2)
+        
+    //   }
+    // }, 3000)
+
+    // if (this.destinoCardsBateVolta.length > 3) {
+    //   alert('teste')
+    //   this.viewBtn2 = !this.viewBtn2;
+    //   console.log('BBBB', this.destinoCardsBateVolta)
+    //   console.log('Btn', this.viewBtn2)
+    // }
+    // this.viewBtnBV();
+    // this.viewBtn3();
+    console.log('eitaBV', this.destinoCardsBateVolta)
     
   } 
 
@@ -72,16 +111,19 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   setSeeMoreHosp() {
 
     this.seeMore = !this.seeMore;
+    this.hideBtn = !this.hideBtn;
 
   }
 
   setSeeMoreBat() {
 
     this.seeMore = !this.seeMore;
+    this.hideBtn = !this.hideBtn;
+    
 
   }
 
-  viewBtn2() {
+  viewBtnHosp() {
     
     if (this.destinoCardsHosp.length > 3) {
       this.viewBtn = !this.viewBtn;
@@ -89,11 +131,11 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     }
   }
 
-  viewBtn3() {
+  viewBtnBV() {
     
-    if (this.destinoCardsDisplay.length > 3) {
-      this.viewBtn = !this.viewBtn;
-      console.log('BBBB', this.destinoCardsDisplay)
+    if (this.destinoCardsBateVolta.length > 3) {
+      this.viewBtn2 = !this.viewBtn2;
+      console.log('BBBB', this.destinoCardsBateVolta)
     }
   }
 
