@@ -20,7 +20,7 @@
         <div class="col-lg-6 bottom-label">
           <!-- <label for="cpf">CPF:</label> -->
           <mat-form-field>
-            <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="RG" value={{(user.cpf)}}>
+            <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="CPF" value={{(user.cpf)}}>
           </mat-form-field>
           <div *ngIf="!cpf.pristine && cpf.errors">
             <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
