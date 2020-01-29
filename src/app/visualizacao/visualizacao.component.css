@@ -3,40 +3,31 @@ h1 {
 }
 .imagens {
     height: 260px;
-    width: 400px;
-    
-    /*ALtura*/
-    
+    width: 500px;
 }
+
 
 .alinhar{
     bottom: 300px;
     left: 200px;
     
 }
-@media screen and (max-width: 500px) {
+
+.tab{
+    bottom:190px;
+}
+@media screen and (max-width: 600px) {
     .alinhar {
         padding-top: 300px;
-       left: 10%;
-       
-        
+        left: 5%;
         }
   }
+@media (max-width: 1000px ) {
+    .imagens{
+        height: 260px;
+        width: 400px;
+
+    }
+}
 
 
-/* .alinhar{
-    border: .1em solid black;
-    background-color: #FAFFFC;
-    width: 45%;
-    box-sizing: inherit;
-    padding: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    left: 45em;
-    bottom: 26em;
-} */
-/* .oferta{
-    display: flex;
-    flex-direction: column;
-    height: 600px;
-} */
