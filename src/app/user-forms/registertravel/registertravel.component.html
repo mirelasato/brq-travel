@@ -8,7 +8,7 @@
             <div class="col-lg-12 col-md-6">
               <mat-form-field>
                 <mat-label>Nome do Destino</mat-label>
-                <input type="text" matInput formControlName="name" placeholder="Escreva o nome da Viagem">
+                <input type="text" matInput formControlName="titulo" placeholder="Escreva o nome da Viagem">
               </mat-form-field>
             </div>  
         </div>
@@ -17,7 +17,7 @@
           <div class="col-lg-6 col-md-6">
             <mat-form-field>
               <mat-label>Data de Embarque</mat-label>
-              <input  matInput [matDatepicker]="picker1" formControlName="dategoing" placeholder="Escolha a data de Ida">
+              <input  matInput [matDatepicker]="picker1" formControlName="data" placeholder="Escolha a data de Ida">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -25,7 +25,7 @@
           <div class="col-lg-6 col-md-6"> 
             <mat-form-field>
               <mat-label>Data de Desembarque</mat-label>
-              <input  matInput [matDatepicker]="picker2" formControlName="datereturn" placeholder="Escolha a data de Volta">
+              <input  matInput [matDatepicker]="picker2" formControlName="retorno" placeholder="Escolha a data de Volta">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
@@ -36,33 +36,41 @@
           <div class="col-lg-6 col-md-6">
             <mat-form-field>
               <mat-label>Local de Embarque</mat-label>
-              <input type="text" matInput formControlName="placegoing" placeholder="Escolha o local de embarque">
+              <input type="text" matInput formControlName="embarque" placeholder="Escolha o local de embarque">
             </mat-form-field>
           </div>  
           <div class="col-lg-6 col-md-6">
             <mat-form-field>
               <mat-label>Valor da Viagem</mat-label>
-              <input type="number" class="example-right-align" matInput formControlName="value" placeholder="Defina o valor da viagem">
+              <input type="number" class="example-right-align" matInput formControlName="valor" placeholder="Defina o valor da viagem">
               <span matPrefix>R$&nbsp;</span>
-              <span matSuffix>.00</span>
             </mat-form-field>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="col-lg-6 col-md-4">
+          <div class="col-lg-6 col-md-6">
             <mat-form-field>
               <mat-label>Qtde. de Vagas</mat-label>
-              <input type="number" matInput formControlName="amount" placeholder="Defina a quantidade de vagas">
+              <input type="number" matInput formControlName="vagas" placeholder="Defina a quantidade de vagas">
             </mat-form-field>
           </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <mat-radio-group formControlName="tipo" aria-label="Select an option">
+              <mat-radio-button  value="1">Hospedagem</mat-radio-button>
+              <mat-radio-button  value="2">Bate e Volta</mat-radio-button>
+            </mat-radio-group>
+          </div>  
         </div>
 
         <div class="form-row">
           <div class="col-lg-12 col-md-12">  
             <mat-form-field>
               <mat-label>Mini Descrição</mat-label>
-              <textarea rows="5" cols="33" matInput formControlName="minidescription" placeholder="Escreve um mini resumo sobre a viagem"></textarea>
+              <textarea rows="5" cols="33" matInput formControlName="descricaocard" placeholder="Escreve um mini resumo sobre a viagem"></textarea>
             </mat-form-field>
           </div>  
         </div>
@@ -71,7 +79,7 @@
           <div class="col-lg-12 col-md-12">
             <mat-form-field>
               <mat-label>Descritivo Completo</mat-label>
-              <textarea rows="5" cols="33" matInput formControlName="completedescription" placeholder="Escreve o descritivo completo da viagem"></textarea>
+              <textarea rows="5" cols="33" matInput formControlName="descricao" placeholder="Escreve o descritivo completo da viagem"></textarea>
             </mat-form-field>
           </div>  
         </div>
