@@ -68,7 +68,7 @@
       "valor": "500,00",
       "vagas": 45,
       "feriado": 1,
-      "tipo": 2,
+      "tipo": 1,
       "imagens": [
         {
           "url": "assets/travel-packages/arraial-do-cabo/image1.jpg"
@@ -94,7 +94,7 @@
       "valor": "160,00",
       "vagas": 45,
       "feriado": "2",
-      "tipo": 2,
+      "tipo": 1,
       "imagens-banner": "assets/img/capa-destinos.jpg",
       "imagens": [
         {
@@ -207,7 +207,7 @@
       "valor": "120,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 1,
+      "tipo": 2,
       "imagens": [
         {
           "id": 1,
@@ -236,7 +236,7 @@
       "valor": "120,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 1,
+      "tipo": 2,
       "imagens": [
         {
           "id": 1,
@@ -265,19 +265,19 @@
       "valor": "120,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 1,
+      "tipo": 2,
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         },
         {
           "id": 2,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         },
         {
           "id": 3,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         }
       ]
     },
@@ -294,19 +294,19 @@
       "valor": "120,00",
       "vagas": 45,
       "feriado": "",
-      "tipo": 1,
+      "tipo": 2,
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         },
         {
           "id": 2,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         },
         {
           "id": 3,
-          "url": "assets/travel-packages/"
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
         }
       ]
     },
