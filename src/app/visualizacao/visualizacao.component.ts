@@ -84,10 +84,9 @@ this.visualizacaoService.getDetalhesPorId(this.route.snapshot.params['id'])
 
 
   addProductToCart(oferta: Detalhes) {
-    console.log(oferta);
-
-    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    if(this.productAddedToCart == null)
+    this.shoppingCartService.addProductToCart(oferta);
+    //this.productAddedToCart = this.shoppingCartService.getProductFromCart();
+    /*if(this.productAddedToCart == null)
     {
       this.productAddedToCart = [];
       this.productAddedToCart.push(oferta);
@@ -136,7 +135,7 @@ this.visualizacaoService.getDetalhesPorId(this.route.snapshot.params['id'])
   public closeAlert(alert: any) {
     const index: number = this.alerts.indexOf(alert);
     this.alerts.splice(index, 1);
-  }
+  }*/
 
 
 
@@ -189,4 +188,4 @@ this.visualizacaoService.getDetalhesPorId(this.route.snapshot.params['id'])
 //  ];
 
 
-
+}

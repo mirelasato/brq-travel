@@ -21,6 +21,7 @@ export class ShoppingCartService {
   private url_api = 'http://localhost:3000/destinos';
   public itemsCart: Detalhes[] = [];
   public pacotes: Detalhes[];
+  id: any;
 
   updateCartCount(count: number) {
     this.currentCartCount.next(count);
@@ -28,50 +29,50 @@ export class ShoppingCartService {
 
   addProductToCart(pacote: Detalhes) {
     this.itemsCart.push(pacote);
+    console.log('pacote', this.itemsCart);
     localStorage.setItem('pacotes', JSON.stringify(this.itemsCart));
-    console.log('shoppinh-cart items cart',  JSON.stringify(this.itemsCart));
   }
 
   getProductFromCart() {
-    return JSON.parse(localStorage.getItem('pacotes'));
+    return localStorage.getItem('pacotes');
   }
 
   removeAllProductFromCart() {
-    return localStorage.removeItem("pacotes");
+    return localStorage.removeItem('pacotes');
   }
 
-  getById(id: number) {
-    return this.http.get<Detalhes>(this.url_api + '/' + id);
+  // getById(id: any) {
+  //   return this.http.get<Detalhes>(this.url_api + '/' + id);
   
 
-    this.pacotes = [
-      {
-        quantity: 1,
-        id: 1,
-        titulo: 'Caldas Novas',
-        anunciante: 'BRQ-Travel',
-        valor: 300,
-        destaque: false,
-        data: '14/01/2020',
-        feriado: '',
-        descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
-        tipo: 'Bate Volta',
-        vagas: 30,
-        imagens: [
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-        ]
-      },
-    ];
+  //   this.pacotes = [
+  //     {
+  //       quantity: 1,
+  //       id: 1,
+  //       titulo: 'Caldas Novas',
+  //       anunciante: 'BRQ-Travel',
+  //       valor: 300,
+  //       destaque: false,
+  //       data: '14/01/2020',
+  //       feriado: '',
+  //       descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
+  //       tipo: 'Bate Volta',
+  //       vagas: 30,
+  //       imagens: [
+  //           {
+  //             url: '../assets/img/capa-destinos.jpg',
+  //           },
+  //           {
+  //             url: '../assets/img/capa-destinos.jpg',
+  //           },
+  //           {
+  //             url: '../assets/img/capa-destinos.jpg',
+  //           },
+  //       ]
+  //     },
+  //   ];
 
-  }
+  // }
 }
 
   // addToCart(pacotes: Detalhes) {

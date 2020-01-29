@@ -5,7 +5,7 @@ import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
 import { Detalhes } from '../shared/models/detalhes';
-import { Key } from 'protractor';
+
 
 
 @Component({
@@ -15,12 +15,16 @@ import { Key } from 'protractor';
   providers: [ShoppingCartService]
 })
 export class ShoppingCartComponent implements OnInit {
-  
+  @Input() destino: any;
+
+  quantity: number;
   defaultQuantity: number = 1;
-  productAddedToCart: Detalhes[];
+  productAddedToCart: any;
+  totalItens: number = 0;
+  produtos = [];
   allTotal: number;
   public oferta: Detalhes;
-  id: number;
+  id: any;
   imagens: any[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
@@ -37,24 +41,23 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
     this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    debugger;
-    console.log('itemns shopping cart', this.productAddedToCart);
-    for (let i in this.productAddedToCart) {
-      this.productAddedToCart[i].quantity = 1;
-    }
-    // this.shoppingCartService.removeAllProductFromCart();
-    // this.shoppingCartService.addProductToCart();
+    const newArray = JSON.parse(this.productAddedToCart);
+    this.produtos = newArray;
+    /*for (let i in newArray) {
+      this.totalItens = newArray.length;
+    }*/
+    //this.shoppingCartService.removeAllProductFromCart();
+    //this.shoppingCartService.addProductToCart(this.oferta);
     // this.calculateAllTotal(this.productAddedToCart);
-    
   }
-  calculateAllTotal(allItemns: Detalhes[])
-  {
-    let total = 0;
-    for (let i in allItemns) {
-      total = total + (allItemns[i].quantity * allItemns[i].valor);
-    }
-    this.allTotal = total;
-  }
+  // calculateAllTotal(allItemns: Detalhes[])
+  // {
+  //   let total = 0;
+  //   for (let i in allItemns) {
+  //     total = total + (allItemns[i].quantity * allItemns[i].valor);
+  //   }
+  //   this.allTotal = total;
+  // }
 
   // this.getDetalhes();
 
