@@ -3,20 +3,22 @@ h1 {
 }
 .imagens {
     height: 260px;
-    width: 500px;
+    width: 600px;
 }
 
-
+.teste{
+    width: 100px;
+}
 .alinhar{
     bottom: 300px;
-    left: 200px;
+    left: 300px;
     
 }
 
 .tab{
-    bottom:190px;
+    bottom:240px;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .alinhar {
         padding-top: 300px;
         left: 5%;

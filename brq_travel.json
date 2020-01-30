@@ -338,82 +338,48 @@
       ]
     },
     {
-      "destaque": false,
-      "titulo": "Portugal",
-      "data": "",
-      "retorno": "",
-      "embarque": "Barra Funda",
-      "valor": 44,
-      "vagas": 44,
-      "tipo": 1,
-      "descricaocard": "",
-      "descricao": "",
-      "id": 11,
-      "imagens": [
-        {
-          "id": 1,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        },
-        {
-          "id": 2,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        }
-      ]
+      "name": "Brasil",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 33,
+      "minidescription": "sdvsdvsd",
+      "completedescription": "dsvdfvbfgfgd",
+      "id": 11
     },
     {
-      "destaque": false,
-      "titulo": "ttttt",
-      "data": "",
-      "retorno": "",
-      "embarque": "",
-      "valor": "",
-      "vagas": "",
-      "tipo": 2,
-      "descricaocard": "",
-      "descricao": "",
-      "id": 14,
-      "imagens": [
-        {
-          "id": 1,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        },
-        {
-          "id": 2,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        },
-        {
-          "id": 3,
-          "url": "assets/travel-packages/monte-verde/image3.jpg"
-        }
-      ]
+      "name": "",
+      "dategoing": "2020-01-29T03:00:00.000Z",
+      "datereturn": "2020-01-30T03:00:00.000Z",
+      "placegoing": "",
+      "value": "",
+      "amount": "",
+      "minidescription": "",
+      "completedescription": "",
+      "id": 12
     },
     {
-      "titulo": "asdasdasdaasd",
-      "data": "",
-      "retorno": "",
-      "embarque": "",
-      "valor": "",
-      "vagas": "",
-      "tipo": 2,
-      "descricaocard": "",
-      "descricao": "",
-      "id": 15
+      "name": "",
+      "dategoing": "2020-01-29T03:00:00.000Z",
+      "datereturn": "2020-01-30T03:00:00.000Z",
+      "placegoing": "",
+      "value": "",
+      "amount": "",
+      "minidescription": "",
+      "completedescription": "",
+      "id": 13
     },
     {
-      "titulo": "adddddd",
-      "data": "",
-      "retorno": "",
-      "embarque": "",
-      "valor": "",
-      "vagas": "",
-      "tipo": 1,
-      "descricaocard": "",
-      "descricao": "",
-      "id": 16
+      "name": "kamisnopolis",
+      "dategoing": "2020-01-31T03:00:00.000Z",
+      "datereturn": "2020-01-31T03:00:00.000Z",
+      "placegoing": "diadema",
+      "value": 100,
+      "amount": 5,
+      "minidescription": "",
+      "completedescription": "",
+      "id": 14
     }
   ],
   "tipoViagem": [

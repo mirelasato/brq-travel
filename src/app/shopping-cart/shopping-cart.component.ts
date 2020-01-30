@@ -3,29 +3,65 @@ import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth-service';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
+import { ActivatedRoute } from '@angular/router';
+import { Detalhes } from '../shared/models/detalhes';
+
 
 
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.css']
+  styleUrls: ['./shopping-cart.component.css'],
+  providers: [ShoppingCartService]
 })
 export class ShoppingCartComponent implements OnInit {
-  id: number;
+  @Input() destino: any;
+
+  quantity: number;
+  defaultQuantity: number = 1;
+  productAddedToCart: any;
+  totalItens: number = 0;
+  produtos = [];
+  allTotal: number;
+  public oferta: Detalhes;
+  id: any;
   imagens: any[];
   destaqueCards: Destino[];
   destaqueCardsDisplay: Destino[];
   // public pacotes: Destino;
 
 
-  constructor(public ShoppingCartService: ShoppingCartService, public API: ApiService, public authService: AuthService) { }
+  constructor(
+    public shoppingCartService: ShoppingCartService,
+    public API: ApiService,
+    public authService: AuthService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
 
-    // this.getDetalhes();
+    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
+    const newArray = JSON.parse(this.productAddedToCart);
+    this.produtos = newArray;
+    /*for (let i in newArray) {
+      this.totalItens = newArray.length;
+    }*/
+    //this.shoppingCartService.removeAllProductFromCart();
+    //this.shoppingCartService.addProductToCart(this.oferta);
+    // this.calculateAllTotal(this.productAddedToCart);
+  }
+  // calculateAllTotal(allItemns: Detalhes[])
+  // {
+  //   let total = 0;
+  //   for (let i in allItemns) {
+  //     total = total + (allItemns[i].quantity * allItemns[i].valor);
+  //   }
+  //   this.allTotal = total;
+  // }
+
+  // this.getDetalhes();
 
     // console.log('this.pacotes', this.pacotes[0]);
-  }
 
   // getDetalhes() {
 

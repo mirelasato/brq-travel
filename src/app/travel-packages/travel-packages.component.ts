@@ -11,19 +11,19 @@ import { Subscription } from 'rxjs';
 export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   destinoCards: Destino[];
-  destinoCardsDisplay: Destino[];
-  destinoCardsHosp: Destino[];
+  destinoCardsHospedagem: Destino[];
   destinoCardsBateVolta: Destino[];
+
   isCollapsed = false;
+  seeMore: boolean = false;
+  viewBtnHosp: boolean = false;
+  viewBtnBV: boolean = false;
+  hideBtn: boolean = true;
+
+  destinoQtHospedagem: number;
+  destinoQtBateVolta: number;
 
   inscricao: Subscription;
-
-  seeMore: boolean = false;
-  // seeMore2: boolean = false;
-  viewBtn: boolean = false;
-  viewBtn2: boolean = false;
-
-  hideBtn: boolean = true;
 
   constructor(private service: PacotesDestinoService) { }
 
@@ -32,69 +32,42 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     this.inscricao = this.service.lista()
     .subscribe(dados => {
       this.destinoCards = dados;
-      this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
-      this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
-      this.viewBtnHosp();
-      this.viewBtnBV();
-
-      
-
-      console.log('Bate Volta',this.destinoCardsBateVolta)
+      this.destinoCardsHospedagem = this.destinoCards.filter(param => param.tipo === 1); // realiza o filtro pelo parametro tipo igual a 1
+      this.destinoCardsBateVolta = this.destinoCards.filter(param => param.tipo === 2); // realiza o filtro pelo parametro tipo igual a 2
+      this.viewBtnHospedagem();
+      this.viewBtnBateVolta();
+      this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 3;
+      this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3;
     });
     
   }
 
   ngOnDestroy() {
 
-    // this.inscricao.unsubscribe();
+    this.inscricao.unsubscribe();
   }
-
-  setTypeTravelHosp() {
+  
+  // Exibe os cards "Pacotes com hospedagem"
+  typeTravelHospedagem() {
 
     this.hideBtn = true
     this.isCollapsed = false;
     this.ativarBotao();
-    this.destinoCardsHosp = this.destinoCards.filter(x => x.tipo === 1);
-    console.log('eita', this.destinoCardsHosp)
-    console.log('BtnHosp', this.viewBtn)
   }
 
-  setTypeTravelBV() {
+  // Exibe os cards "Pacotes com bate e volta"
+  typeTravelBateVolta() {
 
     this.hideBtn = true
     this.isCollapsed = true;
     this.ativarBotao();
-    this.destinoCardsBateVolta = this.destinoCards.filter(x => x.tipo === 2);
-    // this.viewBtnBV();
-    
-
-    // setTimeout(() => { 
-    //   if (this.destinoCardsBateVolta.length > 3) {
-    //     alert('teste')
-    //     this.viewBtn2 = !this.viewBtn2;
-
-        console.log('BBBB', this.destinoCardsBateVolta)
-        console.log('BtnBV', this.viewBtn2)
-        
-    //   }
-    // }, 3000)
-
-    // if (this.destinoCardsBateVolta.length > 3) {
-    //   alert('teste')
-    //   this.viewBtn2 = !this.viewBtn2;
-    //   console.log('BBBB', this.destinoCardsBateVolta)
-    //   console.log('Btn', this.viewBtn2)
-    // }
-    // this.viewBtnBV();
-    // this.viewBtn3();
-    console.log('eitaBV', this.destinoCardsBateVolta)
-    
   } 
 
-  // Efeito que deixa o botão ativado no filtro de pacotes de viagens  
+  // Efeito que deixa o botão ativado no filtro de pacotes de viagens sem perder o foco
   ativarBotao() {
 
     this.seeMore = false;
+
     let id = document.getElementById('button');
     let btns = id.getElementsByClassName('btn');
     for (let i = 0; i < btns.length; i++) {
@@ -102,40 +75,41 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
         let current = document.getElementsByClassName(' active');
         current[1].className = current[1].className.replace(' active', '');
         this.className += ' active';
-      })
-      
-    }
-    
+      })    
+    }  
   }
 
-  setSeeMoreHosp() {
+  // Função que exibe a quantidade restante dos cards 
+  // e oculta o botão que carrega o restante dos cards (Pacotes com hospedagem) 
+  seeMoreHospedagem() {
 
     this.seeMore = !this.seeMore;
     this.hideBtn = !this.hideBtn;
-
   }
 
-  setSeeMoreBat() {
+  // Função que exibe a quantidade restante dos cards 
+  // e oculta o botão que carrega o restante dos cards (Pacotes de bate e volta) 
+  seeMoreBateVolta() {
 
     this.seeMore = !this.seeMore;
     this.hideBtn = !this.hideBtn;
-    
-
   }
 
-  viewBtnHosp() {
+  // Exibe o botão "Carregar mais cards".
+  // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
+  viewBtnHospedagem() {
     
-    if (this.destinoCardsHosp.length > 3) {
-      this.viewBtn = !this.viewBtn;
-      console.log('AAAA', this.destinoCardsHosp)
+    if (this.destinoCardsHospedagem.length > 3) {
+      this.viewBtnHosp = !this.viewBtnHosp;
     }
   }
 
-  viewBtnBV() {
+  // Exibe o botão "Carregar mais cards".
+  // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
+  viewBtnBateVolta() {
     
     if (this.destinoCardsBateVolta.length > 3) {
-      this.viewBtn2 = !this.viewBtn2;
-      console.log('BBBB', this.destinoCardsBateVolta)
+      this.viewBtnBV = !this.viewBtnBV;
     }
   }
 
