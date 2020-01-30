@@ -13,14 +13,14 @@
             </div>
             <div class="card-body">
                     <!-- PRODUCT -->
-                    <div class="row">
+                    <div  *ngFor="let oferta of produtos; let q = index" class="row">
                         <div class="col-12 col-sm-12 col-md-2 text-center">
-                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                                <img class="img-responsive" [src]="oferta.imagens[0].url" alt="imagem do card">
                         </div>
                         <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                            <h4 class="product-name"><strong>Product Name</strong></h4>
+                            <h4 class="product-name"><strong>{{ oferta.titulo }}</strong></h4>
                             <h4>
-                                <small>Product description</small>
+                                <small> Descrição</small>
                             </h4>
                         </div>
                         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
@@ -29,10 +29,10 @@
                             </div>
                             <div class="col-4 col-sm-4 col-md-4">
                                 <div class="quantity">
-                                    <input type="button" value="+" class="plus">
+                                    <input type="button" value="+"  (click)="onAddQuantity(prod)" class="plus">
                                     <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
                                            size="4">
-                                    <input type="button" value="-" class="minus">
+                                    <input type="button" value="-" (click)="onRemoveQuantity(prod)" class="minus">
                                 </div>
                             </div>
                             <div class="col-2 col-sm-2 col-md-2 text-right">
@@ -45,12 +45,12 @@
                     <hr>
                     <!-- END PRODUCT -->
                     <!-- PRODUCT -->
-                    <div class="row">
+                    <div class="row" *ngFor="let oferta of produtos; let q = index">
                         <div class="col-12 col-sm-12 col-md-2 text-center">
-                                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                                <img class="img-responsive" [src]= "oferta.imagens[0].url" alt="Imagem de capa do card">
                         </div>
-                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                            <h4 class="product-name"><strong>Product Name</strong></h4>
+                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6" >
+                            <h4 class="product-name"><strong>{{ oferta.titulo }}</strong></h4>
                             <h4>
                                 <small>Product description</small>
                             </h4>

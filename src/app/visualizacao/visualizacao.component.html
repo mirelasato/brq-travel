@@ -7,7 +7,7 @@
     </div>
     <br>
     <div class="row">
-    <div class= "col-md-4 col-sm-2 teste">
+    <div class= "col col-md-6 teste">
       <carousel >
         <slide  *ngFor="let carrossel of oferta.imagens" >
           <img class="imagens" [src]="carrossel.url" alt="first slide">
@@ -20,7 +20,7 @@
 
     <br>
 
-      <div class="col col-md-12 alinhar"> 
+      <div class="col col-md-10 alinhar"> 
           <div class="col text-center  ">
             <label>
               <p>Por apenas</p>
@@ -35,7 +35,7 @@
 
         
           <div class="col text-center">
-            <button type="button" routerLink="/carrinho-de-compras" href="#carrinho-de-compras" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
+            <button type="button"  class="btn btn-warning btn-lg" (click)="addProductToCart(oferta)">Adicionar ao carrinho</button>
           </div>
         
         <br>
@@ -49,16 +49,37 @@
             </label>
           </div>
         </div>
-      
-    
-
-  <br>
+    <div class="col col-md-8 tab">
   <tabset>
+    <br>
     <tab heading="Descrição" (selectTab)="onSelect($event)">
-      <p>Descrição: {{ oferta.descricao }}</p>
+      <p>{{ oferta.descricao }}</p>
       <p>Embarque: {{ oferta.embarque }}</p>
     </tab>
   </tabset>
-  <br>
+<br>
+    </div>
+    <div class="col col-md-8">
+      <h2> </h2>
+
+    </div>
+    <div class="col text-left" >
+      <label>
+      <p> Deixe seu Comentário</p>
+      </label>
+    </div>
+    
+    <div class="form-row">
+      <!--Input do Angular Material-->
+      <div class="col-lg-12 col-md-6">
+        <mat-form-field>
+          <mat-label> Nome </mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Nome">
+        </mat-form-field>
+      </div>  
+  </div>
+
 
 </div>
+
+
