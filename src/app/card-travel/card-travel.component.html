@@ -1,4 +1,4 @@
-<section class="container inline-cards" >
+<section class="container inline-cards" *ngIf="destino">
   <div class="style-card card" style="width: 18rem;">
     <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
 
@@ -8,7 +8,7 @@
     </div>
     <ul class="list-group list-group-flush" >
       <li class="list-group-item">{{ destino.data | date: 'dd/MM/yyyy'}}</li>
-      <li class="list-group-item">{{ destino.valor | currency:'BRL'}}</li>
+      <li class="list-group-item">{{ destino.valor | currency:'BRL' }}</li>
     </ul>
     <div class="card-body">
       <button class="btn btn-primary" routerLink="/visualizacao/{{destino.id}}">Veja mais</button>

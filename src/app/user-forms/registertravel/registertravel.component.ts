@@ -24,8 +24,7 @@ export class RegistertravelComponent implements OnInit {
 
   OnSubmit() {
     const formData = this.FormRegister.value;
-    console.log(formData);
-    this.service.create(formData).subscribe(seila => console.log('sucesso'));
+    this.service.create(formData).subscribe(seila => console.log(seila));
   }
 
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class RegistertravelComponent implements OnInit {
       embarque: '',
       valor: '',
       vagas: '',
-      tipo: '',
+      tipo: ' ',
       descricaocard: '',
       descricao: '',
     });
