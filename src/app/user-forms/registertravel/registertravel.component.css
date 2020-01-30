@@ -49,3 +49,9 @@ textarea {
   input.example-right-align {
     -moz-appearance: textfield;
   }
+
+
+  /* CSS RADIO BUTTON */
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

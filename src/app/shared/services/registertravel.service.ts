@@ -13,6 +13,7 @@ export class RegistertravelService {
   constructor(private http: HttpClient) { }
 
   create(pacote) {
+    pacote.tipo = pacote.tipo === '1' ? 1 : 2;
     return this.http.post(this.apiURL, pacote).pipe(take(1));
   }
 }

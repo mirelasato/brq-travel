@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegistertravelService } from 'src/app/shared/services/registertravel.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-registertravel',
   templateUrl: './registertravel.component.html',
@@ -14,6 +15,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
   ]
 })
+
 export class RegistertravelComponent implements OnInit {
   FormRegister: FormGroup;
 
@@ -22,8 +24,7 @@ export class RegistertravelComponent implements OnInit {
 
   OnSubmit() {
     const formData = this.FormRegister.value;
-    console.log(formData);
-    this.service.create(formData).subscribe(seila => console.log('sucesso'));
+    this.service.create(formData).subscribe(seila => console.log(seila));
   }
 
   ngOnInit(): void {
@@ -32,39 +33,43 @@ export class RegistertravelComponent implements OnInit {
 
   newRegisterForm() {
     this.FormRegister = this.formBuilder.group({
-      name: '',
-      dategoing: '',
-      datereturn: '',
-      placegoing: '',
-      value: '',
-      amount: '',
-      minidescription: '',
-      completedescription: '',
+      titulo: '',
+      data: '',
+      retorno: '',
+      embarque: '',
+      valor: '',
+      vagas: '',
+      tipo: ' ',
+      descricaocard: '',
+      descricao: '',
     });
   }
 
-  get name() {
-    return this.FormRegister.get('name');
+  get titulo() {
+    return this.FormRegister.get('titulo');
   }
-  get dategoing() {
-    return this.FormRegister.get('dategoing');
+  get data() {
+    return this.FormRegister.get('data');
   }
-  get datereturn() {
-    return this.FormRegister.get('datereturn');
+  get retorno() {
+    return this.FormRegister.get('retorno');
   }
-  get placegoing() {
-    return this.FormRegister.get('placegoing');
+  get embarque() {
+    return this.FormRegister.get('embarque');
   }
-  get value() {
-    return this.FormRegister.get('value');
+  get valor() {
+    return this.FormRegister.get('valor');
   }
-  get amount() {
-    return this.FormRegister.get('amount');
+  get vagas() {
+    return this.FormRegister.get('vagas');
   }
-  get minidescription() {
-    return this.FormRegister.get('minidescription');
+  get tipo() {
+    return this.FormRegister.get('tipo');
   }
-  get completedescription() {
-    return this.FormRegister.get('completedescription');
+  get descricaocard() {
+    return this.FormRegister.get('descricaocard');
+  }
+  get descricao() {
+    return this.FormRegister.get('descricao');
   }
 }
