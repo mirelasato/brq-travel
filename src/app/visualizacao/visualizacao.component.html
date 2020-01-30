@@ -7,7 +7,7 @@
     </div>
     <br>
     <div class="row">
-    <div class= "col col-sm-2 teste">
+    <div class= "col col-md-6 teste">
       <carousel >
         <slide  *ngFor="let carrossel of oferta.imagens" >
           <img class="imagens" [src]="carrossel.url" alt="first slide">
@@ -20,7 +20,7 @@
 
     <br>
 
-      <div class="col col-md-12 alinhar"> 
+      <div class="col col-md-10 alinhar"> 
           <div class="col text-center  ">
             <label>
               <p>Por apenas</p>
@@ -53,10 +53,16 @@
   <tabset>
     <br>
     <tab heading="Descrição" (selectTab)="onSelect($event)">
-      <p>Descrição: {{ oferta.descricao }}</p>
+      <p>{{ oferta.descricao }}</p>
       <p>Embarque: {{ oferta.embarque }}</p>
     </tab>
   </tabset>
 <br>
     </div>
+    <div class="col col-md-8">
+      <h2> </h2>
+
+    </div>
 </div>
+
+
