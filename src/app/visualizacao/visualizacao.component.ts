@@ -7,6 +7,8 @@ import { TabDirective } from 'ngx-bootstrap';
 import { Detalhes } from '../shared/models/detalhes';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
 
 
 @Component({
@@ -18,6 +20,7 @@ import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 export class VisualizacaoComponent implements OnInit {
   // galleryOptions: NgxGalleryOptions[];
   // galleryImages:NgxGalleryImage [];
+  FormRegister: FormGroup;
 
   feriadoImg: Detalhes[];
   feriadoImgDisplay: Detalhes[];
@@ -44,7 +47,8 @@ export class VisualizacaoComponent implements OnInit {
   constructor(
     private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute,
-    private visualizacaoService: VisualizacaoService) { }
+    private visualizacaoService: VisualizacaoService,
+    private formBuilder: FormBuilder,) { }
 
   ngOnInit() {
     //  this.service.addToCart()
