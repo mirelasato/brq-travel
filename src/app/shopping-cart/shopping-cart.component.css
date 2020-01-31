@@ -1,5 +1,6 @@
 
 
+
 .quantity {
     float: left;
     margin-right: 15px;
@@ -73,4 +74,13 @@
 }
 .shopping-cart {
     margin-top: 20px;
+}
+
+.style-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px ;
+    height: 260px;
+    width: auto;
+    padding-bottom: 10px;
+    float: right;
 }
