@@ -53,6 +53,15 @@
       "phone": "11988444763",
       "id": 6,
       "admin": false
+    },
+    {
+      "name": "Rodrigo Lopes",
+      "email": "rjlopes@brq.com",
+      "cpf": "99999999910",
+      "rg": "999999999",
+      "phone": "99999999999",
+      "admin": false,
+      "id": 7
     }
   ],
   "destinos": [
