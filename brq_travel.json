@@ -53,6 +53,15 @@
       "phone": "11988444763",
       "id": 6,
       "admin": false
+    },
+    {
+      "name": "kamila bezerra da silva",
+      "email": "kamila@brq.com",
+      "cpf": "43805979894",
+      "rg": "123456789",
+      "phone": "1140762744",
+      "admin": false,
+      "id": 7
     }
   ],
   "destinos": [
