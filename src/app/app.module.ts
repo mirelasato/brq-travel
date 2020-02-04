@@ -32,6 +32,7 @@ import { AuthService } from './shared/services/auth-service';
 import { ApiService } from './shared/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import{ VisualizacaoService} from './shared/services/visualizacao.service';
 
 
 import { ShoppingCartService } from './shopping-cart.service';
@@ -111,6 +112,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     ShoppingCartService,
     MatDatepickerModule,
     AngularFireDatabase,
+    VisualizacaoService,
     {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
   ],
   bootstrap: [AppComponent]

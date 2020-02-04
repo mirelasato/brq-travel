@@ -1,5 +1,8 @@
 h1 {
-    color: #555
+    color: #555;
+}
+h4{
+    margin-top: 10px;
 }
 .imagens {
     height: 260px;
@@ -8,15 +11,20 @@ h1 {
 
 .teste{
     width: 100px;
+    margin-top: 25px;
 }
 .alinhar{
     bottom: 300px;
     left: 300px;
+    margin-top: 25px;
     
 }
 
 .tab{
     bottom:240px;
+}
+label{
+    margin-top: 45px;
 }
 @media screen and (max-width: 800px) {
     .alinhar {

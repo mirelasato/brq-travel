@@ -1,15 +1,13 @@
-<br>
 <div class="container" *ngIf="oferta ">
     <div class="row" >
       <div class="col">
         <h4>{{ oferta.titulo }}</h4>
       </div>
     </div>
-    <br>
     <div class="row">
     <div class= "col col-md-6 teste">
       <carousel >
-        <slide  *ngFor="let carrossel of oferta.imagens" >
+        <slide *ngFor="let carrossel of oferta.imagens" >
           <img class="imagens" [src]="carrossel.url" alt="first slide">
           <div class="carousel-caption d-none d-md-block">
           </div>
@@ -17,8 +15,6 @@
       </carousel>
     </div>
   </div>
-
-    <br>
 
       <div class="col col-md-10 alinhar"> 
           <div class="col text-center  ">
@@ -38,7 +34,7 @@
             <button type="button"  class="btn btn-warning btn-lg" (click)="addProductToCart(oferta)">Adicionar ao carrinho</button>
           </div>
         
-        <br>
+        
 
        
           <div class="col text-center" >
@@ -50,14 +46,13 @@
           </div>
         </div>
     <div class="col col-md-8 tab">
-  <tabset>
-    <br>
-    <tab heading="Descrição" (selectTab)="onSelect($event)">
+  <!-- <tabset> -->
+    
+    <!-- <tab heading="Descrição" (selectTab)="onSelect($event)"> -->
       <p>{{ oferta.descricao }}</p>
       <p>Embarque: {{ oferta.embarque }}</p>
-    </tab>
-  </tabset>
-<br>
+    <!-- </tab> -->
+  <!-- </tabset> -->
     </div>
     <div class="col col-md-8">
       <h2> </h2>
