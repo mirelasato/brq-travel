@@ -4,7 +4,7 @@ import { Injectable} from '@angular/core';
 
 import { URL_API} from './app.api';
 import { Detalhes } from '../models/detalhes';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, delay} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
@@ -19,6 +19,7 @@ export class VisualizacaoService {
       getProduto(id: number): Observable<Detalhes> {
         const url = `${this.url_api}/${id}`;
         return this.http.get<Detalhes>(url).pipe(
+          delay(1000), // TODO: Remover para produção
           tap(_ => console.log(`leu o produto id=${id}`)),
         );
       }

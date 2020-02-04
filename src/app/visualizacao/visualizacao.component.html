@@ -1,80 +1,83 @@
-<div class="container" *ngIf="oferta ">
-    <div class="row" >
-      <div class="col">
-        <h4>{{ oferta.titulo }}</h4>
-      </div>
+<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+  <div
+    class="spinner-border text-primary"
+    style="width: 5rem; height: 5rem;"
+    role="status"
+  >
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="container" *ngIf="oferta && !isloading">
+  <div class="row">
+    <div class="col">
+      <h4>{{ oferta.titulo }}</h4>
     </div>
-    <div class="row">
-    <div class= "col col-md-6 teste">
-      <carousel >
-        <slide *ngFor="let carrossel of oferta.imagens" >
-          <img class="imagens" [src]="carrossel.url" alt="first slide">
-          <div class="carousel-caption d-none d-md-block">
-          </div>
+  </div>
+  <div class="row">
+    <div class="col col-md-6 teste">
+      <carousel>
+        <slide *ngFor="let carrossel of oferta.imagens">
+          <img class="imagens" [src]="carrossel.url" alt="first slide" />
+          <div class="carousel-caption d-none d-md-block"></div>
         </slide>
       </carousel>
     </div>
   </div>
 
-      <div class="col col-md-10 alinhar"> 
-          <div class="col text-center  ">
-            <label>
-              <p>Por apenas</p>
-            </label>
-          </div>
-        
-
-          <div class="col text-center">
-            <h1>{{ oferta.valor }}</h1>
-          </div>
-        
-
-        
-          <div class="col text-center">
-            <button type="button"  class="btn btn-warning btn-lg" (click)="addProductToCart(oferta)">Adicionar ao carrinho</button>
-          </div>
-        
-        
-
-       
-          <div class="col text-center" >
-            <label>
-            <p> Data do embarque: {{ oferta.data }}</p>
-            <p> Data de Retorno: {{ oferta.retorno }}</p>
-            <p>Vagas Restantes: {{ oferta.vagas }} </p>
-            </label>
-          </div>
-        </div>
-    <div class="col col-md-8 tab">
-  <!-- <tabset> -->
-    
-    <!-- <tab heading="Descrição" (selectTab)="onSelect($event)"> -->
-      <p>{{ oferta.descricao }}</p>
-      <p>Embarque: {{ oferta.embarque }}</p>
-    <!-- </tab> -->
-  <!-- </tabset> -->
-    </div>
-    <div class="col col-md-8">
-      <h2> </h2>
-
-    </div>
-    <div class="col text-left" >
+  <div class="col col-md-10 alinhar">
+    <div class="col text-center  ">
       <label>
-      <p> Deixe seu Comentário</p>
+        <p>Por apenas</p>
       </label>
     </div>
-    
-    <div class="form-row">
-      <!--Input do Angular Material-->
-      <div class="col-lg-12 col-md-6">
-        <mat-form-field>
-          <mat-label> Nome </mat-label>
-          <input type="text" matInput formControlName="name" placeholder="Nome">
-        </mat-form-field>
-      </div>  
+
+    <div class="col text-center">
+      <h1>{{ oferta.valor | currency:'BRL' }}</h1>
+    </div>
+
+    <div class="col text-center">
+      <button
+        type="button"
+        class="btn btn-warning btn-lg"
+        (click)="addProductToCart(oferta)"
+      >
+        Adicionar ao carrinho
+      </button>
+    </div>
+
+    <div class="col text-center">
+      <label>
+        <p>Data do embarque: {{ oferta.data | date: "dd/MM/yyyy" }}</p>
+        <p>Data de Retorno: {{ oferta.retorno | date: "dd/MM/yyyy" }}</p>
+        <p>Vagas Restantes: {{ oferta.vagas }}</p>
+      </label>
+    </div>
+  </div>
+  <div class="col col-md-8 tab">
+    <!-- <tabset> -->
+
+    <!-- <tab heading="Descrição" (selectTab)="onSelect($event)"> -->
+    <p>{{ oferta.descricao }}</p>
+    <p>Embarque: {{ oferta.embarque }}</p>
+    <!-- </tab> -->
+    <!-- </tabset> -->
+  </div>
+  <div class="col col-md-8">
+    <h2></h2>
+  </div>
+  <div class="col text-left">
+    <label>
+      <p>Deixe seu Comentário</p>
+    </label>
   </div>
 
-
+  <div class="form-row">
+    <!--Input do Angular Material-->
+    <div class="col-lg-12 col-md-6">
+      <!-- <mat-form-field>
+          <mat-label> Nome </mat-label>
+          <input type="text" matInput formControlName="name" placeholder="Nome">
+        </mat-form-field> -->
+    </div>
+  </div>
 </div>
-
-

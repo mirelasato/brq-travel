@@ -9,7 +9,7 @@ import { Detalhes } from '../shared/models/detalhes';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import {DateAdapter, MAT_DATE_FORMATS} from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { observable } from 'rxjs';
 
 
@@ -25,6 +25,7 @@ export class VisualizacaoComponent implements OnInit {
   VisualizacaoService: any;
   value: string;
   productAddedToCart: any;
+  isloading: boolean;
 
   onSelect(data: TabDirective): void {
     this.value = data.heading;
@@ -38,18 +39,21 @@ export class VisualizacaoComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-  console.log('AAA', this.route.snapshot.params['id']);
-
-  this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
-    .subscribe((oferta: Detalhes) => {
-    this.oferta = oferta;
-    });
+    window.scrollTo(0, 0);
+    // console.log('AAA', this.route.snapshot.params['id']);
+    this.isloading = true;
+    console.log('ngOnInit...', this.isloading);
+    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
+      .subscribe((oferta: Detalhes) => {
+        this.oferta = oferta;
+        this.isloading = !this.isloading;
+      });
 
 
 
   }
-// Função que adiciona produto ao carrinho
-addProductToCart(oferta: Detalhes) {
+  // Função que adiciona produto ao carrinho
+  addProductToCart(oferta: Detalhes) {
     this.shoppingCartService.addProductToCart(oferta);
- }
+  }
 }
