@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'visualizacao/:id', component: VisualizacaoComponent},
   { path: 'carrinho-de-compras', component: ShoppingCartComponent, canActivate: [AuthGuard] },
   { path: 'minha-conta', component: MyaccountComponent, canActivate: [AuthGuard] },
-  { path: 'cadastro-de-viagem', component: RegistertravelComponent }
+  { path: 'cadastro-de-viagem', component: RegistertravelComponent, canActivate: [SecureInnerPagesGuard]}
 ];
 
 @NgModule({
