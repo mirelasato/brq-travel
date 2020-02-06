@@ -52,6 +52,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -80,6 +81,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
     ShoppingCartComponent,
     MyaccountComponent,
     RegistertravelComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
