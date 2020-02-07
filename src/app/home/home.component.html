@@ -1,22 +1,18 @@
-<br>
-<div class="container size-screen">
+<div class="container">
   <div class="secao">
     <h3 class="text-center">Destaques do dia</h3>
-  </div>
-  <hr />
+  </div> 
 <!--  carrosel  -->
-<carousel>
+<carousel class="size-carousel">
   <slide class="size-banner" *ngFor="let carrossel of feriadoImg">
-    <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-    </div>
+    <img [src]="carrossel.imagens[0].url" alt="first slide" style="width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
   </slide>
 </carousel>
-<br>
-
-<div class="container">
-  <div class="secao" >
+  <div class="secao">
     <h5 class="text-center">Aproveite as ofertas que separamos para você</h5>
   </div>
-  <hr />
-<app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos" ></app-card-travel> <!-- herda a class card -->
+  <app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos">
+  </app-card-travel> <!-- herda a class card -->
+</div>
