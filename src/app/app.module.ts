@@ -53,6 +53,7 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import * as Hammer from 'hammerjs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -82,6 +83,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MyaccountComponent,
     RegistertravelComponent,
     AboutUsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,

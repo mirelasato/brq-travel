@@ -28,8 +28,11 @@ export class MyaccountComponent implements OnInit {
   ngOnInit() {
     this.newMyAccountForm();
 
-    this.API.getUser(this.emailUser).subscribe((data) => {
-      this.CurrentUser = data;
+    // this.API.getUser(this.emailUser).subscribe((data) => {
+    //   this.CurrentUser = data;
+
+      this.CurrentUser = JSON.parse(localStorage.getItem('userLogged'));
+      console.log(this.CurrentUser);
       // console.log(data.cpf);
       let cpf: string = this.CurrentUser[0].cpf;
       let rg: string = this.CurrentUser[0].rg;
@@ -40,8 +43,8 @@ export class MyaccountComponent implements OnInit {
       this.CurrentUser[0].phone = tel;
       this.CurrentUser[0].rg = rg;
       this.CurrentUser[0].cpf = cpf;
-      console.log(this.CurrentUser);
-    });
+
+    // });
 
     this.authService.status.valid = true;
 

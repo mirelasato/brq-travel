@@ -1,18 +1,19 @@
-<section class="container inline-cards" *ngIf="destino">
-  <div class="style-card card" style="width: 18rem;">
-    <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
-
-    <div class="card-body" >
-      <h5 class="card-title">{{ destino.titulo }}</h5>
-      <p class="card-text">{{ destino.descricaocard }}</p>
-    </div>
-    <ul class="list-group list-group-flush" >
-      <li class="list-group-item">{{ destino.data | date: 'dd/MM/yyyy'}}</li>
-      <li class="list-group-item">{{ destino.valor | currency:'BRL' }}</li>
-    </ul>
-    <div class="card-body">
-      <button class="btn btn-primary" routerLink="/visualizacao/{{destino.id}}">Veja mais</button>
-    </div>
-  </div>
-</section> 
+<article class="container">
+  <section class="inline-cards" *ngIf="destino">
+    <div class="style-card card" style="width: 18rem;">
+      <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
   
+      <div class="card-body" >
+        <h5 class="card-title">{{ destino.titulo }}</h5>
+        <p class="card-text">{{ destino.descricaocard }}</p>
+      </div>
+      <ul class="list-group list-group-flush" >
+        <li class="list-group-item">{{ destino.data | date: 'dd/MM/yyyy'}}</li>
+        <li class="list-group-item">{{ destino.valor | currency:'BRL' }}</li>
+      </ul>
+      <div class="card-body">
+        <button class="btn btn-primary" routerLink="/visualizacao/{{destino.id}}">Veja mais</button>
+      </div>
+    </div>
+  </section>   
+</article>

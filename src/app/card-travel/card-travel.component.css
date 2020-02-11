@@ -29,3 +29,8 @@ h2, h5 {
     height: 260px;
 }
 
+.teste {
+    display: flex;
+    flex-direction: row;
+}
+

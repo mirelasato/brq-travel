@@ -2,7 +2,7 @@ h3, h5 {
     font-family: 'Alfa Slab One', cursive;
 }
 
-.size-banner {
-    height: 200px;
-    width: 200px;
+.size-carousel {
+    
+    width: 560px!important;
 }
