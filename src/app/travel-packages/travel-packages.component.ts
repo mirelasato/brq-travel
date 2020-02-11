@@ -29,6 +29,8 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    this.scrollTop()
+
     this.inscricao = this.service.lista()
     .subscribe(dados => {
       this.destinoCards = dados;
@@ -111,6 +113,12 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     if (this.destinoCardsBateVolta.length > 3) {
       this.viewBtnBV = !this.viewBtnBV;
     }
+  }
+
+  scrollTop() {
+    setTimeout(() => {
+    window.scrollTo(0,0)
+    }, 170)
   }
 
 }

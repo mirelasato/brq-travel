@@ -33,18 +33,25 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.service.lista()
-      .subscribe(dados => {
-      this.destaqueCards = dados;
 
-        this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true)
-      });
-
-
+    this.scrollTop()
+    
     this.serviceBanner.listaBanner()
       .subscribe(img => {
-      this.feriadoImg = img;
-        this.final = this.feriadoImg[0];
+        this.feriadoImg = img;
+        this.final = this.feriadoImg[0];    
       });
+
+    this.service.lista()
+      .subscribe(dados => {
+        this.destaqueCards = dados;
+        this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true);
+      });      
     }
-}  
+
+  scrollTop() {
+    setTimeout(() => {
+    window.scrollTo(0,0)
+    }, 170)
+  }
+} 
