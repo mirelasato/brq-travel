@@ -1,15 +1,11 @@
 .navbartopo {
-    background-color: #062c52;
+    background-color: #015F9D;
 }
 .nav-item {
     font-weight: bold;
 }
 .button{
     padding-right: 250px;
-}
-.icon-cart {
-    height: 48px;
-    width: 48px;
 }
 .icone-empresa{
     height: 50px;
