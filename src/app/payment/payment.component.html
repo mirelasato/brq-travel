@@ -1,0 +1,17 @@
+
+    <h2>Pagamento</h2>
+    <div class="container col-lg-5 col-md-8 col-sm-12">
+    
+    <tabset>
+        <tab heading="Cartão de crédito" >
+            <form [formGroup]="FormPayment">
+
+                <mat-form-field>
+                  <input type="text" matInput formControlName="numbercard" placeholder="Número do cartão">
+                </mat-form-field>
+
+            </form>
+        </tab>
+        <tab heading="Boleto"></tab>
+      </tabset>
+      </div> 

@@ -2,7 +2,9 @@
     <form [formGroup]="FormRegister">
         <h3>Anúncie sua viagem!</h3>
         <h5>Preencha o formulário abaixo:</h5>
-
+        <br><div id="mensagemView">
+          <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
+        </div>
         <div class="form-row">
             <!--Input do Angular Material-->
             <div class="col-lg-12 col-md-6">
