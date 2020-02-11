@@ -19,19 +19,39 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class RegistertravelComponent implements OnInit {
   FormRegister: FormGroup;
+  status = {
+    isDanger: true,
+    valid: true };
+  MsgError = '';
 
   constructor( private formBuilder: FormBuilder,
                private service: RegistertravelService,
                private _adapter: DateAdapter<any>) { }
 
   OnSubmit() {
-    const formData = this.FormRegister.value;
-    this.service.create(formData).subscribe(data => console.log(data));
+    this.status.valid = true;
+    if (this.FormRegister.valid) {
+      const formData = this.FormRegister.value;
+      this.service.create(formData).subscribe(
+        data => { this.status.isDanger = false;
+                  this.status.valid = false;
+                  this.MsgError = 'Novo pacote registrado com sucesso!'; },
+        err => { this.status.isDanger = true;
+                 this.status.valid = false;
+                 console.log('falha:' + err);
+                 this.MsgError = 'Falha:' + err;
+                });
+    } else {
+      this.status.isDanger = true;
+      this.status.valid = false;
+      this.MsgError = 'Por favor, verifique os campos do seu formulário';
+    }
   }
 
   ngOnInit(): void {
     this.newRegisterForm();
     this.ChangeLanguage();
+    this.status.valid = true;
   }
 
   ChangeLanguage() {
