@@ -46,7 +46,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -112,7 +112,9 @@ import { PaymentComponent } from './payment/payment.component';
     NgxGalleryModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     ApiService,
