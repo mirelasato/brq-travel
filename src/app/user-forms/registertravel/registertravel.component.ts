@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter'
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { RegistertravelService } from 'src/app/shared/services/registertravel.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-registertravel',
   templateUrl: './registertravel.component.html',

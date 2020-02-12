@@ -32,7 +32,7 @@ import { AuthService } from './shared/services/auth-service';
 import { ApiService } from './shared/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import{ VisualizacaoService} from './shared/services/visualizacao.service';
+import { VisualizacaoService} from './shared/services/visualizacao.service';
 
 
 import { ShoppingCartService } from './shopping-cart.service';
@@ -46,7 +46,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -108,7 +108,9 @@ import { PaymentComponent } from './payment/payment.component';
     NgxGalleryModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     ApiService,

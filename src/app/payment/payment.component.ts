@@ -17,7 +17,7 @@ export class PaymentComponent implements OnInit {
 
   newPaymentForm() {
     this.FormPayment = this.fb.group({
-      numbercard: [
+      cardnumber: [
         '',
         Validators.compose([
           Validators.required
@@ -63,8 +63,8 @@ export class PaymentComponent implements OnInit {
     );
   }
 
-  get numbercard() {
-    return this.FormPayment.get('numbercard');
+  get cardnumber() {
+    return this.FormPayment.get('cardnumber');
   }
   get expirationdata() {
     return this.FormPayment.get('expirationdata');
