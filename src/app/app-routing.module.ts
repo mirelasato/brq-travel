@@ -1,3 +1,4 @@
+import { MistakeComponent } from './mistake/mistake.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -32,7 +33,9 @@ const routes: Routes = [
   { path: 'minha-conta', component: MyaccountComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-de-viagem', component: RegistertravelComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sobre-nos', component: AboutUsComponent },
-  { path: 'pagamento', component: PaymentComponent }
+  { path: 'pagamento', component: PaymentComponent },
+  { path: '404', component: MistakeComponent },
+  { path: '**', redirectTo: '404' }
 ];
 
 @NgModule({
