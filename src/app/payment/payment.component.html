@@ -7,9 +7,12 @@
         <h5>Dados do cartão</h5>
         
         <div class="form-group">
+          <div id="input_container">
           <mat-form-field>
-            <input type="text" matInput formControlName="cardnumber" placeholder="Número do cartão">
+            <input type="text" id='creditcard' matInput formControlName="cardnumber" mask= "0000 0000 0000 0000" placeholder="Número do cartão">
+              <img id="creditcardicon" src='{{this.creditcardurl}}'/>
           </mat-form-field>
+        </div>
         </div>
 
         <div class="form-row">
@@ -88,6 +91,15 @@
             <input type="text" matInput formControlName="telephone" placeholder="Telefone">
           </mat-form-field>
         </div>
+
+        <div class="form-group">
+          <mat-form-field > 
+            <mat-select placeholder="Parcelas">
+              <mat-option value="0">1x de {{this.value}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
                 <!-- <mat-form-field>
                   <input type="text" matInput formControlName="numbercard" placeholder="Número do cartão">
                 </mat-form-field> -->
@@ -98,7 +110,7 @@
     </tabset>
     <div class="row text-center">
       <div class="form-group col-sm-12">
-        <button type="submit" class="btn btn-primary">Realizar pagamento</button>
+        <button type="submit" class="btn btn-primary" (click)="NewPayment()">Realizar pagamento</button>
       </div>
   </div>
   </form>

@@ -26,6 +26,7 @@
     "@angular/router": "~8.2.14",
     "angularfire2": "^5.3.0",
     "bootstrap": "^4.4.1",
+    "cc-validate": "^2.0.5",
     "core-util-is": "^1.0.2",
     "firebase": "^7.6.2",
     "font-awesome": "^4.7.0",

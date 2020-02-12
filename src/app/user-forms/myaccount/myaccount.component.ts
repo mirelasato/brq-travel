@@ -31,18 +31,18 @@ export class MyaccountComponent implements OnInit {
     // this.API.getUser(this.emailUser).subscribe((data) => {
     //   this.CurrentUser = data;
 
-      this.CurrentUser = JSON.parse(localStorage.getItem('userLogged'));
-      console.log(this.CurrentUser);
+    this.CurrentUser = JSON.parse(localStorage.getItem('userLogged'));
+    console.log(this.CurrentUser);
       // console.log(data.cpf);
-      let cpf: string = this.CurrentUser[0].cpf;
-      let rg: string = this.CurrentUser[0].rg;
-      let tel: string = this.CurrentUser[0].phone;
-      cpf = cpf.substr(0, 3) + '.' + cpf.substr(3, 3) + '.' + cpf.substr(6, 3) + '-' + cpf.substr(9, 2);
-      rg = rg.substr(0, 2) + '.' + rg.substr(2, 3) + '.' + rg.substr(5, 3) + '-' + rg.substr(8, 1);
-      tel = '(' + tel.substr(0, 2) + ') ' + tel.substr(2, 4) + '-' + tel.substr(6, 5);
-      this.CurrentUser[0].phone = tel;
-      this.CurrentUser[0].rg = rg;
-      this.CurrentUser[0].cpf = cpf;
+    let cpf: string = this.CurrentUser[0].cpf;
+    let rg: string = this.CurrentUser[0].rg;
+    let tel: string = this.CurrentUser[0].phone;
+    cpf = cpf.substr(0, 3) + '.' + cpf.substr(3, 3) + '.' + cpf.substr(6, 3) + '-' + cpf.substr(9, 2);
+    rg = rg.substr(0, 2) + '.' + rg.substr(2, 3) + '.' + rg.substr(5, 3) + '-' + rg.substr(8, 1);
+    tel = '(' + tel.substr(0, 2) + ') ' + tel.substr(2, 4) + '-' + tel.substr(6, 5);
+    this.CurrentUser[0].phone = tel;
+    this.CurrentUser[0].rg = rg;
+    this.CurrentUser[0].cpf = cpf;
 
     // });
 
