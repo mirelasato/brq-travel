@@ -54,6 +54,7 @@ import * as Hammer from 'hammerjs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PaymentComponent } from './payment/payment.component';
+import { MistakeComponent } from './mistake/mistake.component';
 
 
 
@@ -88,6 +89,7 @@ import { PaymentComponent } from './payment/payment.component';
     RegistertravelComponent,
     AboutUsComponent,
     PaymentComponent,
+    MistakeComponent,
   ],
   imports: [
     BrowserModule,
