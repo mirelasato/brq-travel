@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -30,9 +30,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
 import { ApiService } from './shared/services/api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import{ VisualizacaoService} from './shared/services/visualizacao.service';
+import { VisualizacaoService} from './shared/services/visualizacao.service';
 
 
 import { ShoppingCartService } from './shopping-cart.service';
@@ -54,6 +54,10 @@ import * as Hammer from 'hammerjs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PaymentComponent } from './payment/payment.component';
+
+
+
+
 
 
 
@@ -117,8 +121,9 @@ import { PaymentComponent } from './payment/payment.component';
     MatDatepickerModule,
     AngularFireDatabase,
     VisualizacaoService,
-    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig},
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
