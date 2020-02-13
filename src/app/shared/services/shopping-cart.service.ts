@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Detalhes } from '../models/detalhes';
 import { URL_API } from './app.api';
 import { BehaviorSubject } from 'rxjs';
+import { Product } from '../models/product.model';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 // import 'rxjs/add/operator/take';
@@ -13,13 +16,45 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ShoppingCartService {
 
+  public product: Product[] = [];
 
-  constructor(private http: HttpClient, ) { }
+
+  constructor( ) { 
+    this.product =  this.product = [
+      { id: 'oferta1', name: 'Arraial do Cabo',  price: 500,  image: "assets/travel-packages/arraial-do-cabo/image1.jpg" },
+      { id: 'oferta2', name: 'Campos do Jordão', price: 160,  image: "assets/travel-packages/campos-do-jordao/image1.jpg" },
+      { id: 'oferta3', name: 'Foz do Iguaçu',    price: 690,  image: "assets/travel-packages/foz/image1.jpg" },
+      { id: 'oferta4', name: 'São Roque',        price: 200,  image: "assets/travel-packages/sao-roque/image1.jpg" },
+      { id: 'oferta5', name: 'Capitólio',        price: 200,  image: "assets/travel-packages/capitolio/image1.jpg" },
+      { id: 'oferta6', name: 'Ilhabela',         price: 120,  image: "assets/travel-packages/ilhabela/image1.jpg" },
+      { id: 'oferta7', name: 'Monte Verde',      price: 120,  image: "assets/travel-packages/monte-verde/image1.jpg" },
+      { id: 'oferta8', name: 'TESTE 8',          price: 120,  image: "assets/travel-packages/monte-verde/image3.jpg" },
+      { id: 'oferta9', name: 'TESTE 9',          price: 200,  image: "assets/travel-packages/monte-verde/image3.jpg" },
+
+    ];
+  }
+  
+  findAll(): Product[] {
+    return this.product;
+  }
+
+  find(id: string): Product {
+    return this.product[this.getSelectedIndex(id)];
+  }
+
+  private getSelectedIndex(id: string) {
+    for (let i = 0; i < this.product.length; i++) {
+      if (this.product[i].id == id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
 
   private currentCartCount = new BehaviorSubject(0);
   currentMessage = this.currentCartCount.asObservable();
-  private url_api = 'http://localhost:3000/destinos';
-  public itemsCart: Detalhes[] = [];
+  public itemsCart: Product[] = [];
   public pacotes: Detalhes[];
   id: any;
 
@@ -27,101 +62,55 @@ export class ShoppingCartService {
     this.currentCartCount.next(count);
   }
 
-  addProductToCart(pacote: Detalhes) {
-    this.itemsCart.push(pacote);
+  addProductToCart(product: Product) {
+    this.itemsCart.push(product);
     console.log('pacote', this.itemsCart);
-    localStorage.setItem('pacotes', JSON.stringify(this.itemsCart));
+    localStorage.setItem('product', JSON.stringify(this.itemsCart));
   }
+
 
   getProductFromCart() {
-    return localStorage.getItem('pacotes');
+    if (localStorage.getItem('product') === null ) {
+      this.product = [];
+    } else {
+      this.product = JSON.parse(localStorage.getItem('product'));
+    }
+    return localStorage.getItem('product')
+    
   }
 
-  removeAllProductFromCart() {
-    return localStorage.removeItem('pacotes');
+  removeItem() {
+    return localStorage.removeItem('product');
   }
 
-  // getById(id: any) {
-  //   return this.http.get<Detalhes>(this.url_api + '/' + id);
-  
+//   removeItem(Product){
+//     this.product.splice(this.product.indexOf(Product), 1)
+//     //salva na sessão
+//     sessionStorage.setItem("cart",JSON.stringify(this.product));
+// }
 
-  //   this.pacotes = [
-  //     {
-  //       quantity: 1,
-  //       id: 1,
-  //       titulo: 'Caldas Novas',
-  //       anunciante: 'BRQ-Travel',
-  //       valor: 300,
-  //       destaque: false,
-  //       data: '14/01/2020',
-  //       feriado: '',
-  //       descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
-  //       tipo: 'Bate Volta',
-  //       vagas: 30,
-  //       imagens: [
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //       ]
-  //     },
-  //   ];
+  total(): number {
+    return this.product
+    .map(item => item.price)
+    .reduce(( prev, price) => prev + price, 0);
+  }
 
-  // }
+  totalIns(): number {
+    return this.product
+    .map(item => item.price)
+    .reduce(( prev, value) => prev + value, 0);
+  }
+
+  installment(): number {
+    return Math.max.apply(
+      Math, this.product
+      .map(function(prod){
+        return prod.price;
+      })
+    )
+
+  }
+
+
 }
 
-  // addToCart(pacotes: Detalhes) {
-    
-  // }
-  
-
-
-
-  // cardId = localStorage.getItem('cardId');
-
-  
-
-  // private create() {
-  //   return this.db.list('/carrinho-de-compras').push({
-  //     dateCreated: new Date().getTime()
-  //   });
-  // }
-
-  // private getCart(cartId: string) {
-  //   return this.db.object('/carrinho-de-compras/' + cartId);
-  // }
-
-  // private async getOrCreateCart() {
-  //   const cardId = localStorage.getItem('cartId');
-  //   // tslint:disable-next-line:curly
-  //   if (cardId)  return cardId;
-  //   let result = await this.create();
-  //     // tslint:disable-next-line: no-shadowed-variable
-  //   localStorage.setItem('cardId', result.key);
-  //   return result.key;
-  // }
-      // tslint:disable-next-line:curly
-
-
-  //  async addToCart(pacotes: Detalhes) {
-  //   const cardId = await this.getOrCreateCart();
-  //   let item$ = this.http.get('/carrinho-de-compras/' + cardId + '/items/' + pacotes.id);
-  //   item$.take(1).subscribe(item => {
-  //     // tslint:disable-next-line:curly
-  //     if (item.$exists()) item$.update({ quantity: item.quantity + 1 });
-  //     else.item$.set({ pacotes: pacotes, quantity: 1 });
-  //   });
-
-
-    // })
-    // // tslint:disable-next-line: align
-    // return this.http.get<Destino[]>(this.API)
-    //   .pipe(
-    //     tap(console.log)
-    //   );
-  

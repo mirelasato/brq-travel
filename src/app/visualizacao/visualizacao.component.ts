@@ -1,4 +1,5 @@
 import { Destino } from './../shared/models/destino';
+import { Product } from './../shared/models/product.model';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
@@ -13,6 +14,7 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
@@ -20,6 +22,7 @@ import { observable } from 'rxjs';
   providers: [VisualizacaoService, ShoppingCartService]
 })
 export class VisualizacaoComponent implements OnInit {
+  private product: Product[];
   FormRegister: FormGroup;
   public oferta: Detalhes;
   VisualizacaoService: any;
@@ -43,17 +46,17 @@ export class VisualizacaoComponent implements OnInit {
     // console.log('AAA', this.route.snapshot.params['id']);
     this.isloading = true;
     console.log('ngOnInit...', this.isloading);
+    this.product = this.shoppingCartService.findAll();
+
     this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
       .subscribe((oferta: Detalhes) => {
         this.oferta = oferta;
         this.isloading = !this.isloading;
       });
 
-
-
   }
   // Função que adiciona produto ao carrinho
-  addProductToCart(oferta: Detalhes) {
-    this.shoppingCartService.addProductToCart(oferta);
+  addProductToCart(product: Product) {
+    this.shoppingCartService.addProductToCart(product);
   }
 }

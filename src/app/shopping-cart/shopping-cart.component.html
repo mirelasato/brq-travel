@@ -5,7 +5,9 @@
 
 <script src="https://use.fontawesome.com/c560c025cf.js"></script>
 <div class="container">
-  <div class="card shopping-cart">
+  
+  <div class="card shopping-cart" *ngIf="!isEmpty">
+    
     <div class="card-header bg-dark text-light">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       Shopping cart
@@ -15,7 +17,7 @@
       <!-- PRODUCT -->
       <div class="row">
         <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-          <h4 class="product-name"><strong>{{ oferta.titulo }}</strong></h4>
+          <h4 class="product-name"><strong> {{ oferta.titulo }} </strong></h4>
         </div>
         <div class="col-12 col-sm-12 col-md-2 text-center">
           <img class="card-img-top style-img" [src]="oferta.imagens[0].url" alt="imagem do card">
@@ -29,12 +31,12 @@
             <div class="quantity">
               <input type="button" value="+" (click)="onAddQuantity(prod)" class="plus">
               <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty" size="4">
-              <input type="button" value="-" (click)="onRemoveQuantity(prod)" class="minus">
+              <input type="button" value="-"  class="minus">
             </div>
           </div>
           <div class="col-2 col-sm-2 col-md-2 text-right">
-            <button type="button" class="btn btn-outline-danger btn-xs">
-              <i class="fa fa-trash" aria-hidden="true"></i>
+            <button type="button"  (click)="remove(item)" class="btn btn-outline-danger btn-xs">
+              <i class="fa fa-trash"  aria-hidden="true"></i>
             </button>
           </div>
         </div>

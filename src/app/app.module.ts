@@ -32,10 +32,10 @@ import { AuthService } from './shared/services/auth-service';
 import { ApiService } from './shared/services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import{ VisualizacaoService} from './shared/services/visualizacao.service';
+import { VisualizacaoService} from './shared/services/visualizacao.service';
 
 
-import { ShoppingCartService } from './shopping-cart.service';
+import { ShoppingCartService } from './shared/services/shopping-cart.service';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AngularFireDatabase } from 'angularfire2/database';
