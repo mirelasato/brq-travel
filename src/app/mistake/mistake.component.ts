@@ -15,23 +15,22 @@ export class MistakeComponent implements OnInit {
   title: string;
   titleLink: string;
 
-  constructor( 
+  constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute)
-     {
-      this.router.navigate(['.home']);
+    private activatedRoute: ActivatedRoute) {
+    this.router.navigate(['.home']);
 
-      this.activatedRoute.params.subscribe(params => {
-        this.errorId = params.id;
-      });
-      
-      this.getError();
+    this.activatedRoute.params.subscribe(params => {
+      this.errorId = params.id;
+    });
 
-        this.router.navigate([this.urlBackButton]);
-      
+    this.getError();
+
+    this.router.navigate([this.urlBackButton]);
 
 
-     }
+
+  }
 
 
   ngOnInit() {}
