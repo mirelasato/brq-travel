@@ -27,14 +27,16 @@ export class PaymentComponent implements OnInit {
   }
 
   NewPayment() {
+    const FormData = this.FormPayment.value;
+    console.log(FormData);
   }
 
   Listentochanges() {
 
     this.FormPayment.controls['cardnumber'].valueChanges.subscribe(value => {
       // console.log(value);
-      let number = isValid(value);
-      switch (number['cardType']){
+      const cardnumber = isValid(value);
+      switch (cardnumber['cardType']) {
         case 'Visa':
           this.creditcardurl = '../../assets/credit-card-logo/Visa.png';
           break;
@@ -69,7 +71,13 @@ export class PaymentComponent implements OnInit {
           Validacoes.CheckCreditCard
         ])
       ],
-      expirationdata: [
+      expirationmonth: [
+        '',
+        Validators.compose([
+          Validators.required
+        ])
+      ],
+      expirationyear: [
         '',
         Validators.compose([
           Validators.required
@@ -96,13 +104,16 @@ export class PaymentComponent implements OnInit {
       cpf: [
         '',
         Validators.compose([
-          Validators.required
+          Validators.required,
+          Validacoes.ValidaCpf,
+          Validators.maxLength(11)
         ])
       ],
-      telephone: [
+      phone: [
         '',
         Validators.compose([
-          Validators.required
+          Validators.required,
+          Validators.pattern('[0-9]{5,11}')
         ])
       ],
       paymentmethod: [
@@ -133,8 +144,8 @@ export class PaymentComponent implements OnInit {
   get cpf() {
     return this.FormPayment.get('cpf');
   }
-  get telephone() {
-    return this.FormPayment.get('telephone');
+  get phone() {
+    return this.FormPayment.get('phone');
   }
   get paymentmethod() {
     return this.FormPayment.get('paymentmethod');
