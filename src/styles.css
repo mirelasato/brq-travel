@@ -1,9 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap');
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
 
 
+/* Style para cabeçalhos de nível 1 */
+h1 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal; 
+    color: #333333;
+}
 
+/* Style para cabeçalhos de nível 2 */
+h2 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    color: #333333;
+}
+
+/* Style para cabeçalhos de nível 3 */
+h3 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    color: #333333;
+}
+
+/* Style para cabeçalhos de nível 4 */
+h4 {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    color: #333333;
+}
+
+/* Style para os conteúdos dos parágrafos */
+p {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-style: normal;
+    color: #333333;
+}
+
+/* Style para os conteúdos das listas */
+li {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-style: normal;
+    color: #333333;
+}
+
+/* Style do botão primário: fonte, bold, estilo da fonte e cor da fonte */
+.btn-style-font {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+    color: #ffffff;
+}

@@ -1,9 +1,12 @@
-h1 {
+h3 {
     color: #555;
+    font-size: 40px;
 }
-h4{
+
+h1{
     margin-top: 10px;
 }
+
 .imagens {
     height: 260px;
     width: 600px;
@@ -24,7 +27,7 @@ h4{
     bottom:240px;
 }
 label{
-    margin-top: 45px;
+    margin-top: 20px;
 }
 @media screen and (max-width: 800px) {
     .alinhar {

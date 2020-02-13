@@ -1,0 +1,27 @@
+h2 {
+    font-family: 'Alfa Slab One', cursive;
+    margin-top: 10px;
+    text-align: center;
+}
+h5 {
+    margin-top: 5px;
+}
+p {
+    text-align: justify
+}
+
+.mat-form-field{
+    width:100% !important;
+    /* display: block !important; */
+}
+
+.bottom-label {
+    padding-bottom: 20px;
+}
+#creditcardicon {
+    position:absolute;
+    bottom:2px;
+    right:8px;
+    /* width:24px; */
+    height:24px;
+}

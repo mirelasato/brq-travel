@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -30,7 +30,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './shared/services/auth-service';
 import { ApiService } from './shared/services/api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { VisualizacaoService} from './shared/services/visualizacao.service';
 
@@ -46,13 +46,19 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input';
 import { RegistertravelComponent } from './user-forms/registertravel/registertravel.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material';
+import { MatNativeDateModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { PaymentComponent } from './payment/payment.component';
+import { MistakeComponent } from './mistake/mistake.component';
+
+
+
+
 
 
 
@@ -82,6 +88,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MyaccountComponent,
     RegistertravelComponent,
     AboutUsComponent,
+    PaymentComponent,
+    MistakeComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,7 +114,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     NgxGalleryModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [
     ApiService,
@@ -115,8 +125,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatDatepickerModule,
     AngularFireDatabase,
     VisualizacaoService,
-    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
+    {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig},
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

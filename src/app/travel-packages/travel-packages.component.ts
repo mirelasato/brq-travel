@@ -25,20 +25,25 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   inscricao: Subscription;
 
+  isloading: boolean = true;
+
   constructor(private service: PacotesDestinoService) { }
 
   ngOnInit() {
 
+    this.scrollTop()
+    this.loading();
+
     this.inscricao = this.service.lista()
-    .subscribe(dados => {
-      this.destinoCards = dados;
-      this.destinoCardsHospedagem = this.destinoCards.filter(param => param.tipo === 1); // realiza o filtro pelo parametro tipo igual a 1
-      this.destinoCardsBateVolta = this.destinoCards.filter(param => param.tipo === 2); // realiza o filtro pelo parametro tipo igual a 2
-      this.viewBtnHospedagem();
-      this.viewBtnBateVolta();
-      this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 3;
-      this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3;
-    });
+      .subscribe(dados => {
+        this.destinoCards = dados;
+        this.destinoCardsHospedagem = this.destinoCards.filter(param => param.tipo === 1); // realiza o filtro pelo parametro tipo igual a 1
+        this.destinoCardsBateVolta = this.destinoCards.filter(param => param.tipo === 2); // realiza o filtro pelo parametro tipo igual a 2
+        this.viewBtnHospedagem();
+        this.viewBtnBateVolta();
+        this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 3;
+        this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3; 
+      });
     
   }
 
@@ -113,5 +118,16 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     }
   }
 
+  scrollTop() {
+    setTimeout(() => {
+    window.scrollTo(0,0)
+    }, 100)
+  }
+
+  loading() {
+    setTimeout(() => {
+    this.isloading = false
+    }, 1100)
+  }
 }
 
