@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap');
 
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
@@ -10,7 +8,7 @@
 /* Style para cabeçalhos de nível 1 */
 h1 {
     font-family: "Roboto";
-    font-weight: 400;
+    font-weight: 700;
     font-style: normal; 
     color: #333333;
 }
