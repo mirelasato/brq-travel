@@ -63,9 +63,7 @@
     padding-right: 2px;
     padding-left: 2px;
     height: 35px;
-    
 }
-
 #myFooter .social-networks a {
     font-size: 32px;
     color: #f9f9f9;
@@ -86,11 +84,6 @@
 
 /* CSS utilizado para posicionar o rodapé no final da página. */
 /* Você pode remover isso. */
-
-html{
-    height: 100%;
-}
-
 body{
     display: flex;
     display: -webkit-flex;
@@ -108,4 +101,24 @@ body{
 #myFooter{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
+}
+
+
+/* CSS do Border Bottom dos links */
+.icone-empresa {
+    height: 132px;
+    width: 140px;
+}
+.no-underline {
+    border-bottom: 0;
+}
+.no-underline:hover {
+    border-bottom: 0;
+}
+a {
+    font-weight: 600;
+}
+a:hover{
+    border-bottom: 3px white solid;
+    transition: border .3s ease-out;
 }
