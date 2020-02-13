@@ -19,7 +19,6 @@ section {
 h1 {
     padding-bottom: 6px;
     border-bottom: 1px solid #f5f5f5;
-
 }
 
 li {
@@ -42,7 +41,7 @@ li {
 .jumbotron {
     padding: 1rem 4rem;
     background-color: white;
-    border: solid 0.1px #cccccc;
+    /* border: solid 1px #cccccc; */
 }
 
 .container {
