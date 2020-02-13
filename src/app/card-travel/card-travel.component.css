@@ -15,22 +15,32 @@ h2, h5 {
     list-style: none;
 }
 
-.style-card {
-    border: 0;
-    border-radius: 10px 10px;
-    box-shadow: 5px 5px 5px 5px;
-    margin: 20px 20px;
-    height: 600px;
-}
-
 .style-img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px ;
     height: 260px;
 }
+/* .style-card {
+    border: 0;
+    border-radius: 10px 10px;
+    box-shadow: 5px 5px 5px 5px;
 
-.teste {
-    display: flex;
-    flex-direction: row;
+} */
+.style-card{
+    border-radius: 10px;
+    border-color:#dfdfdf;
+    margin: 20px 20px;
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 600px;
+    width: 18rem;
 }
 
+.style-card:hover{
+    -webkit-filter: drop-shadow(0 0 0.75rem #015f9d);
+    filter: drop-shadow(0 0 0.75rem #015f9d);
+}
+
+.btnsection {
+    text-align: right;
+}
