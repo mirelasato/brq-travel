@@ -6,13 +6,19 @@
     padding-right: 250px;
 }
 .icone-empresa {
-    border-style: none;
     height: 158px;
+}
+.no-underline {
+    border-bottom: 0;
+}
+.no-underline:hover {
+    border-bottom: 0;
 }
 a {
     color: #333333!important;
     font-weight: 600;
 }
 a:hover {
-    border-bottom: 2px black solid;
+    border-bottom: 3px black solid;
+    transition: border .3s ease-out;
 }
