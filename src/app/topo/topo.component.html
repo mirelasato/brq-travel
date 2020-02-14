@@ -5,7 +5,7 @@
   </button>
 
   <!--Logo da Empresas-->
-  <a class="nav-link" href="#" routerLinkActive="active" routerLink="/home">
+  <a class="nav-link no-underline" href="#" routerLinkActive="active" routerLink="/home">
     <img src="/assets/brq-travel-logo.png" alt="Logo da Empresas" class="icone-empresa"/>
   </a>  
   <div class="navbar-collapse collapse" [collapse]=!isCollapsed [isAnimated]="true">
@@ -23,7 +23,6 @@
         <a class="nav-link" *ngIf="user.admin" href="#" routerLinkActive="active" routerLink="/cadastro-de-viagem">Cadastro de Viagens</a>
       </li>
     </ul>
-
     <!-- <div class="button"> -->
     <!-- <form class="form-inline my-2 " id="InputSearch" >
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
@@ -45,8 +44,7 @@
       </li>
     </ul>
   </div>
-  <a class="nav-link" href="#" routerLinkActive="active" routerLink="/carrinho-de-compras">
+  <a class="nav-link no-underline" href="#" routerLinkActive="active" routerLink="/carrinho-de-compras">
     <img src="/assets/shopping-cart.svg" alt="Icone do carrinho de compra" id="cart"/>
   </a>
-
 </nav>

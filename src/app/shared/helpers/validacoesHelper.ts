@@ -65,7 +65,7 @@ export class Validacoes {
     const validator = isValid(cardnumber);
     // console.log(validator);
     if (validator['isValid']) { return null;
-    } else { return validator['isValid']; }
+    } else { return { Invalidnumber: true }; }
 
   }
 

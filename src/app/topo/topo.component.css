@@ -1,13 +1,24 @@
 .navbartopo {
-    background-color: #015F9D;
-}
-.nav-item {
-    font-weight: bold;
+    /*background-color: #015F9D;*/
+    background-color: #fff;
 }
 .button{
     padding-right: 250px;
 }
-.icone-empresa{
-    height: 50px;
-    width: 100px;
+.icone-empresa {
+    height: 158px;
+}
+.no-underline {
+    border-bottom: 0;
+}
+.no-underline:hover {
+    border-bottom: 0;
+}
+a {
+    color: #333333!important;
+    font-weight: 600;
+}
+a:hover {
+    border-bottom: 3px black solid;
+    transition: border .3s ease-out;
 }
