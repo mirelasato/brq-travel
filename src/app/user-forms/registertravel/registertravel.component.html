@@ -1,6 +1,6 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
     <form [formGroup]="FormRegister">
-        <h2>Anúncie sua viagem!</h2>
+        <h2>Anuncie sua viagem!</h2>
         <h5>Preencha o formulário abaixo:</h5>
         <br><div id="mensagemView">
           <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
@@ -19,7 +19,7 @@
           <div class="col-lg-6 col-md-6">
             <mat-form-field>
               <mat-label>Data de Embarque</mat-label>
-              <input  matInput [matDatepicker]="picker1" formControlName="data" placeholder="Escolha a data de Ida">
+              <input  matInput [matDatepickerFilter]="dataFilter" [matDatepicker]="picker1" formControlName="data" placeholder="Escolha a data de Ida">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
@@ -27,7 +27,7 @@
           <div class="col-lg-6 col-md-6"> 
             <mat-form-field>
               <mat-label>Data de Desembarque</mat-label>
-              <input  matInput [matDatepicker]="picker2" formControlName="retorno" placeholder="Escolha a data de Volta">
+              <input  matInput [matDatepickerFilter]="retornoFilter" [matDatepicker]="picker2" formControlName="retorno" placeholder="Escolha a data de Volta">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
@@ -62,8 +62,8 @@
         <div class="form-row">
           <div class="col-lg-12 col-md-12 col-sm-12">
             <mat-radio-group formControlName="tipo" type="number" aria-label="Select an option">
-              <mat-radio-button   value=1>Hospedagem</mat-radio-button>
-              <mat-radio-button   value=2>Bate e Volta</mat-radio-button>
+              <mat-radio-button checked value=1>Hospedagem</mat-radio-button>
+              <mat-radio-button value=2>Bate e Volta</mat-radio-button>
             </mat-radio-group>
           </div>  
         </div>

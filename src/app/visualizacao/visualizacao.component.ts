@@ -1,6 +1,6 @@
 import { Destino } from './../shared/models/destino';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { VisualizacaoService } from '../shared/services/visualizacao.service';
 import { TabDirective } from 'ngx-bootstrap';
@@ -8,6 +8,7 @@ import { Detalhes } from '../shared/models/detalhes';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { observable } from 'rxjs';
+
 
 
 @Component({
@@ -27,14 +28,20 @@ export class VisualizacaoComponent implements OnInit {
 
   onSelect(data: TabDirective): void {
     this.value = data.heading;
+  }
 
+  add() {
+    // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
+    this.oferta.vagas -= 1;
+    alert(' Item adicionado com sucesso ao carrinho ');
   }
 
   constructor(
     private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute,
     private visualizacaoService: VisualizacaoService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -45,13 +52,15 @@ export class VisualizacaoComponent implements OnInit {
 
         // Carregamento da página
         this.isloading = !this.isloading;
+      },
+
+      // seta a rota de erro
+      error => {
+        this.router.navigate(['error:id']);
       });
   }
   // Função que adiciona produto ao carrinho
   addProductToCart(oferta: Detalhes) {
     this.shoppingCartService.addProductToCart(oferta);
-
-    // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
-    this.oferta.vagas -= 1;
   }
 }
