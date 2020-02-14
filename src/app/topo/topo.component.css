@@ -6,19 +6,63 @@
     padding-right: 250px;
 }
 .icone-empresa {
-    height: 158px;
+    height: 102px;
 }
 .no-underline {
-    border-bottom: 0;
+    visibility: unset;
 }
-.no-underline:hover {
-    border-bottom: 0;
+.no-underline:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
 }
 a {
     color: #333333!important;
     font-weight: 600;
+    position: relative;
 }
-a:hover {
-    border-bottom: 3px black solid;
-    transition: border .3s ease-out;
+a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #333333;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+} 
+a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
+
+/* a {
+    color: #333333!important;
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;  
+  }
+  a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #333333;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+  }
+  a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  } */

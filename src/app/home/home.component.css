@@ -1,13 +1,13 @@
-html,body{
-    height: 100%;
+img {
+    height: 360px;
     width: 100%;
 }
-h3, h5 {
-    font-family: 'Alfa Slab One', cursive;
+
+.teste {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.size-carousel {
-    
-    width: 560px!important;
-}
 

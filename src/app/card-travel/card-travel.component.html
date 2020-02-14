@@ -1,9 +1,8 @@
 <article class="container">
-  <section class="inline-cards" *ngIf="destino">
+  <section class="inline-cards .col-sm-12" *ngIf="destino">
     <div class="style-card card">
       <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
-  
-      <div class="card-body" >
+      <div class="card-body">
         <h5 class="card-title">{{ destino.titulo }}</h5>
         <p class="card-text">{{ destino.descricaocard }}</p>
       </div>
