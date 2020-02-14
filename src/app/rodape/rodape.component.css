@@ -102,23 +102,41 @@ body{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
 }
-
-
-/* CSS do Border Bottom dos links */
 .icone-empresa {
     height: 132px;
     width: 140px;
 }
+
+/* CSS do Border Bottom dos links */
 .no-underline {
-    border-bottom: 0;
+    visibility: unset;
 }
-.no-underline:hover {
-    border-bottom: 0;
+.no-underline:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
 }
 a {
+    color: #fff!important;
     font-weight: 600;
+    position: relative;
 }
-a:hover{
-    border-bottom: 3px white solid;
-    transition: border .3s ease-out;
+a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+} 
+a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
