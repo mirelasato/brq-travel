@@ -36,6 +36,12 @@ h4 {
     font-style: normal;
     color: #333333;
 }
+h5 {
+    font-family: "Roboto";
+    font-weight: 700;
+    font-style: normal;
+    color: #015F9D;
+}
 
 /* Style para os conteúdos dos parágrafos */
 p {
