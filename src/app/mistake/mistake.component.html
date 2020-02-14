@@ -5,6 +5,8 @@
             <h1>{{ msgError }}</h1>
         </div>
         <h2>Oops! Page Not Found</h2>
-        <a href="#" (onClickEvent)="tentarNovamente()">Back To Homepage</a>
+        <button href="/home" routerLink="/home" type="button" class="btn btn-primary" (onClickEvent)="tentarNovamente()">
+            Voltar a Homepage
+          </button>
     </div>
 </div>

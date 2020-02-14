@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PacotesDestinoService } from '../shared/services/pacotes-destino.service';
 import { Destino } from '../shared/models/destino';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-travel-packages',
@@ -27,7 +28,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   isloading: boolean = true;
 
-  constructor(private service: PacotesDestinoService) { }
+  constructor(private service: PacotesDestinoService, private router: Router,) { }
 
   ngOnInit() {
 
@@ -42,20 +43,24 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
         this.viewBtnHospedagem();
         this.viewBtnBateVolta();
         this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 3;
-        this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3; 
+        this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3;
+      },
+      // seta a rota de erro
+      error => {
+        this.router.navigate(['error:id']);
       });
-    
+
   }
 
   ngOnDestroy() {
 
     this.inscricao.unsubscribe();
   }
-  
+
   // Exibe os cards "Pacotes com hospedagem"
   typeTravelHospedagem() {
 
-    this.hideBtn = true
+    this.hideBtn = true;
     this.isCollapsed = false;
     this.ativarBotao();
   }
@@ -63,7 +68,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   // Exibe os cards "Pacotes com bate e volta"
   typeTravelBateVolta() {
 
-    this.hideBtn = true
+    this.hideBtn = true;
     this.isCollapsed = true;
     this.ativarBotao();
   } 
@@ -129,5 +134,6 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     this.isloading = false
     }, 1100)
   }
+  
 }
 

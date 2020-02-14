@@ -34,8 +34,8 @@ const routes: Routes = [
   { path: 'cadastro-de-viagem', component: RegistertravelComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sobre-nos', component: AboutUsComponent },
   { path: 'pagamento', component: PaymentComponent },
-  { path: '404', component: MistakeComponent },
-  { path: '**', redirectTo: '404' }
+  { path: 'error/:id', component: MistakeComponent },
+  { path: '**', redirectTo: 'error/1' }
 ];
 
 @NgModule({
