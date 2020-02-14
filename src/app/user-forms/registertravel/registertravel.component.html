@@ -1,6 +1,6 @@
 <div class="container col-lg-5 col-md-8 col-sm-12">
     <form [formGroup]="FormRegister">
-        <h3>Anúncie sua viagem!</h3>
+        <h2>Anúncie sua viagem!</h2>
         <h5>Preencha o formulário abaixo:</h5>
         <br><div id="mensagemView">
           <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
