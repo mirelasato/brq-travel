@@ -1,6 +1,13 @@
 img {
-    height: 220px;
+    height: 360px;
     width: 100%;
+}
+
+.teste {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 

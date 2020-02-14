@@ -10,11 +10,13 @@
     <h3 class="text-center">Destaques do dia</h3>
   </div> -->
 <!--  carrosel  -->
-  <div class="container" >
+  <div class="container">
     <div class="secao">
       <h5 class="text-center">Aproveite as ofertas que separamos para você</h5>
     </div>
-    <app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos">
-    </app-card-travel> <!-- herda a class card -->
+    <section class="teste">
+      <app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos">
+      </app-card-travel> <!-- herda a class card -->
+    </section>
   </div>
 </div>
