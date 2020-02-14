@@ -56,11 +56,17 @@ li {
 .btn-style-margin-hospedagem {
     margin: 10px 23px 0 23px;
     padding: 8px 74px 8px 74px;
+    border-radius: 1.3rem;
+    border-color: #0069d9;
+    color: #0069d9;
 }
 
 .btn-style-margin-batevolta {
     margin: 10px 23px 0 23px;
     padding: 8px 87px 8px 87px;
+    border-radius: 1.3rem;
+    border-color: #0069d9;
+    color: #0069d9;
 }
 
 /* .btn-style-exibir-mais {
@@ -78,17 +84,18 @@ li {
     color: white;
 } */
 
-div.a-align-center {
+div.a-style-align-center {
     text-align: center;
     padding-bottom: 50px;
 }
 
 .a-style-font {
     position: relative;
-    color: blue;
+    color: #0069d9;
     text-decoration: none;
     text-align: center;
-    font-weight: 500;
+    font-weight: 400;
+    cursor: pointer; 
 }
 
 a:before {
@@ -113,7 +120,7 @@ a:hover:before {
 }
 
 a:hover {
-    color: blue;
+    color: #0069d9;;
 }
 
 
