@@ -1,0 +1,20 @@
+  .loader {
+    margin-bottom: 200px;
+    transform: translate(-50%,-50%);
+    width: 200px;
+  }
+  
+  .plane {
+    animation: spin 1s linear infinite;
+    fill: #000;
+    transform-origin: 50% 50%;
+  }
+  
+  @keyframes spin{
+      0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }

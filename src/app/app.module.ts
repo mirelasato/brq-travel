@@ -55,6 +55,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MistakeComponent } from './mistake/mistake.component';
+import { LoaderAirPlaneComponent } from './loader-air-plane/loader-air-plane.component';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 
 
@@ -90,6 +92,7 @@ import { MistakeComponent } from './mistake/mistake.component';
     AboutUsComponent,
     PaymentComponent,
     MistakeComponent,
+    LoaderAirPlaneComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,8 @@ import { MistakeComponent } from './mistake/mistake.component';
     MatNativeDateModule,
     MatRadioModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    AlertModule.forRoot()
   ],
   providers: [
     ApiService,

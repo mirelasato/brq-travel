@@ -2,7 +2,6 @@
     background-color: #015F9D;
     color: white;
     padding-top: 30px;
-
     bottom: 0;
     width: 100%;
 }
@@ -63,9 +62,7 @@
     padding-right: 2px;
     padding-left: 2px;
     height: 35px;
-    
 }
-
 #myFooter .social-networks a {
     font-size: 32px;
     color: #f9f9f9;
@@ -86,11 +83,6 @@
 
 /* CSS utilizado para posicionar o rodapé no final da página. */
 /* Você pode remover isso. */
-
-html{
-    height: 100%;
-}
-
 body{
     display: flex;
     display: -webkit-flex;
@@ -108,4 +100,42 @@ body{
 #myFooter{
    flex: 0 0 auto;
    -webkit-flex: 0 0 auto;
+}
+.icone-empresa {
+    height: 132px;
+    width: 140px;
+}
+
+/* CSS do Border Bottom dos links */
+.no-underline {
+    visibility: unset;
+}
+.no-underline:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+}
+a {
+    color: #fff!important;
+    font-weight: 600;
+    position: relative;
+}
+a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+} 
+a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }

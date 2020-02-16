@@ -22,6 +22,7 @@ export class RegistertravelComponent implements OnInit {
     isDanger: true,
     valid: true };
   MsgError = '';
+  Today = new Date();
 
   constructor( private formBuilder: FormBuilder,
                private service: RegistertravelService,
@@ -53,6 +54,18 @@ export class RegistertravelComponent implements OnInit {
     this.status.valid = true;
   }
 
+  
+  dataFilter = (d: Date | null): boolean => {
+      const day = (d || new Date());
+      return day > this.Today;
+  }
+
+  retornoFilter  = (d: Date | null): boolean => {
+    const data = this.FormRegister.controls.data.value;
+      const day = (d || new Date());
+      return day > data;
+  }
+  
   ChangeLanguage() {
     this._adapter.setLocale('pt');
   }

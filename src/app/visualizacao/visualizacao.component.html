@@ -1,10 +1,9 @@
 <div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <div
-    class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status" >
+  <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-<div class="container" *ngIf="oferta && !isloading">
+<div class="container" id="preview" *ngIf="oferta && !isloading">
   <div class="row">
     <div class="col">
       <h1>{{ oferta.titulo }}</h1>
@@ -29,8 +28,9 @@
     <div class="col text-center">
       <h3>{{ oferta.valor | currency:'BRL' }}</h3>
     </div>
+    
     <div class="col text-center">
-      <button type="button"class="btn btn-warning btn-lg" (click)="addProductToCart(oferta)" style="margin-top: 6px;" >
+      <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta); add() "  style="margin-top: 6px; border-radius: 1.3rem;" >
         Adicionar ao carrinho
       </button>
     </div>

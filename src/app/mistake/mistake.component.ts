@@ -15,48 +15,50 @@ export class MistakeComponent implements OnInit {
   title: string;
   titleLink: string;
 
-  constructor( 
+  constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute)
-     {
-      this.router.navigate(['.home']);
-
-      this.activatedRoute.params.subscribe(params => {
-        this.errorId = params.id;
-      });
-      
-      this.getError();
-
-        this.router.navigate([this.urlBackButton]);
-      
+    private activatedRoute: ActivatedRoute) {
+  }
 
 
-     }
+  ngOnInit() {
 
+    this.activatedRoute.params.subscribe(params => {
+      this.errorId = params.id;
+    });
 
-  ngOnInit() {}
+    this.getError();
+  }
 
-   
-   public  getError(): void {
-     switch (this.errorId){
+  public getError(): void {
+    switch (this.errorId) {
       case '1':
-        this.msgError = 'não é possivel carregar essa informação';
+        this.msgError = 'não foi possivel carregar essa informação';
         this.title = 'erro';
         this.titleLink = 'tentar novamente?';
         this.urlBackButton = 'home/visualizacao';
         break;
-        case '2':
+      case '2':
         this.msgError = 'não é possivel carregar essa informação';
         this.title = 'erro';
         this.titleLink = 'tentar novamente?';
         this.urlBackButton = 'home';
         break;
-      }
-     }
+        default:
+          this.msgError = 'não é possivel carregar essa informação';
+          this.title = 'erro';
+          this.titleLink = 'tentar novamente?';
+          this.urlBackButton = 'error:id';
+          break;
+    }
+  }
+  tentarNovamente() {
+     this.router.navigate([this.urlBackButton]);
+  }
 }
 
 
 
-  
+
 
 

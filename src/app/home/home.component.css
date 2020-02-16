@@ -1,8 +1,13 @@
-h3, h5 {
-    font-family: 'Alfa Slab One', cursive;
+img {
+    height: 360px;
+    width: 100%;
 }
 
-.size-carousel {
-    
-    width: 560px!important;
+.teste {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+

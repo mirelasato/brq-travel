@@ -9,9 +9,13 @@
         <div class="form-group">
           <div id="input_container">
           <mat-form-field>
-            <input type="text" id='creditcard' matInput formControlName="cardnumber" mask= "0000 0000 0000 0000" placeholder="Número do cartão">
+            <input type="text" matInput formControlName="cardnumber" mask= "0000 0000 0000 0000" placeholder="Número do cartão">
               <img id="creditcardicon" src='{{this.creditcardurl}}'/>
           </mat-form-field>
+          <div *ngIf="!cardnumber.pristine && cardnumber.errors">
+            <p class= "TxtError" *ngIf="cardnumber.errors.required">Número do cartão é obrigatório.</p>
+            <p class= "TxtError" *ngIf="cardnumber.errors.Invalidnumber">Digite um Número válido.</p>
+          </div>
         </div>
         </div>
 
@@ -19,8 +23,8 @@
           <div class="col-lg-6 bottom-label">
             <div class="form-row">
               <div class="col-lg-6">
-                <mat-form-field > 
-                  <mat-select placeholder="Mês">
+                <mat-form-field> 
+                  <mat-select placeholder="Mês" >
                     <mat-option value="01">Janeiro</mat-option>
                     <mat-option value="02">Fevereiro</mat-option>
                     <mat-option value="03">Março</mat-option>
@@ -35,11 +39,14 @@
                     <mat-option value="12">Dezembro</mat-option>
                   </mat-select>
                 </mat-form-field>
+                <!-- <div *ngIf="!expirationmonth.pristine && expirationmonth.errors">
+                  <p class= "TxtError" *ngIf="expirationmonth.errors.required">Mês é obrigatório.</p>
+                </div> -->
               </div>
 
               <div class="col-lg-6">
                 <mat-form-field>
-                  <mat-select  placeholder="Ano">
+                  <mat-select placeholder="Ano">
                     <mat-option value="2020">2020</mat-option>
                     <mat-option value="2021">2021</mat-option>
                     <mat-option value="2022">2022</mat-option>
@@ -54,14 +61,20 @@
                     <mat-option value="2031">2031</mat-option>
                   </mat-select>
                 </mat-form-field>
-                </div>
-                </div>
-            </div>
+                <!-- <div *ngIf="!expirationyear.pristine && expirationyear.errors">
+                  <p class= "TxtError" *ngIf="expirationyear.errors.required">Ano é obrigatório.</p>
+                </div> -->
+              </div>
+          </div>
+        </div>
           
         <div class="col-lg-6 bottom-label">
           <mat-form-field>
             <input type="text" matInput formControlName="securenumber" mask='000' placeholder="Código de segurança">
           </mat-form-field>
+          <div *ngIf="!securenumber.pristine && securenumber.errors">
+            <p class= "TxtError" *ngIf="securenumber.errors.required">Código de segurança é obrigatório.</p>
+          </div>
         </div>
       </div>
 
@@ -70,48 +83,61 @@
           <mat-form-field>
             <input type="text" matInput formControlName="name" placeholder="Nome impresso no cartão">
           </mat-form-field>
+          <div *ngIf="!name.pristine && name.errors">
+            <p class= "TxtError" *ngIf="name.errors.required">Nome do titular é obrigatório.</p>
+          </div>
         </div>
 
         <div class="form-row">
           <div class="col-lg-6 bottom-label">
             <mat-form-field>
-              <input type="text" matInput formControlName="birthday" placeholder="Data de nascimento">
+              <mat-label>Data de Nascimento</mat-label>
+              <input  matInput [matDatepicker]="picker1" formControlName="birthday" placeholder="Data de nascimento">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
+            <div *ngIf="!birthday.pristine && birthday.errors">
+              <p class= "TxtError" *ngIf="birthday.errors.required">Data de nascimento é obrigatória.</p>
+            </div>
+            
           </div>
-          <div class="col-lg-6 bottom-label">
-
-          <mat-form-field>
-            <input type="text" matInput formControlName="cpf" placeholder="CPF">
-          </mat-form-field>
+            
+            <div class="col-lg-6 bottom-label">
+              <mat-form-field>
+                <input type="text" matInput formControlName="cpf" mask="000.000.000-00" placeholder="CPF">
+              </mat-form-field>
+              <div *ngIf="!cpf.pristine && cpf.errors">
+                <p class= "TxtError" *ngIf="cpf.errors.required">CPF é obrigatório.</p>
+                <p class= "TxtError" *ngIf="cpf.errors.cpfInvalido">Digite um CPF válido.</p>
+              </div>
+            </div>
         </div>
 
-        </div>
         <div class="form-group">
           <mat-form-field>
-            <input type="text" matInput formControlName="telephone" placeholder="Telefone">
+            <input type="text" matInput formControlName="phone" mask="(00) 0000-00009" placeholder="Telefone">
           </mat-form-field>
+          <div *ngIf="!phone.pristine && phone.errors">
+            <p class="TxtError" *ngIf="phone.errors.required">Telefone é obrigatório.</p>
+          </div>
         </div>
 
         <div class="form-group">
           <mat-form-field > 
             <mat-select placeholder="Parcelas">
-              <mat-option value="0">1x de {{this.value}}</mat-option>
+              <mat-option value="0" default>1x de {{this.value}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-        
-                <!-- <mat-form-field>
-                  <input type="text" matInput formControlName="numbercard" placeholder="Número do cartão">
-                </mat-form-field> -->
-   
+        <div class="row text-center">
+          <div class="form-group col-sm-12">
+            <button type="submit" class="btn btn-primary" (click)="NewPayment()">Realizar pagamento</button>
+          </div>
+      </div>
 
       </tab>
       <tab heading="Boleto"></tab>
     </tabset>
-    <div class="row text-center">
-      <div class="form-group col-sm-12">
-        <button type="submit" class="btn btn-primary" (click)="NewPayment()">Realizar pagamento</button>
-      </div>
-  </div>
+
   </form>
 </div> 

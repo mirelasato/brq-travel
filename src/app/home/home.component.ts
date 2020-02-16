@@ -6,6 +6,7 @@ import { Banner } from '../shared/models/banner';
 import { Detalhes } from '../shared/models/detalhes';
 import { HttpClient } from '@angular/common/http';
 import { take, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,30 +29,35 @@ export class HomeComponent implements OnInit {
   constructor(
     private service: PacotesDestinoService,
     private serviceBanner: HomeBannerService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router,
   ) { }
 
 
   ngOnInit() {
 
-    this.scrollTop()
-    
+    this.scrollTop();
+
     this.serviceBanner.listaBanner()
       .subscribe(img => {
         this.feriadoImg = img;
-        this.final = this.feriadoImg[0];    
-      });
+        this.final = this.feriadoImg[0];
+      },
+      // seta a rota de erro
+        error => {
+          this.router.navigate(['error:id']);
+        });
 
     this.service.lista()
       .subscribe(dados => {
         this.destaqueCards = dados;
         this.destaqueCardsDisplay = this.destaqueCards.filter(x => x.destaque === true);
-      });      
+      });
     }
 
   scrollTop() {
     setTimeout(() => {
-    window.scrollTo(0,0)
-    }, 170)
+    window.scrollTo(0, 0);
+    }, 170);
   }
-} 
+}

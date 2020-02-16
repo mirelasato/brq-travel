@@ -1,5 +1,4 @@
 h2 {
-    font-family: 'Alfa Slab One', cursive;
     margin-top: 10px;
     text-align: center;
 }
@@ -24,4 +23,8 @@ p {
     right:8px;
     /* width:24px; */
     height:24px;
+}
+
+.TxtError{
+    color: red;
 }
