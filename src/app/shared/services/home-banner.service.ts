@@ -16,6 +16,6 @@ export class HomeBannerService {
     return this.http.get<Banner[]>(this.API)
     .pipe(
       tap(console.log)
-    )
+    );
   }
 }
