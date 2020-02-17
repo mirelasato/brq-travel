@@ -2,6 +2,11 @@ section {
     padding-top: 20px;
 }
 
+.font-style-size {
+    font-size: 21px;
+    margin: 11px 0px 19px 19px;
+}
+
 .inline-cards {
     display: flex;
     flex-direction: row;
@@ -13,7 +18,7 @@ section {
 .style-img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px ;
-    height: 260px;
+    height: 194px;
 }
 /* .style-card {
     border: 0;
@@ -27,7 +32,7 @@ section {
     margin: 20px 20px;
     transition: all 0.5s;
     cursor: pointer;
-    height: 600px;
+    height: 482px;
     width: 18rem;
 }
 
@@ -36,6 +41,75 @@ section {
     filter: drop-shadow(0 0 0.75rem #015f9d);
 }
 
-.btnsection {
-    text-align: right;
+.btn-style-margin {
+    margin: -36px auto 0px auto;
+
 }
+
+.btn-style-size {
+    padding-left: 86px;
+    padding-right: 86px;
+}
+
+.badge-style {
+    border-radius: 0px 7px 0px 7px;
+    margin-top: 4px;
+    
+}
+
+.badge-style-font {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal; 
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.margin-style-badge-top {
+    margin-top: 5;
+}
+
+.list-style-none {
+    list-style-type: none;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.icon-style-size {
+    vertical-align: text-bottom;
+    font-size: 18px;
+    color: #333333;
+    margin: 3px 4px 1px 0;
+}
+
+.li-style {
+    padding-top: 3px;
+    
+}
+
+.border-style {
+    margin: 17px auto 8px auto;
+    border-top: 1px solid #cccccc;
+    width: 248px;
+
+}
+
+.div-style-flex {
+    display: flex;
+}
+
+.value-style {
+    font-size: 38px;
+    font-weight: 600;
+}
+
+.label-style-value {
+    font-size: 22px;
+    padding: 16px 6px 0 78px;
+
+}
+.label-style-rotulo {
+    font-weight: 400;
+    margin: 0px 0px 0px 20px;
+}
+

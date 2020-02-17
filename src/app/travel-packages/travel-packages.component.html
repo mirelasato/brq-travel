@@ -20,9 +20,9 @@
   </section>
 
   <section class="container">
-    <div>
+    <div >
       <div id="collapseBasic" [collapse]="isCollapsed">
-        <ul>
+        <ul class="section-style-align-center">
           <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:3" let i="index">
             <app-card-travel [destino]="destinosHosp"></app-card-travel>
           </li>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <div id="collapseBasic" [collapse]="!isCollapsed">
-        <ul>
+        <ul class="section-style-align-center">
           <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:3" let i="index">
             <app-card-travel [destino]="destinosBV"></app-card-travel>
           </li>

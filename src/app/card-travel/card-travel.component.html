@@ -2,17 +2,33 @@
   <section class="inline-cards .col-sm-12" *ngIf="destino">
     <div class="style-card card">
       <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
-      <div class="card-body">
-        <h5 class="card-title">{{ destino.titulo }}</h5>
-        <p class="card-text">{{ destino.descricaocard }}</p>
+      <div>
+        <span class="badge badge-primary badge-style badge-style-font">hospedagem</span>
       </div>
-      <ul class="list-group list-group-flush" >
-        <li class="list-group-item">{{ destino.data | date: 'dd/MM/yyyy'}}</li>
-        <li class="list-group-item">{{ destino.valor | currency:'BRL' }}</li>
+      <div>
+        <h2 class="font-style-size">{{ destino.titulo }}</h2>
+        <!-- <p class="card-text">{{ destino.descricaocard }}</p> -->
+      </div>
+      <ul class="list-style-none list-group">
+        <li class="li-style card-text">
+          <i class="material-icons icon-style-size">event</i>
+          {{ destino.data | date: 'dd/MM/yyyy' }} - {{ destino.retorno | date: 'dd/MM/yyyy' }}</li>
+        <li>
+          <i class="material-icons icon-style-size">event_seat</i>
+          {{ destino.vagas }} vagas restantes</li>
       </ul>
-      <div class="card-body btnsection">
-        <button class="btn btn-primary" routerLink="/visualizacao/{{destino.id}}">Veja mais</button>
+      <div class="border-style"></div>
+      <div>
+        <p class="label-style-rotulo">por apenas:</p>
+      </div>
+      <div class="div-style-flex">
+        <p class="label-style-value">R$</p>
+        <p class="value-style">
+          {{ destino.valor }}</p>
+      </div>
+      <div class="card-body btn-style-margin">
+        <button class="btn btn-primary btn-style-font btn-style-size" routerLink="/visualizacao/{{ destino.id }}">veja mais</button>
       </div>
     </div>
-  </section>   
+  </section>
 </article>
