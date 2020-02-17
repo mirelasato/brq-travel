@@ -28,8 +28,9 @@
     <div class="col text-center">
       <h3>{{ oferta.valor | currency:'BRL' }}</h3>
     </div>
+    
     <div class="col text-center">
-      <button type="button"class="btn btn-warning btn-lg" (click)="addProductToCart(oferta)" style="margin-top: 6px;" >
+      <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta); add() "  style="margin-top: 6px; border-radius: 1.3rem;" >
         Adicionar ao carrinho
       </button>
     </div>
