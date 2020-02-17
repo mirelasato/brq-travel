@@ -3,7 +3,7 @@ img {
     width: 100%;
 }
 
-.teste {
+.alingn-cards-home {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

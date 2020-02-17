@@ -373,7 +373,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner1.jpg"
+          "url": "assets/travel-banner/banner1.png"
         }
       ]
     },
@@ -383,7 +383,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner2.jpg"
+          "url": "assets/travel-banner/banner2.png"
         }
       ]
     },
@@ -393,7 +393,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner3.jpg"
+          "url": "assets/travel-banner/banner3.png"
         }
       ]
     }
