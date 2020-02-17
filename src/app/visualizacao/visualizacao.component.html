@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col col-md-6 teste">
-      <carousel>
+      <carousel *ngIf="!isloading">
         <slide *ngFor="let carrossel of oferta.imagens">
           <img class="imagens" [src]="carrossel.url" alt="first slide" />
           <div class="carousel-caption d-none d-md-block"></div>

@@ -31,9 +31,6 @@ export class VisualizacaoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router) { }
 
-
-
-
   ngOnInit() {
     // window.scrollTo(0, 0);
     // this.isloading = true;
@@ -77,6 +74,6 @@ export class VisualizacaoComponent implements OnInit {
   loading() {
     setTimeout(() => {
     this.isloading = false;
-    }, 2000);
+    }, 1200);
   }
 }

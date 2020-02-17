@@ -132,7 +132,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   loading() {
     setTimeout(() => {
     this.isloading = false;
-    }, 2000);
+    }, 1200);
   }
 
 }
