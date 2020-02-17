@@ -3,11 +3,10 @@
     <div class="style-card card">
       <img class="card-img-top style-img" [src]="destino.imagens[0].url" alt="Imagem de capa do card">
       <div>
-        <span class="badge badge-primary badge-style badge-style-font">hospedagem</span>
+       <span class="badge badge-primary badge-style badge-style-font" [ngStyle]="destino.tiponome == 'hospedagem' ? {'background-color':'#015f9d'} : {'background-color':'#FF6600'}">{{ destino.tiponome }}</span>
       </div>
       <div>
         <h2 class="font-style-size">{{ destino.titulo }}</h2>
-        <!-- <p class="card-text">{{ destino.descricaocard }}</p> -->
       </div>
       <ul class="list-style-none list-group">
         <li class="li-style card-text">
