@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Observable';
+import { Item } from '../models/item.model';
 
 
 // import 'rxjs/add/operator/take';
@@ -17,6 +19,8 @@ import 'rxjs/add/operator/catch';
 export class ShoppingCartService {
 
   public product: Product[] = [];
+  private items: Item[] = [];
+  public total = new BehaviorSubject<number>(0);
 
 
   constructor( ) { 
@@ -32,6 +36,24 @@ export class ShoppingCartService {
       { id: 'oferta9', name: 'TESTE 9',          price: 200,  image: "assets/travel-packages/monte-verde/image3.jpg" },
 
     ];
+  }
+
+  getTotal$(){
+    return this.total.asObservable();
+  }
+
+  calcTotal(){
+    let sum = 0;
+    this.items.forEach(item => {
+      sum += item.quantity;
+    });
+    return sum;
+  }
+
+  addItem(item: any){
+    this.items.push(item);
+    this.total.next(this.calcTotal());
+    //save to localStore
   }
   
   findAll(): Product[] {
@@ -89,11 +111,16 @@ export class ShoppingCartService {
 //     sessionStorage.setItem("cart",JSON.stringify(this.product));
 // }
 
-  total(): number {
-    return this.product
-    .map(item => item.price)
-    .reduce(( prev, price) => prev + price, 0);
-  }
+// recalculateCart() {
+ 
+
+//   $ ('.product').each(function () {
+//     this.total + = parseFloat ($ (this).children('.quantity').text());
+//   });
+// }
+
+
+
 
   totalIns(): number {
     return this.product

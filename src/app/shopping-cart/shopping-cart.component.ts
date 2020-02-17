@@ -9,6 +9,7 @@ import { Item } from '../shared/models/item.model';
 import { Product } from '../shared/models/product.model';
 import { default as NProgress } from 'nprogress';
 import swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -30,8 +31,9 @@ export class ShoppingCartComponent implements OnInit {
   id: string;
   imagens: any[];
   public items: Item[] = [];
-  private total = 0;
+  public total = 0;
   public product: Product;
+  total$: Observable<number>
 
   // public pacotes: Destino;
 
@@ -42,7 +44,9 @@ export class ShoppingCartComponent implements OnInit {
     public authService: AuthService,
     private activatedRoute: ActivatedRoute,
 
-  ) { }
+  ) {
+    this.total$ = shoppingCartService.total;
+  }
 
   ngOnInit() {
 
@@ -53,13 +57,13 @@ export class ShoppingCartComponent implements OnInit {
 
     this.productAddedToCart = this.shoppingCartService.getProductFromCart();
     const newArray = JSON.parse(this.productAddedToCart);
-    
+
     this.produtos = newArray;
 
     for (let i in newArray) {
       this.totalItens = newArray.length;
     }
-    
+
     this.shoppingCartService.removeItem();
     this.shoppingCartService.addProductToCart(this.product);
     //  this.calculateAllTotal(this.productAddedToCart);
@@ -92,7 +96,7 @@ export class ShoppingCartComponent implements OnInit {
           if (index === -1) {
             cart.push(JSON.stringify(item));
             localStorage.setItem('cart', JSON.stringify('cart'));
-            
+
           } else {
             const item: Item = JSON.parse(cart[index]);
             item.quantity += 1;
@@ -107,6 +111,10 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
+  addItem() {
+    this.shoppingCartService.addItem({ quantity: 1 });
+  }
+
   // tslint:disable-next-line:no-unused-expression
   //   product():  Product[] {
   //   return this.shoppingCartService.product;
@@ -117,7 +125,7 @@ export class ShoppingCartComponent implements OnInit {
     this.items = [];
     const cart: any[] = [];
     JSON.parse(localStorage.getItem('cart'));
-    
+
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < cart.length; i++) {
       const item: Item = JSON.parse('cart');
@@ -125,7 +133,7 @@ export class ShoppingCartComponent implements OnInit {
         product: item.product,
         quantity: item.quantity
       });
-      this.total += item.product.price * item.quantity;
+      this.total = item.product.price * item.quantity;
     }
   }
 
@@ -171,10 +179,24 @@ export class ShoppingCartComponent implements OnInit {
     this.isEmpty = true;
   }
 
+  // valueTotal() :number{
+  //   return this.shoppingCartService.getTotal$();
+  // }
 
-  // /*for (let i in newArray) {
-  //   this.totalItens = newArray.length;
-  // }*/
+  totalIns(): number {
+    return this.shoppingCartService.totalIns();
+  }
+
+  installments() {
+    return this.shoppingCartService.installment();
+  }
+
+
+
+
+  /*for (let i in newArray) {
+    this.totalItens = newArray.length;
+  }*/
   // // this.shoppingCartService.removeAllProductFromCart();
   // // this.shoppingCartService.addProductToCart(this.oferta);
   // // this.calculateAllTotal(this.productAddedToCart);

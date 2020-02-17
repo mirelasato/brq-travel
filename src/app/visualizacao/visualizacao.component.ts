@@ -47,7 +47,7 @@ export class VisualizacaoComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0);
-    this.isloading = true;
+    // this.isloading = true;
     console.log('ngOnInit...', this.isloading);
     this.product = this.shoppingCartService.findAll();
 
