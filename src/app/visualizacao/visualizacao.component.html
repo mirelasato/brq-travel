@@ -1,9 +1,4 @@
-<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-<div class="container" id="preview" *ngIf="oferta && !isloading">
+<div class="container" id="preview" *ngIf="oferta">
   <div class="row">
     <div class="col">
       <h1>{{ oferta.titulo }}</h1>
@@ -53,4 +48,11 @@
     </tab>
      </tabset> 
       </div>
+</div>
+
+<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+  <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
+    <app-loader-air-plane></app-loader-air-plane>
+    <span class="sr-only">Loading...</span>
+  <!-- </div> -->
 </div>

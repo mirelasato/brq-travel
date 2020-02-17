@@ -16,6 +16,6 @@ export class PacotesDestinoService {
     return this.http.get<Destino[]>(this.API)
     .pipe(
       tap(console.log)
-    )
+    );
   }
 }

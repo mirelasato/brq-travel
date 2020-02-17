@@ -16,23 +16,23 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   destinoCardsBateVolta: Destino[];
 
   isCollapsed = false;
-  seeMore: boolean = false;
-  viewBtnHosp: boolean = false;
-  viewBtnBV: boolean = false;
-  hideBtn: boolean = true;
+  seeMore = false;
+  viewBtnHosp = false;
+  viewBtnBV = false;
+  hideBtn = true;
 
   destinoQtHospedagem: number;
   destinoQtBateVolta: number;
 
   inscricao: Subscription;
 
-  isloading: boolean = true;
+  isloading = true;
 
-  constructor(private service: PacotesDestinoService, private router: Router,) { }
+  constructor(private service: PacotesDestinoService, private router: Router) { }
 
   ngOnInit() {
 
-    this.scrollTop()
+    this.scrollTop();
     this.loading();
 
     this.inscricao = this.service.lista()
@@ -71,7 +71,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     this.hideBtn = true;
     this.isCollapsed = true;
     this.ativarBotao();
-  } 
+  }
 
   // Efeito que deixa o botão ativado no filtro de pacotes de viagens sem perder o foco
   ativarBotao() {
@@ -85,8 +85,8 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
         let current = document.getElementsByClassName(' active');
         current[1].className = current[1].className.replace(' active', '');
         this.className += ' active';
-      })    
-    }  
+      });
+    }
   }
 
   // Função que exibe a quantidade restante dos cards 
@@ -108,7 +108,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   // Exibe o botão "Carregar mais cards".
   // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
   viewBtnHospedagem() {
-    
+
     if (this.destinoCardsHospedagem.length > 3) {
       this.viewBtnHosp = !this.viewBtnHosp;
     }
@@ -117,7 +117,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   // Exibe o botão "Carregar mais cards".
   // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
   viewBtnBateVolta() {
-    
+
     if (this.destinoCardsBateVolta.length > 3) {
       this.viewBtnBV = !this.viewBtnBV;
     }
@@ -125,15 +125,15 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
 
   scrollTop() {
     setTimeout(() => {
-    window.scrollTo(0,0)
-    }, 100)
+    window.scrollTo(0, 0);
+    }, 100);
   }
 
   loading() {
     setTimeout(() => {
-    this.isloading = false
-    }, 1100)
+    this.isloading = false;
+    }, 2000);
   }
-  
+
 }
 
