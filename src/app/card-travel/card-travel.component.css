@@ -26,6 +26,7 @@ section {
     box-shadow: 5px 5px 5px 5px;
 
 } */
+
 .style-card{
     border-radius: 10px;
     border-color:#dfdfdf;
@@ -34,11 +35,13 @@ section {
     cursor: pointer;
     height: 482px;
     width: 18rem;
+    border: 1px;
+    box-shadow: 0 0 1px 1px;
 }
 
 .style-card:hover{
-    -webkit-filter: drop-shadow(0 0 0.75rem #015f9d);
-    filter: drop-shadow(0 0 0.75rem #015f9d);
+    -webkit-filter: drop-shadow(0 0 8px #015f9d);
+    filter: drop-shadow(0 0 8px #015f9d);
 }
 
 .btn-style-margin {
