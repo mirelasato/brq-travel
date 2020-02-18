@@ -56,16 +56,10 @@ export class VisualizacaoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    // window.scrollTo(0, 0);
-    // this.isloading = true;
-    this.scrollTop();
     this.loading();
     this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
       .subscribe((oferta: Detalhes) => {
         this.oferta = oferta;
-
-        // Carregamento da página
-        // this.isloading = !this.isloading;
       },
 
       // seta a rota de erro
