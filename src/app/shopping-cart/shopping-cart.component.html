@@ -31,7 +31,8 @@
           <div class="col-4 col-sm-4 col-md-4">
             <div class="quantity">
               <!-- <input type="button" value="+" (click)="onAddQuantity(prod)" class="plus"> -->
-              <input type="number" step="1" max="45" min="1" value="1" title="Qty" (click)="addItem(product)" class="qty" size="4">
+              <!-- <input  type="button" value="+" step="1" max="45" min="1" value="1" name="push" (click)="addItem(product)" class="qty" size="4"> -->
+              <input type="number" step="1" max="45" min="1" value="1" title="Qty" class="qty" (click)="addItem(product)">
               <!-- <input type="button" value="-" class="minus"> -->
             </div>
           </div>
@@ -89,7 +90,7 @@
         <div class="pull-right" style="margin: 10px">
           <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
           <div class="pull-right" style="margin: 5px">
-             <span> Total: {{ oferta.valor | currency: 'BRL': true}}</span>
+             <span> Total: {{ oferta.valor  | currency: 'BRL': true}}</span>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ export class ShoppingCartComponent implements OnInit {
   id: string;
   imagens: any[];
   public items: Item[] = [];
-  public total = 0;
+  public total: number;
   public product: Product;
   total$: Observable<number>
 
@@ -132,8 +132,12 @@ export class ShoppingCartComponent implements OnInit {
       this.items.push({
         product: item.product,
         quantity: item.quantity
+        
       });
-      this.total = item.product.price * item.quantity;
+      console.log('quantity')
+      this.totalItens = item.product.price * item.quantity;
+      console.log('total é');
+      debugger;
     }
   }
 

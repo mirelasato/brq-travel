@@ -28,9 +28,9 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class TopoComponent implements OnInit {
   CurrentUser: User;
   emailUser = this.authService.GetEmail;
-  habilitado: boolean = false;
+  habilitado = false;
   constructor(public authService: AuthService,
-    public API: ApiService) { }
+              public API: ApiService) { }
 
   ngOnInit() {
     this.API.getUser(this.emailUser).subscribe((data) => {

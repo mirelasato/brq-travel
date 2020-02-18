@@ -10,8 +10,6 @@ import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { observable } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
@@ -26,7 +24,33 @@ export class VisualizacaoComponent implements OnInit {
   VisualizacaoService: any;
   value: string;
   productAddedToCart: any;
-  isloading: boolean;
+  isloading = true;
+
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private route: ActivatedRoute,
+    private visualizacaoService: VisualizacaoService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
+
+  ngOnInit() {
+    // window.scrollTo(0, 0);
+    // this.isloading = true;
+    this.scrollTop();
+    this.loading();
+    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
+      .subscribe((oferta: Detalhes) => {
+        this.oferta = oferta;
+
+        // Carregamento da página
+        // this.isloading = !this.isloading;
+      },
+
+      // seta a rota de erro
+      error => {
+        this.router.navigate(['error:id']);
+      });
+  }
 
   onSelect(data: TabDirective): void {
     this.value = data.heading;
@@ -38,40 +62,20 @@ export class VisualizacaoComponent implements OnInit {
     alert(' Item adicionado com sucesso ao carrinho ');
   }
 
-  constructor(
-    private shoppingCartService: ShoppingCartService,
-    private route: ActivatedRoute,
-    private visualizacaoService: VisualizacaoService,
-    private formBuilder: FormBuilder,
-    private router: Router) { }
-
-  ngOnInit() {
-    window.scrollTo(0, 0);
-    // this.isloading = true;
-    console.log('ngOnInit...', this.isloading);
-    this.product = this.shoppingCartService.findAll();
-
-    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
-      .subscribe((oferta: Detalhes) => {
-        this.oferta = oferta;
-        this.isloading = !this.isloading;
-      });
-
-    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
-      .subscribe((oferta: Detalhes) => {
-        this.oferta = oferta;
-
-        // Carregamento da página
-        this.isloading = !this.isloading;
-      },
-
-      // seta a rota de erro
-      error => {
-        this.router.navigate(['error:id']);
-      });
-  }
   // Função que adiciona produto ao carrinho
   addProductToCart(product: Product) {
     this.shoppingCartService.addProductToCart(product);
+  }
+
+  scrollTop() {
+    setTimeout(() => {
+    window.scrollTo(0, 0);
+    }, 100);
+  }
+
+  loading() {
+    setTimeout(() => {
+    this.isloading = false;
+    }, 1200);
   }
 }

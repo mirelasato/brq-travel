@@ -19,7 +19,7 @@ export class VisualizacaoService {
       getProduto(id: number): Observable<Detalhes> {
         const url = `${this.url_api}/${id}`;
         return this.http.get<Detalhes>(url).pipe(
-          delay(1000), // TODO: Remover para produção
+           delay(400), // TODO: Remover para produção
           tap(_ => console.log(`leu o produto id=${id}`)),
         );
       }
