@@ -1,4 +1,5 @@
 import { Destino } from './../shared/models/destino';
+import { Product } from './../shared/models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -17,6 +18,7 @@ import { observable } from 'rxjs';
 })
 
 export class VisualizacaoComponent implements OnInit {
+  private product: Product[];
   FormRegister: FormGroup;
   public oferta: Detalhes;
   VisualizacaoService: any;
@@ -30,9 +32,6 @@ export class VisualizacaoComponent implements OnInit {
     private visualizacaoService: VisualizacaoService,
     private formBuilder: FormBuilder,
     private router: Router) { }
-
-
-
 
   ngOnInit() {
     // window.scrollTo(0, 0);
@@ -64,8 +63,8 @@ export class VisualizacaoComponent implements OnInit {
   }
 
   // Função que adiciona produto ao carrinho
-  addProductToCart(oferta: Detalhes) {
-    this.shoppingCartService.addProductToCart(oferta);
+  addProductToCart(product: Product) {
+    this.shoppingCartService.addProductToCart(product);
   }
 
   scrollTop() {
@@ -77,6 +76,6 @@ export class VisualizacaoComponent implements OnInit {
   loading() {
     setTimeout(() => {
     this.isloading = false;
-    }, 2000);
+    }, 1200);
   }
 }

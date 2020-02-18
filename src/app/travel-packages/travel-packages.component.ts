@@ -42,8 +42,8 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
         this.destinoCardsBateVolta = this.destinoCards.filter(param => param.tipo === 2); // realiza o filtro pelo parametro tipo igual a 2
         this.viewBtnHospedagem();
         this.viewBtnBateVolta();
-        this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 3;
-        this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 3;
+        this.destinoQtHospedagem = this.destinoCardsHospedagem.length - 4;
+        this.destinoQtBateVolta = this.destinoCardsBateVolta.length - 4;
       },
       // seta a rota de erro
       error => {
@@ -109,7 +109,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
   viewBtnHospedagem() {
 
-    if (this.destinoCardsHospedagem.length > 3) {
+    if (this.destinoCardsHospedagem.length > 4) {
       this.viewBtnHosp = !this.viewBtnHosp;
     }
   }
@@ -118,7 +118,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   // Se a quantidade de cards maior que 3, então exibe o botão "Carregar mais cards"
   viewBtnBateVolta() {
 
-    if (this.destinoCardsBateVolta.length > 3) {
+    if (this.destinoCardsBateVolta.length > 4) {
       this.viewBtnBV = !this.viewBtnBV;
     }
   }
@@ -132,7 +132,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
   loading() {
     setTimeout(() => {
     this.isloading = false;
-    }, 2000);
+    }, 1200);
   }
 
 }

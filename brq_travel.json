@@ -87,6 +87,7 @@
       "vagas": 45,
       "feriado": 1,
       "tipo": 1,
+      "tiponome":"hospedagem",
       "imagens": [
         {
           "url": "assets/travel-packages/arraial-do-cabo/image1.jpg"
@@ -113,6 +114,7 @@
       "vagas": 45,
       "feriado": "2",
       "tipo": 1,
+      "tiponome":"hospedagem",
       "imagens-banner": "assets/img/capa-destinos.jpg",
       "imagens": [
         {
@@ -139,6 +141,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome":"hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -168,6 +171,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome":"hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -197,6 +201,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome":"hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -226,6 +231,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome":"bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -255,6 +261,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome":"bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -284,6 +291,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome":"bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -313,6 +321,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome":"bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -337,6 +346,7 @@
       "valor": 333,
       "vagas": 333,
       "tipo": "2",
+      "tiponome":"bate e volta",
       "descricaocard": "etete",
       "descricao": "tetete",
       "id": 10,

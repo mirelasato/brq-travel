@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col col-md-6 teste">
-      <carousel>
+      <carousel *ngIf="!isloading">
         <slide *ngFor="let carrossel of oferta.imagens">
           <img class="imagens" [src]="carrossel.url" alt="first slide" />
           <div class="carousel-caption d-none d-md-block"></div>
@@ -25,7 +25,7 @@
     </div>
     
     <div class="col text-center">
-      <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta); add() "  style="margin-top: 6px; border-radius: 1.3rem;" >
+      <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta) "  style="margin-top: 6px; border-radius: 1.3rem;" >
         Adicionar ao carrinho
       </button>
     </div>
