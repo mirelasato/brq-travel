@@ -17,11 +17,11 @@
     <div >
       <div id="collapseBasic" [collapse]="isCollapsed">
         <ul class="section-style-align-center">
-          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:3" let i="index">
+          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosHosp"></app-card-travel>
           </li>
           <div *ngIf="seeMore">
-            <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:3:100" let i="index">
+            <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:4:100" let i="index">
               <app-card-travel [destino]="destinosHosp"></app-card-travel>
             </li>
           </div>
@@ -39,11 +39,11 @@
       </div>
       <div id="collapseBasic" [collapse]="!isCollapsed">
         <ul class="section-style-align-center">
-          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:3" let i="index">
+          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosBV"></app-card-travel>
           </li>
           <div *ngIf="seeMore">
-            <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:3:100" let i="index">
+            <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:4:100" let i="index">
               <app-card-travel [destino]="destinosBV"></app-card-travel>
             </li>
           </div>
