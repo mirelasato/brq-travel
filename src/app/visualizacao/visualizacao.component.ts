@@ -9,12 +9,31 @@ import { Detalhes } from '../shared/models/detalhes';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { observable } from 'rxjs';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
   styleUrls: ['./visualizacao.component.css'],
-  providers: [VisualizacaoService, ShoppingCartService]
+  providers: [VisualizacaoService, ShoppingCartService],
+  animations: [
+    trigger('buttonTextStateTrigger', [
+      state('shown', style({
+        opacity: 1
+      })),
+      state('transitioning', style({
+        opacity: 0.3
+      })),
+      transition('shown => transitioning', animate('600ms ease-out')),
+      transition('transitioning => shown', animate('600ms ease-in'))
+    ])
+  ]
 })
 
 export class VisualizacaoComponent implements OnInit {
@@ -25,6 +44,9 @@ export class VisualizacaoComponent implements OnInit {
   value: string;
   productAddedToCart: any;
   isloading = true;
+  buttonTextState = 'shown';
+  buttonText = 'Adicionar ao Carrinho';
+  transitionButtonText = 'Adicionar ao Carrinho';
 
   constructor(
     private shoppingCartService: ShoppingCartService,
@@ -51,6 +73,10 @@ export class VisualizacaoComponent implements OnInit {
         this.router.navigate(['error:id']);
       });
   }
+  buttonTextTransitioned( ) {
+    this.buttonText = this.transitionButtonText;
+    this.buttonTextState = this.buttonTextState = 'shown';
+  }
 
   onSelect(data: TabDirective): void {
     this.value = data.heading;
@@ -59,14 +85,24 @@ export class VisualizacaoComponent implements OnInit {
   add() {
     // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
     this.oferta.vagas -= 1;
-    alert(' Item adicionado com sucesso ao carrinho ');
   }
 
   // Função que adiciona produto ao carrinho
   addProductToCart(product: Product) {
     this.shoppingCartService.addProductToCart(product);
-  }
+    this.buttonTextState = 'transitioning';
+    this.transitionButtonText = 'Carregando';
 
+    setTimeout(() => {
+      this.buttonTextState = 'transitioning';
+      this.transitionButtonText = 'Adicionando ao Carrinho';
+    }, 1800);
+
+    setTimeout(() => {
+      this.buttonTextState = 'transitioning';
+      this.transitionButtonText = 'Adicionado com Sucesso';
+    }, 3600);
+  }
   scrollTop() {
     setTimeout(() => {
     window.scrollTo(0, 0);
