@@ -1,10 +1,4 @@
-<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-
-<div *ngIf="!isloading">
+<!-- <div *ngIf="!isloading"> -->
   <section class="container">
     <div class="jumbotron col-sm-12">
       <h1 class="display-5">Pacotes de viagens</h1>
@@ -23,11 +17,11 @@
     <div >
       <div id="collapseBasic" [collapse]="isCollapsed">
         <ul class="section-style-align-center">
-          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:3" let i="index">
+          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosHosp"></app-card-travel>
           </li>
           <div *ngIf="seeMore">
-            <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:3:100" let i="index">
+            <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:4:100" let i="index">
               <app-card-travel [destino]="destinosHosp"></app-card-travel>
             </li>
           </div>
@@ -45,11 +39,11 @@
       </div>
       <div id="collapseBasic" [collapse]="!isCollapsed">
         <ul class="section-style-align-center">
-          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:3" let i="index">
+          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosBV"></app-card-travel>
           </li>
           <div *ngIf="seeMore">
-            <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:3:100" let i="index">
+            <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:4:100" let i="index">
               <app-card-travel [destino]="destinosBV"></app-card-travel>
             </li>
           </div>
@@ -67,4 +61,11 @@
       </div>
     </div>
   </section>
+<!-- </div> -->
+
+<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+  <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
+    <app-loader-air-plane></app-loader-air-plane>
+    <span class="sr-only">Loading...</span>
+  <!-- </div> -->
 </div>
