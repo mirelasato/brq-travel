@@ -52,19 +52,22 @@ li {
 }
 
 .btn-style-margin-hospedagem {
-    margin: 10px 23px 0 23px;
-    padding: 8px 74px 8px 74px;
+    /* margin: 10px 23px 0 23px;
+    padding: 8px 74px 8px 74px; */
     border-radius: 1.3rem;
     border-color: #0069d9;
     color: #0069d9;
+    margin: 0 5px 5px 0;
+    width: 290px;
 }
 
 .btn-style-margin-batevolta {
-    margin: 10px 23px 0 23px;
-    padding: 8px 87px 8px 87px;
+    /* margin: 10px 23px 0 23px;
+    padding: 8px 87px 8px 87px; */
     border-radius: 1.3rem;
     border-color: #0069d9;
     color: #0069d9;
+    width: 290px;
 }
 
 /* .btn-style-exibir-mais {
