@@ -14,4 +14,8 @@ a:hover {
 .mat-form-field{
     width:100% !important;
 }
+
+.style-bold {
+    font-weight: bold;
+}
     
