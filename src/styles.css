@@ -7,26 +7,27 @@
 
 /* Style para cabeçalhos de nível 1 */
 h1 {
-    font-family: "Roboto";
-    font-weight: 700;
-    font-style: normal; 
     color: #333333;
+    font-family: "Roboto";
+    font-size: 34px;
+    font-style: normal; 
+    font-weight: 700;
 }
 
 /* Style para cabeçalhos de nível 2 */
 h2 {
-    font-family: "Roboto";
-    font-weight: 700;
-    font-style: normal;
     color: #333333;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 700;
 }
 
 /* Style para cabeçalhos de nível 3 */
 h3 {
-    font-family: "Roboto";
-    font-weight: 400;
-    font-style: normal;
     color: #333333;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
 }
 
 /* Style para cabeçalhos de nível 4 */
