@@ -73,3 +73,10 @@ app-home{
    height: 100%; 
 
 }
+
+/* CSS da Moldura dos Forms */
+.border-style-card {
+    border: 1px solid #000;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
