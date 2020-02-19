@@ -1,5 +1,5 @@
 form {
-    padding-top: 20px;
+    padding: 20px 0 20px 0;
     font-family: 'Roboto';
 }
 
@@ -13,5 +13,9 @@ a:hover {
 
 .mat-form-field{
     width:100% !important;
+}
+
+.style-bold {
+    font-weight: bold;
 }
     
