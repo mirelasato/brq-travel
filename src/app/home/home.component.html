@@ -1,6 +1,6 @@
 <carousel class="size-carousel .col-lg-12">
   <slide class="slide" *ngFor="let carrossel of feriadoImg">
-    <img [src]="carrossel.imagens[0].url" alt="first slide">
+    <img [src]="carrossel.imagens[0].url" class="img-fluid" alt="first slide">
       <div class="carousel-caption d-none d-md-block">
       </div>
   </slide>
@@ -14,7 +14,7 @@
     <div class="secao">
       <h2 class="text-center">Aproveite as ofertas que separamos para você</h2>
     </div>
-    <section class="teste">
+    <section class="alingn-cards-home">
       <app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos">
       </app-card-travel> <!-- herda a class card -->
     </section>

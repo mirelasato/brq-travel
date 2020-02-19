@@ -1,7 +1,7 @@
-<div class="container col-lg-5 col-md-8 col-sm-12">
+<div class="container col-lg-5 col-md-8 col-sm-12 border-style-card">
   
   <form [formGroup]="FormRegister">
-      <h2>Novo na BRQ Travel?</h2>
+      <h1>Novo na BRQ Travel?</h1>
       <h5>Cadastre-se!</h5>
       <br><div id="mensagemView">
         <p class="{{authService.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!authService.status.valid" >{{authService.MsgError}}</p>
@@ -88,8 +88,8 @@
         </div>-->
       </div>
       <div class="row text-center">
-          <div class="form-group col-sm-12">
-            <button type="submit" class="btn btn-primary" (click)="NewRegister()">Enviar dados</button>
+          <div class="form-group col-sm-12 text-right">
+            <button type="submit" class="btn btn-primary size-btn-primary" (click)="NewRegister()">Enviar dados</button>
             <p>Já é membro? <a href="/entrar">Entre!</a></p>
           </div>
       </div>

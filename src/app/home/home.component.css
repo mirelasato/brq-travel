@@ -1,9 +1,11 @@
+.text-center {
+    padding-top: 20px;
+}
 img {
     height: 360px;
     width: 100%;
 }
-
-.teste {
+.alingn-cards-home {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

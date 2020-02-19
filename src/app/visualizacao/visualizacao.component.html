@@ -26,7 +26,11 @@
     
     <div class="col text-center">
       <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta) "  style="margin-top: 6px; border-radius: 1.3rem;" >
-        Adicionar ao carrinho
+      <div class="sbmt-btn-txt"
+        [@buttonTextStateTrigger]="buttonTextState"
+        (@buttonTextStateTrigger.done)="buttonTextTransitioned($event)">
+      {{ buttonText }}
+      </div>
       </button>
     </div>
     <div class="col text-center" >
@@ -44,7 +48,7 @@
     <p>Embarque: {{ oferta.embarque }}</p>
     </tab>
     <tab class=" tabbagulho" heading="Roteiro da Viagem" (selectTab)="onSelect($event)">
-      <p> Aqui será colocado o Roteiro da viagem  </p>
+      <p> Aqui será colocado o Roteiro da viagem </p>
     </tab>
      </tabset> 
       </div>

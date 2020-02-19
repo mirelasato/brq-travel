@@ -17,4 +17,8 @@ a:hover {
 .mat-form-field{
     width:100% !important;
 }
+
+.size-btn-primary {
+    width: 142px;
+}
     

@@ -1,20 +1,16 @@
 <!-- <div *ngIf="!isloading"> -->
-  <section class="container">
-    <div class="jumbotron col-sm-12">
-      <h1 class="display-5">Pacotes de viagens</h1>
-      <div id="button" class="container  btn-group-toggle btn-style-group-travel">
+  <section class="container col-lg-12 col-md-12 col-sm-12">
+      <div id="button" class="btn-group-toggle btn-style-group-travel">
+        <h1>Pacotes de viagens</h1>
         <label class="btn btn-style-margin-hospedagem btn-lg btn-primary btn-style-travel active">
-          <input type="radio" (click)="typeTravelHospedagem()"> pacotes com hospedagem
+          <input type="radio" (click)="typeTravelHospedagem()"> Pacotes com hospedagem
         </label>
         <label class="btn btn-style-margin-batevolta btn-lg btn-primary btn-style-travel">
-          <input type="radio" (click)="typeTravelBateVolta()"> pacotes com bate volta
+          <input type="radio" (click)="typeTravelBateVolta()"> Pacotes com bate volta
         </label>
       </div>
-    </div>
-  </section>
-
-  <section class="container">
-    <div >
+    
+    <div>
       <div id="collapseBasic" [collapse]="isCollapsed">
         <ul class="section-style-align-center">
           <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:4" let i="index">
@@ -28,11 +24,9 @@
         </ul>
         <div *ngIf="viewBtnHosp">
           <div *ngIf="hideBtn">
-            <!-- <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais"
-              (click)="seeMoreHospedagem()">exibir mais {{ destinoQtHospedagem }} destino(s)</button> -->
             <div class="a-style-align-center">
               <a class="a-style-font"
-              (click)="seeMoreHospedagem()">exibir mais <strong>{{ destinoQtHospedagem }}</strong> destino(s)</a> 
+              (click)="seeMoreHospedagem()"><i class="material-icons md-48">control_point</i></a>
             </div>
           </div>
         </div>
@@ -50,8 +44,6 @@
         </ul>
         <div *ngIf="viewBtnBV">
           <div *ngIf="hideBtn">
-            <!-- <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais"
-              (click)="seeMoreBateVolta()">exibir mais {{ destinoQtBateVolta }} destino(s)</button> -->
               <div class="a-style-align-center">
                 <a class="a-style-font"
                 (click)="seeMoreBateVolta()">exibir mais <strong>{{ destinoQtBateVolta }}</strong> destino(s)</a> 
@@ -60,12 +52,12 @@
         </div>
       </div>
     </div>
-  </section>
 <!-- </div> -->
 
-<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
-    <app-loader-air-plane></app-loader-air-plane>
-    <span class="sr-only">Loading...</span>
-  <!-- </div> -->
-</div>
+    <div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+      <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
+        <app-loader-air-plane></app-loader-air-plane>
+        <span class="sr-only">Loading...</span>
+      <!-- </div> -->
+    </div>
+</section>
