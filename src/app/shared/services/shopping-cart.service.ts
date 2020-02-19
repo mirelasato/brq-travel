@@ -28,19 +28,19 @@ export class ShoppingCartService {
   public pacotes: Detalhes[];
   id: any;
 
-  constructor() {
-    this.product = this.product = [
-      { id: 'oferta1', name: 'Arraial do Cabo', price: 500, image: "assets/travel-packages/arraial-do-cabo/image1.jpg" },
-      { id: 'oferta2', name: 'Campos do Jordão', price: 160, image: "assets/travel-packages/campos-do-jordao/image1.jpg" },
-      { id: 'oferta3', name: 'Foz do Iguaçu', price: 690, image: "assets/travel-packages/foz/image1.jpg" },
-      { id: 'oferta4', name: 'São Roque', price: 200, image: "assets/travel-packages/sao-roque/image1.jpg" },
-      { id: 'oferta5', name: 'Capitólio', price: 200, image: "assets/travel-packages/capitolio/image1.jpg" },
-      { id: 'oferta6', name: 'Ilhabela', price: 120, image: "assets/travel-packages/ilhabela/image1.jpg" },
-      { id: 'oferta7', name: 'Monte Verde', price: 120, image: "assets/travel-packages/monte-verde/image1.jpg" },
-      { id: 'oferta8', name: 'TESTE 8', price: 120, image: "assets/travel-packages/monte-verde/image3.jpg" },
-      { id: 'oferta9', name: 'TESTE 9', price: 200, image: "assets/travel-packages/monte-verde/image3.jpg" },
+  constructor( ) {
+    // this.product =  this.product = [
+    //   { id: 'oferta1', name: 'Arraial do Cabo',  price: 500,  image: "assets/travel-packages/arraial-do-cabo/image1.jpg" },
+    //   { id: 'oferta2', name: 'Campos do Jordão', price: 160,  image: "assets/travel-packages/campos-do-jordao/image1.jpg" },
+    //   { id: 'oferta3', name: 'Foz do Iguaçu',    price: 690,  image: "assets/travel-packages/foz/image1.jpg" },
+    //   { id: 'oferta4', name: 'São Roque',        price: 200,  image: "assets/travel-packages/sao-roque/image1.jpg" },
+    //   { id: 'oferta5', name: 'Capitólio',        price: 200,  image: "assets/travel-packages/capitolio/image1.jpg" },
+    //   { id: 'oferta6', name: 'Ilhabela',         price: 120,  image: "assets/travel-packages/ilhabela/image1.jpg" },
+    //   { id: 'oferta7', name: 'Monte Verde',      price: 120,  image: "assets/travel-packages/monte-verde/image1.jpg" },
+    //   { id: 'oferta8', name: 'TESTE 8',          price: 120,  image: "assets/travel-packages/monte-verde/image3.jpg" },
+    //   { id: 'oferta9', name: 'TESTE 9',          price: 200,  image: "assets/travel-packages/monte-verde/image3.jpg" },
 
-    ];
+    // ];
   }
 
   getTotal$() {

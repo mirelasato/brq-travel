@@ -186,10 +186,7 @@ export class ShoppingCartComponent implements OnInit {
     this.isEmpty = true;
   }
 
-  // valueTotal() :number{
-  //   return this.shoppingCartService.getTotal$();
-  // }
-
+ 
   totalIns(): number {
     return this.shoppingCartService.totalIns();
   }
@@ -198,7 +195,13 @@ export class ShoppingCartComponent implements OnInit {
     return this.shoppingCartService.installment();
   }
 
+  incrementar() {
+    this.defaultQuantity++;
+  }
 
+  decrementar() {
+    this.defaultQuantity--;
+  }
 
 
   /*for (let i in newArray) {
@@ -210,14 +213,6 @@ export class ShoppingCartComponent implements OnInit {
 
 
 
-  // calculateAllTotal(allItemns: Detalhes[])
-  // {
-  //   let total = 0;
-  //   for (let i in allItemns) {
-  //     total = total + (allItemns[i].quantity * allItemns[i].valor);
-  //   }
-  //   this.allTotal = total;
-  // }
 
 
 
