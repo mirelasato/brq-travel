@@ -38,27 +38,27 @@
               <!-- <span class="text-muted">x</span> -->
             </strong></h6>
             </div>
-            <div class="col-4 col-sm 4  col-md-4">
+            <!-- <div class="col-4 col-sm 4  col-md-4">
               <div class="quantity">
                 <input type="button" value="+" class="plus">
                 <input type="number" step="1" max="99" min="1" value="{{oferta.quantity}}" title="Qty" class="qty" size="4">
                 <input type="button" value="-" class="minus">
                 </div>
               </div>
-            
+             -->
           
          
             <!-- <h6><strong> <span>  {{ oferta.valor | currency: 'BRL': true }}</span> -->
             <!-- <span class="text-muted">x</span></strong></h6> -->
           </div>
           <section>
-            <div *ngFor="let oferta of produtos">
+            <div >
               <button type="button" class="btn btn-primary" (click)="decrementar()"
-                [disabled]="defaultQuantity == 1 ? true : false">-</button>
-              <input [value]="defaultQuantity" class="input" readonly>
+                [disabled]="oferta.quantity == 1 ? true : false">-</button>
+              <input [value]="oferta.quantity" class="input" readonly>
               <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
 
-              <p> {{ oferta.valor * defaultQuantity }}</p>
+              <p> {{ oferta.product.valor * oferta.quantity }}</p>
             </div>
           </section>
 
@@ -72,7 +72,6 @@
         </div>
       </div>
 
-          </div>
 
     
       <div class="card-footer">
@@ -89,5 +88,4 @@
           </div>
       </div>
 
-    </div>
   </div>
