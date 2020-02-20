@@ -46,7 +46,7 @@ export class ShoppingCartComponent implements OnInit {
     public authService: AuthService,
     private activatedRoute: ActivatedRoute,
 
-  ) {
+  ){
     this.total$ = shoppingCartService.total;
   }
 
@@ -57,20 +57,24 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
 
 
-    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    const newArray = JSON.parse(this.productAddedToCart);
+    // this.productAddedToCart = this.shoppingCartService.getProductFromCart();
+    // const newArray = JSON.parse(this.productAddedToCart);
 
-    this.produtos = newArray;
+    // this.produtos = newArray;
 
-    for (let i in newArray) {
-      this.totalItens = newArray.length;
-    }
+    // for (let i in newArray) {
+    //   this.totalItens = newArray.length;
+    // }
 
-    this.shoppingCartService.removeItem();
-    this.shoppingCartService.addProductToCart(this.product);
-    //  this.calculateAllTotal(this.productAddedToCart);
+    // // this.shoppingCartService.removeItem(); ?????????????
+    // // this.shoppingCartService.addProductToCart(this.product);
+    // //  this.calculateAllTotal(this.productAddedToCart);
+    // this.startCart();
+    this.produtos = JSON.parse(localStorage.getItem('cart'));
+  }
 
     //função que encontra o item pelo Id e salva em localStorage
+  startCart() {
     this.activatedRoute.params.subscribe(params => {
       const id = params.id;
       if (id) {
@@ -142,25 +146,18 @@ export class ShoppingCartComponent implements OnInit {
 
   //função para excluir item do carrinho de compras
   remove(id: string): void {
-    let c = this.shoppingCartService
+    // let c = this.shoppingCartService
     swal.fire({
-      title: 'Confirmação',
-      text: "Você tem certeza que deseja remover este item do carrinho?",
-
+      title: 'Confirma a exclusão?',
       showCancelButton: true,
-      confirmButtonColor: '#449d44',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim'
-    }).then(function () {
-      NProgress.start()
-      swal.fire(
-        'Excluído!',
-        'Item excluído do carrinho.',
-        'success'
-      )
-      NProgress.done()
-      return c.removeItem()
-
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Foi sem querer'
+    }).then(result => {
+      if(result.value){
+        swal.fire('Excluído com sucesso', 'O registro já era', 'success')
+        // return c.removeItem()
+      }
+      
     })
     const cart: any[] = [];
     JSON.parse(localStorage.getItem('cart'));
@@ -174,10 +171,12 @@ export class ShoppingCartComponent implements OnInit {
       }
     }
     localStorage.setItem('cart', JSON.stringify(cart));
-    this.loadCart();
+    // this.loadCart();
     console.log('item excluído com sucesso');
     this.isEmpty = true;
   }
+  
+
 
  
   
@@ -204,11 +203,6 @@ export class ShoppingCartComponent implements OnInit {
     return (name.email);
 
   }
-
-
-
-
-
 
 }
 
