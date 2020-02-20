@@ -23,7 +23,6 @@
     <div class="col text-center">
       <h3>{{ oferta.valor | currency:'BRL' }}</h3>
     </div>
-    
     <div class="col text-center">
       <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta) "  style="margin-top: 6px; border-radius: 1.3rem;" >
       <div class="sbmt-btn-txt"
@@ -53,10 +52,7 @@
      </tabset> 
       </div>
 </div>
-
 <div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
     <app-loader-air-plane></app-loader-air-plane>
     <span class="sr-only">Loading...</span>
-  <!-- </div> -->
 </div>

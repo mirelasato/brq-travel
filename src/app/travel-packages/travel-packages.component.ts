@@ -47,7 +47,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
       },
       // seta a rota de erro
       error => {
-        this.router.navigate(['error:id']);
+        this.router.navigate(['/pacotes', { queryParams:{page: 1}}]);
       });
 
   }
