@@ -87,11 +87,9 @@ export class ShoppingCartService {
 
   addProductToCart(product: Product) {
     const cart = JSON.parse(localStorage.getItem('cart'));
-    cart.forEach(element => {
-      this.itemsCart.push(element);
-    });
+    
     this.itemsCart.push(product);
-    console.log(this.itemsCart);
+    console.log('service', this.itemsCart);
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
