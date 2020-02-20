@@ -82,3 +82,8 @@
     float: right;
 }
 
+.btn btn-primary {
+    width: 5px;
+    height: 10px;
+}
+

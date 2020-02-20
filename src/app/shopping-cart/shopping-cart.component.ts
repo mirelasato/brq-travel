@@ -33,7 +33,9 @@ export class ShoppingCartComponent implements OnInit {
   public items: Item[] = [];
   public total: number;
   public product: Product;
-  total$: Observable<number>
+  total$: Observable<number>;
+  count: number = 0;
+  isDisabled = true;
 
   // public pacotes: Destino;
 
@@ -48,12 +50,12 @@ export class ShoppingCartComponent implements OnInit {
     this.total$ = shoppingCartService.total;
   }
 
+  flip() {
+    this.isDisabled = !this.isDisabled;
+  }
+
   ngOnInit() {
 
-    // const cartSession = sessionStorage.getItem('cart');
-    // carrinho não está vazio
-    // if (cartSession != null) {
-    //   this.shoppingCartService.product = JSON.parse(cartSession);
 
     this.productAddedToCart = this.shoppingCartService.getProductFromCart();
     const newArray = JSON.parse(this.productAddedToCart);
@@ -68,6 +70,7 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.addProductToCart(this.product);
     //  this.calculateAllTotal(this.productAddedToCart);
 
+    //função que encontra o item pelo Id e salva em localStorage
     this.activatedRoute.params.subscribe(params => {
       const id = params.id;
       if (id) {
@@ -111,40 +114,33 @@ export class ShoppingCartComponent implements OnInit {
     });
   }
 
-  addItem() {
-    this.shoppingCartService.addItem({ quantity: 1 });
-  }
+  
 
   // tslint:disable-next-line:no-unused-expression
   //   product():  Product[] {
   //   return this.shoppingCartService.product;
   // }
 
+  //método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
     this.total = 0;
     this.items = [];
     const cart: any[] = [];
     JSON.parse(localStorage.getItem('cart'));
 
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < cart.length; i++) {
       const item: Item = JSON.parse('cart');
       this.items.push({
         product: item.product,
         quantity: item.quantity
-        
+
       });
-      console.log('quantity')
       this.totalItens = item.product.price * item.quantity;
-      console.log('total é');
-      debugger;
+      
     }
   }
 
-  // item(): Product[] {
-  //   return this.shoppingCartService.product;
-  // }
-
+  //função para excluir item do carrinho de compras
   remove(id: string): void {
     let c = this.shoppingCartService
     swal.fire({
@@ -184,41 +180,30 @@ export class ShoppingCartComponent implements OnInit {
   }
 
  
-  totalIns(): number {
-    return this.shoppingCartService.totalIns();
-  }
-
-  installments() {
-    return this.shoppingCartService.installment();
-  }
-
+  
+  //método para incrementar valores e quantidade dos produtos no carrinho
   incrementar() {
     this.defaultQuantity++;
   }
 
+  //método para decrementar valores e quantidade dos produtos no carrinho
   decrementar() {
     this.defaultQuantity--;
   }
 
 
-  /*for (let i in newArray) {
-    this.totalItens = newArray.length;
-  }*/
-  // // this.shoppingCartService.removeAllProductFromCart();
-  // // this.shoppingCartService.addProductToCart(this.oferta);
-  // // this.calculateAllTotal(this.productAddedToCart);
 
 
 
 
 
 
-  //     get GetUser(): string {
-  //   const name = JSON.parse(localStorage.getItem('user'));
-  //   name.email = name.email.substring(0, ((name.email).indexOf('@')));
-  //   return (name.email);
+      get GetUser(): string {
+    const name = JSON.parse(localStorage.getItem('user'));
+    name.email = name.email.substring(0, ((name.email).indexOf('@')));
+    return (name.email);
 
-  // }
+  }
 
 
 

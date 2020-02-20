@@ -38,23 +38,6 @@ export class ShoppingCartService {
     // ];
   }
 
-  getTotal$(){
-    return this.total.asObservable();
-  }
-
-  calcTotal(){
-    let sum = 0;
-    this.items.forEach(item => {
-      sum += item.quantity;
-    });
-    return sum;
-  }
-
-  addItem(item: any){
-    this.items.push(item);
-    this.total.next(this.calcTotal());
-    //save to localStore
-  }
   
   findAll(): Product[] {
     return this.product;
@@ -80,10 +63,7 @@ export class ShoppingCartService {
   public pacotes: Detalhes[];
   id: any;
 
-  updateCartCount(count: number) {
-    this.currentCartCount.next(count);
-  }
-
+ 
   addProductToCart(product: Product) {
     this.itemsCart.push(product);
     console.log('pacote', this.itemsCart);
@@ -111,33 +91,12 @@ export class ShoppingCartService {
 //     sessionStorage.setItem("cart",JSON.stringify(this.product));
 // }
 
-// recalculateCart() {
- 
-
-//   $ ('.product').each(function () {
-//     this.total + = parseFloat ($ (this).children('.quantity').text());
-//   });
-// }
 
 
 
 
-  totalIns(): number {
-    return this.product
-    .map(item => item.price)
-    .reduce(( prev, value) => prev + value, 0);
-  }
-
-  installment(): number {
-    return Math.max.apply(
-      Math, this.product
-      .map(function(prod){
-        return prod.price;
-      })
-    )
 
   }
 
 
-}
 
