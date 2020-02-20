@@ -64,10 +64,13 @@ export class ShoppingCartComponent implements OnInit {
       this.totalItens = newArray.length;
     }
 
-    this.shoppingCartService.removeItem();
-    this.shoppingCartService.addProductToCart(this.product);
+    // this.shoppingCartService.removeItem(); ?????????????
+    // this.shoppingCartService.addProductToCart(this.product);
     //  this.calculateAllTotal(this.productAddedToCart);
+    this.startCart();
+  }
 
+  startCart() {
     this.activatedRoute.params.subscribe(params => {
       const id = params.id;
       if (id) {

@@ -22,8 +22,13 @@ export class ShoppingCartService {
   private items: Item[] = [];
   public total = new BehaviorSubject<number>(0);
 
+  private currentCartCount = new BehaviorSubject(0);
+  currentMessage = this.currentCartCount.asObservable();
+  private itemsCart: Product[] = [];
+  public pacotes: Detalhes[];
+  id: any;
 
-  constructor( ) { 
+  constructor( ) {
     // this.product =  this.product = [
     //   { id: 'oferta1', name: 'Arraial do Cabo',  price: 500,  image: "assets/travel-packages/arraial-do-cabo/image1.jpg" },
     //   { id: 'oferta2', name: 'Campos do Jordão', price: 160,  image: "assets/travel-packages/campos-do-jordao/image1.jpg" },
@@ -38,11 +43,11 @@ export class ShoppingCartService {
     // ];
   }
 
-  getTotal$(){
+  getTotal$() {
     return this.total.asObservable();
   }
 
-  calcTotal(){
+  calcTotal() {
     let sum = 0;
     this.items.forEach(item => {
       sum += item.quantity;
@@ -50,12 +55,12 @@ export class ShoppingCartService {
     return sum;
   }
 
-  addItem(item: any){
+  addItem(item: any) {
     this.items.push(item);
     this.total.next(this.calcTotal());
     //save to localStore
   }
-  
+
   findAll(): Product[] {
     return this.product;
   }
@@ -74,66 +79,67 @@ export class ShoppingCartService {
   }
 
 
-  private currentCartCount = new BehaviorSubject(0);
-  currentMessage = this.currentCartCount.asObservable();
-  public itemsCart: Product[] = [];
-  public pacotes: Detalhes[];
-  id: any;
+
 
   updateCartCount(count: number) {
     this.currentCartCount.next(count);
   }
 
   addProductToCart(product: Product) {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    cart.forEach(element => {
+      this.itemsCart.push(element);
+    });
     this.itemsCart.push(product);
-    console.log('pacote', this.itemsCart);
-    localStorage.setItem('product', JSON.stringify(this.itemsCart));
+    console.log(this.itemsCart);
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
 
 
   getProductFromCart() {
-    if (localStorage.getItem('product') === null ) {
+    if (localStorage.getItem('product') === null) {
       this.product = [];
     } else {
       this.product = JSON.parse(localStorage.getItem('product'));
     }
     return localStorage.getItem('product')
-    
+
   }
 
   removeItem() {
     return localStorage.removeItem('product');
   }
 
-//   removeItem(Product){
-//     this.product.splice(this.product.indexOf(Product), 1)
-//     //salva na sessão
-//     sessionStorage.setItem("cart",JSON.stringify(this.product));
-// }
+  //   removeItem(Product){
+  //     this.product.splice(this.product.indexOf(Product), 1)
+  //     //salva na sessão
+  //     sessionStorage.setItem("cart",JSON.stringify(this.product));
+  // }
 
-// recalculateCart() {
- 
+  // recalculateCart() {
 
-//   $ ('.product').each(function () {
-//     this.total + = parseFloat ($ (this).children('.quantity').text());
-//   });
-// }
+
+  //   $ ('.product').each(function () {
+  //     this.total + = parseFloat ($ (this).children('.quantity').text());
+  //   });
+  // }
 
 
 
 
   totalIns(): number {
     return this.product
-    .map(item => item.price)
-    .reduce(( prev, value) => prev + value, 0);
+      .map(item => item.price)
+      .reduce((prev, value) => prev + value, 0);
   }
 
   installment(): number {
     return Math.max.apply(
       Math, this.product
-      .map(function(prod){
-        return prod.price;
-      })
+        .map(function (prod) {
+          return prod.price;
+        })
     )
 
   }
