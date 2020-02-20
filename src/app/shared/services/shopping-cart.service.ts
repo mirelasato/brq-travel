@@ -38,6 +38,7 @@ export class ShoppingCartService {
     // ];
   }
 
+  
   getTotal$() {
     return this.total.asObservable();
   }
@@ -132,6 +133,10 @@ export class ShoppingCartService {
   // recalculateCart() {
 
 
+
+
+
+
   //   $ ('.product').each(function () {
   //     this.total + = parseFloat ($ (this).children('.quantity').text());
   //   });
@@ -156,6 +161,4 @@ export class ShoppingCartService {
 
   }
 
-
 }
-

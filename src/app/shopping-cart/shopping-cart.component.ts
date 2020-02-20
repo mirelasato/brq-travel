@@ -34,6 +34,8 @@ export class ShoppingCartComponent implements OnInit {
   public total: number;
   public product: Product;
   total$: Observable<number>;
+  count: number = 0;
+  isDisabled = true;
 
   // public pacotes: Destino;
 
@@ -44,16 +46,16 @@ export class ShoppingCartComponent implements OnInit {
     public authService: AuthService,
     private activatedRoute: ActivatedRoute,
 
-  ) {
+  ){
     this.total$ = shoppingCartService.total;
+  }
+
+  flip() {
+    this.isDisabled = !this.isDisabled;
   }
 
   ngOnInit() {
 
-    // const cartSession = sessionStorage.getItem('cart');
-    // carrinho não está vazio
-    // if (cartSession != null) {
-    //   this.shoppingCartService.product = JSON.parse(cartSession);
 
     // this.productAddedToCart = this.shoppingCartService.getProductFromCart();
     // const newArray = JSON.parse(this.productAddedToCart);
@@ -125,47 +127,38 @@ export class ShoppingCartComponent implements OnInit {
   //   return this.shoppingCartService.product;
   // }
 
+  //método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
     this.total = 0;
     this.items = [];
     const cart: any[] = [];
     JSON.parse(localStorage.getItem('cart'));
 
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < cart.length; i++) {
       const item: Item = JSON.parse('cart');
       this.items.push({
         product: item.product,
         quantity: item.quantity
-        
+
       });
-      console.log('quantity')
       this.totalItens = item.product.price * item.quantity;
-      console.log('total é');
-      debugger;
+      
     }
   }
 
   remove(id: string): void {
-    let c = this.shoppingCartService
+    // let c = this.shoppingCartService
     swal.fire({
-      title: 'Confirmação',
-      text: "Você tem certeza que deseja remover este item do carrinho?",
-
+      title: 'Confirma a exclusão?',
       showCancelButton: true,
-      confirmButtonColor: '#449d44',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sim'
-    }).then(function () {
-      NProgress.start()
-      swal.fire(
-        'Excluído!',
-        'Item excluído do carrinho.',
-        'success'
-      )
-      NProgress.done()
-      return c.removeItem()
-
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Foi sem querer'
+    }).then(result => {
+      if(result.value){
+        swal.fire('Excluído com sucesso', 'O registro já era', 'success')
+        // return c.removeItem()
+      }
+      
     })
     const cart: any[] = [];
     JSON.parse(localStorage.getItem('cart'));
@@ -179,47 +172,38 @@ export class ShoppingCartComponent implements OnInit {
       }
     }
     localStorage.setItem('cart', JSON.stringify(cart));
-    this.loadCart();
+    // this.loadCart();
     console.log('item excluído com sucesso');
     this.isEmpty = true;
   }
+  
+
 
  
-  totalIns(): number {
-    return this.shoppingCartService.totalIns();
-  }
-
-  installments() {
-    return this.shoppingCartService.installment();
-  }
-
+  
+  //método para incrementar valores e quantidade dos produtos no carrinho
   incrementar() {
     this.defaultQuantity++;
   }
 
+  //método para decrementar valores e quantidade dos produtos no carrinho
   decrementar() {
     this.defaultQuantity--;
   }
 
 
-  /*for (let i in newArray) {
-    this.totalItens = newArray.length;
-  }*/
-  // // this.shoppingCartService.removeAllProductFromCart();
-  // // this.shoppingCartService.addProductToCart(this.oferta);
-  // // this.calculateAllTotal(this.productAddedToCart);
 
 
 
 
 
 
-  //     get GetUser(): string {
-  //   const name = JSON.parse(localStorage.getItem('user'));
-  //   name.email = name.email.substring(0, ((name.email).indexOf('@')));
-  //   return (name.email);
+      get GetUser(): string {
+    const name = JSON.parse(localStorage.getItem('user'));
+    name.email = name.email.substring(0, ((name.email).indexOf('@')));
+    return (name.email);
 
-  // }
+  }
 
 }
 

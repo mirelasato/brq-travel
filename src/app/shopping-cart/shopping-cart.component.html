@@ -6,13 +6,22 @@
 <!-- <script src="https://use.fontawesome.com/c560c025cf.js"></script> -->
 <div class="container">
 
-  <div class="card shopping-cart" *ngIf="!isEmpty">
+  <div class="card shopping-cart">
 
-    <div class="card-header bg-dark text-light">
+
+
+    <div class="card-header bg-dark text-light" *ngIf="!isEmpty; else vazio">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       Carrinho de compras
       <!-- <div class="clearfix"></div> -->
     </div>
+    <ng-template #vazio>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <p class="lead">Olá {{ getUser }}. Seu carrinho esta vazio.</p>
+        </div>
+      </div>
+    </ng-template>
     <div *ngFor="let oferta of CartTotal; let q = index" class="card-body">
       <!-- PRODUCT -->
       <div class="row">
@@ -39,12 +48,27 @@
             
           
          
+            <!-- <h6><strong> <span>  {{ oferta.valor | currency: 'BRL': true }}</span> -->
+            <!-- <span class="text-muted">x</span></strong></h6> -->
+          </div>
+          <section>
+            <div *ngFor="let oferta of produtos">
+              <button type="button" class="btn btn-primary" (click)="decrementar()"
+                [disabled]="defaultQuantity == 1 ? true : false">-</button>
+              <input [value]="defaultQuantity" class="input" readonly>
+              <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
+
+              <p> {{ oferta.valor * defaultQuantity }}</p>
+            </div>
+          </section>
+
           <div class="col-2 col-sm-2 col-md-2 text-right">
             <button type="button" (click)="remove(item)" class="btn btn-outline-danger btn-xs">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>
           
+          </div>
         </div>
       </div>
 
@@ -55,23 +79,15 @@
         <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
           <div class="row">
 
+            </div>
           </div>
-        </div>
-        <div class="pull-right" style="margin: 10px">
-          <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
-          <div class="pull-right" style="margin: 5px">
-             <span> Total: {{ oferta.valor  | currency: 'BRL': true}}</span>
+          <div class="pull-right" style="margin: 10px">
+            <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
+            <div class="pull-right" style="margin: 5px">
+              <span> Valor Total: {{ oferta.valor * defaultQuantity  | currency: 'BRL': true}}</span>
+            </div>
           </div>
-        </div>
       </div>
 
+    </div>
   </div>
-  <!-- <section>
-    <div *ngFor="let oferta of CartTotal">
-      <button type="button" class="btn btn-primary" (click)="decrementar()">-</button>
-        <input [value]="defaultQuantity" readonly>
-      <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
-    
-      <p>valor total: {{ oferta.product.valor * defaultQuantity }}</p>
-      </div>
-    </section>   -->
