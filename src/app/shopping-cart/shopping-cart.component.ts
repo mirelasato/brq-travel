@@ -20,20 +20,20 @@ import { Observable } from 'rxjs';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  quantity: number;
+  // quantity: number;
   defaultQuantity = 1;
-  productAddedToCart: any;
+  // productAddedToCart: any;
   totalItens = 0;
-  produtos: string;
-  allTotal: number;
+  CartTotal: Array<Item>;
+  // allTotal: number;
   isEmpty: boolean;
-  public oferta: Detalhes;
+  // public oferta: Detalhes;
   id: string;
-  imagens: any[];
+  // imagens: any[];
   public items: Item[] = [];
   public total: number;
   public product: Product;
-  total$: Observable<number>
+  total$: Observable<number>;
 
   // public pacotes: Destino;
 
@@ -55,68 +55,70 @@ export class ShoppingCartComponent implements OnInit {
     // if (cartSession != null) {
     //   this.shoppingCartService.product = JSON.parse(cartSession);
 
-    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    const newArray = JSON.parse(this.productAddedToCart);
+    // this.productAddedToCart = this.shoppingCartService.getProductFromCart();
+    // const newArray = JSON.parse(this.productAddedToCart);
 
-    this.produtos = newArray;
+    // this.produtos = newArray;
 
-    for (let i in newArray) {
-      this.totalItens = newArray.length;
-    }
+    // for (let i in newArray) {
+    //   this.totalItens = newArray.length;
+    // }
+
+    this.CartTotal = JSON.parse(localStorage.getItem('cart'));
 
     // this.shoppingCartService.removeItem(); ?????????????
     // this.shoppingCartService.addProductToCart(this.product);
     //  this.calculateAllTotal(this.productAddedToCart);
-    this.startCart();
+    // this.startCart();
   }
 
-  startCart() {
-    this.activatedRoute.params.subscribe(params => {
-      const id = params.id;
-      if (id) {
-        const item: Item = {
-          product: this.shoppingCartService.find(id),
-          quantity: 1,
-        };
-        if (localStorage.getItem('cart') == null) {
-          const cart: any[] = [];
-          cart.push(JSON.stringify(cart));
-          debugger;
-        } else {
-          const cart: any[] = [];
-          if (localStorage.getItem('cart')) {
-            const cart: any[] = JSON.parse(localStorage.getItem('cart'));
-          }
-          let index = -1;
-          // tslint:disable-next-line: prefer-for-of
-          for (let i = 0; i < cart.length; i++) {
-            const item: Item = JSON.parse(cart[i]);
-            if (item.product.id === id) {
-              index = i;
-              break;
-            }
-          }
-          if (index === -1) {
-            cart.push(JSON.stringify(item));
-            localStorage.setItem('cart', JSON.stringify('cart'));
+  // startCart() {
+  //   this.activatedRoute.params.subscribe(params => {
+  //     const id = params.id;
+  //     if (id) {
+  //       const item: Item = {
+  //         product: this.shoppingCartService.find(id),
+  //         quantity: 1,
+  //       };
+  //       if (localStorage.getItem('cart') == null) {
+  //         const cart: any[] = [];
+  //         cart.push(JSON.stringify(cart));
+  //         debugger;
+  //       } else {
+  //         const cart: any[] = [];
+  //         if (localStorage.getItem('cart')) {
+  //           const cart: any[] = JSON.parse(localStorage.getItem('cart'));
+  //         }
+  //         let index = -1;
+  //         // tslint:disable-next-line: prefer-for-of
+  //         for (let i = 0; i < cart.length; i++) {
+  //           const item: Item = JSON.parse(cart[i]);
+  //           if (item.product.id === id) {
+  //             index = i;
+  //             break;
+  //           }
+  //         }
+  //         if (index === -1) {
+  //           cart.push(JSON.stringify(item));
+  //           localStorage.setItem('cart', JSON.stringify('cart'));
 
-          } else {
-            const item: Item = JSON.parse(cart[index]);
-            item.quantity += 1;
-            cart[index] = JSON.stringify(item);
-            localStorage.setItem('cart', JSON.stringify(cart));
-          }
-        }
-        this.loadCart();
-      } else {
-        this.loadCart();
-      }
-    });
-  }
+  //         } else {
+  //           const item: Item = JSON.parse(cart[index]);
+  //           item.quantity += 1;
+  //           cart[index] = JSON.stringify(item);
+  //           localStorage.setItem('cart', JSON.stringify(cart));
+  //         }
+  //       }
+  //       this.loadCart();
+  //     } else {
+  //       this.loadCart();
+  //     }
+  //   });
+  // }
 
-  addItem() {
-    this.shoppingCartService.addItem({ quantity: 1 });
-  }
+  // addItem() {
+  //   this.shoppingCartService.addItem({ quantity: 1 });
+  // }
 
   // tslint:disable-next-line:no-unused-expression
   //   product():  Product[] {
@@ -143,10 +145,6 @@ export class ShoppingCartComponent implements OnInit {
       debugger;
     }
   }
-
-  // item(): Product[] {
-  //   return this.shoppingCartService.product;
-  // }
 
   remove(id: string): void {
     let c = this.shoppingCartService
@@ -222,11 +220,6 @@ export class ShoppingCartComponent implements OnInit {
   //   return (name.email);
 
   // }
-
-
-
-
-
 
 }
 
