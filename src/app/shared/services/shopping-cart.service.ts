@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Detalhes } from '../models/detalhes';
-import { URL_API } from './app.api';
 import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Observable';
 import { Item } from '../models/item.model';
 
-
 // import 'rxjs/add/operator/take';
-
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +19,7 @@ export class ShoppingCartService {
 
   private currentCartCount = new BehaviorSubject(0);
   currentMessage = this.currentCartCount.asObservable();
-  private itemsCart: Product[] = [];
+  private itemsCart: Item[] = [];
   public pacotes: Detalhes[];
   id: any;
 
@@ -43,6 +38,7 @@ export class ShoppingCartService {
     // ];
   }
 
+  
   getTotal$() {
     return this.total.asObservable();
   }
@@ -85,13 +81,30 @@ export class ShoppingCartService {
     this.currentCartCount.next(count);
   }
 
-  addProductToCart(product: Product) {
-    const cart = JSON.parse(localStorage.getItem('cart'));
+  addProductToCart(product: Item) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    if (cart !== null) {
+      cart.forEach(element => {
+        this.itemsCart.push(element);
+      });
+    }
+    this.itemsCart.push(product);
+    // console.log('AUMENTOU QUANTIDADE DE ITEM NOVO NO CARRINHO', this.itemsCart);
+
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
+  }
+
+  ChangeQuantity(product: Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    const index = cart.findIndex(prod => prod.product.id === product.id);
+    cart[index].quantity++;
     cart.forEach(element => {
       this.itemsCart.push(element);
     });
-    this.itemsCart.push(product);
-    console.log(this.itemsCart);
+    // console.log('ADICIONOU MAIS UM ITEM NO CARRINHO', this.itemsCart);
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
@@ -120,6 +133,10 @@ export class ShoppingCartService {
   // recalculateCart() {
 
 
+
+
+
+
   //   $ ('.product').each(function () {
   //     this.total + = parseFloat ($ (this).children('.quantity').text());
   //   });
@@ -144,6 +161,4 @@ export class ShoppingCartService {
 
   }
 
-
 }
-
