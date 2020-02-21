@@ -1,9 +1,9 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
 
-<script src="https://use.fontawesome.com/c560c025cf.js"></script>
+<!-- <script src="https://use.fontawesome.com/c560c025cf.js"></script> -->
 <div class="container">
 
   <div class="card shopping-cart">
@@ -12,8 +12,8 @@
 
     <div class="card-header bg-dark text-light" *ngIf="isEmpty; else vazio">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-      Shopping cart
-      <div class="clearfix"></div>
+      Carrinho de compras
+      <!-- <div class="clearfix"></div> -->
     </div>
     <ng-template #vazio>
       <div class="jumbotron jumbotron-fluid">
@@ -22,28 +22,43 @@
         </div>
       </div>
     </ng-template>
-    <div *ngFor="let oferta of produtos; let q = index" class="card-body">
+    <div *ngFor="let oferta of CartTotal; let q = index" class="card-body">
       <!-- PRODUCT -->
       <div class="row">
         <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-          <h4 class="product-name"><strong> {{ oferta.titulo }} </strong></h4>
+          <h4 class="product-name"><strong> {{ oferta.product.titulo }} </strong></h4>
         </div>
         <div class="col-12 col-sm-12 col-md-2 text-center">
-          <img class="card-img-top style-img" [src]="oferta.imagens[0].url" alt="imagem do card">
+          <img class="card-img-top style-img" [src]="oferta.product.imagens[0].url" alt="imagem do card">
         </div>
 
         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
           <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+            <h6><strong> <span>  {{ oferta.product.valor * oferta.quantity | currency: 'BRL': true }}</span>
+              <!-- <span class="text-muted">x</span> -->
+            </strong></h6>
+            </div>
+            <!-- <div class="col-4 col-sm 4  col-md-4">
+              <div class="quantity">
+                <input type="button" value="+" class="plus">
+                <input type="number" step="1" max="99" min="1" value="{{oferta.quantity}}" title="Qty" class="qty" size="4">
+                <input type="button" value="-" class="minus">
+                </div>
+              </div>
+             -->
+          
+         
             <!-- <h6><strong> <span>  {{ oferta.valor | currency: 'BRL': true }}</span> -->
                 <!-- <span class="text-muted">x</span></strong></h6> -->
           </div>
           <section>
-          <div *ngFor="let oferta of produtos">
-            <button type="button" class="btn btn-primary" (click)="decrementar()" [disabled]="defaultQuantity == 1 ? true : false">-</button>
-              <input [value]="defaultQuantity" class="input" readonly>
-            <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
-          
-            <p> {{ oferta.valor * defaultQuantity }}</p>
+            <div >
+              <button type="button" class="btn btn-primary" (click)="decrementar()"
+                [disabled]="oferta.quantity == 1 ? true : false">-</button>
+              <input [value]="oferta.quantity" class="input" readonly>
+              <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
+
+              <p> {{ oferta.product.valor * oferta.quantity }}</p>
             </div>
           </section>
          
@@ -56,7 +71,6 @@
         </div>
       </div>
 
-      
 
     
       <div class="card-footer">
@@ -72,8 +86,5 @@
           </div>
         </div>
       </div>
-    </div>
+
   </div>
-
-
-  
