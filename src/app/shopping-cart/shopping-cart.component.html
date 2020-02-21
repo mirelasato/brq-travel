@@ -10,7 +10,7 @@
 
     
 
-    <div class="card-header bg-dark text-light" *ngIf="isEmpty; else vazio">
+    <div class="card-header bg-dark text-light" *ngIf="!isEmpty; else vazio">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       Carrinho de compras
       <!-- <div class="clearfix"></div> -->
@@ -22,6 +22,15 @@
         </div>
       </div>
     </ng-template>
+    <div *ngIf="!isEmpty">
+      <!-- <ng-template #vazio>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <p class="lead">Olá {{ getUser }}. Seu carrinho esta vazio.</p>
+          </div>
+        </div>
+      </ng-template> -->
+      
     <div *ngFor="let oferta of CartTotal; let q = index" class="card-body">
       <!-- PRODUCT -->
       <div class="row">
@@ -37,6 +46,7 @@
             <h6><strong> <span>  {{ oferta.product.valor * oferta.quantity | currency: 'BRL': true }}</span>
               <!-- <span class="text-muted">x</span> -->
             </strong></h6>
+            </div>
             </div>
             <!-- <div class="col-4 col-sm 4  col-md-4">
               <div class="quantity">
@@ -69,7 +79,7 @@
           </div>
           
         </div>
-      </div>
+      
 
 
     
@@ -86,5 +96,6 @@
           </div>
         </div>
       </div>
+    </div>
 
   </div>

@@ -137,28 +137,12 @@ export class ShoppingCartService {
 
 
 
-  //   $ ('.product').each(function () {
-  //     this.total + = parseFloat ($ (this).children('.quantity').text());
-  //   });
-  // }
 
 
 
 
-  totalIns(): number {
-    return this.product
-      .map(item => item.price)
-      .reduce((prev, value) => prev + value, 0);
+
+ 
   }
 
-  installment(): number {
-    return Math.max.apply(
-      Math, this.product
-        .map(function (prod) {
-          return prod.price;
-        })
-    )
 
-  }
-
-}
