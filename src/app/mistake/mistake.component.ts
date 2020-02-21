@@ -17,7 +17,7 @@ export class MistakeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,) {
   }
 
 
@@ -53,7 +53,6 @@ export class MistakeComponent implements OnInit {
         this.urlBackButton = 'error:id';
         break;
     }
-    return this.getError();
   }
 }
 

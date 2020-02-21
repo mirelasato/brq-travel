@@ -90,6 +90,7 @@ export class VisualizacaoComponent implements OnInit{
     this.shoppingCartService.addProductToCart(product);
     this.buttonTextState = 'transitioning';
     this.transitionButtonText = 'Carregando';
+
     // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
     this.oferta.vagas -= 1;
 
