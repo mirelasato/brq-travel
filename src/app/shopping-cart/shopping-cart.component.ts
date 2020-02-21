@@ -142,7 +142,7 @@ export class ShoppingCartComponent implements OnInit {
 
       });
       this.totalItens = item.product.price * item.quantity;
-      
+
     }
   }
 
@@ -154,33 +154,30 @@ export class ShoppingCartComponent implements OnInit {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Foi sem querer'
     }).then(result => {
-      if(result.value){
+      if (result.value) {
+        const cart: any[] = [];
+        JSON.parse(localStorage.getItem('cart'));
+        const index = 1;
+        for (let i = 0; i < cart.length; i++) {
+          const item = JSON.parse(cart[i]);
+          if (item.product.id === id) {
+            cart.splice(i, 1);
+            break;
+          }
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // this.loadCart();
+        console.log('item excluído com sucesso');
+        this.isEmpty = true;
+
         swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()
       }
-      
+
     })
-    const cart: any[] = [];
-    JSON.parse(localStorage.getItem('cart'));
-    const index = 1;
-    for (let i = 0; i < cart.length; i++) {
-      const item = JSON.parse(cart[i]);
-      if (item.product.id === id) {
-        cart.splice(i, 1);
-        break;
-
-      }
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    // this.loadCart();
-    console.log('item excluído com sucesso');
-    this.isEmpty = true;
+    
   }
-  
 
-
- 
-  
   //método para incrementar valores e quantidade dos produtos no carrinho
   incrementar() {
     this.defaultQuantity++;
@@ -198,7 +195,7 @@ export class ShoppingCartComponent implements OnInit {
 
 
 
-      get GetUser(): string {
+  get GetUser(): string {
     const name = JSON.parse(localStorage.getItem('user'));
     name.email = name.email.substring(0, ((name.email).indexOf('@')));
     return (name.email);
