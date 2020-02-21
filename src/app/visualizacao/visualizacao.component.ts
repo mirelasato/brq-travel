@@ -3,8 +3,12 @@ import { Destino } from './../shared/models/destino';
 import { Product } from './../shared/models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+<<<<<<< HEAD
 
 
+=======
+import { Item } from '../shared/models/item.model';
+>>>>>>> 4a47c0d352a286a0f1eed2c3c133ff43d13b467f
 import { VisualizacaoService } from '../shared/services/visualizacao.service';
 import { TabDirective } from 'ngx-bootstrap';
 import { Detalhes } from '../shared/models/detalhes';
@@ -87,7 +91,20 @@ export class VisualizacaoComponent implements OnInit{
 
   // Função que adiciona produto ao carrinho
   addProductToCart(product: Product) {
-    this.shoppingCartService.addProductToCart(product);
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    console.log(cart);
+    if (cart === null) {
+      const newItem: Item = new Item(product, 1);
+      this.shoppingCartService.addProductToCart(newItem);
+    } else {
+      if (cart.find(item => item.product.id === product.id)) {
+        this.shoppingCartService.ChangeQuantity(product);
+      } else {
+        const newItem: Item = new Item(product, 1);
+        this.shoppingCartService.addProductToCart(newItem);
+      }
+    }
+
     this.buttonTextState = 'transitioning';
     this.transitionButtonText = 'Carregando';
 
