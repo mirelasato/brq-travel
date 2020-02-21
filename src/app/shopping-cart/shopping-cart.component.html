@@ -8,9 +8,9 @@
 
   <div class="card shopping-cart">
 
+    
 
-
-    <div class="card-header bg-dark text-light" *ngIf="!isEmpty; else vazio">
+    <div class="card-header bg-dark text-light" *ngIf="isEmpty; else vazio">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       Shopping cart
       <div class="clearfix"></div>
@@ -35,40 +35,45 @@
         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
           <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
             <!-- <h6><strong> <span>  {{ oferta.valor | currency: 'BRL': true }}</span> -->
-            <!-- <span class="text-muted">x</span></strong></h6> -->
+                <!-- <span class="text-muted">x</span></strong></h6> -->
           </div>
           <section>
-            <div *ngFor="let oferta of produtos">
-              <button type="button" class="btn btn-primary" (click)="decrementar()"
-                [disabled]="defaultQuantity == 1 ? true : false">-</button>
+          <div *ngFor="let oferta of produtos">
+            <button type="button" class="btn btn-primary" (click)="decrementar()" [disabled]="defaultQuantity == 1 ? true : false">-</button>
               <input [value]="defaultQuantity" class="input" readonly>
-              <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
-
-              <p> {{ oferta.valor * defaultQuantity }}</p>
+            <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
+          
+            <p> {{ oferta.valor * defaultQuantity }}</p>
             </div>
           </section>
-
+         
           <div class="col-2 col-sm-2 col-md-2 text-right">
             <button type="button" (click)="remove(item)" class="btn btn-outline-danger btn-xs">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>
           
-          </div>
         </div>
-        <div class="card-footer">
-          <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-            <div class="row">
-
-            </div>
-          </div>
-          <div class="pull-right" style="margin: 10px">
-            <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
-            <div class="pull-right" style="margin: 5px">
-              <span> Valor Total: {{ oferta.valor * defaultQuantity  | currency: 'BRL': true}}</span>
-            </div>
-          </div>
       </div>
 
+      
+
+    
+      <div class="card-footer">
+        <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+          <div class="row">
+
+          </div>
+        </div>
+        <div class="pull-right" style="margin: 10px">
+          <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
+          <div class="pull-right" style="margin: 5px">             
+          <span> Valor Total: {{ oferta.valor * defaultQuantity  | currency: 'BRL': true}}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+
+  
