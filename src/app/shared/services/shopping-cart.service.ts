@@ -23,22 +23,18 @@ export class ShoppingCartService {
   public pacotes: Detalhes[];
   id: any;
 
-  constructor( ) {
-    // this.product =  this.product = [
-    //   { id: 'oferta1', name: 'Arraial do Cabo',  price: 500,  image: "assets/travel-packages/arraial-do-cabo/image1.jpg" },
-    //   { id: 'oferta2', name: 'Campos do Jordão', price: 160,  image: "assets/travel-packages/campos-do-jordao/image1.jpg" },
-    //   { id: 'oferta3', name: 'Foz do Iguaçu',    price: 690,  image: "assets/travel-packages/foz/image1.jpg" },
-    //   { id: 'oferta4', name: 'São Roque',        price: 200,  image: "assets/travel-packages/sao-roque/image1.jpg" },
-    //   { id: 'oferta5', name: 'Capitólio',        price: 200,  image: "assets/travel-packages/capitolio/image1.jpg" },
-    //   { id: 'oferta6', name: 'Ilhabela',         price: 120,  image: "assets/travel-packages/ilhabela/image1.jpg" },
-    //   { id: 'oferta7', name: 'Monte Verde',      price: 120,  image: "assets/travel-packages/monte-verde/image1.jpg" },
-    //   { id: 'oferta8', name: 'TESTE 8',          price: 120,  image: "assets/travel-packages/monte-verde/image3.jpg" },
-    //   { id: 'oferta9', name: 'TESTE 9',          price: 200,  image: "assets/travel-packages/monte-verde/image3.jpg" },
+  constructor() {
+    // let items = this.getProductFromCart();
 
-    // ];
+    // if (items.length === 0) {
+    //   this.id = 0;
+    // } else {
+    //   let maxId = items[items.length -1].quantity;
+    //   this.id = maxId + 1;
+    // }
   }
 
-  
+
   getTotal$() {
     return this.total.asObservable();
   }
@@ -71,7 +67,7 @@ export class ShoppingCartService {
         return i;
       }
     }
-    return -1;
+    return 1;
   }
 
 
@@ -81,7 +77,11 @@ export class ShoppingCartService {
     this.currentCartCount.next(count);
   }
 
-  addProductToCart(product: Item) {
+
+  addProductToCart(product: Item): void {
+
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
+    this.id++;
     this.itemsCart = [];
     const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
     if (cart !== null) {
@@ -110,20 +110,26 @@ export class ShoppingCartService {
   }
 
 
-  getProductFromCart() {
-    if (localStorage.getItem('product') === null) {
-      this.product = [];
-    } else {
-      this.product = JSON.parse(localStorage.getItem('product'));
-    }
-    return localStorage.getItem('product')
+  public getProductFromCart(): Item[] {
+    let localStorageItem = JSON.parse(localStorage.getItem('product'));
+    return localStorageItem == null ? [] : localStorageItem.product;
+    //   if (localStorage.getItem('product') === null) {
+    //     this.product = [];
+    //   } else {
+    //     this.product = JSON.parse(localStorage.getItem('product'));
+    //   }
+    //   return localStorage.getItem('product')
 
+    // }
   }
 
-  removeItem() {
+  public removeItem(itemsCart: Item[]): void {
+    let items = this.getProductFromCart();
+    this.items = this.items.filter((items) => items.product != this.id);
     return localStorage.removeItem('product');
   }
-
+  
+  
   //   removeItem(Product){
   //     this.product.splice(this.product.indexOf(Product), 1)
   //     //salva na sessão
@@ -142,7 +148,7 @@ export class ShoppingCartService {
 
 
 
- 
-  }
+
+}
 
 
