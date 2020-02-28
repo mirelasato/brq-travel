@@ -17,35 +17,25 @@ export class ShoppingCartService {
   private items: Item[] = [];
   public total = new BehaviorSubject<number>(0);
 
-  private currentCartCount = new BehaviorSubject(0);
-  currentMessage = this.currentCartCount.asObservable();
   private itemsCart: Item[] = [];
   public pacotes: Detalhes[];
   id: any;
 
   constructor() {
-    // let items = this.getProductFromCart();
-
-    // if (items.length === 0) {
-    //   this.id = 0;
-    // } else {
-    //   let maxId = items[items.length -1].quantity;
-    //   this.id = maxId + 1;
-    // }
   }
 
 
-  getTotal$() {
-    return this.total.asObservable();
-  }
 
+  // Método para calcular o total dos itens do carrinho
   calcTotal() {
-    let sum = 0;
-    this.items.forEach(item => {
-      sum += item.quantity;
-    });
-    return sum;
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let total = 0;
+    cart.forEach(Item => total += Item.product.valor * Item.quantity);
+
+    return total;
+
   }
+
 
   addItem(item: any) {
     this.items.push(item);
@@ -67,21 +57,13 @@ export class ShoppingCartService {
         return i;
       }
     }
-    return 1;
+    return -1;
   }
 
 
 
-
-  updateCartCount(count: number) {
-    this.currentCartCount.next(count);
-  }
-
-
-  addProductToCart(product: Item): void {
-
-    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
-    this.id++;
+  // Método que adiciona itens no carrinho.
+  addProductToCart(product: Item) {
     this.itemsCart = [];
     const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
     if (cart !== null) {
@@ -109,29 +91,39 @@ export class ShoppingCartService {
     localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
 
-
-  public getProductFromCart(): Item[] {
-    let localStorageItem = JSON.parse(localStorage.getItem('product'));
-    return localStorageItem == null ? [] : localStorageItem.product;
-    //   if (localStorage.getItem('product') === null) {
-    //     this.product = [];
-    //   } else {
-    //     this.product = JSON.parse(localStorage.getItem('product'));
-    //   }
-    //   return localStorage.getItem('product')
-
-    // }
+  Quantity(product: Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    const index = cart.findIndex(prod => prod.product.id === product.id);
+    cart[index].quantity--;
+    cart.forEach(element => {
+      this.itemsCart.push(element);
+    });
+    // console.log('ADICIONOU MAIS UM ITEM NO CARRINHO', this.itemsCart);
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
 
-  public removeItem(itemsCart: Item[]): void {
-    let items = this.getProductFromCart();
-    this.items = this.items.filter((items) => items.product != this.id);
+  // Método para ler produto do carrinho
+  getProductFromCart() {
+    // let localStorageItem = JSON.parse(localStorage.getItem('product'));
+    // return localStorageItem == null ? [] : localStorageItem.product;
+    if (localStorage.getItem('product') === null) {
+      this.product = [];
+    } else {
+      this.product = JSON.parse(localStorage.getItem('product'));
+    }
+    return localStorage.getItem('product');
+
+  }
+
+  // Método que remove item do carrinho
+  removeItem() {
     return localStorage.removeItem('product');
   }
-  
-  
+
   //   removeItem(Product){
-  //     this.product.splice(this.product.indexOf(Product), 1)
+  //     this.product.splice(this.product.indexOf(Product), 1);
   //     //salva na sessão
   //     sessionStorage.setItem("cart",JSON.stringify(this.product));
   // }
@@ -139,16 +131,7 @@ export class ShoppingCartService {
   // recalculateCart() {
 
 
-
-
-
-
-
-
-
-
-
-
 }
+
 
 

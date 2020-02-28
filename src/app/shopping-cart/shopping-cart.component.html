@@ -63,12 +63,13 @@
           </div>
           <section>
             <div >
-              <button type="button" class="btn btn-primary" (click)="decrementar()"
+              <button type="button" class="btn btn-primary" (click)="decrementar(oferta.product)"
                 [disabled]="oferta.quantity == 1 ? true : false">-</button>
               <input [value]="oferta.quantity" class="input" readonly>
-              <button type="button" class="btn btn-primary" (click)="incrementar()">+</button>
+              <button type="button" class="btn btn-primary" (click)="incrementar(oferta.product)">+</button>
 
               <p> {{ oferta.product.valor * oferta.quantity }}</p>
+              
             </div>
           </section>
          
@@ -92,7 +93,7 @@
         <div class="pull-right" style="margin: 10px">
           <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
           <div class="pull-right" style="margin: 5px">             
-          <span> Valor Total: {{ oferta.valor * defaultQuantity  | currency: 'BRL': true}}</span>
+          <span> Valor Total: {{  total | currency: 'BRL': true }}</span>
           </div>
         </div>
       </div>

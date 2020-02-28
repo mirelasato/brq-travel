@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class ShoppingCartComponent implements OnInit {
 
   // quantity: number;
-  defaultQuantity = 1;
+  quantity = 1;
   // productAddedToCart: any;
   totalItens = 0;
   CartTotal: Array<Item>;
@@ -67,6 +67,8 @@ export class ShoppingCartComponent implements OnInit {
     // }
 
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+    
+    this.total = this.shoppingCartService.calcTotal();
 
     // this.shoppingCartService.removeItem();
     // this.shoppingCartService.addProductToCart(this.product);
@@ -127,7 +129,7 @@ export class ShoppingCartComponent implements OnInit {
   //   return this.shoppingCartService.product;
   // }
 
-  //método que carrega as informaões do carrinho em localstorage
+  // método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
     this.total = 0;
     this.items = [];
@@ -174,18 +176,20 @@ export class ShoppingCartComponent implements OnInit {
         // return c.removeItem()
       }
 
-    })
+    });
     
   }
 
-  //método para incrementar valores e quantidade dos produtos no carrinho
-  incrementar() {
-    this.defaultQuantity++;
+  // método para incrementar valores e quantidade dos produtos no carrinho
+  incrementar(product: Product) {
+    this.shoppingCartService.ChangeQuantity(product);
+    this.ngOnInit();
   }
 
-  //método para decrementar valores e quantidade dos produtos no carrinho
-  decrementar() {
-    this.defaultQuantity--;
+  // método para decrementar valores e quantidade dos produtos no carrinho
+  decrementar(product: Product) {
+    this.shoppingCartService.Quantity(product);
+    this.ngOnInit();
   }
 
 
