@@ -11,7 +11,7 @@ import { isValid } from 'cc-validate';
 export class PaymentComponent implements OnInit {
   FormPayment: FormGroup;
   creditcardurl = '';
-  value;
+  value = 0 ;
 
   creditcard = document.getElementById('creditcard');
   constructor(private fb: FormBuilder) { }
@@ -23,7 +23,10 @@ export class PaymentComponent implements OnInit {
   }
 
   getTotal() {
-    this.value = JSON.parse(localStorage.getItem('pacotes'))[0].valor;
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    cart.forEach(element => {
+      this.value = this.value + (element.product.valor * element.quantity);
+    });
   }
 
   NewPayment() {
