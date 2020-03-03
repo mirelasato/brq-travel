@@ -116,16 +116,22 @@ export class ShoppingCartService {
     return localStorage.getItem('product');
 
   }
+  
 
   // Método que remove item do carrinho
-  removeItem() {
-    return localStorage.removeItem('product');
+  removeItem(Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('product'));
+    this.product.splice(this.product.indexOf(Product), 1);
+    localStorage.setItem('product', JSON.stringify(this.product));
   }
 
+  
+  
   //   removeItem(Product){
   //     this.product.splice(this.product.indexOf(Product), 1);
   //     //salva na sessão
-  //     sessionStorage.setItem("cart",JSON.stringify(this.product));
+  //     localStorage.setItem("cart",JSON.stringify(this.product));
   // }
 
   // recalculateCart() {
