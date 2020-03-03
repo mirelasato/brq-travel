@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class ShoppingCartComponent implements OnInit {
 
   // quantity: number;
-  defaultQuantity = 1;
+  quantity = 1;
   // productAddedToCart: any;
   totalItens = 0;
   CartTotal: Array<Item>;
@@ -67,6 +67,8 @@ export class ShoppingCartComponent implements OnInit {
     // }
 
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+    
+    this.total = this.shoppingCartService.calcTotal();
 
     // this.shoppingCartService.removeItem();
     // this.shoppingCartService.addProductToCart(this.product);
@@ -127,7 +129,7 @@ export class ShoppingCartComponent implements OnInit {
   //   return this.shoppingCartService.product;
   // }
 
-  //método que carrega as informaões do carrinho em localstorage
+  // método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
     this.total = 0;
     this.items = [];
@@ -142,7 +144,7 @@ export class ShoppingCartComponent implements OnInit {
 
       });
       this.totalItens = item.product.price * item.quantity;
-      
+
     }
   }
 
@@ -154,41 +156,40 @@ export class ShoppingCartComponent implements OnInit {
       confirmButtonText: 'Sim',
       cancelButtonText: 'Foi sem querer'
     }).then(result => {
-      if(result.value){
+      if (result.value) {
+        const cart: any[] = [];
+        JSON.parse(localStorage.getItem('cart'));
+        const index = 1;
+        for (let i = 0; i < cart.length; i++) {
+          const item = JSON.parse(cart[i]);
+          if (item.product.id === id) {
+            cart.splice(i, 1);
+            break;
+          }
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // this.loadCart();
+        console.log('item excluído com sucesso');
+        this.isEmpty = true;
+
         swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()
       }
-      
-    })
-    const cart: any[] = [];
-    JSON.parse(localStorage.getItem('cart'));
-    const index = 1;
-    for (let i = 0; i < cart.length; i++) {
-      const item = JSON.parse(cart[i]);
-      if (item.product.id === id) {
-        cart.splice(i, 1);
-        break;
 
-      }
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    // this.loadCart();
-    console.log('item excluído com sucesso');
-    this.isEmpty = true;
-  }
-  
-
-
- 
-  
-  //método para incrementar valores e quantidade dos produtos no carrinho
-  incrementar() {
-    this.defaultQuantity++;
+    });
+    
   }
 
-  //método para decrementar valores e quantidade dos produtos no carrinho
-  decrementar() {
-    this.defaultQuantity--;
+  // método para incrementar valores e quantidade dos produtos no carrinho
+  incrementar(product: Product) {
+    this.shoppingCartService.ChangeQuantity(product);
+    this.ngOnInit();
+  }
+
+  // método para decrementar valores e quantidade dos produtos no carrinho
+  decrementar(product: Product) {
+    this.shoppingCartService.Quantity(product);
+    this.ngOnInit();
   }
 
 
@@ -198,7 +199,7 @@ export class ShoppingCartComponent implements OnInit {
 
 
 
-      get GetUser(): string {
+  get GetUser(): string {
     const name = JSON.parse(localStorage.getItem('user'));
     name.email = name.email.substring(0, ((name.email).indexOf('@')));
     return (name.email);
