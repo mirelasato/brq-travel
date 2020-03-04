@@ -125,7 +125,7 @@
         <div class="form-group">
           <mat-form-field > 
             <mat-select placeholder="Parcelas">
-              <mat-option value="0" default>1x de {{this.value}}</mat-option>
+              <mat-option value="0" default>1x de {{ this.value  | currency: 'BRL': true}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
