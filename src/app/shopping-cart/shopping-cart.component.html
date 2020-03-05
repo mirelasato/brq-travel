@@ -38,7 +38,7 @@
           <h4 class="product-name"><strong> {{ oferta.product.titulo }} </strong></h4>
         </div>
         <div class="col-12 col-sm-12 col-md-2 text-center">
-          <img class="card-img-top style-img" [src]="oferta.product.imagens[0].url" alt="imagem do card">
+            <img class="style-img" [src]="oferta.product.imagens[0].url" alt="imagem do card">   
         </div>
 
         <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
@@ -74,7 +74,7 @@
           </section>
          
           <div class="col-2 col-sm-2 col-md-2 text-right">
-            <button type="button" (click)="remove(item)" class="btn btn-outline-danger btn-xs">
+            <button type="button" (click)="remove(oferta.product.id)" class="btn btn-outline-danger btn-xs">
               <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>

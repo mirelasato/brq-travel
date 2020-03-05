@@ -76,8 +76,8 @@
 .style-img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px ;
-    height: 260px;
-    width: auto;
+    height: 145px;
+    width: 189px;
     padding-bottom: 10px;
     float: right;
 }
@@ -85,5 +85,10 @@
 .btn btn-primary {
     width: 5px;
     height: 10px;
+    padding-top: 5px;
+    margin-right: 10px;
 }
 
+.card-body{
+    border-bottom: 1px solid #e6e6e6;
+}

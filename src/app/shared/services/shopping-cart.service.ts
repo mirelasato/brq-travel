@@ -74,7 +74,7 @@ export class ShoppingCartService {
     this.itemsCart.push(product);
     // console.log('AUMENTOU QUANTIDADE DE ITEM NOVO NO CARRINHO', this.itemsCart);
 
-    localStorage.removeItem('cart');
+    
     localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
 
@@ -121,9 +121,9 @@ export class ShoppingCartService {
   // Método que remove item do carrinho
   removeItem(Product) {
     this.itemsCart = [];
-    const cart: Array<Item> = JSON.parse(localStorage.getItem('product'));
+    const cart: Array<Item> = JSON.parse(localStorage.getItem("cart"));
     this.product.splice(this.product.indexOf(Product), 1);
-    localStorage.setItem('product', JSON.stringify(this.product));
+    localStorage.setItem("cart", JSON.stringify(this.product));
   }
 
   
