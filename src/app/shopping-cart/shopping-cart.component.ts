@@ -157,20 +157,29 @@ export class ShoppingCartComponent implements OnInit {
       cancelButtonText: 'Foi sem querer'
     }).then(result => {
       if (result.value) {
-        const cart: any[] = [];
-        JSON.parse(localStorage.getItem('cart'));
-        const index = 1;
+        //const cart: [] = [];
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        //const index = 1;
+        console.log('CARRINHO', cart);
         for (let i = 0; i < cart.length; i++) {
-          const item = JSON.parse(cart[i]);
+          const item = cart[i];
+          console.log('ITEM: ', item.product.id);
+          console.log('ID', id);
           if (item.product.id === id) {
             cart.splice(i, 1);
+            console.log('CARRINHO_FINAL: ', cart);
             break;
           }
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         // this.loadCart();
         console.log('item excluído com sucesso');
-        this.isEmpty = true;
+        if (cart.length === 0) {
+          this.isEmpty = true;
+        } else {
+          this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+          this.total = this.shoppingCartService.calcTotal();
+        }
 
         swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()

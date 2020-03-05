@@ -74,7 +74,7 @@ export class ShoppingCartService {
     this.itemsCart.push(product);
     // console.log('AUMENTOU QUANTIDADE DE ITEM NOVO NO CARRINHO', this.itemsCart);
 
-    localStorage.removeItem('cart');
+    
     localStorage.setItem('cart', JSON.stringify(this.itemsCart));
   }
 
@@ -116,16 +116,22 @@ export class ShoppingCartService {
     return localStorage.getItem('product');
 
   }
+  
 
   // Método que remove item do carrinho
-  removeItem() {
-    return localStorage.removeItem('product');
+  removeItem(Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem("cart"));
+    this.product.splice(this.product.indexOf(Product), 1);
+    localStorage.setItem("cart", JSON.stringify(this.product));
   }
 
+  
+  
   //   removeItem(Product){
   //     this.product.splice(this.product.indexOf(Product), 1);
   //     //salva na sessão
-  //     sessionStorage.setItem("cart",JSON.stringify(this.product));
+  //     localStorage.setItem("cart",JSON.stringify(this.product));
   // }
 
   // recalculateCart() {
