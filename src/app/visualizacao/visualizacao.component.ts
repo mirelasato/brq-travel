@@ -98,13 +98,12 @@ export class VisualizacaoComponent implements OnInit{
         const newItem: Item = new Item(product, 1);
         this.shoppingCartService.addProductToCart(newItem);
       }
+      // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
+      this.oferta.vagas -= 1;
     }
 
     this.buttonTextState = 'transitioning';
     this.transitionButtonText = 'Carregando';
-
-    // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
-    this.oferta.vagas -= 1;
 
     setTimeout(() => {
       this.buttonTextState = 'transitioning';
