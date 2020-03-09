@@ -1,0 +1,58 @@
+<div class="container">
+
+    <div class="card shopping-cart">
+      <div class="card-header bg-dark text-light" *ngIf="!isEmpty; else vazio">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i><h1 class="style-title-cart">Carrinho de compras</h1>
+        <!-- <div class="clearfix"></div> -->
+      </div>
+      <ng-template #vazio>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <p class="lead">Olá {{ getUser }}. Seu carrinho esta vazio.</p>
+          </div>
+        </div>
+      </ng-template>
+      <div *ngIf="!isEmpty">
+        
+          <div *ngFor="let oferta of CartTotal; let q = index" class="card-body">
+            <!-- PRODUCT -->
+            <div class="row">
+              <div class="text-sm-center text-md-left">
+                <h4 class="product-name"><strong>{{ oferta.product.titulo }}</strong></h4>
+              </div>
+              <div class="text-center">
+                  <img class="style-img" [src]="oferta.product.imagens[0].url" alt="imagem do card">   
+              </div>
+  
+              <div class="text-sm-center text-md-right row">
+                  <div class="text-md-right" style="padding-top: 5px">
+                  <h6><strong><span>{{ oferta.product.valor * oferta.quantity | currency: 'BRL': true }}</span></strong></h6>
+                  </div>
+              </div>
+            </div>
+            <section>
+                <button type="button" class="btn btn-primary" (click)="decrementar(oferta.product)" [disabled]="oferta.quantity == 1 ? true : false">-</button>
+                <input [value]="oferta.quantity" class="size-input input" readonly>
+                <button type="button" class="btn btn-primary" (click)="incrementar(oferta.product)">+</button>
+                <button type="button" (click)="remove(oferta.product.id)" class="btn btn-outline-danger btn-xs style-button-trash">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </section>
+          </div>
+  
+        <div class="card-footer">
+          <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+            <div class="row">
+  
+            </div>
+          </div>
+          <div class="pull-right" style="margin: 10px">
+            <a href="" class="btn btn-success pull-right" routerLink='/pagamento'>Checkout</a>
+            <div class="pull-right" style="margin: 5px">
+              <span> Valor Total: {{  total | currency: 'BRL': true }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  

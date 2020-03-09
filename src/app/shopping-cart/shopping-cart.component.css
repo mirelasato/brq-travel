@@ -92,3 +92,19 @@
 .card-body{
     border-bottom: 1px solid #e6e6e6;
 }
+
+.style-title-cart {
+    color: #ffffff;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.size-input {
+    width: 40px;
+}
+
+.style-button-trash {
+    margin: 4px;
+}
