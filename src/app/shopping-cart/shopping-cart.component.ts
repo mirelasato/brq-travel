@@ -56,78 +56,10 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
 
-
-    // this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    // const newArray = JSON.parse(this.productAddedToCart);
-
-    // this.produtos = newArray;
-
-    // for (let i in newArray) {
-    //   this.totalItens = newArray.length;
-    // }
-
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
-    
     this.total = this.shoppingCartService.calcTotal();
 
-    // this.shoppingCartService.removeItem();
-    // this.shoppingCartService.addProductToCart(this.product);
-    //  this.calculateAllTotal(this.productAddedToCart);
-    // this.startCart();
-  }
-
-  // startCart() {
-  //   this.activatedRoute.params.subscribe(params => {
-  //     const id = params.id;
-  //     if (id) {
-  //       const item: Item = {
-  //         product: this.shoppingCartService.find(id),
-  //         quantity: 1,
-  //       };
-  //       if (localStorage.getItem('cart') == null) {
-  //         const cart: any[] = [];
-  //         cart.push(JSON.stringify(cart));
-  //         debugger;
-  //       } else {
-  //         const cart: any[] = [];
-  //         if (localStorage.getItem('cart')) {
-  //           const cart: any[] = JSON.parse(localStorage.getItem('cart'));
-  //         }
-  //         let index = -1;
-  //         // tslint:disable-next-line: prefer-for-of
-  //         for (let i = 0; i < cart.length; i++) {
-  //           const item: Item = JSON.parse(cart[i]);
-  //           if (item.product.id === id) {
-  //             index = i;
-  //             break;
-  //           }
-  //         }
-  //         if (index === -1) {
-  //           cart.push(JSON.stringify(item));
-  //           localStorage.setItem('cart', JSON.stringify('cart'));
-
-  //         } else {
-  //           const item: Item = JSON.parse(cart[index]);
-  //           item.quantity += 1;
-  //           cart[index] = JSON.stringify(item);
-  //           localStorage.setItem('cart', JSON.stringify(cart));
-  //         }
-  //       }
-  //       this.loadCart();
-  //     } else {
-  //       this.loadCart();
-  //     }
-  //   });
-  // }
-
-  // addItem() {
-  //   this.shoppingCartService.addItem({ quantity: 1 });
-  // }
-
-  // tslint:disable-next-line:no-unused-expression
-  //   product():  Product[] {
-  //   return this.shoppingCartService.product;
-  // }
+}
 
   // método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
@@ -157,23 +89,16 @@ export class ShoppingCartComponent implements OnInit {
       cancelButtonText: 'Foi sem querer'
     }).then(result => {
       if (result.value) {
-        //const cart: [] = [];
         let cart = JSON.parse(localStorage.getItem('cart'));
-        //const index = 1;
-        console.log('CARRINHO', cart);
         for (let i = 0; i < cart.length; i++) {
           const item = cart[i];
-          console.log('ITEM: ', item.product.id);
-          console.log('ID', id);
           if (item.product.id === id) {
             cart.splice(i, 1);
-            console.log('CARRINHO_FINAL: ', cart);
             break;
           }
         }
         localStorage.setItem('cart', JSON.stringify(cart));
         // this.loadCart();
-        console.log('item excluído com sucesso');
         if (cart.length === 0) {
           this.isEmpty = true;
         } else {
@@ -181,12 +106,11 @@ export class ShoppingCartComponent implements OnInit {
           this.total = this.shoppingCartService.calcTotal();
         }
 
-        swal.fire('Excluído com sucesso', 'O registro já era', 'success')
+        swal.fire('Excluído com sucesso', 'O registro já era', 'success');
         // return c.removeItem()
       }
 
     });
-    
   }
 
   // método para incrementar valores e quantidade dos produtos no carrinho
