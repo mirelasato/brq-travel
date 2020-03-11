@@ -74,12 +74,9 @@
 }
 
 .style-img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px ;
-    height: 145px;
-    width: 189px;
+    height: 80px;
+    width: 120px;
     padding-bottom: 10px;
-    float: right;
 }
 
 .btn btn-primary {
