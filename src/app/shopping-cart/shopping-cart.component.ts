@@ -2,12 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth-service';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
-import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
-import { Detalhes } from '../shared/models/detalhes';
 import { Item } from '../shared/models/item.model';
 import { Product } from '../shared/models/product.model';
-import { default as NProgress } from 'nprogress';
 import swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 
@@ -55,79 +52,11 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
-    // this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    // const newArray = JSON.parse(this.productAddedToCart);
-
-    // this.produtos = newArray;
-
-    // for (let i in newArray) {
-    //   this.totalItens = newArray.length;
-    // }
-
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
-    
     this.total = this.shoppingCartService.calcTotal();
-
-    // this.shoppingCartService.removeItem();
-    // this.shoppingCartService.addProductToCart(this.product);
-    //  this.calculateAllTotal(this.productAddedToCart);
-    // this.startCart();
+    this.cartEmpty();
   }
 
-  // startCart() {
-  //   this.activatedRoute.params.subscribe(params => {
-  //     const id = params.id;
-  //     if (id) {
-  //       const item: Item = {
-  //         product: this.shoppingCartService.find(id),
-  //         quantity: 1,
-  //       };
-  //       if (localStorage.getItem('cart') == null) {
-  //         const cart: any[] = [];
-  //         cart.push(JSON.stringify(cart));
-  //         debugger;
-  //       } else {
-  //         const cart: any[] = [];
-  //         if (localStorage.getItem('cart')) {
-  //           const cart: any[] = JSON.parse(localStorage.getItem('cart'));
-  //         }
-  //         let index = -1;
-  //         // tslint:disable-next-line: prefer-for-of
-  //         for (let i = 0; i < cart.length; i++) {
-  //           const item: Item = JSON.parse(cart[i]);
-  //           if (item.product.id === id) {
-  //             index = i;
-  //             break;
-  //           }
-  //         }
-  //         if (index === -1) {
-  //           cart.push(JSON.stringify(item));
-  //           localStorage.setItem('cart', JSON.stringify('cart'));
-
-  //         } else {
-  //           const item: Item = JSON.parse(cart[index]);
-  //           item.quantity += 1;
-  //           cart[index] = JSON.stringify(item);
-  //           localStorage.setItem('cart', JSON.stringify(cart));
-  //         }
-  //       }
-  //       this.loadCart();
-  //     } else {
-  //       this.loadCart();
-  //     }
-  //   });
-  // }
-
-  // addItem() {
-  //   this.shoppingCartService.addItem({ quantity: 1 });
-  // }
-
-  // tslint:disable-next-line:no-unused-expression
-  //   product():  Product[] {
-  //   return this.shoppingCartService.product;
-  // }
 
   // método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
@@ -180,13 +109,22 @@ export class ShoppingCartComponent implements OnInit {
           this.CartTotal = JSON.parse(localStorage.getItem('cart'));
           this.total = this.shoppingCartService.calcTotal();
         }
-
         swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()
       }
 
     });
     
+  }
+
+  cartEmpty() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart.length === 0) {
+      this.isEmpty = true;
+    } else {
+      this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+      this.total = this.shoppingCartService.calcTotal();
+    }
   }
 
   // método para incrementar valores e quantidade dos produtos no carrinho
@@ -200,13 +138,6 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.Quantity(product);
     this.ngOnInit();
   }
-
-
-
-
-
-
-
 
   get GetUser(): string {
     const name = JSON.parse(localStorage.getItem('user'));

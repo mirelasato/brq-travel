@@ -1,3 +1,4 @@
+<div class="barra"></div>
 <div class="container">
   <div class="card shopping-cart">
            <div class="card-header bg-dark text-light" *ngIf="!isEmpty; else vazio">
@@ -5,28 +6,28 @@
                Carrinho de Compra
            </div>
            <ng-template #vazio>
-              <div class="container">
-                <p class="lead">Olá {{ getUser }}. Seu carrinho esta vazio.</p>
+              <div class="container cart-empty">
+                <img class="" src="../../assets/icon-empty-cart.png" alt="imagem do card">
+                <p class="lead">Olá {{ getUser }}. Seu carrinho está vazio.</p>
+                <p>Adicione algo para me fazer feliz :)</p>
               </div>
            </ng-template>
            <div *ngIf="!isEmpty">  
             <div class="card-body" *ngFor="let oferta of CartTotal; let q = index">
                     <!-- PRODUCT -->
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-2 text-center">
+                        <div class="col-12 col-md-2 col-sm-12 text-center">
                           <img class="style-img" [src]="oferta.product.imagens[0].url" alt="imagem do card">
                         </div>
-                        <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+                        <div class="col-12 col-md-6 col-sm-12 text-sm-center text-md-left">
                             <h4 class="product-name"><strong>{{ oferta.product.titulo }}</strong></h4>
-                            <h4>
-                                <small>Product description</small>
-                            </h4>
                         </div>
-                        <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                            <div class="col-3 col-md-6 col-sm-3 text-md-right" style="padding-top: 5px">
+                        <div class="col-12 col-md-4 col-sm-12 text-sm-center  text-md-right row">
+                            <div class="col-6 col-md-6 col-sm-3 text-md-right" style="padding-top: 5px">
                                 <h6><strong>{{ oferta.product.valor * oferta.quantity | currency: 'BRL': true }}<span class="text-muted">x</span></strong></h6>
                             </div>
-                            <div class="col-4 col-sm-4 col-md-4">
+                            <div class="col-4 col-md-4 col-sm-4
+                            ">
                                 <div class="quantity">
                                   <input type="button" value="+" class="plus" (click)="incrementar(oferta.product)" >
                                   <input [value]="oferta.quantity" class="qty" size="4" readonly>
