@@ -2,12 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 import { AuthService } from '../shared/services/auth-service';
 import { ShoppingCartService } from '../shared/services/shopping-cart.service';
-import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
-import { Detalhes } from '../shared/models/detalhes';
 import { Item } from '../shared/models/item.model';
 import { Product } from '../shared/models/product.model';
-import { default as NProgress } from 'nprogress';
 import swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 
@@ -55,11 +52,11 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
     this.total = this.shoppingCartService.calcTotal();
+    this.cartEmpty();
+  }
 
-}
 
   // método que carrega as informaões do carrinho em localstorage
   loadCart(): void {
@@ -105,12 +102,21 @@ export class ShoppingCartComponent implements OnInit {
           this.CartTotal = JSON.parse(localStorage.getItem('cart'));
           this.total = this.shoppingCartService.calcTotal();
         }
-
-        swal.fire('Excluído com sucesso', 'O registro já era', 'success');
+        swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()
       }
 
     });
+  }
+
+  cartEmpty() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart.length === 0) {
+      this.isEmpty = true;
+    } else {
+      this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+      this.total = this.shoppingCartService.calcTotal();
+    }
   }
 
   // método para incrementar valores e quantidade dos produtos no carrinho
@@ -124,13 +130,6 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.Quantity(product);
     this.ngOnInit();
   }
-
-
-
-
-
-
-
 
   get GetUser(): string {
     const name = JSON.parse(localStorage.getItem('user'));
