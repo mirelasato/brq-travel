@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { RegistertravelService } from 'src/app/shared/services/registertravel.service';
@@ -26,7 +26,37 @@ export class RegistertravelComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
                private service: RegistertravelService,
+               private cd: ChangeDetectorRef,
                private _adapter: DateAdapter<any>) { }
+
+   registrationForm = this.formBuilder.group({
+    file: [null]
+    });
+
+     el: ElementRef;
+  imageUrl: any;
+  editFile: boolean = true;
+  removeUpload: boolean = false;
+
+  uploadFile(event) {
+    let reader = new FileReader(); // HTML5 FileReader API
+    let file = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+      reader.readAsDataURL(file);
+
+      // When file uploads set it to file formcontrol
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+        this.registrationForm.patchValue({
+          file: reader.result
+        });
+        this.editFile = false;
+        this.removeUpload = true;
+      };
+      // ChangeDetectorRef since file is loading outside the zone
+      this.cd.markForCheck();
+    }
+  }
 
   OnSubmit() {
     this.status.valid = true;
@@ -54,7 +84,7 @@ export class RegistertravelComponent implements OnInit {
     this.status.valid = true;
   }
 
-  
+
   dataFilter = (d: Date | null): boolean => {
       const day = (d || new Date());
       return day > this.Today;
@@ -62,10 +92,10 @@ export class RegistertravelComponent implements OnInit {
 
   retornoFilter  = (d: Date | null): boolean => {
     const data = this.FormRegister.controls.data.value;
-      const day = (d || new Date());
-      return day > data;
+    const day = (d || new Date());
+    return day > data;
   }
-  
+
   ChangeLanguage() {
     this._adapter.setLocale('pt');
   }
@@ -108,6 +138,10 @@ export class RegistertravelComponent implements OnInit {
         '',
         Validators.compose([Validators.required])
       ],
+      // imagens: [
+      //   '',
+      //   Validators.compose([Validators.required])
+      // ]
     });
   }
 
@@ -137,5 +171,8 @@ export class RegistertravelComponent implements OnInit {
   }
   get descricao() {
     return this.FormRegister.get('descricao');
+  }
+  get imagens() {
+    return this.FormRegister.get('imagens');
   }
 }
