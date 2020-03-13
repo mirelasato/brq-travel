@@ -35,8 +35,6 @@ export class ShoppingCartComponent implements OnInit {
   isDisabled = true;
 
   // public pacotes: Destino;
-
-
   constructor(
     public shoppingCartService: ShoppingCartService,
     public API: ApiService,
@@ -103,29 +101,22 @@ export class ShoppingCartComponent implements OnInit {
         localStorage.setItem('cart', JSON.stringify(cart));
         // this.loadCart();
         console.log('item excluído com sucesso');
-        if (cart.length === 0) {
-          this.isEmpty = true;
-        } else {
-          this.CartTotal = JSON.parse(localStorage.getItem('cart'));
-          this.total = this.shoppingCartService.calcTotal();
-        }
+        this.cartEmpty();
         swal.fire('Excluído com sucesso', 'O registro já era', 'success')
         // return c.removeItem()
       }
-
     });
-    
   }
-
-  cartEmpty() {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart.length === 0) {
-      this.isEmpty = true;
-    } else {
-      this.CartTotal = JSON.parse(localStorage.getItem('cart'));
-      this.total = this.shoppingCartService.calcTotal();
+    // Função de carrinho vazinho para ser mostrada independente do status página.
+    cartEmpty() {
+      let cart = JSON.parse(localStorage.getItem('cart'));
+      if (cart.length === 0) {
+        this.isEmpty = true;
+      } else {
+        this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+        this.total = this.shoppingCartService.calcTotal();
+      }
     }
-  }
 
   // método para incrementar valores e quantidade dos produtos no carrinho
   incrementar(product: Product) {
@@ -138,16 +129,7 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.Quantity(product);
     this.ngOnInit();
   }
-
-  get GetUser(): string {
-    const name = JSON.parse(localStorage.getItem('user'));
-    name.email = name.email.substring(0, ((name.email).indexOf('@')));
-    return (name.email);
-
-  }
-
 }
-
 
 export class CollapseDemoanimatedComponent {
   isCollapsed = true;
