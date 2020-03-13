@@ -126,15 +126,6 @@ export class ShoppingCartService {
     localStorage.setItem("cart", JSON.stringify(this.product));
   }
 
-  
-  
-  //   removeItem(Product){
-  //     this.product.splice(this.product.indexOf(Product), 1);
-  //     //salva na sessão
-  //     localStorage.setItem("cart",JSON.stringify(this.product));
-  // }
-
-  // recalculateCart() {
 
 
 }

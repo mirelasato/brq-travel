@@ -11,11 +11,6 @@
     margin-top: 5px;
 }
 
-.carrinho {
-    width: 100%;
-}
-
-
 .quantity input {
     margin: 0;
     text-align: center;
@@ -69,9 +64,6 @@
 .quantity .minus {
     bottom: 0
 }
-.shopping-cart {
-    margin-top: 20px;
-}
 
 .style-img {
     height: 80px;
@@ -86,22 +78,23 @@
     margin-right: 10px;
 }
 
-.card-body{
+/* .card-body{
     border-bottom: 1px solid #e6e6e6;
-}
-
-.style-title-cart {
-    color: #ffffff;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.size-input {
-    width: 40px;
-}
+} */
 
 .style-button-trash {
     margin: 4px;
 }
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.card {
+    border: 0!important;
+}
+
