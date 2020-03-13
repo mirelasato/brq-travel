@@ -19,6 +19,7 @@ import { AuthGuard } from '../../src/app/shared/services/auth.guard';
 import { SecureInnerPagesGuard } from '../../src/app/shared/services/secure-inner-pages.guard';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { ConfirmationpaymentComponent } from './payment/confirmationpayment/confirmationpayment.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'cadastro-de-viagem', component: RegistertravelComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sobre-nos', component: AboutUsComponent },
   { path: 'pagamento', component: PaymentComponent },
+  { path: 'confirmacao-pagamento', component: ConfirmationpaymentComponent},
   { path: 'error/:id', component: MistakeComponent },
   { path: '**', redirectTo: 'error/1' }
 ];

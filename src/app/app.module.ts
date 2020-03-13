@@ -57,6 +57,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { MistakeComponent } from './mistake/mistake.component';
 import { LoaderAirPlaneComponent } from './loader-air-plane/loader-air-plane.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ConfirmationpaymentComponent } from './payment/confirmationpayment/confirmationpayment.component';
 
 
 
@@ -93,6 +94,7 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     PaymentComponent,
     MistakeComponent,
     LoaderAirPlaneComponent,
+    ConfirmationpaymentComponent,
   ],
   imports: [
     BrowserModule,

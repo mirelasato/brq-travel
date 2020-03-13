@@ -84,17 +84,11 @@ export class ShoppingCartComponent implements OnInit {
       cancelButtonText: 'Foi sem querer'
     }).then(result => {
       if (result.value) {
-        //const cart: [] = [];
         let cart = JSON.parse(localStorage.getItem('cart'));
-        //const index = 1;
-        console.log('CARRINHO', cart);
         for (let i = 0; i < cart.length; i++) {
           const item = cart[i];
-          console.log('ITEM: ', item.product.id);
-          console.log('ID', id);
           if (item.product.id === id) {
             cart.splice(i, 1);
-            console.log('CARRINHO_FINAL: ', cart);
             break;
           }
         }
