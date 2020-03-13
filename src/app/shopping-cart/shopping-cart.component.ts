@@ -67,7 +67,7 @@ export class ShoppingCartComponent implements OnInit {
     // }
 
     this.CartTotal = JSON.parse(localStorage.getItem('cart'));
-    
+
     this.total = this.shoppingCartService.calcTotal();
 
     // this.shoppingCartService.removeItem();
