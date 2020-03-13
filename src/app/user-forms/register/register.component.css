@@ -21,4 +21,7 @@ a:hover {
 .size-btn-primary {
     width: 142px;
 }
-    
+
+.border-style-card {
+    padding: 12px;
+}

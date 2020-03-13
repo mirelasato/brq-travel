@@ -18,4 +18,8 @@ a:hover {
 .style-bold {
     font-weight: bold;
 }
+
+.border-style-card {
+    padding: 12px;
+}
     
