@@ -1,127 +1,134 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Detalhes } from '../models/detalhes';
-import { URL_API } from './app.api';
 import { BehaviorSubject } from 'rxjs';
-
+import { Product } from '../models/product.model';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Item } from '../models/item.model';
 
 // import 'rxjs/add/operator/take';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
+  public product: Product[] = [];
+  private items: Item[] = [];
+  public total = new BehaviorSubject<number>(0);
 
-  constructor(private http: HttpClient, ) { }
-
-  private currentCartCount = new BehaviorSubject(0);
-  currentMessage = this.currentCartCount.asObservable();
-  private url_api = 'http://localhost:3000/destinos';
-  public itemsCart: Detalhes[] = [];
+  private itemsCart: Item[] = [];
   public pacotes: Detalhes[];
   id: any;
 
-  updateCartCount(count: number) {
-    this.currentCartCount.next(count);
+  constructor() {
   }
 
-  addProductToCart(pacote: Detalhes) {
-    this.itemsCart.push(pacote);
-    console.log('pacote', this.itemsCart);
-    localStorage.setItem('pacotes', JSON.stringify(this.itemsCart));
+
+
+  // Método para calcular o total dos itens do carrinho
+  calcTotal() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let total = 0;
+    cart.forEach(Item => total += Item.product.valor * Item.quantity);
+
+    return total;
+
   }
 
+
+  addItem(item: any) {
+    this.items.push(item);
+    this.total.next(this.calcTotal());
+    //save to localStore
+  }
+
+  findAll(): Product[] {
+    return this.product;
+  }
+
+  find(id: string): Product {
+    return this.product[this.getSelectedIndex(id)];
+  }
+
+  private getSelectedIndex(id: string) {
+    for (let i = 0; i < this.product.length; i++) {
+      if (this.product[i].id == id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+
+
+  // Método que adiciona itens no carrinho.
+  addProductToCart(product: Item) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    if (cart !== null) {
+      cart.forEach(element => {
+        this.itemsCart.push(element);
+      });
+    }
+    this.itemsCart.push(product);
+    // console.log('AUMENTOU QUANTIDADE DE ITEM NOVO NO CARRINHO', this.itemsCart);
+
+    
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
+  }
+
+  ChangeQuantity(product: Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    const index = cart.findIndex(prod => prod.product.id === product.id);
+    cart[index].quantity++;
+    cart.forEach(element => {
+      this.itemsCart.push(element);
+    });
+    // console.log('ADICIONOU MAIS UM ITEM NO CARRINHO', this.itemsCart);
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
+  }
+
+  Quantity(product: Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem('cart'));
+    const index = cart.findIndex(prod => prod.product.id === product.id);
+    cart[index].quantity--;
+    cart.forEach(element => {
+      this.itemsCart.push(element);
+    });
+    // console.log('ADICIONOU MAIS UM ITEM NO CARRINHO', this.itemsCart);
+    localStorage.removeItem('cart');
+    localStorage.setItem('cart', JSON.stringify(this.itemsCart));
+  }
+
+  // Método para ler produto do carrinho
   getProductFromCart() {
-    return localStorage.getItem('pacotes');
-  }
+    // let localStorageItem = JSON.parse(localStorage.getItem('product'));
+    // return localStorageItem == null ? [] : localStorageItem.product;
+    if (localStorage.getItem('product') === null) {
+      this.product = [];
+    } else {
+      this.product = JSON.parse(localStorage.getItem('product'));
+    }
+    return localStorage.getItem('product');
 
-  removeAllProductFromCart() {
-    return localStorage.removeItem('pacotes');
   }
-
-  // getById(id: any) {
-  //   return this.http.get<Detalhes>(this.url_api + '/' + id);
   
 
-  //   this.pacotes = [
-  //     {
-  //       quantity: 1,
-  //       id: 1,
-  //       titulo: 'Caldas Novas',
-  //       anunciante: 'BRQ-Travel',
-  //       valor: 300,
-  //       destaque: false,
-  //       data: '14/01/2020',
-  //       feriado: '',
-  //       descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
-  //       tipo: 'Bate Volta',
-  //       vagas: 30,
-  //       imagens: [
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //       ]
-  //     },
-  //   ];
+  // Método que remove item do carrinho
+  removeItem(Product) {
+    this.itemsCart = [];
+    const cart: Array<Item> = JSON.parse(localStorage.getItem("cart"));
+    this.product.splice(this.product.indexOf(Product), 1);
+    localStorage.setItem("cart", JSON.stringify(this.product));
+  }
 
-  // }
+
+
 }
 
-  // addToCart(pacotes: Detalhes) {
-    
-  // }
-  
 
 
-
-  // cardId = localStorage.getItem('cardId');
-
-  
-
-  // private create() {
-  //   return this.db.list('/carrinho-de-compras').push({
-  //     dateCreated: new Date().getTime()
-  //   });
-  // }
-
-  // private getCart(cartId: string) {
-  //   return this.db.object('/carrinho-de-compras/' + cartId);
-  // }
-
-  // private async getOrCreateCart() {
-  //   const cardId = localStorage.getItem('cartId');
-  //   // tslint:disable-next-line:curly
-  //   if (cardId)  return cardId;
-  //   let result = await this.create();
-  //     // tslint:disable-next-line: no-shadowed-variable
-  //   localStorage.setItem('cardId', result.key);
-  //   return result.key;
-  // }
-      // tslint:disable-next-line:curly
-
-
-  //  async addToCart(pacotes: Detalhes) {
-  //   const cardId = await this.getOrCreateCart();
-  //   let item$ = this.http.get('/carrinho-de-compras/' + cardId + '/items/' + pacotes.id);
-  //   item$.take(1).subscribe(item => {
-  //     // tslint:disable-next-line:curly
-  //     if (item.$exists()) item$.update({ quantity: item.quantity + 1 });
-  //     else.item$.set({ pacotes: pacotes, quantity: 1 });
-  //   });
-
-
-    // })
-    // // tslint:disable-next-line: align
-    // return this.http.get<Destino[]>(this.API)
-    //   .pipe(
-    //     tap(console.log)
-    //   );
-  

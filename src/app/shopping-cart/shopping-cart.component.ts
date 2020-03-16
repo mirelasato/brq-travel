@@ -5,7 +5,11 @@ import { ShoppingCartService } from '../shared/services/shopping-cart.service';
 import { Destino } from '../shared/models/destino';
 import { ActivatedRoute } from '@angular/router';
 import { Detalhes } from '../shared/models/detalhes';
-
+import { Item } from '../shared/models/item.model';
+import { Product } from '../shared/models/product.model';
+import { default as NProgress } from 'nprogress';
+import swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,19 +19,24 @@ import { Detalhes } from '../shared/models/detalhes';
   providers: [ShoppingCartService]
 })
 export class ShoppingCartComponent implements OnInit {
-  @Input() destino: any;
 
-  quantity: number;
-  defaultQuantity: number = 1;
-  productAddedToCart: any;
-  totalItens: number = 0;
-  produtos = [];
-  allTotal: number;
-  public oferta: Detalhes;
-  id: any;
-  imagens: any[];
-  destaqueCards: Destino[];
-  destaqueCardsDisplay: Destino[];
+  // quantity: number;
+  quantity = 1;
+  // productAddedToCart: any;
+  totalItens = 0;
+  CartTotal: Array<Item>;
+  // allTotal: number;
+  isEmpty: boolean;
+  // public oferta: Detalhes;
+  id: string;
+  // imagens: any[];
+  public items: Item[] = [];
+  public total: number;
+  public product: Product;
+  total$: Observable<number>;
+  count: number = 0;
+  isDisabled = true;
+
   // public pacotes: Destino;
 
 
@@ -35,80 +44,102 @@ export class ShoppingCartComponent implements OnInit {
     public shoppingCartService: ShoppingCartService,
     public API: ApiService,
     public authService: AuthService,
-    private route: ActivatedRoute
-  ) { }
+    private activatedRoute: ActivatedRoute,
+
+  ){
+    this.total$ = shoppingCartService.total;
+  }
+
+  flip() {
+    this.isDisabled = !this.isDisabled;
+  }
 
   ngOnInit() {
 
-    this.productAddedToCart = this.shoppingCartService.getProductFromCart();
-    const newArray = JSON.parse(this.productAddedToCart);
-    this.produtos = newArray;
-    /*for (let i in newArray) {
-      this.totalItens = newArray.length;
-    }*/
-    //this.shoppingCartService.removeAllProductFromCart();
-    //this.shoppingCartService.addProductToCart(this.oferta);
-    // this.calculateAllTotal(this.productAddedToCart);
+    this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+    this.total = this.shoppingCartService.calcTotal();
+
+}
+
+  // método que carrega as informaões do carrinho em localstorage
+  loadCart(): void {
+    this.total = 0;
+    this.items = [];
+    const cart: any[] = [];
+    JSON.parse(localStorage.getItem('cart'));
+
+    for (let i = 0; i < cart.length; i++) {
+      const item: Item = JSON.parse('cart');
+      this.items.push({
+        product: item.product,
+        quantity: item.quantity
+
+      });
+      this.totalItens = item.product.price * item.quantity;
+
+    }
   }
-  // calculateAllTotal(allItemns: Detalhes[])
-  // {
-  //   let total = 0;
-  //   for (let i in allItemns) {
-  //     total = total + (allItemns[i].quantity * allItemns[i].valor);
-  //   }
-  //   this.allTotal = total;
-  // }
 
-  // this.getDetalhes();
+  remove(id: string): void {
+    // let c = this.shoppingCartService
+    swal.fire({
+      title: 'Confirma a exclusão?',
+      showCancelButton: true,
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Foi sem querer'
+    }).then(result => {
+      if (result.value) {
+        let cart = JSON.parse(localStorage.getItem('cart'));
+        for (let i = 0; i < cart.length; i++) {
+          const item = cart[i];
+          if (item.product.id === id) {
+            cart.splice(i, 1);
+            break;
+          }
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        // this.loadCart();
+        if (cart.length === 0) {
+          this.isEmpty = true;
+        } else {
+          this.CartTotal = JSON.parse(localStorage.getItem('cart'));
+          this.total = this.shoppingCartService.calcTotal();
+        }
 
-    // console.log('this.pacotes', this.pacotes[0]);
+        swal.fire('Excluído com sucesso', 'O registro já era', 'success');
+        // return c.removeItem()
+      }
 
-  // getDetalhes() {
+    });
+  }
 
-  //   this.pacotes = [
-  //     {
-  //       id: 1,
-  //       titulo: 'Caldas Novas',
-  //       anunciante: 'BRQ-Travel',
-  //       valor: 300,
-  //       destaque: false,
-  //       data: '14/01/2020',
-  //       feriado: '',
-  //       descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
-  //       tipo: 'Bate Volta',
-  //       vagas: 30,
-  //       imagens: [
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //           {
-  //             url: '../assets/img/capa-destinos.jpg',
-  //           },
-  //       ]
-  //     },
-  //   ];
+  // método para incrementar valores e quantidade dos produtos no carrinho
+  incrementar(product: Product) {
+    this.shoppingCartService.ChangeQuantity(product);
+    this.ngOnInit();
+  }
 
-  //     }
+  // método para decrementar valores e quantidade dos produtos no carrinho
+  decrementar(product: Product) {
+    this.shoppingCartService.Quantity(product);
+    this.ngOnInit();
+  }
 
-      get GetUser(): string {
+
+
+
+
+
+
+
+  get GetUser(): string {
     const name = JSON.parse(localStorage.getItem('user'));
     name.email = name.email.substring(0, ((name.email).indexOf('@')));
     return (name.email);
 
   }
-  
 
-  }
-
-  
-
-
-
-
-
+}
 
 
 export class CollapseDemoanimatedComponent {

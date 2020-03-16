@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,11 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CardTravelComponent implements OnInit {
 
   @Input() destino: any;
-  
+  imagens: any;
+
   constructor() { }
 
   ngOnInit() {
-    
+
   }
-  
+
 }

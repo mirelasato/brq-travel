@@ -1,7 +1,3 @@
-h3, h5 {
-    font-family: 'Alfa Slab One', cursive;
-}
-
 form {
     padding-top: 20px;
     font-family: 'Roboto';
@@ -20,5 +16,9 @@ a:hover {
 }
 .mat-form-field{
     width:100% !important;
+}
+
+.size-btn-primary {
+    width: 142px;
 }
     

@@ -60,8 +60,8 @@
       "cpf": "43805979894",
       "rg": "123456789",
       "phone": "1140762744",
-      "admin":false,
-      "id":8
+      "admin": false,
+      "id": 8
     },
     {
       "name": "Rodrigo Lopes",
@@ -71,6 +71,15 @@
       "phone": "99999999999",
       "admin": false,
       "id": 7
+    },
+    {
+      "name": "kamila ",
+      "email": "kamila@brq.com",
+      "cpf": "12345678907",
+      "rg": "123456789",
+      "phone": "12345678901",
+      "admin": false,
+      "id": 9
     }
   ],
   "destinos": [
@@ -87,6 +96,7 @@
       "vagas": 45,
       "feriado": 1,
       "tipo": 1,
+      "tiponome": "hospedagem",
       "imagens": [
         {
           "url": "assets/travel-packages/arraial-do-cabo/image1.jpg"
@@ -113,6 +123,7 @@
       "vagas": 45,
       "feriado": "2",
       "tipo": 1,
+      "tiponome": "hospedagem",
       "imagens-banner": "assets/img/capa-destinos.jpg",
       "imagens": [
         {
@@ -139,6 +150,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome": "hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -168,6 +180,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome": "hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -197,6 +210,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 1,
+      "tiponome": "hospedagem",
       "imagens": [
         {
           "id": 1,
@@ -226,6 +240,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome": "bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -255,6 +270,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome": "bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -284,6 +300,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome": "bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -313,6 +330,7 @@
       "vagas": 45,
       "feriado": "",
       "tipo": 2,
+      "tiponome": "bate e volta",
       "imagens": [
         {
           "id": 1,
@@ -337,6 +355,7 @@
       "valor": 333,
       "vagas": 333,
       "tipo": "2",
+      "tiponome": "bate e volta",
       "descricaocard": "etete",
       "descricao": "tetete",
       "id": 10,
@@ -356,48 +375,76 @@
       ]
     },
     {
-      "name": "Brasil",
-      "dategoing": "",
-      "datereturn": "",
-      "placegoing": "Barra Funda",
-      "value": 20,
-      "amount": 33,
-      "minidescription": "sdvsdvsd",
-      "completedescription": "dsvdfvbfgfgd",
+      "titulo": "sdasdasd",
+      "data": "2020-03-06T03:00:00.000Z",
+      "retorno": "2020-03-11T03:00:00.000Z",
+      "embarque": "sdd",
+      "valor": 122,
+      "vagas": 11,
+      "tipo": 2,
+      "descricaocard": "ddd",
+      "descricao": "dddd",
       "id": 11
     },
     {
-      "name": "",
-      "dategoing": "2020-01-29T03:00:00.000Z",
-      "datereturn": "2020-01-30T03:00:00.000Z",
-      "placegoing": "",
-      "value": "",
-      "amount": "",
-      "minidescription": "",
-      "completedescription": "",
+      "titulo": "sdasdasd",
+      "data": "2020-03-06T03:00:00.000Z",
+      "retorno": "2020-03-11T03:00:00.000Z",
+      "embarque": "sdd",
+      "valor": 122,
+      "vagas": 11,
+      "tipo": 2,
+      "descricaocard": "ddd",
+      "descricao": "dddd",
       "id": 12
     },
     {
-      "name": "",
-      "dategoing": "2020-01-29T03:00:00.000Z",
-      "datereturn": "2020-01-30T03:00:00.000Z",
-      "placegoing": "",
-      "value": "",
-      "amount": "",
-      "minidescription": "",
-      "completedescription": "",
+      "titulo": "teste9",
+      "data": "2020-03-06T03:00:00.000Z",
+      "retorno": "2020-03-08T03:00:00.000Z",
+      "embarque": "jabaquara",
+      "valor": 120,
+      "vagas": 12,
+      "tipo": 2,
+      "descricaocard": "apenas teste",
+      "descricao": "teste do teste sendo testado",
       "id": 13
     },
     {
-      "name": "kamisnopolis",
-      "dategoing": "2020-01-31T03:00:00.000Z",
-      "datereturn": "2020-01-31T03:00:00.000Z",
-      "placegoing": "diadema",
-      "value": 100,
-      "amount": 5,
-      "minidescription": "",
-      "completedescription": "",
+      "titulo": "teste",
+      "data": "2020-03-07T03:00:00.000Z",
+      "retorno": "2020-03-08T03:00:00.000Z",
+      "embarque": "barrafunda",
+      "valor": 120,
+      "vagas": 10,
+      "tipo": 2,
+      "descricaocard": "teste",
+      "descricao": "teste",
       "id": 14
+    },
+    {
+      "titulo": "teste",
+      "data": "2020-03-07T03:00:00.000Z",
+      "retorno": "2020-03-08T03:00:00.000Z",
+      "embarque": "jaba",
+      "valor": 120,
+      "vagas": 12,
+      "tipo": 2,
+      "descricaocard": "teste",
+      "descricao": "tetes",
+      "id": 15
+    },
+    {
+      "titulo": "teste",
+      "data": "2020-03-12T03:00:00.000Z",
+      "retorno": "2020-03-13T03:00:00.000Z",
+      "embarque": "jaba",
+      "valor": 150,
+      "vagas": 6,
+      "tipo": 2,
+      "descricaocard": "testezinho",
+      "descricao": "teste do teste",
+      "id": 16
     }
   ],
   "tipoViagem": [
@@ -417,7 +464,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner1.jpg"
+          "url": "assets/travel-banner/banner1.png"
         }
       ]
     },
@@ -427,7 +474,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner2.jpg"
+          "url": "assets/travel-banner/banner2.png"
         }
       ]
     },
@@ -437,7 +484,7 @@
       "imagens": [
         {
           "id": 1,
-          "url": "assets/travel-banner/banner3.jpg"
+          "url": "assets/travel-banner/banner3.png"
         }
       ]
     }

@@ -1,8 +1,15 @@
-h3, h5 {
-    font-family: 'Alfa Slab One', cursive;
+.text-center {
+    padding-top: 20px;
+}
+img {
+    height: 360px;
+    width: 100%;
+}
+.alingn-cards-home {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.size-banner {
-    height: 200px;
-    width: 200px;
-}
+

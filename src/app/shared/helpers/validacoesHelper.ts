@@ -1,4 +1,5 @@
 import { AbstractControl } from '../../../../node_modules/@angular/forms';
+import { isValid } from 'cc-validate';
 
 export class Validacoes {
   static ValidaCpf(controle: AbstractControl) {
@@ -58,4 +59,14 @@ export class Validacoes {
 
     controle.get('confirmPassword').setErrors({ senhasNaoCoincidem: true });
   }
+
+  static CheckCreditCard(controle: AbstractControl) {
+    const cardnumber = controle.value;
+    const validator = isValid(cardnumber);
+    // console.log(validator);
+    if (validator['isValid']) { return null;
+    } else { return { Invalidnumber: true }; }
+
+  }
+
 }

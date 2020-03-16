@@ -1,52 +1,63 @@
-<section class="container">
-  <div class="jumbotron col-sm-12">
-    <h1 class="display-5">Pacotes de viagens</h1>
-    <div id="button" class="container btn-group btn-group-toggle btn-style-group-travel">
-      <label type="button" class="btn btn-lg btn-primary btn-style-travel active">
-        <input type="radio" (click)="typeTravelHospedagem()"> Pacotes com hospedagem
-      </label>
-      <label type="button" class="btn btn-lg btn-primary btn-style-travel">
-        <input type="radio" (click)="typeTravelBateVolta()"> Pacotes com bate volta
-      </label>
-    </div>
-  </div>
-</section>
-
-<section class="container">
-  <div>
-    <div id="collapseBasic" [collapse]="isCollapsed">
-      <ul>
-        <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:3" let i="index">
-          <app-card-travel [destino]="destinosHosp"></app-card-travel>
-        </li>
-        <div *ngIf="seeMore">
-          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:3:100" let i="index">
+<!-- <div *ngIf="!isloading"> -->
+  <section class="container col-lg-12 col-md-12 col-sm-12">
+      <div id="button" class="btn-group-toggle btn-style-group-travel">
+        <h1>Pacotes de viagens</h1>
+        <label class="btn btn-style-margin-hospedagem btn-lg btn-primary btn-style-travel active">
+          <input type="radio" (click)="typeTravelHospedagem()"> Pacotes com hospedagem
+        </label>
+        <label class="btn btn-style-margin-batevolta btn-lg btn-primary btn-style-travel">
+          <input type="radio" (click)="typeTravelBateVolta()"> Pacotes com bate volta
+        </label>
+      </div>
+    
+    <div>
+      <div id="collapseBasic" [collapse]="isCollapsed">
+        <ul class="section-style-align-center">
+          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosHosp"></app-card-travel>
           </li>
+          <div *ngIf="seeMore">
+            <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:4:100" let i="index">
+              <app-card-travel [destino]="destinosHosp"></app-card-travel>
+            </li>
+          </div>
+        </ul>
+        <div *ngIf="viewBtnHosp">
+          <div *ngIf="hideBtn">
+            <div class="a-style-align-center">
+              <a class="a-style-font"
+              (click)="seeMoreHospedagem()"><i class="material-icons md-48">control_point</i></a>
+            </div>
+          </div>
         </div>
-      </ul>
-      <div *ngIf="viewBtnHosp">
-        <div *ngIf="hideBtn">
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais" (click)="seeMoreHospedagem()">exibir mais {{ destinoQtHospedagem }} destino(s)</button>
-        </div>
-      </div> 
-    </div>
-    <div id="collapseBasic" [collapse]="!isCollapsed">
-      <ul>
-        <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:3" let i="index">
-          <app-card-travel [destino]="destinosBV"></app-card-travel>
-        </li>
-        <div *ngIf="seeMore">
-          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:3:100" let i="index">
+      </div>
+      <div id="collapseBasic" [collapse]="!isCollapsed">
+        <ul class="section-style-align-center">
+          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:4" let i="index">
             <app-card-travel [destino]="destinosBV"></app-card-travel>
           </li>
+          <div *ngIf="seeMore">
+            <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:4:100" let i="index">
+              <app-card-travel [destino]="destinosBV"></app-card-travel>
+            </li>
+          </div>
+        </ul>
+        <div *ngIf="viewBtnBV">
+          <div *ngIf="hideBtn">
+              <div class="a-style-align-center">
+                <a class="a-style-font"
+                (click)="seeMoreBateVolta()">exibir mais <strong>{{ destinoQtBateVolta }}</strong> destino(s)</a> 
+              </div>
+          </div>
         </div>
-      </ul>
-      <div *ngIf="viewBtnBV">
-        <div *ngIf="hideBtn">
-        <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais" (click)="seeMoreBateVolta()">exibir mais {{ destinoQtBateVolta }} destino(s)</button>
-        </div>
-      </div> 
+      </div>
     </div>
-  </div>
+<!-- </div> -->
+
+    <div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+      <!-- <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"> -->
+        <app-loader-air-plane></app-loader-air-plane>
+        <span class="sr-only">Loading...</span>
+      <!-- </div> -->
+    </div>
 </section>

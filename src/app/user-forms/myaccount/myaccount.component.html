@@ -1,6 +1,6 @@
-<div class="container col-lg-5 col-md-8 col-sm-12">
+<div class="container col-lg-5 col-md-8 col-sm-12 border-style-card">
     <form [formGroup]="MyAccountForm" *ngFor="let user of CurrentUser">
-      <h3>Minha conta</h3>
+      <h2>Minha conta</h2>
       <br><div id="mensagemView">
         <p class="{{this.status.isDanger? 'alert alert-danger' : 'alert alert-success'}}" *ngIf="!this.status.valid" >{{this.MsgError}}</p>
       </div>

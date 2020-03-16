@@ -1,11 +1,13 @@
-h1 {
+h3 {
     color: #555;
+    font-size: 40px;
 }
-h4{
+h1{
     margin-top: 10px;
 }
+
 .imagens {
-    height: 260px;
+    height: 338px;
     width: 600px;
 }
 
@@ -13,31 +15,42 @@ h4{
     width: 100px;
     margin-top: 25px;
 }
+
 .alinhar{
-    bottom: 300px;
-    left: 300px;
+    bottom: 369px;
+    left: 67%;
     margin-top: 25px;
-    
+    width: 379px;
+    height: 331px;
+    box-shadow: 0px 0px 0px 5px orange inset;
 }
 
 .tab{
     bottom:240px;
 }
+
 label{
-    margin-top: 45px;
+    margin-top: 20px;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (max-width: 900px) {
     .alinhar {
-        padding-top: 300px;
         left: 5%;
+        box-shadow: 0px 0px 0px 5px orange inset;
+        top: 20px;
         }
   }
-@media (max-width: 1000px ) {
+
+@media (max-width: 990px ) {
     .imagens{
         height: 260px;
         width: 400px;
-
     }
 }
 
-
+@media (max-width: 900px ) {
+    .tab{
+        padding-top: 300px;
+        left: 5%;
+    }
+}

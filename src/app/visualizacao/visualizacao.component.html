@@ -1,21 +1,12 @@
-<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
-  <div
-    class="spinner-border text-primary"
-    style="width: 5rem; height: 5rem;"
-    role="status"
-  >
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-<div class="container" *ngIf="oferta && !isloading">
+<div class="container" id="preview" *ngIf="oferta">
   <div class="row">
     <div class="col">
-      <h4>{{ oferta.titulo }}</h4>
+      <h1>{{ oferta.titulo }}</h1>
     </div>
   </div>
   <div class="row">
     <div class="col col-md-6 teste">
-      <carousel>
+      <carousel *ngIf="!isloading">
         <slide *ngFor="let carrossel of oferta.imagens">
           <img class="imagens" [src]="carrossel.url" alt="first slide" />
           <div class="carousel-caption d-none d-md-block"></div>
@@ -23,30 +14,26 @@
       </carousel>
     </div>
   </div>
-
   <div class="col col-md-10 alinhar">
     <div class="col text-center  ">
       <label>
-        <p>Por apenas</p>
+        <h2 style="font-size: 25px;">Por apenas</h2>
       </label>
     </div>
-
     <div class="col text-center">
-      <h1>{{ oferta.valor | currency:'BRL' }}</h1>
+      <h3>{{ oferta.valor | currency:'BRL' }}</h3>
     </div>
-
     <div class="col text-center">
-      <button
-        type="button"
-        class="btn btn-warning btn-lg"
-        (click)="addProductToCart(oferta)"
-      >
-        Adicionar ao carrinho
+      <button type="button"class="btn btn-primary btn-lg" (click)="addProductToCart(oferta) "  style="margin-top: 6px; border-radius: 1.3rem;" >
+      <div class="sbmt-btn-txt"
+        [@buttonTextStateTrigger]="buttonTextState"
+        (@buttonTextStateTrigger.done)="buttonTextTransitioned($event)">
+      {{ buttonText }}
+      </div>
       </button>
     </div>
-
-    <div class="col text-center">
-      <label>
+    <div class="col text-center" >
+      <label class="">
         <p>Data do embarque: {{ oferta.data | date: "dd/MM/yyyy" }}</p>
         <p>Data de Retorno: {{ oferta.retorno | date: "dd/MM/yyyy" }}</p>
         <p>Vagas Restantes: {{ oferta.vagas }}</p>
@@ -54,30 +41,18 @@
     </div>
   </div>
   <div class="col col-md-8 tab">
-    <!-- <tabset> -->
-
-    <!-- <tab heading="Descrição" (selectTab)="onSelect($event)"> -->
+    <tabset> 
+     <tab  heading="Descrição" (selectTab)="onSelect($event)">
     <p>{{ oferta.descricao }}</p>
     <p>Embarque: {{ oferta.embarque }}</p>
-    <!-- </tab> -->
-    <!-- </tabset> -->
-  </div>
-  <div class="col col-md-8">
-    <h2></h2>
-  </div>
-  <div class="col text-left">
-    <label>
-      <p>Deixe seu Comentário</p>
-    </label>
-  </div>
-
-  <div class="form-row">
-    <!--Input do Angular Material-->
-    <div class="col-lg-12 col-md-6">
-      <!-- <mat-form-field>
-          <mat-label> Nome </mat-label>
-          <input type="text" matInput formControlName="name" placeholder="Nome">
-        </mat-form-field> -->
-    </div>
-  </div>
+    </tab>
+    <tab class=" tab_description" heading="Roteiro da Viagem" (selectTab)="onSelect($event)">
+      <p> Aqui será colocado o Roteiro da viagem </p>
+    </tab>
+     </tabset> 
+      </div>
+</div>
+<div class="text-center" style="margin-top: 150px; margin-bottom: 150px;" *ngIf="isloading">
+    <app-loader-air-plane></app-loader-air-plane>
+    <span class="sr-only">Loading...</span>
 </div>
