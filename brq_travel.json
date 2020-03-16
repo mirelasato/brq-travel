@@ -1,145 +1,445 @@
- {
-   "usuarios": [
-     {
-       "id": 1,
-      "nome":"joao",
-      "email":"joao123@gmail.com",
-      "cpf":"124.456.789-02",
-      "rg": "12.345.678-90",
-      "telefone": "985672-9506",
-      "senha": "12446"
-      
-     }
-   ],
-     "destinos":[
-   {
+{
+  "usuarios": [
+    {
       "id": 1,
-      "titulo":"Arraial do Cabo",
-      "descricao":"Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro.",
+      "name": "ADMIN",
+      "email": "admin@brqtravel.com",
+      "cpf": "12445678902",
+      "rg": "1234567890",
+      "phone": "11856729506",
+      "admin": true
+    },
+    {
+      "name": "Mirela Sato",
+      "email": "mirelasato@brq.com",
+      "cpf": "32131231231",
+      "rg": "333333333",
+      "phone": "22222222222",
+      "admin": false,
+      "id": 2
+    },
+    {
+      "name": "Anderson Jovani Souza Santos",
+      "email": "anderson.jovani9522@gmail.com",
+      "cpf": "43686874857",
+      "rg": "455153322",
+      "telefone": "11947328907",
+      "id": 3,
+      "admin": false
+    },
+    {
+      "name": "Anderson Jovani Souza Santos",
+      "email": "andersonjovani@brq.com",
+      "cpf": "43686874857",
+      "rg": "455153322",
+      "telefone": "11947328907",
+      "id": 4,
+      "admin": false
+    },
+    {
+      "name": "william",
+      "email": "wilshin@teste.com",
+      "cpf": "32951808810",
+      "rg": "428613858",
+      "phone": "11988444763",
+      "id": 5,
+      "admin": false
+    },
+    {
+      "name": "william",
+      "email": "wilshin@yahoo.com.br",
+      "cpf": "32951808810",
+      "rg": "428613858",
+      "phone": "11988444763",
+      "id": 6,
+      "admin": false
+    },
+    {
+      "name": "kamila bezerra da silva",
+      "email": "kamila@brq.com",
+      "cpf": "43805979894",
+      "rg": "123456789",
+      "phone": "1140762744",
+      "admin":false,
+      "id":8
+    },
+    {
+      "name": "Rodrigo Lopes",
+      "email": "rjlopes@brq.com",
+      "cpf": "99999999910",
+      "rg": "999999999",
+      "phone": "99999999999",
+      "admin": false,
+      "id": 7
+    }
+  ],
+  "destinos": [
+    {
+      "id": 1,
+      "titulo": "Arraial do Cabo",
+      "descricao": "Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro.",
+      "descricaocard": "Arraial do Cabo é um município brasileiro da Região dos Lagos, no estado do Rio de Janeiro. Não fique fora dessa.",
       "destaque": true,
-      "data": "13/12/2019",
-      "retorno": "15/12/2019",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
       "embarque": "Barra Funda",
-      "valor":"500,00",
-      "vagas":45,
-      "feriado":1,
-      "tipo":1,
-      "imagens":[
+      "valor": 500,
+      "vagas": 45,
+      "feriado": 1,
+      "tipo": 1,
+      "imagens": [
         {
-          "url": "assets/1.jpg"
-         },
-         {
-          "url": "assets/2.jpg"
-         },
-         {
-           "url": "assets/3.jpg"
-         }
-        ] 
+          "url": "assets/travel-packages/arraial-do-cabo/image1.jpg"
+        },
+        {
+          "url": "assets/travel-packages/arraial-do-cabo/image2.jpg"
+        },
+        {
+          "url": "assets/travel-packages/arraial-do-cabo/image3.jpg"
+        }
+      ]
     },
     {
       "id": 2,
-      "titulo":"Campos do Jordão",
-      "descricao":"Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
-      "destaque": false,
-      "data": "21/12/2019",
-      "retorno":"22/12/2019",
-      "embarque":"Barra Funda",
-      "anunciante":"BRQ-Travel",
-      "valor":"160,00",
-      "vagas":45,
-      "feriado":"2",
-      "tipo":2,
-      "imagens":[
+      "titulo": "Campos do Jordão",
+      "descricao": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
+      "descricaocard": "Campos do Jordão é um município na Serra da Mantiqueira, no Brasil, e faz parte do estado de São Paulo.",
+      "destaque": true,
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "anunciante": "BRQ-Travel",
+      "valor": 160,
+      "vagas": 45,
+      "feriado": "2",
+      "tipo": 1,
+      "imagens-banner": "assets/img/capa-destinos.jpg",
+      "imagens": [
         {
-          "id":1,
-          "url": "assets/1.jpg"
-         },
-         {
-          "id":2,
-          "url": "assets/2.jpg"
-         },
-         {
-          "id":3,
-          "url": "assets/3.jpg"
-         }
-        ] 
+          "id": 1,
+          "url": "assets/travel-packages/campos-do-jordao/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/campos-do-jordao/image2.jpg"
+        }
+      ]
     },
     {
       "id": 3,
-      "titulo":"Foz do Iguaçu",
-      "descricao":"Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
-      "destaque": false,
-      "anunciante":"BRQ-Travel",
-      "data": "15/01/2020",
-      "retorno":"18/01/2020",
-      "embarque":"Barra Funda",
-      "valor":"690,00",
-      "vagas":45,
-      "feriado":"",
-      "tipo":2,
-      "imagens":[
+      "titulo": "Foz do Iguaçu",
+      "descricao": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região. Composta pelas cidades de Foz do Iguaçu no Brasil, Puerto Iguazú na Argentina e Ciudad del Este no Paraguai. Pra você que nunca saiu do país, essa é a sua chance!.",
+      "descricaocard": "Visite a belíssima tríplice fronteira e fique maravilhado com as belezas naturais e cultura dessa região.",
+      "destaque": true,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 690,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
         {
-          "id":1,
-          "url": "assets/1.jpg"
-         },
-         {
-          "id":2,
-          "url": "assets/2.jpg"
-         },
-         {
-          "id":3,
-          "url": "assets/3.jpg"
-         }
-        ] 
+          "id": 1,
+          "url": "assets/travel-packages/foz/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/foz/image2.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/foz/image3.jpg"
+        }
+      ]
     },
     {
       "id": 4,
-      "titulo":"São Roque",
-      "descricao":"Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "titulo": "São Roque",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
       "destaque": false,
-      "anunciante":"BRQ-Travel",
-      "data": "04/01/2020",
-      "retorno":"05/01/2020",
-      "embarque":"Barra Funda",
-      "valor":"120,00",
-      "vagas":45,
-      "feriado":"",
-      "tipo":2,
-      "imagens":[
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 200,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
         {
-          "id":1,
-          "url": "assets/1.jpg"
-         },
-         {
-          "id":2,
-          "url": "assets/2.jpg"
-         },
-         {
-          "id":3,
-          "url": "assets/3.jpg"
-         }
-        ] 
-    }
-  ],
-  
-  "tipoViagem" :[
-    {
-      "id":1,
-      "nome":"Pacotes com Hospedagem"
+          "id": 1,
+          "url": "assets/travel-packages/sao-roque/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/sao-roque/image2.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/sao-roque/image3.jpg"
+        }
+      ]
     },
     {
-      "id":2,
-      "nome":"Pacotes de Bate e volta"
-    }
-  ],
-  "feriado" :[
-    {
-      "id":1,
-      "nome":"Carnaval"
+      "id": 5,
+      "titulo": "Capitólio",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 200,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 1,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/capitolio/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/capitolio/image2.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/capitolio/image3.jpg"
+        }
+      ]
     },
     {
-      "id":2,
-      "nome":"Pascoa"
+      "id": 6,
+      "titulo": "Ilhabela",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 120,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/ilhabela/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/ilhabela/image2.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/ilhabela/image3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "Monte Verde",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 120,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/monte-verde/image1.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/monte-verde/image2.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "titulo": "TESTE 8",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 120,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "TESTE 9",
+      "descricao": "Nesse maravilhoso passeio, iremos conhecer algumas vinícolas que fazem parte da famosa Rota do Vinho de São Roque. Teremos a presença de uma guia local contando algumas curiosidades sobre a cidade e as vinícolas. Não fique fora dessa.",
+      "descricaocard": "Nesse maravilhoso passeio, iremos conhecer vinícolas que fazem parte da famosa Rota do Vinho de São Roque.",
+      "destaque": false,
+      "anunciante": "BRQ-Travel",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-29T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 200,
+      "vagas": 45,
+      "feriado": "",
+      "tipo": 2,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        }
+      ]
+    },
+    {
+      "destaque": true,
+      "titulo": "teste",
+      "data": "2020-01-29T03:00:00.000Z",
+      "retorno": "2020-01-31T03:00:00.000Z",
+      "embarque": "Barra Funda",
+      "valor": 333,
+      "vagas": 333,
+      "tipo": "2",
+      "descricaocard": "etete",
+      "descricao": "tetete",
+      "id": 10,
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 2,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        },
+        {
+          "id": 3,
+          "url": "assets/travel-packages/monte-verde/image3.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Brasil",
+      "dategoing": "",
+      "datereturn": "",
+      "placegoing": "Barra Funda",
+      "value": 20,
+      "amount": 33,
+      "minidescription": "sdvsdvsd",
+      "completedescription": "dsvdfvbfgfgd",
+      "id": 11
+    },
+    {
+      "name": "",
+      "dategoing": "2020-01-29T03:00:00.000Z",
+      "datereturn": "2020-01-30T03:00:00.000Z",
+      "placegoing": "",
+      "value": "",
+      "amount": "",
+      "minidescription": "",
+      "completedescription": "",
+      "id": 12
+    },
+    {
+      "name": "",
+      "dategoing": "2020-01-29T03:00:00.000Z",
+      "datereturn": "2020-01-30T03:00:00.000Z",
+      "placegoing": "",
+      "value": "",
+      "amount": "",
+      "minidescription": "",
+      "completedescription": "",
+      "id": 13
+    },
+    {
+      "name": "kamisnopolis",
+      "dategoing": "2020-01-31T03:00:00.000Z",
+      "datereturn": "2020-01-31T03:00:00.000Z",
+      "placegoing": "diadema",
+      "value": 100,
+      "amount": 5,
+      "minidescription": "",
+      "completedescription": "",
+      "id": 14
+    }
+  ],
+  "tipoViagem": [
+    {
+      "id": 1,
+      "nome": "Pacotes com Hospedagem"
+    },
+    {
+      "id": 2,
+      "nome": "Pacotes de Bate e volta"
+    }
+  ],
+  "feriado": [
+    {
+      "id": 1,
+      "nome": "Carnaval",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-banner/banner1.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Pascoa",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-banner/banner2.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Tiradentes",
+      "imagens": [
+        {
+          "id": 1,
+          "url": "assets/travel-banner/banner3.jpg"
+        }
+      ]
     }
   ]
 }

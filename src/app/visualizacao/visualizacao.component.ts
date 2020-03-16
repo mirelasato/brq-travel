@@ -1,57 +1,59 @@
+import { Destino } from './../shared/models/destino';
 import { Component, OnInit } from '@angular/core';
-import { Detalhes } from '../shared/models/detalhes.model';
+
+import { ActivatedRoute } from '@angular/router';
+
+import { VisualizacaoService } from '../shared/services/visualizacao.service';
+import { TabDirective } from 'ngx-bootstrap';
+import { Detalhes } from '../shared/models/detalhes';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { ShoppingCartService } from '../shared/services/shopping-cart.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { observable } from 'rxjs';
 
 
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
-  styleUrls: ['./visualizacao.component.css']
+  styleUrls: ['./visualizacao.component.css'],
+  providers: [VisualizacaoService, ShoppingCartService]
 })
 export class VisualizacaoComponent implements OnInit {
+  FormRegister: FormGroup;
+  public oferta: Detalhes;
+  VisualizacaoService: any;
+  value: string;
+  productAddedToCart: any;
+  isloading: boolean;
 
-  pacotes: Detalhes[];
-  imagens: any[];
-  // public pacotes: Detalhes;
-  constructor() { }
+  onSelect(data: TabDirective): void {
+    this.value = data.heading;
+
+  }
+
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private route: ActivatedRoute,
+    private visualizacaoService: VisualizacaoService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.getDetalhes  ();
+    window.scrollTo(0, 0);
+    // console.log('AAA', this.route.snapshot.params['id']);
+    this.isloading = true;
+    console.log('ngOnInit...', this.isloading);
+    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
+      .subscribe((oferta: Detalhes) => {
+        this.oferta = oferta;
+        this.isloading = !this.isloading;
+      });
 
-
-console.log('this.pacotes' , this.pacotes[0]);
 
 
   }
-  getDetalhes() {
-
-    this.pacotes = [
-      {
-        id: 1,
-        titulo: 'Caldas Novas',
-        anunciante: 'BRQ-Travel',
-        valor: 300,
-        destaque: false,
-        data: '14/01/2020',
-        feriado: '',
-        descricao: 'a viagem contempla café da manhã e jantar no hotel, não é permitido animais. Crianças menores de 16 anos, devem estar devidamente acompanhadas por pessoas maiores de idade.',
-        tipo: 'Bate Volta',
-        vagas: 30,
-        imagens: [
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-            {
-              url: '../assets/img/capa-destinos.jpg',
-            },
-        ]
-      },
-    ];
-
-  this.imagens = this.pacotes[0].imagens;
-
-  
-}
+  // Função que adiciona produto ao carrinho
+  addProductToCart(oferta: Detalhes) {
+    this.shoppingCartService.addProductToCart(oferta);
+  }
 }

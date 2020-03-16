@@ -1,23 +1,13 @@
 <br>
 <div class="container size-screen">
   <div class="secao">
-    <h3 class="text-center">Destaques do dia!</h3>
+    <h3 class="text-center">Destaques do dia</h3>
   </div>
   <hr />
 <!--  carrosel  -->
 <carousel>
-  <slide>
-    <img src="assets/pacotes/banner1.jpg" alt="first slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/pacotes/banner2.jpg" alt="second slide" style="display: block; width: 100%;">
-    <div class="carousel-caption d-none d-md-block">
-    </div>
-  </slide>
-  <slide>
-    <img src="assets/pacotes/banner3.jpg" alt="third slide" style="display: block; width: 100%;">
+  <slide class="size-banner" *ngFor="let carrossel of feriadoImg">
+    <img [src]="carrossel.imagens[0].url" alt="first slide" style="display: block; width: 100%;">
     <div class="carousel-caption d-none d-md-block">
     </div>
   </slide>
@@ -25,8 +15,8 @@
 <br>
 
 <div class="container">
-  <div class="secao">
+  <div class="secao" >
     <h5 class="text-center">Aproveite as ofertas que separamos para você</h5>
   </div>
   <hr />
-<app-card-travel> </app-card-travel> <!-- herda a class card -->
+<app-card-travel *ngFor="let destinos of destaqueCardsDisplay" [destino]="destinos" ></app-card-travel> <!-- herda a class card -->

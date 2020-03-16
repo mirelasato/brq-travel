@@ -1,0 +1,24 @@
+h3, h5 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+form {
+    padding-top: 20px;
+    font-family: 'Roboto';
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0069D9;
+}
+.TxtError{
+    color: red;
+}
+
+.bottom-label {
+    padding-bottom: 20px;
+}
+.mat-form-field{
+    width:100% !important;
+}
+    

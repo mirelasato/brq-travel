@@ -1,6 +1,6 @@
 section {
     padding-top: 20px;
-    font-family: 'Roboto';
+    /* font-family: 'Roboto'; */
 }
 
 .inline-cards {
@@ -14,4 +14,60 @@ section {
 
 .card {
     margin: 20px 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 6px;
+}
+
+li {
+    /* float: left; */
+    display: inline-block;
+    padding-right: 4px;
+}
+
+.btn-style-travel {
+    background-color: #ffffff;
+    color: #19058a;
+    font-weight: bold;
+}
+
+.btn-style-group-travel {
+    padding-top: 19px;
+}
+
+.jumbotron {
+    padding: 1rem 4rem;
+    background-color: #00abe4;
+}
+
+hr {
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1157px;
+}
+
+.active, .btn:hover {
+    background-color: #19058a !important;
+    color: #ffffff;
+}
+
+.btn-style-exibir-mais {
+    background-color: whitesmoke;
+    border: solid 1px blue;
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 54px;
+    margin-top: 35px;
+}
+
+.btn-style-exibir-mais:hover {
+    background-color: blue !important;
+    border-color: blue;
+    color: white;
 }

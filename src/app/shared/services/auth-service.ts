@@ -1,9 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/usuario';
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { User } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +14,14 @@ export class AuthService {
     isDanger: true,
     valid: true };
   MsgError = '';
+
+  map = new Map([
+    [ 'auth/wrong-password', 'A senha está incorreta!' ],
+    [ 'auth/invalid-email', 'Verifique se o seu endereço de e-mail está correto' ],
+    [ 'auth/user-not-found', 'Não encontramos seu registro na nossa base de dados.' ],
+    [ 'auth/user-disabled', 'Esse usuário foi desativado e está impossibilitado de realizar login.' ],
+    [ 'auth/email-already-in-use', 'Usuário já está registrado!']
+  ]);
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -41,26 +48,32 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['home']);
+          this.router.navigate(['home']).then(
+            nav => { window.location.reload(); }
+          );
         });
         this.SetUserData(result.user);
       }).catch((error) => {
         this.status.valid = false;
-        this.MsgError = error.message;
-        console.log(error.message);
+        this.MsgError = this.map.get(error.code);
       });
   }
 
   // Sign up with email/password
-  SignUp(email, password) {
+  SignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign
         up and returns promise */
         // this.SendVerificationMail();
-        this.SetUserData(result.user);
+        this.status.valid = false;
+        this.status.isDanger = false;
+        this.MsgError = 'Cadastro realizado com sucesso!';
       }).catch((error) => {
         console.log(error.message);
+        this.status.isDanger = true;
+        this.status.valid = false;
+        this.MsgError = this.map.get(error.code);
       });
   }
 
@@ -73,7 +86,7 @@ export class AuthService {
   }
 
   // Reset Forggot password
-  ForgotPassword(passwordResetEmail) {
+  ForgotPassword(passwordResetEmail: string) {
     return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
       this.status.valid = false;
@@ -82,27 +95,35 @@ export class AuthService {
     }).catch((error) => {
       this.status.isDanger = true;
       this.status.valid = false;
-      this.MsgError = error.message;
+      this.MsgError = this.map.get(error.code);
     });
   }
 
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
+    return (user !== null) ? true : false;
   }
 
-
+  get GetEmail(): string {
+    if (this.isLoggedIn) {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return (user.email);
+    }
+  }
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const userData: User = {
-      uid: user.uid,
+      name: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      emailVerified: user.emailVerified
+      cpf: user.cpf,
+      rg: user.rg,
+      phone: user.phone,
+      id: user.id,
+      admin: false
     };
     return userRef.set(userData, {
       merge: true
@@ -113,6 +134,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('userLogged');
       this.router.navigate(['home']);
     });
   }

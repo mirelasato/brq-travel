@@ -1,37 +1,52 @@
-<section class="container inline-cards">
-    <div class="row margin-card">
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Pacotes com Hospedagem</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
-              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Pacotes com Hospedagem
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Pacotes de Bate e volta</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <button type="button" class="btn btn-primary" (click)="isCollapsed2 = !isCollapsed2"
-              [attr.aria-expanded]="!isCollapsed2" aria-controls="collapseBasic">Pacotes de Bate e Volta
-            </button>
-          </div>
-        </div>
-      </div>
+<section class="container">
+  <div class="jumbotron col-sm-12">
+    <h1 class="display-5">Pacotes de viagens</h1>
+    <div id="button" class="container btn-group btn-group-toggle btn-style-group-travel">
+      <label type="button" class="btn btn-lg btn-primary btn-style-travel active">
+        <input type="radio" (click)="typeTravelHospedagem()"> Pacotes com hospedagem
+      </label>
+      <label type="button" class="btn btn-lg btn-primary btn-style-travel">
+        <input type="radio" (click)="typeTravelBateVolta()"> Pacotes com bate volta
+      </label>
     </div>
-  </section>
+  </div>
+</section>
 
-
-<div id="collapseBasic" [collapse]="!isCollapsed" [isAnimated]="true">
-  <app-card-travel></app-card-travel>
-</div>
-<div id="collapseBasic" [collapse]="!isCollapsed2" [isAnimated]="true">
-  <app-card-travel></app-card-travel>
-</div>
-
-
+<section class="container">
+  <div>
+    <div id="collapseBasic" [collapse]="isCollapsed">
+      <ul>
+        <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:0:3" let i="index">
+          <app-card-travel [destino]="destinosHosp"></app-card-travel>
+        </li>
+        <div *ngIf="seeMore">
+          <li *ngFor="let destinosHosp of destinoCardsHospedagem | slice:3:100" let i="index">
+            <app-card-travel [destino]="destinosHosp"></app-card-travel>
+          </li>
+        </div>
+      </ul>
+      <div *ngIf="viewBtnHosp">
+        <div *ngIf="hideBtn">
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais" (click)="seeMoreHospedagem()">exibir mais {{ destinoQtHospedagem }} destino(s)</button>
+        </div>
+      </div> 
+    </div>
+    <div id="collapseBasic" [collapse]="!isCollapsed">
+      <ul>
+        <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:0:3" let i="index">
+          <app-card-travel [destino]="destinosBV"></app-card-travel>
+        </li>
+        <div *ngIf="seeMore">
+          <li *ngFor="let destinosBV of destinoCardsBateVolta | slice:3:100" let i="index">
+            <app-card-travel [destino]="destinosBV"></app-card-travel>
+          </li>
+        </div>
+      </ul>
+      <div *ngIf="viewBtnBV">
+        <div *ngIf="hideBtn">
+        <button type="button" class="btn btn-primary btn-lg btn-block btn-style-exibir-mais" (click)="seeMoreBateVolta()">exibir mais {{ destinoQtBateVolta }} destino(s)</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>
