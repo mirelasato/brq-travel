@@ -17,4 +17,8 @@ a:hover {
 .mat-form-field{
     width:100% !important;
   }
+
+.border-style-card {
+    padding: 12px;
+}
     

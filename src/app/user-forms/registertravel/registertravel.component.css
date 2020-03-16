@@ -51,3 +51,7 @@ textarea {
   .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }
+
+  .border-style-card {
+    padding: 12px;
+  }
