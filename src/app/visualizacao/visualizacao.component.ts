@@ -1,8 +1,8 @@
+import { MistakeComponent } from './../mistake/mistake.component';
 import { Destino } from './../shared/models/destino';
 import { Product } from './../shared/models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Item } from '../shared/models/item.model';
 import { VisualizacaoService } from '../shared/services/visualizacao.service';
 import { TabDirective } from 'ngx-bootstrap';
 import { Detalhes } from '../shared/models/detalhes';
@@ -16,6 +16,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { Item } from '../shared/models/item.model';
 
 @Component({
   selector: 'app-visualizacao',
@@ -36,7 +37,7 @@ import {
   ]
 })
 
-export class VisualizacaoComponent implements OnInit {
+export class VisualizacaoComponent implements OnInit{
   private product: Product[];
   FormRegister: FormGroup;
   public oferta: Detalhes;
@@ -53,20 +54,27 @@ export class VisualizacaoComponent implements OnInit {
     private route: ActivatedRoute,
     private visualizacaoService: VisualizacaoService,
     private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router ) { }
 
   ngOnInit() {
     this.loading();
-    this.visualizacaoService.getProduto(this.route.snapshot.params['id'])
+    this.visualizacaoService.getProduto(this.route.snapshot.params.id)
       .subscribe((oferta: Detalhes) => {
         this.oferta = oferta;
       },
-
       // seta a rota de erro
-      error => {
-        this.router.navigate(['error:id']);
-      });
+      error =>  {
+        this.router.navigate(['visualizacao:id']);
+      }),
+
+      // tslint:disable-next-line: align
+      scrollTo(); {
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 100);
+    }
   }
+
   buttonTextTransitioned( ) {
     this.buttonText = this.transitionButtonText;
     this.buttonTextState = this.buttonTextState = 'shown';
@@ -74,11 +82,6 @@ export class VisualizacaoComponent implements OnInit {
 
   onSelect(data: TabDirective): void {
     this.value = data.heading;
-  }
-
-  add() {
-    // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
-    this.oferta.vagas -= 1;
   }
 
   // Função que adiciona produto ao carrinho
@@ -95,6 +98,8 @@ export class VisualizacaoComponent implements OnInit {
         const newItem: Item = new Item(product, 1);
         this.shoppingCartService.addProductToCart(newItem);
       }
+      // Quando clicar no botão "adicionar ao carrinho" será tirada uma vaga
+      this.oferta.vagas -= 1;
     }
 
     this.buttonTextState = 'transitioning';
@@ -109,11 +114,6 @@ export class VisualizacaoComponent implements OnInit {
       this.buttonTextState = 'transitioning';
       this.transitionButtonText = 'Adicionado com Sucesso';
     }, 3600);
-  }
-  scrollTop() {
-    setTimeout(() => {
-    window.scrollTo(0, 0);
-    }, 100);
   }
 
   loading() {

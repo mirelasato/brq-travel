@@ -47,7 +47,7 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
       },
       // seta a rota de erro
       error => {
-        this.router.navigate(['error:id']);
+        this.router.navigate(['/pacotes', { queryParams: {page: 1}}]);
       });
 
   }
@@ -89,16 +89,16 @@ export class TravelPackagesComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Função que exibe a quantidade restante dos cards 
-  // e oculta o botão que carrega o restante dos cards (Pacotes com hospedagem) 
+  // Função que exibe a quantidade restante dos cards
+  // e oculta o botão que carrega o restante dos cards (Pacotes com hospedagem)
   seeMoreHospedagem() {
 
     this.seeMore = !this.seeMore;
     this.hideBtn = !this.hideBtn;
   }
 
-  // Função que exibe a quantidade restante dos cards 
-  // e oculta o botão que carrega o restante dos cards (Pacotes de bate e volta) 
+  // Função que exibe a quantidade restante dos cards
+  // e oculta o botão que carrega o restante dos cards (Pacotes de bate e volta)
   seeMoreBateVolta() {
 
     this.seeMore = !this.seeMore;

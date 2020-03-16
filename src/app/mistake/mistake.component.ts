@@ -17,7 +17,7 @@ export class MistakeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,) {
   }
 
 
@@ -33,27 +33,26 @@ export class MistakeComponent implements OnInit {
   public getError(): void {
     switch (this.errorId) {
       case '1':
-        this.msgError = 'não foi possivel carregar essa informação';
+        this.msgError = 'eita';
         this.title = 'erro';
-        this.titleLink = 'tentar novamente?';
-        this.urlBackButton = 'home/visualizacao';
+        this.urlBackButton = 'error:pacotes';
         break;
       case '2':
         this.msgError = 'não é possivel carregar essa informação';
         this.title = 'erro';
-        this.titleLink = 'tentar novamente?';
-        this.urlBackButton = 'home';
+        this.urlBackButton = 'visualizacao:id';
         break;
-        default:
-          this.msgError = 'não é possivel carregar essa informação';
-          this.title = 'erro';
-          this.titleLink = 'tentar novamente?';
-          this.urlBackButton = 'error:id';
-          break;
+      case '3':
+        this.msgError = 'Você não pode realizar essa ação';
+        this.title = 'erro';
+        this.urlBackButton = 'carrinho';
+        break;
+      default:
+        this.msgError = 'não é possivel carregar essa informação';
+        this.title = 'erro';
+        this.urlBackButton = 'error:id';
+        break;
     }
-  }
-  tentarNovamente() {
-     this.router.navigate([this.urlBackButton]);
   }
 }
 

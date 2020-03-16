@@ -36,10 +36,10 @@ export class PaymentComponent implements OnInit {
 
   Listentochanges() {
 
-    this.FormPayment.controls['cardnumber'].valueChanges.subscribe(value => {
+    this.FormPayment.controls[' cardnumber '].valueChanges.subscribe(value => {
       // console.log(value);
       const cardnumber = isValid(value);
-      switch (cardnumber['cardType']) {
+      switch (cardnumber[' cardType ']) {
         case 'Visa':
           this.creditcardurl = '../../assets/credit-card-logo/Visa.png';
           break;
