@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="oferta"  >
+      <div class="row"  *ngFor="let item of pacotes">
+        <div class="col">
+            <h4>{{ item.titulo }}</h4>
+        </div>
+      </div>
+      <br>
+      <div class="row" *ngFor="let item of pacotes">
+        <div class="col-md-6">
+          <div class="img_capa" >
+            <img class="img-fluid" [src] ="item.imagens[0].url " /> 
+          </div>
+          <div class="inline-img">
+            <div class="thumbnails" *ngFor="let imagem of imagens">
+             <img class="img-fluid" [src] ="imagem.url" />
+           </div>
+         </div> 
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col text-center">
+              <p>Por apenas</p>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col text-center">
+              <h1> R$ {{ item.valor }} </h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <button type="button" class="btn btn-warning btn-lg">Adicionar ao carrinho</button>
+            </div>
+          </div>
+          <br>
+            <div class="row">
+              <div class="col text-center">
+                <label>
+                <p> Data do embarque: {{ item.data }}</p>
+                <p>Vagas Restantes: {{ item.vagas}} </p>
+                <p> Anunciado por: {{ item.anunciante}} </p>
+                <p> Descrição: {{ item.descricao }} </p>
+                </label>
+              </div>
+            </div>
+        </div> 
+      </div>
+    </div>
+    <br>
+</div>
+
+
+
+
+  
