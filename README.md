@@ -3,7 +3,6 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
 ## Regras 
-1 - Movam no Jira a tarefa para code review ao finaliza-la.
 2 - Não atualize o git com erros no projeto. Corrijam antes.
 
 - Run the following command to run the JSON server.
@@ -39,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Json-server BRQ-Travel
 
-Run npm install -g json-server para instalar o json-server.
-Run json-server --watch brq_travel.json para ativar o servidor com a API Json.
+Run `npm install -g json-server` para instalar o json-server.
+Run `json-server --watch brq_travel.json` para ativar o servidor com a API Json.
 
 
